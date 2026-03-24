@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisão 5º Ano</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:100vh;}
+  #app{max-width:700px;margin:0 auto;padding:1.2rem 1rem 3rem;}
+  .screen{display:none;}.screen.active{display:block;}
+  .topnav{display:flex;align-items:center;gap:10px;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1.5px solid #e0e0e0;}
+  .topnav-back{background:none;border:1.5px solid #ddd;border-radius:8px;padding:6px 14px;font-size:13px;cursor:pointer;color:#555;}
+  .topnav-back:hover{background:#e8e8e8;}
+  .topnav-title{font-size:15px;font-weight:700;color:#1a1a1a;}
+  .breadcrumb{font-size:12px;color:#aaa;margin-bottom:1rem;}
+  .breadcrumb span{color:#555;font-weight:600;}
+  #home{padding:0.5rem 0;}
+  .home-header{text-align:center;padding:1.2rem 0 1.5rem;}
+  .home-header .logo{font-size:40px;margin-bottom:10px;}
+  .home-header h1{font-size:24px;font-weight:700;margin-bottom:5px;}
+  .home-header p{font-size:13px;color:#888;}
+  .ac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+  .ac-card{border-radius:14px;padding:1.2rem 1rem;cursor:pointer;border:2px solid transparent;transition:box-shadow 0.15s,transform 0.1s;text-align:left;position:relative;overflow:hidden;}
+  .ac-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.12);transform:translateY(-2px);}
+  .ac-card.locked{opacity:0.5;cursor:not-allowed;}
+  .ac-card.locked:hover{transform:none;box-shadow:none;}
+  .ac-badge{position:absolute;top:10px;right:10px;font-size:10px;padding:3px 8px;border-radius:20px;font-weight:700;}
+  .ac-icon{font-size:28px;margin-bottom:8px;}
+  .ac-card h3{font-size:16px;font-weight:700;margin-bottom:3px;}
+  .ac-card p{font-size:12px;opacity:0.8;}
+  .ac-subjects{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;}
+  .ac-stag{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:700;background:rgba(255,255,255,0.45);}
+  .ac-ac1{background:#EDE9FE;border-color:#C4B5FD;color:#4C1D95;}
+  .ac-ac2{background:#D1FAE5;border-color:#6EE7B7;color:#064E3B;}
+  .ac-ac3{background:#FEF3C7;border-color:#FCD34D;color:#78350F;}
+  .ac-ac4{background:#FEE2E2;border-color:#FCA5A5;color:#7F1D1D;}
+  .subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+  .subject-card{border:1.5px solid #e0e0e0;border-radius:14px;padding:1.1rem;cursor:pointer;background:#fff;transition:box-shadow 0.15s,border 0.15s;}
+  .subject-card:hover{border-color:#bbb;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+  .subject-card.locked{opacity:0.45;cursor:not-allowed;}
+  .subject-card.locked:hover{border-color:#e0e0e0;box-shadow:none;}
+  .subj-icon{font-size:26px;margin-bottom:8px;}
+  .subj-card-name{font-size:15px;font-weight:700;margin-bottom:3px;}
+  .subj-card-desc{font-size:11px;color:#888;margin-bottom:8px;}
+  .subj-tags{display:flex;flex-wrap:wrap;gap:4px;}
+  .stag{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;}
+  .coming-soon{font-size:11px;color:#aaa;font-style:italic;margin-top:6px;}
+  .quiz-list{display:flex;flex-direction:column;gap:10px;}
+  .quiz-item{border:1.5px solid #e0e0e0;border-radius:12px;padding:1rem;cursor:pointer;background:#fff;display:flex;align-items:center;justify-content:space-between;transition:box-shadow 0.15s,border 0.15s;}
+  .quiz-item:hover{border-color:#bbb;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+  .quiz-item-left h4{font-size:14px;font-weight:700;margin-bottom:3px;}
+  .quiz-item-left p{font-size:12px;color:#888;margin-bottom:6px;}
+  .quiz-arrow{font-size:22px;color:#ccc;}
+  .q-card{background:#fff;border-radius:14px;padding:1.2rem;border:1.5px solid #e0e0e0;}
+  .q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .q-counter{font-size:13px;color:#888;font-weight:600;}
+  .q-tag{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700;}
+  .timer-bar-wrap{height:7px;background:#eee;border-radius:4px;margin-bottom:14px;overflow:hidden;}
+  .timer-bar{height:100%;border-radius:4px;transition:width 1s linear,background 1s;background:#1D9E75;}
+  .q-text{font-size:15px;font-weight:700;line-height:1.6;margin-bottom:14px;min-height:50px;}
+  .answers{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  @media(max-width:460px){.answers{grid-template-columns:1fr;}}
+  .ans-btn{border:1.5px solid #e0e0e0;border-radius:10px;padding:11px 10px;font-size:13px;cursor:pointer;text-align:left;display:flex;align-items:center;gap:8px;background:#fff;color:#1a1a1a;transition:background 0.12s,border 0.12s;}
+  .ans-btn:hover:not(:disabled){background:#f4f6f8;border-color:#bbb;}
+  .badge{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;}
+  .ba{background:#FAECE7;color:#993C1D;}.bb{background:#D6EAF8;color:#185FA5;}
+  .bc{background:#EAF3DE;color:#3B6D11;}.bd{background:#FAEEDA;color:#854F0B;}
+  .ans-btn.correct{background:#D5F5E3;border-color:#1D9E75;}
+  .ans-btn.wrong{background:#FAECE7;border-color:#D85A30;}
+  .ans-btn:disabled{cursor:default;opacity:.85;}
+  .feedback{margin-top:12px;padding:10px 14px;border-radius:9px;font-size:13px;line-height:1.5;font-weight:600;}
+  .feedback.correct{background:#D5F5E3;color:#065F46;}
+  .feedback.wrong{background:#FAECE7;color:#993C1D;}
+  .btn-next{margin-top:12px;width:100%;padding:12px;border-radius:9px;background:#1D9E75;color:#fff;border:none;font-size:15px;font-weight:700;cursor:pointer;}
+  .btn-next:hover{background:#0F6E56;}
+  #result-screen{text-align:center;padding:1.5rem 0.5rem;}
+  #result-screen h2{font-size:22px;font-weight:700;margin-bottom:6px;}
+  .score-circle{width:120px;height:120px;border-radius:50%;border:6px solid #1D9E75;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:1.2rem auto;background:#fff;}
+  .score-num{font-size:28px;font-weight:700;}
+  .score-lbl{font-size:11px;color:#888;}
+  .result-msg{font-size:14px;color:#555;margin:0.5rem 0 1.5rem;}
+  .result-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .btn-green{background:#1D9E75;color:#fff;border:none;border-radius:9px;padding:11px 26px;font-size:14px;font-weight:700;cursor:pointer;}
+  .btn-green:hover{background:#0F6E56;}
+  .btn-outline{background:#fff;border:1.5px solid #ccc;border-radius:9px;padding:11px 22px;font-size:14px;color:#555;cursor:pointer;font-weight:600;}
+  .btn-outline:hover{background:#f4f6f8;}
+  .progress-dots{display:flex;flex-wrap:wrap;gap:5px;margin:1rem auto;justify-content:center;max-width:340px;}
+  .dot{width:10px;height:10px;border-radius:50%;background:#ddd;}
+  .dot.hit{background:#1D9E75;}.dot.miss{background:#D85A30;}
+  .footer{text-align:center;font-size:11px;color:#ccc;margin-top:2.5rem;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="home" class="screen active">
+    <div class="home-header">
+      <div class="logo">🎓</div>
+      <h1>Revisão 5º Ano</h1>
+      <p>Escolha a avaliação para começar</p>
+    </div>
+    <div class="ac-grid" id="ac-grid"></div>
+    <div class="footer">Quizzes baseados nos livros didáticos do 5º Ano</div>
+  </div>
+  <div id="subject-screen" class="screen">
+    <div class="topnav">
+      <button class="topnav-back" onclick="goHome()">← Início</button>
+      <span class="topnav-title" id="subj-title"></span>
+    </div>
+    <div class="breadcrumb" id="subj-breadcrumb"></div>
+    <div class="subject-grid" id="subject-grid"></div>
+  </div>
+  <div id="quiz-select" class="screen">
+    <div class="topnav">
+      <button class="topnav-back" id="qs-back-btn">← Voltar</button>
+      <span class="topnav-title" id="qs-title"></span>
+    </div>
+    <div class="breadcrumb" id="qs-breadcrumb"></div>
+    <div class="quiz-list" id="quiz-list"></div>
+  </div>
+  <div id="q-screen" class="screen">
+    <div class="topnav">
+      <button class="topnav-back" onclick="goHome()">✕ Sair</button>
+      <span class="topnav-title" id="q-title"></span>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-counter" id="q-counter"></span>
+        <span class="q-tag" id="q-tag"></span>
+      </div>
+      <div class="timer-bar-wrap"><div class="timer-bar" id="timer-bar"></div></div>
+      <div class="q-text" id="q-text"></div>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback" style="display:none"></div>
+      <button class="btn-next" id="btn-next" style="display:none" onclick="nextQ()"></button>
+    </div>
+  </div>
+  <div id="result-screen" class="screen">
+    <h2>Quiz concluído! 🎉</h2>
+    <div class="score-circle">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">acertos</span>
+    </div>
+    <div class="progress-dots" id="progress-dots"></div>
+    <p class="result-msg" id="result-msg"></p>
+    <div class="result-btns">
+      <button class="btn-green" onclick="restartQuiz()">Tentar novamente</button>
+      <button class="btn-outline" onclick="goSubject()">Outras matérias</button>
+      <button class="btn-outline" onclick="goHome()">Início</button>
+    </div>
+  </div>
+</div>
+<script>
+
+const AVALIACOES=[{id:"ac1",label:"AC1",name:"1ª Avaliação",icon:"📝",theme:"ac-ac1",desc:"Conteúdos do 1º bimestre",locked:true,subjects:[]},{id:"ac2",label:"AC2",name:"2ª Avaliação",icon:"📚",theme:"ac-ac2",desc:"Conteúdos do 2º bimestre",locked:false,subjects:[{id:"historia",icon:"📖",name:"História",desc:"Ligamundo — Editora Saraiva",locked:false,quizzes:[{title:"Unidade 1 — O início da civilização",desc:"15 perguntas • Vida nômade, Mesopotâmia, Egito, Patrimônio",time:45,tag:"Unidade 1",tagBg:"#EDE9FE",tagColor:"#6B21A8",questions:[{q:"Há cerca de 10 mil anos, como os seres humanos conseguiam seu alimento?",opts:["Caçando animais e coletando frutos na natureza","Comprando em mercados e feiras","Plantando em grandes fazendas","Pescando nos oceanos"],c:0},{q:"O que permitiu que os seres humanos se fixassem em um lugar?",opts:["A invenção do barco","O domínio da agricultura e da criação de animais","A construção de muros e castelos","O surgimento do comércio"],c:1},{q:"A cidade mais antiga Çatal Huyük fica em qual país?",opts:["Egito","Grécia","Turquia","Iraque"],c:2},{q:"Por que as primeiras cidades surgiram perto de grandes rios?",opts:["Para facilitar a pesca de peixes exóticos","Para se proteger de animais selvagens","Porque os rios forneciam água para irrigação e solo fértil","Porque os rios serviam de fronteira entre povos"],c:2},{q:"Como surgiu o comércio nas primeiras civilizações?",opts:["Com a criação das moedas de ouro pelos reis","Com a especialização do trabalho e a troca de produtos","Com a construção de grandes mercados pelos governantes","Com a chegada de barcos estrangeiros"],c:1},{q:"O que significa a palavra Mesopotâmia?",opts:["Terra do sol","Terra dos deuses","Terra de areia","Terra entre rios"],c:3},{q:"Como se chamava o templo no centro das cidades mesopotâmicas?",opts:["Pirâmide","Zigurate","Palácio","Coliseu"],c:1},{q:"Como eram chamados os povos que acreditavam em várias divindades?",opts:["Monoteístas","Ateístas","Politeístas","Sacerdotes"],c:2},{q:"Qual foi o primeiro sistema de escrita do mundo?",opts:["Hieroglífico","Cuneiforme","Alfabeto romano","Papiro"],c:1},{q:"Como se chamavam os especialistas em escrita na Mesopotâmia?",opts:["Sacerdotes","Faraós","Donatários","Escribas"],c:3},{q:"Como se chamava o governante do Egito antigo, considerado um deus?",opts:["Rei","Sacerdote","Faraó","Escriba"],c:2},{q:"Como se chamava o sistema de escrita dos antigos egípcios?",opts:["Cuneiforme","Hieroglífico","Alfabeto fenício","Papiro"],c:1},{q:"Qual povo criou o calendário solar com 365 dias?",opts:["Os mesopotâmicos","Os egípcios","Os chineses","Os gregos"],c:1},{q:"O que é patrimônio cultural?",opts:["Dinheiro guardado no banco","Terras e propriedades de uma família","Prédios modernos das cidades","Bens com valor artístico, histórico ou cultural de um povo"],c:3},{q:"O que é o patrimônio imaterial?",opts:["Monumentos e construções históricas","Museus e sítios arqueológicos","Tradições, danças, receitas culinárias e técnicas de um povo","Objetos de arte guardados em museus"],c:2}]},{title:"Unidade 2 — Quando o Brasil era de Portugal",desc:"11 perguntas • Colonização, capitanias, sociedade colonial",time:45,tag:"Unidade 2",tagBg:"#FEF3C7",tagColor:"#B45309",questions:[{q:"Como se chamavam os locais estratégicos usados pelos portugueses para trocar mercadorias?",opts:["Capitanias","Feitorias","Engenhos","Aldeias"],c:1},{q:"Em 1500, o que os portugueses mais queriam encontrar no Brasil?",opts:["Animais exóticos","Frutas tropicais","Riquezas como ouro e prata","Terras para morar"],c:2},{q:"O que é biopirataria?",opts:["A pesca ilegal em rios","O tráfico de animais silvestres","A derrubada ilegal de árvores","A apropriação ilegal dos conhecimentos tradicionais dos povos da floresta"],c:3},{q:"Como se chamava o sistema criado em 1534 para dividir o território brasileiro?",opts:["Governo-geral","Império marítimo","Capitanias hereditárias","Feitorias"],c:2},{q:"Quem foi o primeiro governador-geral do Brasil e qual cidade fundou?",opts:["Pedro Álvares Cabral — Rio de Janeiro","Dom Pedro I — São Paulo","Tomé de Sousa — Salvador","Dom João VI — Recife"],c:2},{q:"Como eram chamados cacau, cravo, canela e baunilha explorados no período colonial?",opts:["Especiarias do mar","Frutos da terra","Drogas do sertão","Produtos do reino"],c:2},{q:"Como os colonos chamavam os indígenas aprisionados como escravos?",opts:["Donatários","Homens livres","Negros da terra","Bandeirantes"],c:2},{q:"Quem trabalhava nos engenhos de cana-de-açúcar no Brasil colonial?",opts:["Soldados portugueses","Africanos escravizados","Comerciantes europeus","Nobres portugueses"],c:1},{q:"Qual era o papel da mulher europeia que chegava ao Brasil colonial?",opts:["Governar as capitanias","Trabalhar nos engenhos","Casar com os colonos, ter filhos e educá-los na religião","Comandar o comércio nas cidades"],c:2},{q:"Como era dividida a sociedade colonial brasileira?",opts:["Reis, cavaleiros e camponeses","Senhores de terra, homens livres e escravizados","Professores, alunos e pais","Padres, soldados e comerciantes"],c:1},{q:"A Constituição de 1988 garante quais direitos aos povos indígenas?",opts:["O direito de cobrar impostos","O direito de governar o país","O direito de manter sua cultura, língua e posse de suas terras tradicionais","O direito de criar suas próprias leis para todo o Brasil"],c:2}]}]},{id:"geografia",icon:"🌍",name:"Geografia",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[{title:"Cap. 1 — O planeta Terra e sua superfície",desc:"15 perguntas • Rotação, translação, continentes, mapas",time:45,tag:"Capítulo 1",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"Quais são os dois principais movimentos da Terra?",opts:["Rotação e translação","Atração e repulsão","Gravidade e órbita","Inclinação e elevação"],c:0},{q:"O que é o movimento de rotação da Terra?",opts:["O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","A Terra girando em torno de si mesma","O movimento do Sol pelo céu"],c:2},{q:"Quanto tempo a Terra leva para um giro completo no movimento de rotação?",opts:["7 dias (uma semana)","12 horas (meio dia)","365 dias (um ano)","Aproximadamente 24 horas (um dia)"],c:3},{q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de translação ao redor do Sol","O movimento de rotação em torno do eixo da Terra","A inclinação da Lua sobre a Terra","A distância entre a Terra e o Sol"],c:1},{q:"O que é o movimento de translação da Terra?",opts:["A Terra se movendo ao redor do Sol","A Terra girando em torno de si mesma","O Sol girando em torno da Terra","A Lua girando em torno da Terra"],c:0},{q:"O que origina as quatro estações do ano?",opts:["A distância entre a Lua e a Terra","As chuvas e ventos que mudam o clima","O movimento de rotação da Terra","O movimento de translação e a luz solar nas partes do planeta"],c:3},{q:"A superfície da Terra é uma esfera perfeita?",opts:["Sim, é completamente lisa e redonda","Não, pois apresenta muitas irregularidades","Sim, mas só nas regiões dos oceanos","Não, pois a Terra tem formato quadrado"],c:1},{q:"Como se chama o modelo que representa as irregularidades da superfície terrestre?",opts:["Planisfério","Globo terrestre","Geoide","Mapa-múndi"],c:2},{q:"Como se chama a superfície da Terra que fica ACIMA do nível das águas?",opts:["Terras imersas","Terras submersas","Terras aquáticas","Terras emersas"],c:3},{q:"Quantos continentes existem na Terra?",opts:["6 continentes","4 continentes","5 continentes","7 continentes"],c:0},{q:"Qual é a diferença entre uma ilha e um continente?",opts:["Continentes têm vegetação e ilhas não têm","Ilhas são habitadas e continentes não","Ilhas ficam nos rios e continentes nos oceanos","Ilhas são menores; continentes são bem mais extensos"],c:3},{q:"Como se chamam os mapas que representam TODA a superfície da Terra em folha plana?",opts:["Globos terrestres","Geoides","Planisfério ou mapa-múndi","Imagens de satélite"],c:2},{q:"Como são obtidas as imagens de satélite da Terra?",opts:["Por câmeras no fundo dos oceanos","Por fotógrafos em helicópteros","Por equipamentos em satélites artificiais que orbitam a Terra","Por telescópios em montanhas"],c:2},{q:"Qual é a vantagem do globo terrestre como representação da Terra?",opts:["Pode ser impresso em papel facilmente","É um modelo esférico com cada parte em posição aproximada","Mostra toda a superfície de uma só vez","Mostra detalhes de ruas e bairros"],c:1},{q:"Nos mapas, com qual cor as águas de rios, mares e oceanos são representadas?",opts:["Verde","Amarelo","Marrom","Azul"],c:3}]},{title:"Cap. 3 — Comunicação e transporte no Brasil",desc:"15 perguntas • Meios de transporte e comunicação",time:45,tag:"Capítulo 3",tagBg:"#D6EAF8",tagColor:"#1D4ED8",questions:[{q:"Qual é o meio de transporte mais utilizado no Brasil atualmente?",opts:["Ferroviário","Aquaviário","Rodoviário","Aéreo"],c:2},{q:"Qual é uma desvantagem do transporte rodoviário no Brasil?",opts:["Grande parte das vias tem buracos e falta boa sinalização","As estradas são muito estreitas","Os ônibus são muito lentos","Não existem estradas ligando os estados"],c:0},{q:"Qual é a principal vantagem do transporte ferroviário?",opts:["Os trens chegam a todos os municípios","O trem é o transporte mais rápido do mundo","Grande capacidade de carga e menos poluente","As ferrovias custam menos para construir"],c:2},{q:"O que é o transporte aquaviário?",opts:["Transporte feito por aviões sobre o oceano","Transporte feito por balões","Transporte feito por tubulações subterrâneas","Transporte que usa rios, lagos e oceanos para locomoção"],c:3},{q:"Qual é a principal vantagem do transporte aéreo?",opts:["É o mais barato para todas as pessoas","Permite deslocamentos a longas distâncias com rapidez","Pode ser usado em todos os municípios","Não polui o meio ambiente"],c:1},{q:"O que são meios de comunicação de massa?",opts:["Meios usados apenas pelo governo","Meios de comunicação só entre duas pessoas","Meios usados só nas escolas","Meios que transmitem informações a um grande número de pessoas"],c:3},{q:"Qual foi o primeiro meio de comunicação de massa no Brasil?",opts:["A televisão","A internet","O rádio","O jornal impresso"],c:3},{q:"Em que década o rádio teve início no Brasil?",opts:["Na década de 1900","Na década de 1920","Na década de 1950","Na década de 1970"],c:1},{q:"Quando a televisão se popularizou no Brasil?",opts:["Na década de 1920","Na década de 1940","Na década de 1990","A partir da década de 1970"],c:3},{q:"Quando o telefone chegou ao Brasil?",opts:["Em 1950","Em 1920","Em 1876","Em 1990"],c:2},{q:"O que é a internet?",opts:["Uma rede global que interliga aparelhos para trocar informações","Um tipo de televisão com mais canais","Um serviço de rádio por satélite","Um aplicativo de celular para chamadas"],c:0},{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitui os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},{q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},{q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},{q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}]}]},{id:"portugues",icon:"✏️",name:"Língua Portuguesa",desc:"Em breve",locked:true,comingSoon:true,quizzes:[]},{id:"matematica",icon:"🔢",name:"Matemática",desc:"Em breve",locked:true,comingSoon:true,quizzes:[]},{id:"ciencias",icon:"🔬",name:"Ciências",desc:"Em breve",locked:true,comingSoon:true,quizzes:[]}]},{id:"ac3",label:"AC3",name:"3ª Avaliação",icon:"🏆",theme:"ac-ac3",desc:"Conteúdos do 3º bimestre",locked:true,subjects:[]},{id:"ac4",label:"AC4",name:"4ª Avaliação",icon:"🎯",theme:"ac-ac4",desc:"Conteúdos do 4º bimestre",locked:true,subjects:[]}];
+
+let curAC=null,curSubj=null,curQuiz=null,curQ=0,score=0,results=[],timer=null,answered=false;
+const BADGES=['ba','bb','bc','bd'],LABELS=['A','B','C','D'];
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function goHome(){clearInterval(timer);show('home');}
+function goSubject(){show('subject-screen');}
+function buildHome(){
+  const g=document.getElementById('ac-grid');g.innerHTML='';
+  AVALIACOES.forEach((ac,ai)=>{
+    const c=document.createElement('div');
+    c.className='ac-card '+ac.theme+(ac.locked?' locked':'');
+    const avail=(ac.subjects||[]).filter(s=>!s.locked&&!s.comingSoon);
+    const tags=avail.map(s=>`<span class="ac-stag">${s.icon} ${s.name}</span>`).join('');
+    c.innerHTML=`${ac.locked?`<div class="ac-badge" style="background:rgba(0,0,0,0.15)">🔒 Em breve</div>`:`<div class="ac-badge" style="background:rgba(255,255,255,0.5)">${avail.length} matéria${avail.length!==1?'s':''}</div>`}<div class="ac-icon">${ac.icon}</div><h3>${ac.label} — ${ac.name}</h3><p>${ac.desc}</p>${tags?`<div class="ac-subjects">${tags}</div>`:''}`;
+    if(!ac.locked)c.onclick=()=>openAC(ai);
+    g.appendChild(c);
+  });
+}
+function openAC(ai){
+  curAC=ai;const ac=AVALIACOES[ai];
+  document.getElementById('subj-title').textContent=ac.label+' — '+ac.name;
+  document.getElementById('subj-breadcrumb').innerHTML=`<span>${ac.label}</span> › Escolha uma matéria`;
+  const g=document.getElementById('subject-grid');g.innerHTML='';
+  (ac.subjects||[]).forEach((s,si)=>{
+    const c=document.createElement('div');
+    c.className='subject-card'+(s.locked||s.comingSoon?' locked':'');
+    const tags=s.quizzes?s.quizzes.map(q=>`<span class="stag" style="background:${q.tagBg};color:${q.tagColor}">${q.tag}</span>`).join(''):'';
+    c.innerHTML=`<div class="subj-icon">${s.icon}</div><div class="subj-card-name">${s.name}</div><div class="subj-card-desc">${s.desc}</div>${tags?`<div class="subj-tags">${tags}</div>`:''}${s.comingSoon?`<div class="coming-soon">🔒 Em breve</div>`:''}`;
+    if(!s.locked&&!s.comingSoon)c.onclick=()=>openSubject(si);
+    g.appendChild(c);
+  });
+  show('subject-screen');
+}
+function openSubject(si){
+  curSubj=si;const ac=AVALIACOES[curAC];const s=ac.subjects[si];
+  document.getElementById('qs-title').textContent=s.icon+' '+s.name;
+  document.getElementById('qs-breadcrumb').innerHTML=`<span>${ac.label}</span> › <span>${s.name}</span> › Escolha o quiz`;
+  document.getElementById('qs-back-btn').onclick=()=>openAC(curAC);
+  const list=document.getElementById('quiz-list');list.innerHTML='';
+  s.quizzes.forEach((q,qi)=>{
+    const item=document.createElement('div');item.className='quiz-item';
+    item.innerHTML=`<div class="quiz-item-left"><h4>${q.title}</h4><p>${q.desc}</p><span class="stag" style="background:${q.tagBg};color:${q.tagColor}">${q.tag}</span></div><span class="quiz-arrow">›</span>`;
+    item.onclick=()=>startQuiz(qi);list.appendChild(item);
+  });
+  show('quiz-select');
+}
+function startQuiz(qi){
+  curQuiz=qi;curQ=0;score=0;results=[];answered=false;
+  document.getElementById('q-title').textContent=AVALIACOES[curAC].subjects[curSubj].icon+' '+AVALIACOES[curAC].subjects[curSubj].name;
+  show('q-screen');loadQ();
+}
+function loadQ(){
+  answered=false;clearInterval(timer);
+  const qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];const d=qz.questions[curQ];
+  document.getElementById('q-counter').textContent=`Pergunta ${curQ+1} / ${qz.questions.length}`;
+  const tag=document.getElementById('q-tag');tag.textContent=qz.tag;tag.style.background=qz.tagBg;tag.style.color=qz.tagColor;
+  document.getElementById('q-text').textContent=d.q;
+  document.getElementById('feedback').style.display='none';document.getElementById('btn-next').style.display='none';
+  const wrap=document.getElementById('answers');wrap.innerHTML='';
+  d.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');btn.className='ans-btn';
+    btn.innerHTML=`<span class="badge ${BADGES[i]}">${LABELS[i]}</span><span>${o}</span>`;
+    btn.onclick=()=>answer(i);wrap.appendChild(btn);
+  });
+  startTimer(qz.time);
+}
+function startTimer(t){
+  let left=t;const bar=document.getElementById('timer-bar');
+  bar.style.width='100%';bar.style.background='#1D9E75';
+  timer=setInterval(()=>{left--;const pct=Math.round((left/t)*100);bar.style.width=pct+'%';if(pct<30)bar.style.background='#D85A30';else if(pct<60)bar.style.background='#BA7517';if(left<=0){clearInterval(timer);timeUp();}},1000);
+}
+function timeUp(){
+  if(answered)return;answered=true;
+  const d=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz].questions[curQ];
+  document.querySelectorAll('.ans-btn').forEach((b,i)=>{b.disabled=true;if(i===d.c)b.classList.add('correct');});
+  results.push(false);
+  const fb=document.getElementById('feedback');fb.className='feedback wrong';fb.textContent='Tempo esgotado! Resposta certa: '+d.opts[d.c];fb.style.display='block';
+  showNextBtn();
+}
+function answer(i){
+  if(answered)return;answered=true;clearInterval(timer);
+  const d=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz].questions[curQ];
+  const btns=document.querySelectorAll('.ans-btn');
+  btns.forEach((b,j)=>{b.disabled=true;if(j===d.c)b.classList.add('correct');});
+  const fb=document.getElementById('feedback');
+  if(i===d.c){score++;results.push(true);btns[i].classList.add('correct');fb.className='feedback correct';fb.textContent='Correto! Muito bem!';}
+  else{results.push(false);btns[i].classList.add('wrong');fb.className='feedback wrong';fb.textContent='Incorreto. Resposta certa: '+d.opts[d.c];}
+  fb.style.display='block';showNextBtn();
+}
+function showNextBtn(){
+  const qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];
+  const nb=document.getElementById('btn-next');nb.style.display='block';
+  nb.textContent=curQ<qz.questions.length-1?'Proxima pergunta':'Ver resultado';
+}
+function nextQ(){curQ++;const qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];if(curQ>=qz.questions.length){showResult();return;}loadQ();}
+function showResult(){
+  show('result-screen');const qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];
+  document.getElementById('score-num').textContent=score+'/'+qz.questions.length;
+  const pct=Math.round((score/qz.questions.length)*100);
+  document.getElementById('result-msg').textContent=pct>=90?'Excelente! Voce domina o conteudo!':pct>=70?'Muito bem! Continue estudando!':pct>=50?'Bom esforco! Revise e tente novamente.':'Continue estudando! Voce consegue melhorar!';
+  const dots=document.getElementById('progress-dots');dots.innerHTML='';
+  results.forEach(r=>{const d=document.createElement('div');d.className='dot '+(r?'hit':'miss');dots.appendChild(d);});
+}
+function restartQuiz(){startQuiz(curQuiz);}
+buildHome();
+
+</script>
+</body>
+</html>
