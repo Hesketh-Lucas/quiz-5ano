@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Revisão 5º Ano</title>
-
-<!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0M7CMXP7FD"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -13,18 +11,13 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
 gtag('config','G-0M7CMXP7FD');
 </script>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:100vh;}
 #app{max-width:700px;margin:0 auto;padding:1.2rem 1rem 3rem;}
 .screen{display:none;}.screen.active{display:block;}
-
-/* TOAST */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;}
 .toast.show{opacity:1;}
-
-/* TOPNAV */
 .topnav{display:flex;align-items:center;gap:10px;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1.5px solid #e0e0e0;}
 .btn-back{background:none;border:1.5px solid #ddd;border-radius:8px;padding:6px 14px;font-size:13px;cursor:pointer;color:#555;}
 .btn-back:hover{background:#e8e8e8;}
@@ -32,7 +25,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .breadcrumb{font-size:12px;color:#aaa;margin-bottom:1rem;}
 .breadcrumb span{color:#555;font-weight:600;}
 
-/* PLAYER SCREEN */
+/* PLAYER */
 .player-box{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:2rem 1.5rem;text-align:center;max-width:420px;margin:0 auto;}
 .player-logo{font-size:44px;margin-bottom:12px;cursor:default;user-select:none;}
 .player-box h1{font-size:22px;font-weight:700;margin-bottom:6px;}
@@ -46,6 +39,11 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .saved-list{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
 .saved-chip{background:#f0f0f0;border:1.5px solid #e0e0e0;border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600;color:#555;transition:all .12s;}
 .saved-chip:hover{background:#D5F5E3;border-color:#1D9E75;color:#065F46;}
+
+/* MODE TOGGLE — escolha entre Quiz e Estudar */
+.mode-toggle{display:flex;gap:0;background:#e8e8e8;border-radius:12px;padding:4px;margin-bottom:1.2rem;}
+.mode-btn{flex:1;padding:10px 8px;border:none;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:#888;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.mode-btn.active{background:#fff;color:#1a1a1a;box-shadow:0 1px 6px rgba(0,0,0,.12);}
 
 /* HOME */
 .home-header{text-align:center;padding:1rem 0 1.2rem;}
@@ -62,8 +60,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .btn-ranking:hover{background:#FDE68A;}
 .btn-change{background:none;border:1.5px solid #ddd;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#888;}
 .btn-change:hover{background:#f4f4f4;}
-
-/* AC GRID */
 .ac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
 .ac-card{border-radius:14px;padding:1.2rem 1rem;cursor:pointer;border:2px solid transparent;transition:box-shadow .15s,transform .1s;text-align:left;position:relative;overflow:hidden;}
 .ac-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-2px);}
@@ -79,12 +75,57 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .ac-ac2{background:#D1FAE5;border-color:#6EE7B7;color:#064E3B;}
 .ac-ac3{background:#FEF3C7;border-color:#FCD34D;color:#78350F;}
 .ac-ac4{background:#FEE2E2;border-color:#FCA5A5;color:#7F1D1D;}
-
-/* STATS BAR */
 .stats-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:1rem 0 0.5rem;}
 .stat-chip{background:#fff;border:1.5px solid #e0e0e0;border-radius:20px;padding:6px 14px;font-size:12px;display:flex;align-items:center;gap:6px;font-weight:600;color:#555;}
 
-/* SUBJECT GRID */
+/* ESTUDAR — grade de matérias */
+.estudo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
+.estudo-card{border-radius:14px;padding:1.2rem 1rem;cursor:pointer;border:1.5px solid #e0e0e0;background:#fff;transition:box-shadow .15s,transform .1s;text-align:center;}
+.estudo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-2px);}
+.estudo-card.locked{opacity:.45;cursor:not-allowed;}
+.estudo-card.locked:hover{transform:none;box-shadow:none;}
+.estudo-card-icon{font-size:32px;margin-bottom:8px;}
+.estudo-card-name{font-size:14px;font-weight:700;margin-bottom:3px;}
+.estudo-card-desc{font-size:11px;color:#888;}
+
+/* CONTEÚDO DE ESTUDO */
+.estudo-section{margin-bottom:1.5rem;}
+.estudo-section-titulo{font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.estudo-bloco{background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;padding:1rem 1.2rem;margin-bottom:10px;}
+.estudo-bloco-titulo{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.estudo-bloco-texto{font-size:13px;color:#555;line-height:1.7;}
+.estudo-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.echip{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700;}
+.echip-verde{background:#D5F5E3;color:#065F46;}
+.echip-azul{background:#D6EAF8;color:#185FA5;}
+.echip-roxo{background:#EDE9FE;color:#6B21A8;}
+.echip-laranja{background:#FEF3C7;color:#78350F;}
+.echip-vermelho{background:#FEE2E2;color:#7F1D1D;}
+.echip-rosa{background:#FCE4EC;color:#880E4F;}
+
+/* MAPA MENTAL */
+.mapa-centro{border-radius:12px;padding:16px;text-align:center;margin-bottom:12px;}
+.mapa-centro-titulo{font-size:18px;font-weight:700;}
+.mapa-centro-sub{font-size:12px;opacity:.8;margin-top:4px;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:420px){.mapa-grid{grid-template-columns:1fr;}}
+.mapa-bloco{border-radius:12px;padding:12px 14px;}
+.mapa-bloco-titulo{font-size:13px;font-weight:700;margin-bottom:8px;}
+.mapa-item{font-size:12px;line-height:1.6;padding:2px 0;display:flex;align-items:flex-start;gap:5px;}
+.mapa-bullet{flex-shrink:0;}
+
+/* MÉTRICAS */
+.metricas-row{display:flex;gap:8px;margin-bottom:12px;}
+.metrica-box{flex:1;background:#f8f8f8;border-radius:10px;padding:12px 8px;text-align:center;border:1.5px solid #f0f0f0;}
+.metrica-num{font-size:26px;font-weight:700;}
+.metrica-label{font-size:11px;color:#888;margin-top:2px;}
+
+/* DICA BOX */
+.dica-box{background:#FFFBEB;border-left:3px solid #FCD34D;border-radius:0 10px 10px 0;padding:12px 14px;margin-top:10px;}
+.dica-titulo{font-size:12px;font-weight:700;color:#78350F;margin-bottom:4px;}
+.dica-texto{font-size:12px;color:#92400E;line-height:1.6;}
+
+/* SUBJECT / QUIZ */
 .subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
 .subject-card{border:1.5px solid #e0e0e0;border-radius:14px;padding:1.1rem;cursor:pointer;background:#fff;transition:box-shadow .15s,border .15s;}
 .subject-card:hover{border-color:#bbb;box-shadow:0 2px 12px rgba(0,0,0,.08);}
@@ -96,8 +137,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .subj-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .stag{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;}
 .coming-soon{font-size:11px;color:#aaa;font-style:italic;margin-top:6px;}
-
-/* QUIZ LIST */
 .quiz-list{display:flex;flex-direction:column;gap:10px;}
 .quiz-item{border:1.5px solid #e0e0e0;border-radius:12px;padding:1rem;cursor:pointer;background:#fff;transition:box-shadow .15s,border .15s;}
 .quiz-item:hover{border-color:#bbb;box-shadow:0 2px 10px rgba(0,0,0,.07);}
@@ -113,8 +152,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .sg{background:#D5F5E3;color:#065F46;}
 .sm{background:#FEF3C7;color:#78350F;}
 .sl{background:#FEE2E2;color:#7F1D1D;}
-
-/* QUIZ */
 .q-card{background:#fff;border-radius:14px;padding:1.2rem;border:1.5px solid #e0e0e0;}
 .q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
 .q-counter{font-size:13px;color:#888;font-weight:600;}
@@ -137,8 +174,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .feedback.wrong{background:#FAECE7;color:#993C1D;}
 .btn-next{margin-top:12px;width:100%;padding:12px;border-radius:9px;background:#1D9E75;color:#fff;border:none;font-size:15px;font-weight:700;cursor:pointer;}
 .btn-next:hover{background:#0F6E56;}
-
-/* RESULT */
 .result-card{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:1.5rem;}
 .result-card h2{font-size:22px;font-weight:700;margin-bottom:4px;text-align:center;}
 .result-player{font-size:13px;color:#888;text-align:center;margin-bottom:1rem;}
@@ -167,8 +202,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .btn-green:hover{background:#0F6E56;}
 .btn-outline{background:#fff;border:1.5px solid #ccc;border-radius:9px;padding:11px 16px;font-size:14px;color:#555;cursor:pointer;font-weight:600;}
 .btn-outline:hover{background:#f4f6f8;}
-
-/* RANKING */
 .ranking-card{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:1.5rem;}
 .ranking-card h2{font-size:20px;font-weight:700;margin-bottom:4px;}
 .ranking-sub{font-size:12px;color:#888;margin-bottom:1.2rem;}
@@ -190,7 +223,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .rank-pct{font-size:15px;font-weight:700;}
 .rank-empty{text-align:center;padding:2rem;color:#aaa;font-size:14px;}
 .rank-note{font-size:11px;color:#bbb;text-align:center;margin-top:1rem;}
-
 .footer{text-align:center;font-size:11px;color:#ccc;margin-top:1rem;}
 </style>
 </head>
@@ -202,7 +234,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
     <div class="player-box">
       <div class="player-logo" id="player-logo">🎓</div>
       <h1>Revisão 5º Ano</h1>
-      <p>Digite seu apelido para começar e acompanhar seu histórico!</p>
+      <p>Digite seu apelido para começar!</p>
       <input class="player-input" id="player-input" type="text" placeholder="Seu apelido aqui..." maxlength="24" autocomplete="off" onkeydown="if(event.key==='Enter')enterPlayer()"/>
       <button class="btn-enter" onclick="enterPlayer()">Entrar ›</button>
       <div class="saved-wrap" id="saved-wrap"></div>
@@ -214,7 +246,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
     <div class="home-header">
       <div class="home-logo">🎓</div>
       <h1>Revisão 5º Ano</h1>
-      <p>Escolha a avaliação para começar</p>
+      <p>O que você quer fazer hoje?</p>
     </div>
     <div class="player-bar">
       <div class="player-bar-left">
@@ -229,12 +261,31 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
         <button class="btn-change" onclick="changePlayer()">Trocar</button>
       </div>
     </div>
-    <div class="ac-grid" id="ac-grid"></div>
+
+    <!-- TOGGLE QUIZ / ESTUDAR -->
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="btn-mode-quiz" onclick="setMode('quiz')">🎯 Fazer Quiz</button>
+      <button class="mode-btn" id="btn-mode-study" onclick="setMode('study')">📚 Estudar</button>
+    </div>
+
+    <!-- MODO QUIZ -->
+    <div id="mode-quiz">
+      <div class="ac-grid" id="ac-grid"></div>
+    </div>
+
+    <!-- MODO ESTUDAR -->
+    <div id="mode-study" style="display:none;">
+      <div style="background:#EDE9FE;border:1.5px solid #C4B5FD;border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;color:#4C1D95;font-weight:600;">
+        📖 Escolha uma matéria para revisar o conteúdo, ver resumos e mapas mentais
+      </div>
+      <div class="estudo-grid" id="estudo-grid"></div>
+    </div>
+
     <div class="stats-bar" id="stats-bar"></div>
     <div class="footer">Feito com 💚 por Lucas Hesketh · Revisão 5º Ano</div>
   </div>
 
-  <!-- SUBJECT -->
+  <!-- SUBJECT (quiz) -->
   <div id="subject-screen" class="screen">
     <div class="topnav">
       <button class="btn-back" onclick="goHome()">← Início</button>
@@ -322,123 +373,286 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
     </div>
   </div>
 
-</div>
+  <!-- ESTUDO — tela de conteúdo por matéria -->
+  <div id="estudo-screen" class="screen">
+    <div class="topnav">
+      <button class="btn-back" onclick="goHome()">← Início</button>
+      <span class="topnav-title" id="estudo-title"></span>
+    </div>
+    <div id="estudo-content"></div>
+  </div>
+
+</div><!-- #app -->
 <div class="toast" id="toast"></div>
-
 <script>
-/* ══════════════════════════
-   DADOS DOS QUIZZES
-══════════════════════════ */
-const AVALIACOES=[{id:"ac1",label:"AC1",name:"1ª Avaliação",icon:"📝",theme:"ac-ac1",desc:"Conteúdos do 1º bimestre",locked:true,subjects:[]},{id:"ac2",label:"AC2",name:"2ª Avaliação",icon:"📚",theme:"ac-ac2",desc:"Conteúdos do 2º bimestre",locked:false,subjects:[{id:"historia",icon:"📖",name:"História",desc:"Ligamundo — Editora Saraiva",locked:false,quizzes:[{title:"Unidade 1 — O início da civilização",desc:"15 perguntas • Vida nômade, Mesopotâmia, Egito, Patrimônio",time:45,tag:"Unidade 1",tagBg:"#EDE9FE",tagColor:"#6B21A8",questions:[{q:"Há cerca de 10 mil anos, como os seres humanos conseguiam seu alimento?",opts:["Caçando animais e coletando frutos na natureza","Comprando em mercados e feiras","Plantando em grandes fazendas","Pescando nos oceanos"],c:0},{q:"O que permitiu que os seres humanos se fixassem em um lugar?",opts:["A invenção do barco","O domínio da agricultura e da criação de animais","A construção de muros e castelos","O surgimento do comércio"],c:1},{q:"A cidade mais antiga Çatal Huyük fica em qual país?",opts:["Egito","Grécia","Turquia","Iraque"],c:2},{q:"Por que as primeiras cidades surgiram perto de grandes rios?",opts:["Para facilitar a pesca de peixes exóticos","Para se proteger de animais selvagens","Porque os rios forneciam água para irrigação e solo fértil","Porque os rios serviam de fronteira entre povos"],c:2},{q:"Como surgiu o comércio nas primeiras civilizações?",opts:["Com a criação das moedas de ouro pelos reis","Com a especialização do trabalho e a troca de produtos","Com a construção de grandes mercados pelos governantes","Com a chegada de barcos estrangeiros"],c:1},{q:"O que significa a palavra Mesopotâmia?",opts:["Terra do sol","Terra dos deuses","Terra de areia","Terra entre rios"],c:3},{q:"Como se chamava o templo no centro das cidades mesopotâmicas?",opts:["Pirâmide","Zigurate","Palácio","Coliseu"],c:1},{q:"Como eram chamados os povos que acreditavam em várias divindades?",opts:["Monoteístas","Ateístas","Politeístas","Sacerdotes"],c:2},{q:"Qual foi o primeiro sistema de escrita do mundo?",opts:["Hieroglífico","Cuneiforme","Alfabeto romano","Papiro"],c:1},{q:"Como se chamavam os especialistas em escrita na Mesopotâmia?",opts:["Sacerdotes","Faraós","Donatários","Escribas"],c:3},{q:"Como se chamava o governante do Egito antigo, considerado um deus?",opts:["Rei","Sacerdote","Faraó","Escriba"],c:2},{q:"Como se chamava o sistema de escrita dos antigos egípcios?",opts:["Cuneiforme","Hieroglífico","Alfabeto fenício","Papiro"],c:1},{q:"Qual povo criou o calendário solar com 365 dias?",opts:["Os mesopotâmicos","Os egípcios","Os chineses","Os gregos"],c:1},{q:"O que é patrimônio cultural?",opts:["Dinheiro guardado no banco","Terras e propriedades de uma família","Prédios modernos das cidades","Bens com valor artístico, histórico ou cultural de um povo"],c:3},{q:"O que é o patrimônio imaterial?",opts:["Monumentos e construções históricas","Museus e sítios arqueológicos","Tradições, danças, receitas culinárias e técnicas de um povo","Objetos de arte guardados em museus"],c:2}]},{title:"Unidade 2 — Quando o Brasil era de Portugal",desc:"11 perguntas • Colonização, capitanias, sociedade colonial",time:45,tag:"Unidade 2",tagBg:"#FEF3C7",tagColor:"#B45309",questions:[{q:"Como se chamavam os locais estratégicos usados pelos portugueses para trocar mercadorias?",opts:["Capitanias","Feitorias","Engenhos","Aldeias"],c:1},{q:"Em 1500, o que os portugueses mais queriam encontrar no Brasil?",opts:["Animais exóticos","Frutas tropicais","Riquezas como ouro e prata","Terras para morar"],c:2},{q:"O que é biopirataria?",opts:["A pesca ilegal em rios","O tráfico de animais silvestres","A derrubada ilegal de árvores","A apropriação ilegal dos conhecimentos tradicionais dos povos da floresta"],c:3},{q:"Como se chamava o sistema criado em 1534 para dividir o território brasileiro?",opts:["Governo-geral","Império marítimo","Capitanias hereditárias","Feitorias"],c:2},{q:"Quem foi o primeiro governador-geral do Brasil e qual cidade fundou?",opts:["Pedro Álvares Cabral — Rio de Janeiro","Dom Pedro I — São Paulo","Tomé de Sousa — Salvador","Dom João VI — Recife"],c:2},{q:"Como eram chamados cacau, cravo, canela e baunilha no período colonial?",opts:["Especiarias do mar","Frutos da terra","Drogas do sertão","Produtos do reino"],c:2},{q:"Como os colonos chamavam os indígenas aprisionados como escravos?",opts:["Donatários","Homens livres","Negros da terra","Bandeirantes"],c:2},{q:"Quem trabalhava nos engenhos de cana-de-açúcar no Brasil colonial?",opts:["Soldados portugueses","Africanos escravizados","Comerciantes europeus","Nobres portugueses"],c:1},{q:"Qual era o papel da mulher europeia que chegava ao Brasil colonial?",opts:["Governar as capitanias","Trabalhar nos engenhos","Casar com os colonos, ter filhos e educá-los na religião","Comandar o comércio nas cidades"],c:2},{q:"Como era dividida a sociedade colonial brasileira?",opts:["Reis, cavaleiros e camponeses","Senhores de terra, homens livres e escravizados","Professores, alunos e pais","Padres, soldados e comerciantes"],c:1},{q:"A Constituição de 1988 garante quais direitos aos povos indígenas?",opts:["O direito de cobrar impostos","O direito de governar o país","O direito de manter sua cultura, língua e posse de suas terras tradicionais","O direito de criar suas próprias leis para todo o Brasil"],c:2}]}]},{id:"geografia",icon:"🌍",name:"Geografia",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[{title:"Cap. 1 — O planeta Terra e sua superfície",desc:"15 perguntas • Rotação, translação, continentes, mapas",time:45,tag:"Capítulo 1",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"Quais são os dois principais movimentos da Terra?",opts:["Rotação e translação","Atração e repulsão","Gravidade e órbita","Inclinação e elevação"],c:0},{q:"O que é o movimento de rotação da Terra?",opts:["O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","A Terra girando em torno de si mesma","O movimento do Sol pelo céu"],c:2},{q:"Quanto tempo a Terra leva para um giro completo no movimento de rotação?",opts:["7 dias (uma semana)","12 horas (meio dia)","365 dias (um ano)","Aproximadamente 24 horas (um dia)"],c:3},{q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de translação ao redor do Sol","O movimento de rotação em torno do eixo da Terra","A inclinação da Lua sobre a Terra","A distância entre a Terra e o Sol"],c:1},{q:"O que é o movimento de translação da Terra?",opts:["A Terra se movendo ao redor do Sol","A Terra girando em torno de si mesma","O Sol girando em torno da Terra","A Lua girando em torno da Terra"],c:0},{q:"O que origina as quatro estações do ano?",opts:["A distância entre a Lua e a Terra","As chuvas e ventos que mudam o clima","O movimento de rotação da Terra","O movimento de translação e a luz solar nas partes do planeta"],c:3},{q:"A superfície da Terra é uma esfera perfeita?",opts:["Sim, é completamente lisa e redonda","Não, pois apresenta muitas irregularidades","Sim, mas só nas regiões dos oceanos","Não, pois a Terra tem formato quadrado"],c:1},{q:"Como se chama o modelo que representa as irregularidades da superfície terrestre?",opts:["Planisfério","Globo terrestre","Geoide","Mapa-múndi"],c:2},{q:"Como se chama a superfície da Terra que fica ACIMA do nível das águas?",opts:["Terras imersas","Terras submersas","Terras aquáticas","Terras emersas"],c:3},{q:"Quantos continentes existem na Terra?",opts:["6 continentes","4 continentes","5 continentes","7 continentes"],c:0},{q:"Qual é a diferença entre uma ilha e um continente?",opts:["Continentes têm vegetação e ilhas não têm","Ilhas são habitadas e continentes não","Ilhas ficam nos rios e continentes nos oceanos","Ilhas são menores; continentes são bem mais extensos"],c:3},{q:"Como se chamam os mapas que representam TODA a superfície da Terra em folha plana?",opts:["Globos terrestres","Geoides","Planisfério ou mapa-múndi","Imagens de satélite"],c:2},{q:"Como são obtidas as imagens de satélite da Terra?",opts:["Por câmeras no fundo dos oceanos","Por fotógrafos em helicópteros","Por equipamentos em satélites artificiais que orbitam a Terra","Por telescópios em montanhas"],c:2},{q:"Qual é a vantagem do globo terrestre como representação da Terra?",opts:["Pode ser impresso em papel facilmente","É um modelo esférico com cada parte em posição aproximada","Mostra toda a superfície de uma só vez","Mostra detalhes de ruas e bairros"],c:1},{q:"Nos mapas, com qual cor as águas de rios, mares e oceanos são representadas?",opts:["Verde","Amarelo","Marrom","Azul"],c:3}]},{title:"Cap. 3 — Comunicação e transporte no Brasil",desc:"15 perguntas • Meios de transporte e comunicação",time:45,tag:"Capítulo 3",tagBg:"#D6EAF8",tagColor:"#1D4ED8",questions:[{q:"Qual é o meio de transporte mais utilizado no Brasil atualmente?",opts:["Ferroviário","Aquaviário","Rodoviário","Aéreo"],c:2},{q:"Qual é uma desvantagem do transporte rodoviário no Brasil?",opts:["Grande parte das vias tem buracos e falta boa sinalização","As estradas são muito estreitas","Os ônibus são muito lentos","Não existem estradas ligando os estados"],c:0},{q:"Qual é a principal vantagem do transporte ferroviário?",opts:["Os trens chegam a todos os municípios","O trem é o transporte mais rápido do mundo","Grande capacidade de carga e menos poluente","As ferrovias custam menos para construir"],c:2},{q:"O que é o transporte aquaviário?",opts:["Transporte feito por aviões sobre o oceano","Transporte feito por balões","Transporte feito por tubulações subterrâneas","Transporte que usa rios, lagos e oceanos para locomoção"],c:3},{q:"Qual é a principal vantagem do transporte aéreo?",opts:["É o mais barato para todas as pessoas","Permite deslocamentos a longas distâncias com rapidez","Pode ser usado em todos os municípios","Não polui o meio ambiente"],c:1},{q:"O que são meios de comunicação de massa?",opts:["Meios usados apenas pelo governo","Meios de comunicação só entre duas pessoas","Meios usados só nas escolas","Meios que transmitem informações a um grande número de pessoas"],c:3},{q:"Qual foi o primeiro meio de comunicação de massa no Brasil?",opts:["A televisão","A internet","O rádio","O jornal impresso"],c:3},{q:"Em que década o rádio teve início no Brasil?",opts:["Na década de 1900","Na década de 1920","Na década de 1950","Na década de 1970"],c:1},{q:"Quando a televisão se popularizou no Brasil?",opts:["Na década de 1920","Na década de 1940","Na década de 1990","A partir da década de 1970"],c:3},{q:"Quando o telefone chegou ao Brasil?",opts:["Em 1950","Em 1920","Em 1876","Em 1990"],c:2},{q:"O que é a internet?",opts:["Uma rede global que interliga aparelhos para trocar informações","Um tipo de televisão com mais canais","Um serviço de rádio por satélite","Um aplicativo de celular para chamadas"],c:0},{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitui os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},{q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},{q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},{q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}]}]},{id:"portugues",icon:"✏️",name:"Língua Portuguesa",desc:"Projeto Presente — Editora Moderna",locked:false,quizzes:[{title:"Cap. 1 e 2 — Substantivos, adjetivos, verbos e mais",desc:"30 perguntas • Texto teatral, tempos verbais, pontuação, L e U",time:45,tag:"Cap. 1 e 2",tagBg:"#FCE4EC",tagColor:"#880E4F",questions:[{q:"O texto teatral é criado principalmente para:",opts:["Ser lido em silêncio, como um romance","Ser cantado como uma música","Ser encenado por atores em um palco","Ser usado como receita de culinária"],c:2},{q:"Na peça 'O Vento e o Sol', as indicações em itálico como 'Menino começa a sentir frio e veste a blusa' são chamadas de:",opts:["Rubricas","Diálogos","Narrações","Estrofes"],c:0},{q:"Para que servem os nomes em destaque que aparecem antes das falas em um texto teatral (por exemplo: POMBO 1, VENTO)?",opts:["Para indicar o cenário da cena","Para indicar quem vai falar","Para mostrar o tempo da história","Para descrever o figurino das personagens"],c:1},{q:"Na peça 'O Vento e o Sol', qual foi a aposta entre o Vento e o Sol?",opts:["Ver quem conseguia fazer chover mais forte","Ver quem voava mais alto","Ver quem conseguia arrancar a roupa do menino","Ver quem chegava primeiro ao ponto de ônibus"],c:2},{q:"No final da peça 'O Vento e o Sol', qual é a moral que os pombos ensinam à plateia?",opts:["É mais fácil conseguir o que quer usando só a inteligência, e sem precisar de violência","É mais fácil vencer usando a força bruta","O vento é sempre mais forte que o sol","Para vencer, é preciso ter muita paciência e esperar"],c:0},{q:"Na peça 'Folia dos três bois', as personagens Zé e Das Graças são representadas como:",opts:["Atores reais com fantasias","Sombras projetadas em uma parede","Bonecos (fantoches) com manipuladores à vista","Personagens narradas por um locutor"],c:2},{q:"Na rubrica da peça 'Folia dos três bois', a fala 'VOZ' aparece porque o Arauto:",opts:["Estava escondido atrás de uma cortina cantando","Era um personagem invisível desde o início","Estava falando por telefone","Havia saído de cena e só se ouvia sua voz"],c:3},{q:"A rubrica '(para a plateia)' ao lado do nome de Pombo 1 indica que:",opts:["Pombo 1 se dirige ao Pombo 2","Pombo 1 se dirige ao público que assiste à peça","Pombo 1 se dirige ao Sol","Pombo 1 está falando sozinho"],c:1},{q:"O texto sobre 'Dedoches' é um texto instrucional. Qual é o principal objetivo desse tipo de texto?",opts:["Contar uma história de aventura","Convencer o leitor de uma ideia","Descrever paisagens bonitas","Ensinar como fazer algo, passo a passo"],c:3},{q:"O texto 'Dedoches' está dividido em duas partes. Qual é a ordem correta dessas partes?",opts:["Primeiro o passo a passo, depois os materiais","Primeiro os materiais necessários, depois o passo a passo","Primeiro uma história, depois os materiais","Primeiro o resultado final, depois os ingredientes"],c:1},{q:"Em textos instrucionais, qual é a função dos verbos usados nas etapas do passo a passo?",opts:["Indicar o tempo em que a história aconteceu","Descrever os sentimentos dos personagens","Rimar com outras palavras do texto","Dizer ao leitor o que ele deve fazer em cada etapa"],c:3},{q:"Qual das opções abaixo é um exemplo de verbo que pode ser usado em um texto instrucional para ensinar a fazer um fantoche?",opts:["Sorri, cantou, brincou","Recorte, cole, enfeite","Está, era, seria","Bonito, colorido, macio"],c:1},{q:"No passo 3 do texto 'Dedoches', qual verificação é recomendada ao leitor?",opts:["Ver se a tinta está seca","Verificar se o molde de papel cabe no dedo","Checar se a tesoura está afiada","Confirmar se o boneco está colorido"],c:1},{q:"Na frase 'O Vento e o Sol fizeram uma aposta', o verbo 'fizeram' indica uma ação que:",opts:["Acontece agora, no momento da fala","Ainda vai acontecer no futuro","Acontece todo dia, sem parar","Já aconteceu antes do momento da fala"],c:3},{q:"Em qual tempo verbal está o verbo 'Desisto' na fala do Vento?",opts:["Presente","Pretérito (passado)","Futuro","Imperativo"],c:0},{q:"Como ficaria a fala 'Desisto' do Vento se o verbo estivesse no passado?",opts:["Desistirei","Vai desistir","Desistia / Desisti","Estou desistindo"],c:2},{q:"Na frase 'Ok, você venceu!', o verbo 'venceu' está no:",opts:["Presente","Futuro","Pretérito (passado)","Gerúndio"],c:2},{q:"Na frase 'O Vento soprará mais forte', o verbo 'soprará' indica uma ação que:",opts:["Já aconteceu","Acontece agora","Ainda vai acontecer","Acontecia sempre no passado"],c:2},{q:"Qual tempo verbal é mais usado nas rubricas de um texto teatral, e por quê?",opts:["Futuro, porque as ações ainda vão acontecer","Passado, porque descreve o que já aconteceu","Presente, porque as rubricas descrevem ações que devem acontecer no momento da encenação","Imperfeito, porque as ações eram contínuas"],c:2},{q:"Muitos verbos no passado terminam em -ou, -eu e -iu. Qual das opções abaixo é um exemplo de verbo no passado?",opts:["Canta","Cantará","Cantando","Cantou"],c:3},{q:"No segundo quadrinho da tirinha 'É Fácil!', Carolina usa dois verbos. 'Ensinei' está no passado. Em que tempo está o verbo 'Tem'?",opts:["Futuro","Presente","Pretérito imperfeito","Pretérito perfeito"],c:1},{q:"Releia: 'Sol aproxima-se do Menino e permanece imóvel.' Em que tempo estão os verbos destacados?",opts:["Presente","Passado","Futuro","Futuro do pretérito"],c:0},{q:"Nas palavras Sol, fácil e imóvel, o que elas têm em comum quanto ao uso das letras?",opts:["Todas terminam com a letra L","Todas terminam com a letra U","Todas têm a letra L no início","Todas têm acento agudo"],c:0},{q:"Nas palavras 'mochila', 'livro' e 'iluminação', a letra L está:",opts:["No final da sílaba, produzindo som de U","No meio de duas consoantes","Sempre antes da letra H","No início da sílaba, antes de uma vogal"],c:3},{q:"Nas palavras 'álbum', 'teatral' e 'filtro', a letra L está no final da sílaba. Qual som ela produz nessa posição?",opts:["Som de 'U' (a letra L vira um som parecido com U)","Som de 'la' como em 'bala'","Som de 'lhe' como em 'folha'","Ela fica muda, sem produzir som"],c:0},{q:"Nas palavras 'soprou', 'venceu' e 'sentiu', o que elas têm em comum no final?",opts:["Todas terminam com a letra U","Todas terminam com a letra L","Todas terminam com a letra O","Todas têm acento circunflexo"],c:0},{q:"Qual das palavras abaixo tem a letra L no final de sílaba, produzindo som parecido com U?",opts:["Leão","Palhaço","Seringal","Lula"],c:2},{q:"Na fala 'Não era vaca nada, muié, era boi!', que sentimento o ponto de exclamação expressa?",opts:["Firmeza e certeza","Dúvida e confusão","Tristeza e saudade","Medo e surpresa"],c:0},{q:"O Galo usa ponto de exclamação na frase 'E tenho dito: cocoricó!'. O que esse sinal revela?",opts:["Insegurança e raiva","Alegria e carinho","Tristeza e desânimo","Indignação e firmeza"],c:3},{q:"Na tirinha 'É Fácil!', qual sinal de pontuação é mais adequado para os dois primeiros balões de Carolina, que faz perguntas com entusiasmo?",opts:["Ponto final (.)","Ponto de exclamação (!)","Reticências (...)","Vírgula (,)"],c:1}]}]},{id:"matematica",icon:"🔢",name:"Matemática",desc:"Em breve",locked:true,comingSoon:true,quizzes:[]},{id:"ciencias",icon:"🔬",name:"Ciências",desc:"Em breve",locked:true,comingSoon:true,quizzes:[]}]},{id:"ac3",label:"AC3",name:"3ª Avaliação",icon:"🏆",theme:"ac-ac3",desc:"Conteúdos do 3º bimestre",locked:true,subjects:[]},{id:"ac4",label:"AC4",name:"4ª Avaliação",icon:"🎯",theme:"ac-ac4",desc:"Conteúdos do 4º bimestre",locked:true,subjects:[]}];
+const AVALIACOES=[{id:"ac1",label:"AC1",name:"1ª Avaliação",icon:"📝",theme:"ac-ac1",desc:"Conteúdos do 1º bimestre",locked:true,subjects:[]},{id:"ac2",label:"AC2",name:"2ª Avaliação",icon:"📚",theme:"ac-ac2",desc:"Conteúdos do 2º bimestre",locked:false,subjects:[{id:"historia",icon:"📖",name:"História",desc:"Ligamundo — Editora Saraiva",locked:false,quizzes:[{title:"Unidade 1 — O início da civilização",desc:"15 perguntas • Vida nômade, Mesopotâmia, Egito, Patrimônio",time:45,tag:"Unidade 1",tagBg:"#EDE9FE",tagColor:"#6B21A8",questions:[{q:"Há cerca de 10 mil anos, como os seres humanos conseguiam seu alimento?",opts:["Caçando animais e coletando frutos na natureza","Comprando em mercados e feiras","Plantando em grandes fazendas","Pescando nos oceanos"],c:0},{q:"O que permitiu que os seres humanos se fixassem em um lugar?",opts:["A invenção do barco","O domínio da agricultura e da criação de animais","A construção de muros e castelos","O surgimento do comércio"],c:1},{q:"A cidade mais antiga Çatal Huyük fica em qual país?",opts:["Egito","Grécia","Turquia","Iraque"],c:2},{q:"Por que as primeiras cidades surgiram perto de grandes rios?",opts:["Para facilitar a pesca de peixes exóticos","Para se proteger de animais selvagens","Porque os rios forneciam água para irrigação e solo fértil","Porque os rios serviam de fronteira entre povos"],c:2},{q:"Como surgiu o comércio nas primeiras civilizações?",opts:["Com a criação das moedas de ouro pelos reis","Com a especialização do trabalho e a troca de produtos","Com a construção de grandes mercados pelos governantes","Com a chegada de barcos estrangeiros"],c:1},{q:"O que significa a palavra Mesopotâmia?",opts:["Terra do sol","Terra dos deuses","Terra de areia","Terra entre rios"],c:3},{q:"Como se chamava o templo no centro das cidades mesopotâmicas?",opts:["Pirâmide","Zigurate","Palácio","Coliseu"],c:1},{q:"Como eram chamados os povos que acreditavam em várias divindades?",opts:["Monoteístas","Ateístas","Politeístas","Sacerdotes"],c:2},{q:"Qual foi o primeiro sistema de escrita do mundo?",opts:["Hieroglífico","Cuneiforme","Alfabeto romano","Papiro"],c:1},{q:"Como se chamavam os especialistas em escrita na Mesopotâmia?",opts:["Sacerdotes","Faraós","Donatários","Escribas"],c:3},{q:"Como se chamava o governante do Egito antigo, considerado um deus?",opts:["Rei","Sacerdote","Faraó","Escriba"],c:2},{q:"Como se chamava o sistema de escrita dos antigos egípcios?",opts:["Cuneiforme","Hieroglífico","Alfabeto fenício","Papiro"],c:1},{q:"Qual povo criou o calendário solar com 365 dias?",opts:["Os mesopotâmicos","Os egípcios","Os chineses","Os gregos"],c:1},{q:"O que é patrimônio cultural?",opts:["Dinheiro guardado no banco","Terras e propriedades de uma família","Prédios modernos das cidades","Bens com valor artístico, histórico ou cultural de um povo"],c:3},{q:"O que é o patrimônio imaterial?",opts:["Monumentos e construções históricas","Museus e sítios arqueológicos","Tradições, danças, receitas culinárias e técnicas de um povo","Objetos de arte guardados em museus"],c:2}]},{title:"Unidade 2 — Quando o Brasil era de Portugal",desc:"11 perguntas • Colonização, capitanias, sociedade colonial",time:45,tag:"Unidade 2",tagBg:"#FEF3C7",tagColor:"#B45309",questions:[{q:"Como se chamavam os locais estratégicos usados pelos portugueses para trocar mercadorias?",opts:["Capitanias","Feitorias","Engenhos","Aldeias"],c:1},{q:"Em 1500, o que os portugueses mais queriam encontrar no Brasil?",opts:["Animais exóticos","Frutas tropicais","Riquezas como ouro e prata","Terras para morar"],c:2},{q:"O que é biopirataria?",opts:["A pesca ilegal em rios","O tráfico de animais silvestres","A derrubada ilegal de árvores","A apropriação ilegal dos conhecimentos tradicionais dos povos da floresta"],c:3},{q:"Como se chamava o sistema criado em 1534 para dividir o território brasileiro?",opts:["Governo-geral","Império marítimo","Capitanias hereditárias","Feitorias"],c:2},{q:"Quem foi o primeiro governador-geral do Brasil e qual cidade fundou?",opts:["Pedro Álvares Cabral — Rio de Janeiro","Dom Pedro I — São Paulo","Tomé de Sousa — Salvador","Dom João VI — Recife"],c:2},{q:"Como eram chamados cacau, cravo, canela e baunilha no período colonial?",opts:["Especiarias do mar","Frutos da terra","Drogas do sertão","Produtos do reino"],c:2},{q:"Como os colonos chamavam os indígenas aprisionados como escravos?",opts:["Donatários","Homens livres","Negros da terra","Bandeirantes"],c:2},{q:"Quem trabalhava nos engenhos de cana-de-açúcar no Brasil colonial?",opts:["Soldados portugueses","Africanos escravizados","Comerciantes europeus","Nobres portugueses"],c:1},{q:"Qual era o papel da mulher europeia que chegava ao Brasil colonial?",opts:["Governar as capitanias","Trabalhar nos engenhos","Casar com os colonos, ter filhos e educá-los na religião","Comandar o comércio nas cidades"],c:2},{q:"Como era dividida a sociedade colonial brasileira?",opts:["Reis, cavaleiros e camponeses","Senhores de terra, homens livres e escravizados","Professores, alunos e pais","Padres, soldados e comerciantes"],c:1},{q:"A Constituição de 1988 garante quais direitos aos povos indígenas?",opts:["O direito de cobrar impostos","O direito de governar o país","O direito de manter sua cultura, língua e posse de suas terras tradicionais","O direito de criar suas próprias leis para todo o Brasil"],c:2}]}]},{id:"geografia",icon:"🌍",name:"Geografia",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[{title:"Cap. 1 — O planeta Terra e sua superfície",desc:"15 perguntas • Rotação, translação, continentes, mapas",time:45,tag:"Capítulo 1",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"Quais são os dois principais movimentos da Terra?",opts:["Rotação e translação","Atração e repulsão","Gravidade e órbita","Inclinação e elevação"],c:0},{q:"O que é o movimento de rotação da Terra?",opts:["O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","A Terra girando em torno de si mesma","O movimento do Sol pelo céu"],c:2},{q:"Quanto tempo a Terra leva para um giro completo no movimento de rotação?",opts:["7 dias (uma semana)","12 horas (meio dia)","365 dias (um ano)","Aproximadamente 24 horas (um dia)"],c:3},{q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de translação ao redor do Sol","O movimento de rotação em torno do eixo da Terra","A inclinação da Lua sobre a Terra","A distância entre a Terra e o Sol"],c:1},{q:"O que é o movimento de translação da Terra?",opts:["A Terra se movendo ao redor do Sol","A Terra girando em torno de si mesma","O Sol girando em torno da Terra","A Lua girando em torno da Terra"],c:0},{q:"O que origina as quatro estações do ano?",opts:["A distância entre a Lua e a Terra","As chuvas e ventos que mudam o clima","O movimento de rotação da Terra","O movimento de translação e a luz solar nas partes do planeta"],c:3},{q:"A superfície da Terra é uma esfera perfeita?",opts:["Sim, é completamente lisa e redonda","Não, pois apresenta muitas irregularidades","Sim, mas só nas regiões dos oceanos","Não, pois a Terra tem formato quadrado"],c:1},{q:"Como se chama o modelo que representa as irregularidades da superfície terrestre?",opts:["Planisfério","Globo terrestre","Geoide","Mapa-múndi"],c:2},{q:"Como se chama a superfície da Terra que fica ACIMA do nível das águas?",opts:["Terras imersas","Terras submersas","Terras aquáticas","Terras emersas"],c:3},{q:"Quantos continentes existem na Terra?",opts:["6 continentes","4 continentes","5 continentes","7 continentes"],c:0},{q:"Qual é a diferença entre uma ilha e um continente?",opts:["Continentes têm vegetação e ilhas não têm","Ilhas são habitadas e continentes não","Ilhas ficam nos rios e continentes nos oceanos","Ilhas são menores; continentes são bem mais extensos"],c:3},{q:"Como se chamam os mapas que representam TODA a superfície da Terra em folha plana?",opts:["Globos terrestres","Geoides","Planisfério ou mapa-múndi","Imagens de satélite"],c:2},{q:"Como são obtidas as imagens de satélite da Terra?",opts:["Por câmeras no fundo dos oceanos","Por fotógrafos em helicópteros","Por equipamentos em satélites artificiais que orbitam a Terra","Por telescópios em montanhas"],c:2},{q:"Qual é a vantagem do globo terrestre como representação da Terra?",opts:["Pode ser impresso em papel facilmente","É um modelo esférico com cada parte em posição aproximada","Mostra toda a superfície de uma só vez","Mostra detalhes de ruas e bairros"],c:1},{q:"Nos mapas, com qual cor as águas de rios, mares e oceanos são representadas?",opts:["Verde","Amarelo","Marrom","Azul"],c:3}]},{title:"Cap. 3 — Comunicação e transporte no Brasil",desc:"15 perguntas • Meios de transporte e comunicação",time:45,tag:"Capítulo 3",tagBg:"#D6EAF8",tagColor:"#1D4ED8",questions:[{q:"Qual é o meio de transporte mais utilizado no Brasil atualmente?",opts:["Ferroviário","Aquaviário","Rodoviário","Aéreo"],c:2},{q:"Qual é uma desvantagem do transporte rodoviário no Brasil?",opts:["Grande parte das vias tem buracos e falta boa sinalização","As estradas são muito estreitas","Os ônibus são muito lentos","Não existem estradas ligando os estados"],c:0},{q:"Qual é a principal vantagem do transporte ferroviário?",opts:["Os trens chegam a todos os municípios","O trem é o transporte mais rápido do mundo","Grande capacidade de carga e menos poluente","As ferrovias custam menos para construir"],c:2},{q:"O que é o transporte aquaviário?",opts:["Transporte feito por aviões sobre o oceano","Transporte feito por balões","Transporte feito por tubulações subterrâneas","Transporte que usa rios, lagos e oceanos para locomoção"],c:3},{q:"Qual é a principal vantagem do transporte aéreo?",opts:["É o mais barato para todas as pessoas","Permite deslocamentos a longas distâncias com rapidez","Pode ser usado em todos os municípios","Não polui o meio ambiente"],c:1},{q:"O que são meios de comunicação de massa?",opts:["Meios usados apenas pelo governo","Meios de comunicação só entre duas pessoas","Meios usados só nas escolas","Meios que transmitem informações a um grande número de pessoas"],c:3},{q:"Qual foi o primeiro meio de comunicação de massa no Brasil?",opts:["A televisão","A internet","O rádio","O jornal impresso"],c:3},{q:"Em que década o rádio teve início no Brasil?",opts:["Na década de 1900","Na década de 1920","Na década de 1950","Na década de 1970"],c:1},{q:"Quando a televisão se popularizou no Brasil?",opts:["Na década de 1920","Na década de 1940","Na década de 1990","A partir da década de 1970"],c:3},{q:"Quando o telefone chegou ao Brasil?",opts:["Em 1950","Em 1920","Em 1876","Em 1990"],c:2},{q:"O que é a internet?",opts:["Uma rede global que interliga aparelhos para trocar informações","Um tipo de televisão com mais canais","Um serviço de rádio por satélite","Um aplicativo de celular para chamadas"],c:0},{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitui os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},{q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},{q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},{q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}]}]},{id:"portugues",icon:"✏️",name:"Língua Portuguesa",desc:"Projeto Presente — Editora Moderna",locked:false,quizzes:[{title:"Cap. 1 e 2 — Substantivos, adjetivos, verbos e mais",desc:"30 perguntas • Texto teatral, tempos verbais, pontuação, L e U",time:45,tag:"Cap. 1 e 2",tagBg:"#FCE4EC",tagColor:"#880E4F",questions:[{q:"O texto teatral é criado principalmente para:",opts:["Ser lido em silêncio, como um romance","Ser encenado por atores em um palco","Ser cantado como uma música","Ser usado como receita de culinária"],c:1},{q:"Na peça 'O Vento e o Sol', as indicações em itálico como 'Menino começa a sentir frio e veste a blusa' são chamadas de:",opts:["Diálogos","Rubricas","Narrações","Estrofes"],c:1},{q:"Para que servem os nomes em destaque que aparecem antes das falas em um texto teatral (por exemplo: POMBO 1, VENTO)?",opts:["Para indicar o cenário da cena","Para mostrar o tempo da história","Para indicar quem vai falar","Para descrever o figurino das personagens"],c:2},{q:"Qual é a principal diferença entre um texto teatral e um conto?",opts:["O texto teatral tem rimas e o conto não","O texto teatral é escrito para ser encenado e o conto para ser lido","O texto teatral não tem personagens","O conto é sempre mais curto que o texto teatral"],c:1},{q:"O que são 'atos' e 'cenas' em um texto teatral?",opts:["São divisões do texto teatral, como capítulos em um livro","São os nomes dos personagens principais","São as músicas cantadas durante a peça","São os cenários onde a peça acontece"],c:0},{q:"O que é uma rubrica em um texto teatral?",opts:["É o nome do autor da peça","É a fala principal do personagem","É o título de cada cena","São indicações sobre como os atores devem agir, o cenário e os movimentos"],c:3},{q:"Em um texto teatral, o que indica a palavra 'CORO' antes de uma fala?",opts:["Que todos os personagens falam ao mesmo tempo","Que apenas um personagem fala","Que a fala deve ser sussurrada","Que o personagem está cantando"],c:0},{q:"Qual é a função do cenário em uma peça de teatro?",opts:["Substituir os personagens quando eles saem do palco","Indicar quem é o autor do texto","Mostrar o nome do diretor da peça","Criar o ambiente e o local onde a história acontece"],c:3},{q:"O texto sobre 'Dedoches' é um texto instrucional. Qual é o principal objetivo desse tipo de texto?",opts:["Contar uma história de aventura","Convencer o leitor de uma ideia","Descrever paisagens bonitas","Ensinar como fazer algo, passo a passo"],c:3},{q:"Qual é a estrutura básica de um texto instrucional como uma receita ou manual?",opts:["Título, introdução e moral da história","Título, personagens e conflito","Título, estrofes e versos","Título, lista de materiais e passo a passo"],c:3},{q:"Em textos instrucionais, qual é a função dos verbos usados nas etapas do passo a passo?",opts:["Dizer ao leitor o que ele deve fazer em cada etapa","Indicar o tempo em que a história aconteceu","Descrever os sentimentos dos personagens","Rimar com outras palavras do texto"],c:0},{q:"Qual das opções abaixo é um exemplo de verbo que pode ser usado em um texto instrucional para ensinar a fazer um fantoche?",opts:["Sorri, cantou, brincou","Está, era, seria","Recorte, cole, enfeite","Bonito, colorido, macio"],c:2},{q:"Por que os textos instrucionais usam números ou marcadores no passo a passo?",opts:["Para deixar o texto mais bonito","Para mostrar quantos personagens existem","Para indicar a ordem em que as ações devem ser feitas","Para separar as palavras difíceis"],c:2},{q:"Na frase 'O Vento e o Sol fizeram uma aposta', o verbo 'fizeram' indica uma ação que:",opts:["Acontece agora, no momento da fala","Ainda vai acontecer no futuro","Já aconteceu antes do momento da fala","Acontece todo dia, sem parar"],c:2},{q:"Qual das frases abaixo está no tempo presente?",opts:["Ontem eu brinquei no parque","Eu gosto muito de ler","Amanhã eu vou estudar","Semana passada eu comi pizza"],c:1},{q:"Qual das frases abaixo está no pretérito imperfeito (ação que acontecia com frequência no passado)?",opts:["Eu comia arroz todo dia quando era criança","Eu comerei arroz amanhã","Eu comi arroz ontem","Eu como arroz todo dia agora"],c:0},{q:"Na frase 'Ok, você venceu!', o verbo 'venceu' está no:",opts:["Presente","Futuro","Pretérito (passado)","Gerúndio"],c:2},{q:"Na frase 'O Vento soprará mais forte', o verbo 'soprará' indica uma ação que:",opts:["Ainda vai acontecer","Já aconteceu","Acontece agora","Acontecia sempre no passado"],c:0},{q:"Qual tempo verbal é mais usado nas rubricas de um texto teatral, e por quê?",opts:["Futuro, porque as ações ainda vão acontecer","Passado, porque descreve o que já aconteceu","Imperfeito, porque as ações eram contínuas","Presente, porque as rubricas descrevem ações que devem acontecer no momento da encenação"],c:3},{q:"Muitos verbos no passado terminam em -ou, -eu e -iu. Qual das opções abaixo é um exemplo de verbo no passado?",opts:["Canta","Cantará","Cantou","Cantando"],c:2},{q:"No segundo quadrinho da tirinha 'É Fácil!', Carolina usa dois verbos. 'Ensinei' está no passado. Em que tempo está o verbo 'Tem'?",opts:["Futuro","Pretérito imperfeito","Presente","Pretérito perfeito"],c:2},{q:"Qual é a forma correta do verbo 'cantar' no pretérito perfeito (passado)?",opts:["Cantarei","Cantava","Cantou","Cantando"],c:2},{q:"Nas palavras Sol, fácil e imóvel, o que elas têm em comum quanto ao uso das letras?",opts:["Todas terminam com a letra U","Todas terminam com a letra L","Todas têm a letra L no início","Todas têm acento agudo"],c:1},{q:"Nas palavras 'mochila', 'livro' e 'iluminação', a letra L está:",opts:["No início da sílaba, antes de uma vogal","No final da sílaba, produzindo som de U","No meio de duas consoantes","Sempre antes da letra H"],c:0},{q:"Nas palavras 'álbum', 'teatral' e 'filtro', a letra L está no final da sílaba. Qual som ela produz nessa posição?",opts:["Som de 'la' como em 'bala'","Som de 'lhe' como em 'folha'","Ela fica muda, sem produzir som","Som de 'U' (a letra L vira um som parecido com U)"],c:3},{q:"Nas palavras 'soprou', 'venceu' e 'sentiu', o que elas têm em comum no final?",opts:["Todas terminam com a letra U","Todas terminam com a letra L","Todas terminam com a letra O","Todas têm acento circunflexo"],c:0},{q:"Qual das palavras abaixo tem a letra L no final de sílaba, produzindo som parecido com U?",opts:["Seringal","Leão","Palhaço","Lula"],c:0},{q:"Qual é a função do ponto de exclamação (!)?",opts:["Indicar uma pergunta","Expressar emoções fortes como alegria, surpresa, ordem ou indignação","Indicar que o texto continua","Separar palavras em uma lista"],c:1},{q:"Em qual situação usamos reticências (...) em um texto?",opts:["Para encerrar uma frase com emoção forte","Para indicar que a ideia ficou incompleta ou que há uma pausa de suspense","Para fazer uma pergunta","Para separar itens de uma lista"],c:1},{q:"Na tirinha 'É Fácil!', qual sinal de pontuação é mais adequado para os dois primeiros balões de Carolina, que faz perguntas com entusiasmo?",opts:["Ponto final (.)","Reticências (...)","Vírgula (,)","Ponto de exclamação (!)"],c:3}]}]},{id:"matematica",icon:"🔢",name:"Matemática",desc:"Em breve",locked:true,comingSoon:true,quizzes:[]},{id:"ciencias",icon:"🔬",name:"Ciências",desc:"Buriti Mais Ciências — Editora Moderna",locked:false,quizzes:[{title:"Bloco 1 — Terra, Lua e Espaço Sideral",desc:"15 perguntas • Movimentos da Terra, fases da Lua, telescópios e viagens espaciais",time:45,tag:"Bloco 1",tagBg:"#E0F2FE",tagColor:"#0369A1",questions:[{q:"Qual movimento da Terra causa a alternância entre o dia e a noite?",opts:["Translação, ao redor do Sol","Rotação, em torno do próprio eixo","Inclinação do eixo terrestre","Atração gravitacional da Lua"],c:1},{q:"Quanto tempo a Terra leva para completar uma volta ao redor do Sol?",opts:["24 horas","7 dias","365 dias","29 dias"],c:2},{q:"O que causa as quatro estações do ano?",opts:["A translação da Terra e a inclinação do seu eixo","A rotação da Terra em torno de si mesma","A distância entre a Terra e a Lua","A distância entre a Terra e o Sol"],c:0},{q:"Quanto tempo a Lua leva para dar uma volta completa ao redor da Terra?",opts:["24 horas","7 dias","365 dias","Cerca de 29 dias"],c:3},{q:"Por que sempre vemos o mesmo lado da Lua da Terra?",opts:["Porque a Lua leva o mesmo tempo para girar em torno de si e ao redor da Terra","Porque a Lua reflete a luz do Sol","Porque a Lua não gira","Porque a Lua está muito longe"],c:0},{q:"A Lua produz luz própria?",opts:["Sim, ela tem um núcleo que brilha","Não, ela reflete a luz do Sol","Sim, mas só durante a lua cheia","Não, ela reflete a luz da Terra"],c:1},{q:"Quais são as quatro fases da Lua, na ordem correta?",opts:["Crescente, Cheia, Minguante, Nova","Nova, Crescente, Cheia, Minguante","Cheia, Nova, Crescente, Minguante","Minguante, Nova, Crescente, Cheia"],c:1},{q:"Quem é considerado o inventor do telescópio astronômico?",opts:["Isaac Newton","Albert Einstein","Galileu Galilei","Nicolau Copérnico"],c:2},{q:"Qual é a diferença entre o telescópio refrator e o refletor?",opts:["O refrator é maior e o refletor é menor","O refrator usa lentes e o refletor usa espelhos","O refrator observa o Sol e o refletor observa as estrelas","O refrator é terrestre e o refletor é espacial"],c:1},{q:"Para que servem os radiotelescópios?",opts:["Para ampliar imagens visíveis do espaço","Para transmitir rádio para outros planetas","Para captar ondas de rádio emitidas por estrelas e galáxias","Para se comunicar com astronautas"],c:2},{q:"O que é um satélite artificial?",opts:["Uma estrela que orbita a Terra","Um equipamento lançado ao espaço com funções como comunicação e observação","Uma rocha espacial que orbita a Terra","Uma nave tripulada permanente"],c:1},{q:"O que é a Estação Espacial Internacional (ISS)?",opts:["Um laboratório espacial onde astronautas vivem e pesquisam","Um satélite de comunicação","Um telescópio no espaço","Uma base na superfície da Lua"],c:0},{q:"Para que servem as sondas espaciais?",opts:["Para transportar astronautas à Lua","Para captar sinais de rádio de outras galáxias","Para consertar satélites artificiais","Para explorar planetas e regiões distantes do espaço"],c:3},{q:"Onde fica o Centro de Lançamento de foguetes do Brasil?",opts:["Canaveral, Flórida","Brasília, Distrito Federal","Alcântara, Maranhão","Fortaleza, Ceará"],c:2},{q:"Por que o eixo inclinado da Terra é importante para a vida no planeta?",opts:["Ele faz a Terra girar mais rápido","Ele mantém a Lua em órbita","Ele aumenta a força da gravidade","Ele é responsável pela existência das estações do ano, criando variações climáticas"],c:3}]},{title:"Bloco 2 — O Ar e a Atmosfera",desc:"15 perguntas • Composição do ar, propriedades, atmosfera e poluição",time:45,tag:"Bloco 2",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"O ar existe apenas no céu, longe da superfície da Terra?",opts:["Não, o ar existe em toda parte: na água, no solo e dentro dos seres vivos","Sim, o ar só existe nas alturas","Sim, o ar fica apenas na atmosfera superior","Não, o ar existe apenas perto de rios e mares"],c:0},{q:"Qual é o principal componente do ar atmosférico?",opts:["Oxigênio (O₂)","Dióxido de carbono (CO₂)","Nitrogênio (N₂)","Vapor d'água"],c:2},{q:"Qual é a porcentagem aproximada de oxigênio no ar?",opts:["78%","21%","50%","5%"],c:1},{q:"O que é a atmosfera terrestre?",opts:["A camada de água que cobre os oceanos","A camada de solo fértil da Terra","O conjunto de montanhas ao redor do planeta","A camada de gases que envolve e protege a Terra"],c:3},{q:"Qual das opções abaixo prova que o ar ocupa espaço?",opts:["O ar não pode ser sentido","O ar não tem peso","Uma bola ou pneu inflado fica cheio graças ao ar","O ar não exerce pressão"],c:2},{q:"O que é o vento?",opts:["O ar em movimento","Um gás diferente do ar comum","Ar frio descendo das montanhas","Ar quente subindo das cidades"],c:0},{q:"Como podemos perceber que o ar tem peso?",opts:["Pelo cheiro do ar puro na natureza","Pelos pneus de carro que ficam cheios e murcham","Pelo som que o vento faz","Pela cor azul do céu"],c:1},{q:"O que é a camada de ozônio?",opts:["Uma camada de fumaça industrial na atmosfera","Uma camada de nuvens na parte superior da atmosfera","Uma camada de nitrogênio na superfície da Terra","Uma camada de gás que protege a Terra dos raios ultravioleta do Sol"],c:3},{q:"Qual gás é o principal responsável pelo efeito estufa?",opts:["Nitrogênio (N₂)","Oxigênio (O₂)","Dióxido de carbono (CO₂)","Hidrogênio (H₂)"],c:2},{q:"O que é o efeito estufa?",opts:["O aquecimento da Terra pela retenção excessiva de calor pelos gases atmosféricos","A destruição da camada de ozônio pelos raios solares","O resfriamento da Terra pela falta de gases na atmosfera","A formação de chuva ácida nas grandes cidades"],c:0},{q:"Qual gás artificial é responsável pela destruição da camada de ozônio?",opts:["CO₂ (dióxido de carbono)","N₂ (nitrogênio)","CFC (clorofluorcarbono)","O₂ (oxigênio)"],c:2},{q:"O que aconteceria com a Terra se não houvesse atmosfera?",opts:["Ficaria mais bonita, com o céu mais limpo","A vida não seria possível, pois não haveria proteção nem ar para respirar","Apenas os animais sobreviveriam","A vida continuaria normalmente"],c:1},{q:"Quais são as principais fontes de poluição do ar nas cidades?",opts:["Plantas e árvores que soltam gases","Rios e lagos com águas sujas","Fumaça de fábricas, escapamentos de carros e queimadas","Chuva e tempestades"],c:2},{q:"Por que a queimada de florestas prejudica a atmosfera?",opts:["Porque diminui o vento na região","Porque aumenta a quantidade de oxigênio","Porque esfria demais a atmosfera","Porque libera fumaça e gases poluentes como CO₂ no ar"],c:3},{q:"Qual das ações abaixo ajuda a reduzir a poluição do ar?",opts:["Usar mais carros com motor a gasolina","Usar transportes coletivos e bicicletas, e plantar árvores","Aumentar o número de fábricas sem filtros","Fazer mais queimadas para limpar terrenos"],c:1}]}]}]},{id:"ac3",label:"AC3",name:"3ª Avaliação",icon:"🏆",theme:"ac-ac3",desc:"Conteúdos do 3º bimestre",locked:true,subjects:[]},{id:"ac4",label:"AC4",name:"4ª Avaliação",icon:"🎯",theme:"ac-ac4",desc:"Conteúdos do 4º bimestre",locked:true,subjects:[]}];
 
-/* ══════════════════════════
-   UTILITÁRIOS — definidos primeiro
-══════════════════════════ */
-function showToast(msg){
-  var t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(function(){t.classList.remove('show');},2500);
-}
+/* ═══════════════════════════════════
+   CONTEÚDO DE ESTUDO POR MATÉRIA
+═══════════════════════════════════ */
+const ESTUDO_CONTEUDO = {
+  historia: {
+    icon:'📖', name:'História',
+    cor:'#EDE9FE', corBorda:'#C4B5FD', corTexto:'#4C1D95',
+    secoes:[
+      {
+        titulo:'📜 Unidade 1 — O início da civilização',
+        cor:'#EDE9FE', corTitulo:'#4C1D95',
+        blocos:[
+          {titulo:'🏕️ Da vida nômade à sedentária', texto:'Há cerca de 10 mil anos, os humanos eram nômades: caçavam e coletavam frutas. Quando aprenderam a plantar e criar animais, passaram a se fixar em um lugar — surgindo as primeiras aldeias e cidades.', chips:['Nômade = sem lugar fixo','Sedentário = com lugar fixo','Agricultura = plantar','Pecuária = criar animais']},
+          {titulo:'🏛️ Mesopotâmia', texto:'A Mesopotâmia (que significa "terra entre rios") ficava entre os rios Tigre e Eufrates. Lá surgiram as primeiras cidades. Os templos chamados zigurates ficavam no centro das cidades. Os sumérios criaram a escrita cuneiforme e os escribas eram especialistas em escrever.', chips:['Zigurate = templo','Cuneiforme = 1ª escrita do mundo','Escribas = especialistas em escrita','Politeístas = vários deuses']},
+          {titulo:'🐫 Egito Antigo', texto:'O Egito se desenvolveu às margens do rio Nilo, que fertilizava as terras. O faraó era o governante considerado um deus. Os egípcios criaram os hieroglíficos e o calendário solar com 365 dias.', chips:['Faraó = governante-deus','Hieroglífico = escrita egípcia','365 dias = calendário egípcio','Nilo = rio sagrado']},
+          {titulo:'🏛️ Patrimônio Cultural', texto:'Patrimônio cultural são bens com valor artístico, histórico ou cultural de um povo. O patrimônio material são construções e objetos. O patrimônio imaterial são tradições, danças, receitas culinárias e técnicas transmitidas de geração em geração.', chips:['Material = construções e objetos','Imaterial = tradições e costumes','UNESCO = protege patrimônios']},
+        ],
+        mapa:{
+          centro:'Início da Civilização',
+          cor:'#4C1D95',
+          nos:[
+            {titulo:'Vida Nômade', itens:['Caça e coleta','Sem lugar fixo','Dependia da natureza'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Mesopotâmia', itens:['Terra entre rios','Zigurates','Escrita cuneiforme'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Egito', itens:['Rio Nilo','Faraós e pirâmides','Hieroglíficos'], bg:'#FEF3C7', tc:'#78350F'},
+            {titulo:'Patrimônio', itens:['Material e imaterial','Protegido pela UNESCO','Identidade cultural'], bg:'#FEE2E2', tc:'#7F1D1D'},
+          ]
+        },
+        dica:'Lembre-se: a Mesopotâmia fica entre dois rios (Tigre e Eufrates) e o Egito fica às margens do Nilo. O Faraó = governante do Egito. Escribas = especialistas em escrita na Mesopotâmia.'
+      },
+      {
+        titulo:'🇧🇷 Unidade 2 — Quando o Brasil era de Portugal',
+        cor:'#FEF3C7', corTitulo:'#78350F',
+        blocos:[
+          {titulo:'⚓ Império Marítimo Português', texto:'Os portugueses criavam feitorias — locais para trocar mercadorias — pelo mundo. Em 1500 chegaram ao Brasil. Além do pau-brasil, exploraram as "drogas do sertão": cacau, cravo, canela e baunilha.', chips:['Feitorias = postos de troca','Pau-brasil = 1º produto explorado','Drogas do sertão = especiarias']},
+          {titulo:'🗺️ Capitanias Hereditárias', texto:'Em 1534, Portugal dividiu o Brasil em capitanias hereditárias para facilitar a colonização. Em 1549, Tomé de Sousa foi o primeiro governador-geral e fundou a cidade de Salvador.', chips:['1534 = capitanias hereditárias','Tomé de Sousa = 1º governador-geral','Salvador = 1ª capital do Brasil']},
+          {titulo:'⛓️ Sociedade Colonial', texto:'A sociedade colonial era dividida em: senhores de terra (donos dos engenhos), homens livres e escravizados. Os indígenas aprisionados eram chamados de "negros da terra". Africanos escravizados trabalhavam nos engenhos de cana-de-açúcar.', chips:['Negros da terra = indígenas escravizados','Engenhos = fábricas de açúcar','Africanos escravizados = mão de obra forçada']},
+          {titulo:'⚖️ Direitos Indígenas', texto:'A Constituição de 1988 garante aos povos indígenas o direito de manter sua cultura, língua e a posse de suas terras tradicionais. A biopirataria é a apropriação ilegal dos conhecimentos tradicionais dos povos da floresta.', chips:['CF 1988 = protege indígenas','Biopirataria = roubo de conhecimento','Terra indígena = direito garantido']},
+        ],
+        mapa:{
+          centro:'Brasil Colonial',
+          cor:'#78350F',
+          nos:[
+            {titulo:'Chegada', itens:['1500 – Cabral','Feitorias','Pau-brasil'], bg:'#FEF3C7', tc:'#78350F'},
+            {titulo:'Organização', itens:['Capitanias (1534)','Governo-geral (1549)','Salvador = capital'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Sociedade', itens:['Senhores de terra','Homens livres','Escravizados'], bg:'#FEE2E2', tc:'#7F1D1D'},
+            {titulo:'Hoje', itens:['CF 1988','Direitos indígenas','Biopirataria ilegal'], bg:'#EDE9FE', tc:'#4C1D95'},
+          ]
+        },
+        dica:'Atenção: capitanias hereditárias = 1534. Tomé de Sousa = 1º governador-geral = fundou Salvador. "Drogas do sertão" não são remédios — são especiarias como cacau, cravo e canela!'
+      }
+    ]
+  },
+  geografia: {
+    icon:'🌍', name:'Geografia',
+    cor:'#D5F5E3', corBorda:'#6EE7B7', corTexto:'#065F46',
+    secoes:[
+      {
+        titulo:'🌍 Cap. 1 — O Planeta Terra',
+        cor:'#D5F5E3', corTitulo:'#065F46',
+        blocos:[
+          {titulo:'🔄 Movimentos da Terra', texto:'A Terra realiza dois movimentos principais. A rotação é o giro da Terra em torno de si mesma — dura 24 horas e causa o dia e a noite. A translação é o movimento da Terra ao redor do Sol — dura 365 dias e causa as 4 estações do ano.', chips:['Rotação = 24h = dia e noite','Translação = 365 dias = estações','Eixo inclinado = estações diferentes']},
+          {titulo:'🌐 Forma e Superfície', texto:'A Terra não é uma esfera perfeita — ela tem muitas irregularidades. O modelo que representa essas irregularidades chama-se geoide. A superfície acima do nível das águas é chamada de terras emersas.', chips:['Geoide = forma real da Terra','Terras emersas = acima d\'água','Terras submersas = abaixo d\'água']},
+          {titulo:'🗺️ Continentes e Representações', texto:'Existem 6 continentes no planeta. Ilhas são menores que continentes. O planisfério ou mapa-múndi representa toda a superfície da Terra em folha plana. O globo terrestre é o modelo mais fiel — esférico. Imagens de satélite são obtidas por equipamentos em satélites artificiais.', chips:['6 continentes','Planisfério = mapa plano','Globo = modelo esférico','Satélites = imagens aéreas']},
+        ],
+        mapa:{
+          centro:'Planeta Terra',
+          cor:'#065F46',
+          nos:[
+            {titulo:'Rotação', itens:['Gira em torno de si','Dura 24 horas','Causa dia e noite'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Translação', itens:['Ao redor do Sol','Dura 365 dias','Causa as estações'], bg:'#D6EAF8', tc:'#185FA5'},
+            {titulo:'Superfície', itens:['Geoide (forma real)','Terras emersas','Terras submersas'], bg:'#FEF3C7', tc:'#78350F'},
+            {titulo:'Mapas', itens:['Planisfério = plano','Globo = esférico','Imagens de satélite'], bg:'#EDE9FE', tc:'#4C1D95'},
+          ]
+        },
+        dica:'Rotação = gira em si mesma = dia/noite (24h). Translação = ao redor do Sol = estações (365 dias). São dois movimentos DIFERENTES!'
+      },
+      {
+        titulo:'🚛 Cap. 3 — Transporte e Comunicação',
+        cor:'#D6EAF8', corTitulo:'#185FA5',
+        blocos:[
+          {titulo:'🛣️ Meios de Transporte', texto:'O transporte rodoviário (estradas) é o mais usado no Brasil, mas tem problemas como buracos e falta de sinalização. O ferroviário (trens) tem grande capacidade de carga e é menos poluente. O aquaviário usa rios, lagos e oceanos. O aéreo é o mais rápido para longas distâncias.', chips:['Rodoviário = estradas (+ usado)','Ferroviário = trens (+ carga)','Aquaviário = rios e oceanos','Aéreo = mais rápido']},
+          {titulo:'📻 Meios de Comunicação', texto:'O jornal impresso foi o primeiro meio de comunicação de massa. O rádio teve início no Brasil na década de 1920. A televisão se popularizou a partir da década de 1970. O telefone chegou ao Brasil em 1876. A internet é uma rede global que conecta pessoas e informações.', chips:['Jornal = 1º meio de massa','Rádio = década de 1920','TV = popular desde 1970','Telefone = chegou em 1876','Internet = rede global']},
+          {titulo:'🌱 Tecnologia e Futuro', texto:'Durante a pandemia de Covid-19 em 2020, as aulas passaram a ser on-line. Os veículos elétricos não emitem gases poluentes por usarem eletricidade. A tecnologia facilita a integração nacional e o acesso à informação.', chips:['2020 = aulas on-line (COVID)','Elétrico = não polui','Internet = integração nacional']},
+        ],
+        mapa:{
+          centro:'Transporte e Comunicação',
+          cor:'#185FA5',
+          nos:[
+            {titulo:'Transporte', itens:['Rodoviário = + usado','Ferroviário = + carga','Aquaviário e Aéreo'], bg:'#D6EAF8', tc:'#185FA5'},
+            {titulo:'Comunicação', itens:['Jornal = 1º','Rádio = 1920','TV popular = 1970'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Internet', itens:['Rede global','Integração nacional','Aulas on-line 2020'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Futuro', itens:['Carros elétricos','Sem poluição','Tecnologia limpa'], bg:'#FEF3C7', tc:'#78350F'},
+          ]
+        },
+        dica:'O transporte RODOVIÁRIO é o mais usado no Brasil (estradas). O FERROVIÁRIO (trens) é mais eficiente para carga. O RÁDIO surgiu nos anos 1920 e a TV se popularizou nos anos 1970.'
+      }
+    ]
+  },
+  ciencias: {
+    icon:'🔬', name:'Ciências',
+    cor:'#E0F2FE', corBorda:'#7DD3FC', corTexto:'#0369A1',
+    secoes:[
+      {
+        titulo:'🚀 Bloco 1 — A Terra, a Lua e o Espaço Sideral',
+        cor:'#E0F2FE', corTitulo:'#0369A1',
+        blocos:[
+          {titulo:'🌍 A Terra se move', texto:'A Terra realiza dois movimentos principais. A rotação é o giro em torno de seu próprio eixo — dura cerca de 24 horas e causa o dia e a noite. A translação é o movimento ao redor do Sol — dura 365 dias e causa as estações do ano. O eixo da Terra é inclinado, o que explica por que o verão e o inverno acontecem em épocas diferentes nos hemisférios norte e sul.', chips:['Rotação = 24h = dia e noite','Translação = 365 dias = estações','Eixo inclinado = estações diferentes','Hemisfério = metade da Terra']},
+          {titulo:'🌕 A Lua se move', texto:'A Lua também realiza dois movimentos: rotação (em torno de si mesma) e translação (ao redor da Terra), ambos levando cerca de 29 dias. Por isso, sempre vemos o mesmo lado da Lua da Terra! A Lua não produz luz própria — ela reflete a luz do Sol. As fases da Lua são: Nova, Crescente, Cheia e Minguante.', chips:['Lua = translação ao redor da Terra','~29 dias = ciclo lunar','Lua reflete a luz do Sol','Fases: Nova, Crescente, Cheia, Minguante']},
+          {titulo:'🔭 Instrumentos de Observação', texto:'O telescópio é o principal instrumento para observar objetos distantes no espaço. Foi inventado por Galileu Galilei no século XVII. Existe o telescópio refrator (usa lentes) e o refletor (usa espelhos). Os radiotelescópios captam ondas de rádio emitidas por estrelas e galáxias. Observatórios são lugares especiais com telescópios potentes.', chips:['Telescópio = observar o espaço','Galileu Galilei = inventor','Refrator = lentes','Refletor = espelhos','Radiotelescópio = ondas de rádio']},
+          {titulo:'🛸 Viagens e Equipamentos Espaciais', texto:'Satélites artificiais são equipamentos lançados ao espaço para diversas funções: comunicação, previsão do tempo e observação da Terra. A Estação Espacial Internacional (ISS) é um laboratório no espaço onde astronautas vivem e pesquisam. As sondas espaciais exploram planetas e regiões distantes. O Brasil possui o Centro de Lançamento de Alcântara, no Maranhão.', chips:['Satélite artificial = observação/comunicação','ISS = estação espacial','Sondas = exploram planetas','Alcântara/MA = base brasileira']},
+        ],
+        mapa:{
+          centro:'Terra, Lua e Espaço',
+          cor:'#0369A1',
+          nos:[
+            {titulo:'Movimentos da Terra', itens:['Rotação: 24h, dia/noite','Translação: 365 dias','Eixo inclinado = estações'], bg:'#E0F2FE', tc:'#0369A1'},
+            {titulo:'A Lua', itens:['Translação: ~29 dias','Reflete a luz do Sol','4 fases: Nova, Cheia...'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Telescópios', itens:['Galileu = inventor','Refrator = lentes','Refletor = espelhos'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Equipamentos', itens:['Satélites artificiais','ISS = laboratório','Sondas espaciais'], bg:'#FEF3C7', tc:'#78350F'},
+          ]
+        },
+        dica:'Lembre: a ROTAÇÃO é curta (24h) e causa o dia e a noite. A TRANSLAÇÃO é longa (365 dias) e causa as estações. A Lua não tem luz própria — ela REFLETE a luz do Sol!'
+      },
+      {
+        titulo:'💨 Bloco 2 — O Ar e a Atmosfera',
+        cor:'#D5F5E3', corTitulo:'#065F46',
+        blocos:[
+          {titulo:'🌬️ Onde está o ar?', texto:'O ar existe em toda parte: dentro da água, do solo, e até dentro de nós. O ar é uma mistura de gases, principalmente nitrogênio (78%) e oxigênio (21%). A atmosfera é a camada de ar que envolve a Terra, e é ela que nos protege dos raios do Sol e de meteoros. Sem a atmosfera, não haveria vida na Terra.', chips:['Ar = mistura de gases','78% nitrogênio + 21% oxigênio','Atmosfera = camada protetora','Sem atmosfera = sem vida']},
+          {titulo:'🧪 Propriedades do Ar', texto:'O ar ocupa espaço (tem volume), tem peso (é comprimido nas penas e pneus), exerce pressão e pode ser comprimido. Podemos perceber o ar pelo vento, pela respiração, pela bola inflada e pelo balão cheio. O ar em movimento chama-se vento.', chips:['Ar ocupa espaço','Ar tem peso','Ar exerce pressão','Ar pode ser comprimido','Ar em movimento = vento']},
+          {titulo:'🏭 Alterações na Atmosfera', texto:'A poluição do ar acontece quando substâncias nocivas são lançadas na atmosfera, como fumaça de fábricas, escapamentos de carros e queimadas. O efeito estufa é o aquecimento da Terra pela concentração de gases (como CO₂) que retêm o calor. A camada de ozônio protege a Terra dos raios ultravioleta, mas está sendo destruída por gases poluentes como o CFC.', chips:['Poluição = substâncias nocivas no ar','Efeito estufa = aquecimento','CO₂ = gás do efeito estufa','Ozônio = proteção UV','CFC = destrói a camada de ozônio']},
+        ],
+        mapa:{
+          centro:'O Ar e a Atmosfera',
+          cor:'#065F46',
+          nos:[
+            {titulo:'Composição', itens:['78% nitrogênio','21% oxigênio','Mistura de gases'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Propriedades', itens:['Ocupa espaço','Tem peso','Exerce pressão'], bg:'#E0F2FE', tc:'#0369A1'},
+            {titulo:'Atmosfera', itens:['Envolve a Terra','Protege dos raios UV','Sem ela = sem vida'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Poluição', itens:['Efeito estufa = CO₂','Ozônio destruído','Queimadas e fábricas'], bg:'#FEE2E2', tc:'#7F1D1D'},
+          ]
+        },
+        dica:'O ar é composto principalmente de NITROGÊNIO (78%) e OXIGÊNIO (21%). O EFEITO ESTUFA é causado pelo excesso de CO₂. A camada de OZÔNIO nos protege dos raios ultravioleta do Sol!'
+      }
+    ]
+  },
+  portugues: {
+    icon:'✏️', name:'Língua Portuguesa',
+    cor:'#FCE4EC', corBorda:'#F48FB1', corTexto:'#880E4F',
+    secoes:[
+      {
+        titulo:'📝 Cap. 1 — Substantivos, Adjetivos e Mais',
+        cor:'#FCE4EC', corTitulo:'#880E4F',
+        blocos:[
+          {titulo:'🏷️ Substantivo Simples e Composto', texto:'O substantivo simples é formado por apenas um elemento (ex: pé, casa, sol). O substantivo composto é formado por dois ou mais elementos unidos e tem significado próprio (ex: pé-de-moleque, arroz-doce, guarda-chuva). Podem ser unidos com hífen ou sem hífen.', chips:['Simples = 1 elemento: casa','Composto com hífen: arroz-doce','Composto sem hífen: malcasado','Significado diferente das partes!']},
+          {titulo:'🎨 Adjetivo e Locução Adjetiva', texto:'O adjetivo é a palavra que dá características ao substantivo (ex: menino curioso, dia alegre). A locução adjetiva é uma expressão formada por duas ou mais palavras com valor de adjetivo (ex: "de carnaval" = carnavalesco, "do céu" = celeste, "do rei" = real).', chips:['Adjetivo: curioso, alegre, bonito','Locução adjetiva: de carnaval','de carnaval = carnavalesco','do sol = solar']},
+          {titulo:'⚖️ Mas x Mais', texto:'"MAS" indica oposição, contraste — funciona como "porém", "entretanto" (ex: Quero ir, mas não posso). "MAIS" indica adição, quantidade, intensidade (ex: Quero mais sorvete. Ele é mais rápido).', chips:['MAS = oposição (porém)','MAIS = adição ou intensidade','Dica: mas = porém','Dica: mais = muito']},
+          {titulo:'🔗 Preposição', texto:'A preposição é a palavra que liga dois termos, estabelecendo uma relação entre eles. Principais preposições: a, de, em, para, por, até, com, sobre, sem, após. Atenção: preposições são usadas na formação de locuções adjetivas!', chips:['a, de, em, para, por','com, sobre, sem, até, após','Liga dois termos','Usada em locuções adjetivas']},
+        ],
+        mapa:{
+          centro:'Cap. 1 – Língua Portuguesa',
+          cor:'#880E4F',
+          nos:[
+            {titulo:'Substantivo', itens:['Simples: 1 elemento','Composto: 2+ elementos','Ex: pé-de-moleque'], bg:'#FCE4EC', tc:'#880E4F'},
+            {titulo:'Adjetivo', itens:['Dá características','Locução adjetiva','De carnaval = carnavalesco'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Mas x Mais', itens:['Mas = oposição','Mais = adição','Dica: mais = muito'], bg:'#FEF3C7', tc:'#78350F'},
+            {titulo:'Preposição', itens:['Liga dois termos','a, de, em, para','Forma locuções'], bg:'#D5F5E3', tc:'#065F46'},
+          ]
+        },
+        dica:'Para não confundir MAS e MAIS: substitua por "porém". Se funcionar, é MAS. Se não funcionar, é MAIS. Exemplo: "Quero ir, porém não posso" — funciona! Então é MAS.'
+      },
+      {
+        titulo:'🎭 Cap. 2 — Teatro, Verbos e Pontuação',
+        cor:'#EDE9FE', corTitulo:'#4C1D95',
+        blocos:[
+          {titulo:'🎭 Texto Teatral', texto:'O texto teatral é criado para ser encenado por atores no palco. Ele tem: personagens (com nome em destaque antes das falas), rubricas (indicações em itálico sobre ações e expressões), atos (divisões maiores) e cenas (subdivisões). CORO = vários personagens falam juntos.', chips:['Para ser encenado','Rubricas = instruções em itálico','Ato = divisão maior','Cena = subdivisão','CORO = fala coletiva']},
+          {titulo:'📋 Texto Instrucional', texto:'O texto instrucional ensina a fazer algo, com um passo a passo. Estrutura: título + lista de materiais + passo a passo numerado. Os verbos são usados para indicar ações (ex: recorte, cole, enfeite). Exemplos: receita, manual, tutorial.', chips:['Ensina a fazer algo','Título + materiais + passos','Verbos = ordens/instruções','Numerado = ordem importa']},
+          {titulo:'⏱️ Tempos Verbais', texto:'Presente: ação que acontece agora (canto, gosto). Pretérito perfeito: ação já concluída no passado (cantou, comeu, saiu — termina em -ou, -eu, -iu). Pretérito imperfeito: ação habitual ou contínua no passado (cantava, comia). Futuro: ação que vai acontecer (cantará, vai cantar).', chips:['Presente: canto, gosto','Perf.: cantou, comeu, saiu','Imperf.: cantava, comia','Futuro: cantará, vai cantar']},
+          {titulo:'🔤 L ou U no Final de Sílaba', texto:'Quando a letra L está no início de sílaba (antes de vogal), soa como "la, le, li, lo, lu" (ex: mochila, livro). Quando a letra L está no final de sílaba, produz som parecido com U (ex: sol, fácil, teatro-l, ál-bum). Muitos verbos no passado terminam com U: cantou, comeu, saiu.', chips:['L no início: li-vro, mo-chi-la','L no final: sol, fá-cil, tea-tral','Som de U: al-bum, fil-tro','Verbos: cantou, comeu, saiu']},
+          {titulo:'❗ Pontuação Expressiva', texto:'O ponto de exclamação (!) expressa emoções intensas: alegria, surpresa, ordem, indignação. As reticências (...) indicam que a ideia ficou incompleta, há pausa dramática ou algo foi omitido. Esses sinais tornam o texto mais expressivo e emocionante.', chips:['! = emoção intensa','! = alegria, susto, ordem','... = ideia incompleta','... = suspense ou pausa']},
+        ],
+        mapa:{
+          centro:'Cap. 2 – Língua Portuguesa',
+          cor:'#4C1D95',
+          nos:[
+            {titulo:'Texto Teatral', itens:['Para encenação','Rubricas em itálico','Atos e cenas'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Texto Instrucional', itens:['Ensina a fazer','Passo a passo','Verbos de ação'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Tempos Verbais', itens:['Presente: canto','Passado: cantou/cantava','Futuro: cantará'], bg:'#FEF3C7', tc:'#78350F'},
+            {titulo:'L, U e Pontuação', itens:['L final = som de U','Verbos: -ou/-eu/-iu','! e ... = expressão'], bg:'#FCE4EC', tc:'#880E4F'},
+          ]
+        },
+        dica:'Pretérito PERFEITO = ação acabada (-ou, -eu, -iu). Pretérito IMPERFEITO = ação que durava (-ava, -ia). Futuro = vai acontecer (-ará, -erá). E lembre: L no FINAL da sílaba soa como U!'
+      }
+    ]
+  }
+};
 
-function show(id){
-  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-
-function fmtDate(){
-  var d=new Date();
-  return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'})+' '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-}
-
+/* ═══════════════════════════════════
+   ESTADO
+═══════════════════════════════════ */
+var ADMIN_PWD='lucas2025',_ac2=0,_at2=null;
+var MAX_HIST=3, MAX_RANK=10;
+var curPlayer='',curAC=null,curSubj=null,curQuiz=null;
+var curQ=0,score=0,results=[],timer=null,answered=false,rankFilter='all';
+var curMode='quiz';
+var BDGS=['ba','bb','bc','bd'],LBLS=['A','B','C','D'];
 var AVCOLS=[['#D5F5E3','#065F46'],['#D6EAF8','#185FA5'],['#EDE9FE','#6B21A8'],['#FEF3C7','#78350F'],['#FEE2E2','#7F1D1D'],['#E0F2FE','#0369A1']];
-function avatarColor(name){var i=name.charCodeAt(0)%AVCOLS.length;return AVCOLS[i];}
-function initials(name){return name.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);}
+function avatarColor(n){var i=n.charCodeAt(0)%AVCOLS.length;return AVCOLS[i];}
+function initials(n){return n.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);}
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
+   UTILITÁRIOS
+═══════════════════════════════════ */
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2500);}
+function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function fmtDate(){var d=new Date();return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'})+' '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}
+
+/* ═══════════════════════════════════
    STORAGE
-══════════════════════════ */
+═══════════════════════════════════ */
 function getHist(ac,s,q){try{return JSON.parse(localStorage.getItem('h_'+ac+'_'+s+'_'+q))||[];}catch(e){return[];}}
-function saveHist(ac,s,q,e){var h=getHist(ac,s,q);h.push(e);if(h.length>3)h=h.slice(h.length-3);localStorage.setItem('h_'+ac+'_'+s+'_'+q,JSON.stringify(h));}
+function saveHist(ac,s,q,e){var h=getHist(ac,s,q);h.push(e);if(h.length>MAX_HIST)h=h.slice(h.length-MAX_HIST);localStorage.setItem('h_'+ac+'_'+s+'_'+q,JSON.stringify(h));}
 function getSavedPlayers(){try{return JSON.parse(localStorage.getItem('players'))||[];}catch(e){return[];}}
 function savePlayer(n){var p=getSavedPlayers();if(!p.includes(n)){p.unshift(n);if(p.length>6)p=p.slice(0,6);localStorage.setItem('players',JSON.stringify(p));}}
 function getRankData(){try{return JSON.parse(localStorage.getItem('rank_global'))||[];}catch(e){return[];}}
 function saveRankEntry(entry){var data=getRankData().filter(function(e){return!(e.player===entry.player&&e.quizKey===entry.quizKey);});data.push(entry);localStorage.setItem('rank_global',JSON.stringify(data));}
 function getCounters(){try{return JSON.parse(localStorage.getItem('counters'))||{visits:0,quizzes:0,bySubject:{}};}catch(e){return{visits:0,quizzes:0,bySubject:{}};}}
 function saveCounters(c){localStorage.setItem('counters',JSON.stringify(c));}
+function getPlayerStats(n){var qz=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){if(getHist(ac.id,s.id,qi).filter(function(e){return e.player===n;}).length>0)qz++;});});});return{quizzes:qz};}
 
-function getPlayerStats(n){
-  var qz=0;
-  AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){if(getHist(ac.id,s.id,qi).filter(function(e){return e.player===n;}).length>0)qz++;});});});
-  return{quizzes:qz};
-}
-
-/* ══════════════════════════
-   ESTADO DO QUIZ
-══════════════════════════ */
-var curPlayer='',curAC=null,curSubj=null,curQuiz=null;
-var curQ=0,score=0,results=[],timer=null,answered=false,rankFilter='all';
-var BDGS=['ba','bb','bc','bd'],LBLS=['A','B','C','D'];
-
-/* ══════════════════════════
+/* ═══════════════════════════════════
    NAVEGAÇÃO
-══════════════════════════ */
+═══════════════════════════════════ */
 function goHome(){clearInterval(timer);buildHome();show('home');}
 function changePlayer(){show('player-screen');buildPlayerScreen();}
 
-/* ══════════════════════════
-   CONTADORES
-══════════════════════════ */
-function trackVisit(){
-  if(!sessionStorage.getItem('visited')){
-    var c=getCounters();c.visits=(c.visits||0)+1;
-    sessionStorage.setItem('visited','1');saveCounters(c);
-  }
-}
-function trackQuizComplete(acLabel,subjName){
-  var c=getCounters();c.quizzes=(c.quizzes||0)+1;
-  c.bySubject=c.bySubject||{};c.bySubject[subjName]=(c.bySubject[subjName]||0)+1;
-  saveCounters(c);
-}
-function buildStatsBar(){
-  var c=getCounters();
-  var top='—';
-  if(c.bySubject&&Object.keys(c.bySubject).length>0){
-    top=Object.entries(c.bySubject).sort(function(a,b){return b[1]-a[1];})[0][0];
-  }
-  var bar=document.getElementById('stats-bar');
-  if(bar)bar.innerHTML='<div class="stat-chip"><span>👁️</span>'+(c.visits||0)+' visita'+(c.visits!==1?'s':'')+'</div><div class="stat-chip"><span>✅</span>'+(c.quizzes||0)+' quiz'+(c.quizzes!==1?'zes':'')+'</div><div class="stat-chip"><span>🏆</span>'+top+'</div>';
+/* ═══════════════════════════════════
+   MODO QUIZ / ESTUDAR
+═══════════════════════════════════ */
+function setMode(mode){
+  curMode=mode;
+  document.getElementById('btn-mode-quiz').classList.toggle('active',mode==='quiz');
+  document.getElementById('btn-mode-study').classList.toggle('active',mode==='study');
+  document.getElementById('mode-quiz').style.display=mode==='quiz'?'block':'none';
+  document.getElementById('mode-study').style.display=mode==='study'?'block':'none';
+  if(mode==='study')buildEstudoGrid();
+  gaEvent('mode_switch',{mode:mode});
 }
 
-/* ══════════════════════════
-   GA EVENTS
-══════════════════════════ */
+/* ═══════════════════════════════════
+   CONTADORES + GA
+═══════════════════════════════════ */
+function trackVisit(){if(!sessionStorage.getItem('visited')){var c=getCounters();c.visits=(c.visits||0)+1;sessionStorage.setItem('visited','1');saveCounters(c);}}
+function trackQuizComplete(acLabel,subjName){var c=getCounters();c.quizzes=(c.quizzes||0)+1;c.bySubject=c.bySubject||{};c.bySubject[subjName]=(c.bySubject[subjName]||0)+1;saveCounters(c);}
+function buildStatsBar(){var c=getCounters();var top='—';if(c.bySubject&&Object.keys(c.bySubject).length>0){top=Object.entries(c.bySubject).sort(function(a,b){return b[1]-a[1];})[0][0];}var bar=document.getElementById('stats-bar');if(bar)bar.innerHTML='<div class="stat-chip"><span>👁️</span>'+(c.visits||0)+' visita'+(c.visits!==1?'s':'')+'</div><div class="stat-chip"><span>✅</span>'+(c.quizzes||0)+' quiz'+(c.quizzes!==1?'zes':'')+'</div><div class="stat-chip"><span>🏆</span>'+top+'</div>';}
 function gaEvent(name,params){if(typeof gtag!=='undefined')gtag('event',name,params||{});}
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
    PLAYER SCREEN
-══════════════════════════ */
-function buildPlayerScreen(){
-  var saved=getSavedPlayers();
-  var wrap=document.getElementById('saved-wrap');
-  if(!saved.length){wrap.innerHTML='';return;}
-  var chips=saved.map(function(p){return'<span class="saved-chip" onclick="quickEnter(\''+p.replace(/'/g,'&#39;')+'\')" >'+p+'</span>';}).join('');
-  wrap.innerHTML='<p>Apelidos recentes:</p><div class="saved-list">'+chips+'</div>';
-}
+═══════════════════════════════════ */
+function buildPlayerScreen(){var saved=getSavedPlayers();var wrap=document.getElementById('saved-wrap');if(!saved.length){wrap.innerHTML='';return;}var chips=saved.map(function(p){return'<span class="saved-chip" onclick="quickEnter(this.dataset.name)" data-name="'+p.replace(/'/g,'&#39;')+'">'+p+'</span>';}).join('');wrap.innerHTML='<p>Apelidos recentes:</p><div class="saved-list">'+chips+'</div>';}
+function quickEnter(name){curPlayer=name;savePlayer(name);buildHome();show('home');}
+function enterPlayer(){var name=document.getElementById('player-input').value.trim();if(name.length<2){showToast('Digite um apelido com pelo menos 2 letras!');return;}curPlayer=name;savePlayer(name);buildHome();show('home');}
 
-function quickEnter(name){
-  curPlayer=name;savePlayer(name);buildHome();show('home');
-}
-
-function enterPlayer(){
-  var name=document.getElementById('player-input').value.trim();
-  if(name.length<2){showToast('Digite um apelido com pelo menos 2 letras!');return;}
-  curPlayer=name;savePlayer(name);buildHome();show('home');
-}
-
-/* ══════════════════════════
+/* ═══════════════════════════════════
    HOME
-══════════════════════════ */
+═══════════════════════════════════ */
 function buildHome(){
   var col=avatarColor(curPlayer);
   var av=document.getElementById('home-avatar');
@@ -446,30 +660,114 @@ function buildHome(){
   document.getElementById('home-name').textContent=curPlayer;
   var stats=getPlayerStats(curPlayer);
   document.getElementById('home-sub').textContent=stats.quizzes>0?stats.quizzes+' quiz'+(stats.quizzes!==1?'zes':'')+' realizado'+(stats.quizzes!==1?'s':''):'Primeiro acesso — bom estudo!';
+  // Rebuild quiz grid
   var g=document.getElementById('ac-grid');g.innerHTML='';
   AVALIACOES.forEach(function(ac,ai){
-    var c=document.createElement('div');
-    c.className='ac-card '+ac.theme+(ac.locked?' locked':'');
+    var c=document.createElement('div');c.className='ac-card '+ac.theme+(ac.locked?' locked':'');
     var avail=(ac.subjects||[]).filter(function(s){return!s.locked&&!s.comingSoon;});
     var tags=avail.map(function(s){return'<span class="ac-stag">'+s.icon+' '+s.name+'</span>';}).join('');
     c.innerHTML=(ac.locked?'<div class="ac-badge" style="background:rgba(0,0,0,.15)">🔒 Em breve</div>':'<div class="ac-badge" style="background:rgba(255,255,255,.5)">'+avail.length+' matéria'+(avail.length!==1?'s':'')+'</div>')+'<div class="ac-icon">'+ac.icon+'</div><h3>'+ac.label+' — '+ac.name+'</h3><p>'+ac.desc+'</p>'+(tags?'<div class="ac-subjects">'+tags+'</div>':'');
     if(!ac.locked)(function(i){c.onclick=function(){openAC(i);};})(ai);
     g.appendChild(c);
   });
+  // Rebuild estudo grid if in study mode
+  if(curMode==='study')buildEstudoGrid();
+  else{document.getElementById('mode-quiz').style.display='block';document.getElementById('mode-study').style.display='none';}
   buildStatsBar();
 }
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
+   ÁREA DE ESTUDAR
+═══════════════════════════════════ */
+function buildEstudoGrid(){
+  var g=document.getElementById('estudo-grid');g.innerHTML='';
+  var materias=[
+    {id:'historia',icon:'📖',name:'História',desc:'Civilizações e Brasil Colonial',cor:'#EDE9FE',borda:'#C4B5FD',texto:'#4C1D95',ok:true},
+    {id:'geografia',icon:'🌍',name:'Geografia',desc:'Terra, Transportes e Comunicação',cor:'#D5F5E3',borda:'#6EE7B7',texto:'#065F46',ok:true},
+    {id:'portugues',icon:'✏️',name:'Língua Portuguesa',desc:'Substantivos, Verbos e Mais',cor:'#FCE4EC',borda:'#F48FB1',texto:'#880E4F',ok:true},
+    {id:'ciencias',icon:'🔬',name:'Ciências',desc:'Terra, Lua, Ar e Espaço',cor:'#E0F2FE',borda:'#7DD3FC',texto:'#0369A1',ok:true},
+    {id:'matematica',icon:'🔢',name:'Matemática',desc:'Em breve',cor:'#f4f6f8',borda:'#e0e0e0',texto:'#aaa',ok:false},
+  ];
+  materias.forEach(function(m){
+    var c=document.createElement('div');
+    c.className='estudo-card'+(m.ok?'':' locked');
+    c.style.borderColor=m.borda;
+    c.innerHTML='<div class="estudo-card-icon">'+m.icon+'</div><div class="estudo-card-name" style="color:'+m.texto+'">'+m.name+'</div><div class="estudo-card-desc">'+m.desc+'</div>'+(m.ok?'':'<div class="coming-soon">🔒 Em breve</div>');
+    if(m.ok)(function(id){c.onclick=function(){openEstudo(id);};})(m.id);
+    g.appendChild(c);
+  });
+}
+
+function openEstudo(materiaId){
+  var mat=ESTUDO_CONTEUDO[materiaId];
+  if(!mat)return;
+  document.getElementById('estudo-title').textContent=mat.icon+' '+mat.name+' — Revisão';
+  var content=document.getElementById('estudo-content');
+  content.innerHTML='';
+  gaEvent('open_estudo',{subject:mat.name});
+
+  mat.secoes.forEach(function(sec){
+    // Cabeçalho da seção
+    var secDiv=document.createElement('div');
+    secDiv.style.cssText='background:'+sec.cor+';border:1.5px solid '+sec.cor+';border-radius:12px;padding:12px 14px;margin-bottom:14px;';
+    secDiv.innerHTML='<div style="font-size:15px;font-weight:700;color:'+sec.corTitulo+';">'+sec.titulo+'</div>';
+    content.appendChild(secDiv);
+
+    // Blocos de conteúdo
+    var estSec=document.createElement('div');estSec.className='estudo-section';
+    estSec.innerHTML='<div class="estudo-section-titulo">📖 Conteúdo</div>';
+    sec.blocos.forEach(function(bloco){
+      var b=document.createElement('div');b.className='estudo-bloco';
+      var chipsHtml=bloco.chips.map(function(ch){return'<span class="echip echip-verde">'+ch+'</span>';}).join('');
+      b.innerHTML='<div class="estudo-bloco-titulo">'+bloco.titulo+'</div><div class="estudo-bloco-texto">'+bloco.texto+'</div><div class="estudo-chips">'+chipsHtml+'</div>';
+      estSec.appendChild(b);
+    });
+    content.appendChild(estSec);
+
+    // Mapa mental
+    var mapaDiv=document.createElement('div');mapaDiv.className='estudo-section';
+    mapaDiv.innerHTML='<div class="estudo-section-titulo">🧠 Mapa Mental</div>';
+    var mapaBox=document.createElement('div');
+    var centroHtml='<div class="mapa-centro" style="background:'+sec.mapa.cor+';"><div class="mapa-centro-titulo" style="color:#fff;">'+sec.mapa.centro+'</div></div>';
+    var nosHtml='<div class="mapa-grid">';
+    sec.mapa.nos.forEach(function(no){
+      var itensHtml=no.itens.map(function(it){return'<div class="mapa-item"><span class="mapa-bullet">▸</span><span style="color:'+no.tc+'">'+it+'</span></div>';}).join('');
+      nosHtml+='<div class="mapa-bloco" style="background:'+no.bg+';border:1.5px solid '+no.tc+'33;"><div class="mapa-bloco-titulo" style="color:'+no.tc+'">'+no.titulo+'</div>'+itensHtml+'</div>';
+    });
+    nosHtml+='</div>';
+    mapaBox.innerHTML=centroHtml+nosHtml;
+    mapaDiv.appendChild(mapaBox);
+    content.appendChild(mapaDiv);
+
+    // Dica para a prova
+    var dicaDiv=document.createElement('div');dicaDiv.className='dica-box';
+    dicaDiv.innerHTML='<div class="dica-titulo">⭐ Dica para a prova</div><div class="dica-texto">'+sec.dica+'</div>';
+    content.appendChild(dicaDiv);
+
+    // Espaçador
+    var sep=document.createElement('div');sep.style.height='20px';content.appendChild(sep);
+  });
+
+  // Botão de ir para o quiz
+  var quizBtn=document.createElement('div');
+  quizBtn.style.cssText='background:'+mat.cor+';border:1.5px solid '+mat.corBorda+';border-radius:12px;padding:14px;text-align:center;margin-top:8px;cursor:pointer;';
+  quizBtn.innerHTML='<div style="font-size:14px;font-weight:700;color:'+mat.corTexto+';">🎯 Pronto para o quiz de '+mat.name+'?</div><div style="font-size:12px;color:'+mat.corTexto+';margin-top:4px;opacity:.8;">Clique aqui para testar seus conhecimentos!</div>';
+  quizBtn.onclick=function(){setMode('quiz');buildHome();show('home');};
+  content.appendChild(quizBtn);
+
+  show('estudo-screen');
+}
+
+/* ═══════════════════════════════════
    AC / SUBJECT / QUIZ
-══════════════════════════ */
+═══════════════════════════════════ */
 function openAC(ai){
   curAC=ai;var ac=AVALIACOES[ai];
   document.getElementById('subj-title').textContent=ac.label+' — '+ac.name;
   document.getElementById('subj-bc').innerHTML='<span>'+ac.label+'</span> › Escolha uma matéria';
   var g=document.getElementById('subject-grid');g.innerHTML='';
   (ac.subjects||[]).forEach(function(s,si){
-    var c=document.createElement('div');
-    c.className='subject-card'+(s.locked||s.comingSoon?' locked':'');
+    var c=document.createElement('div');c.className='subject-card'+(s.locked||s.comingSoon?' locked':'');
     var tags=s.quizzes?s.quizzes.map(function(q){return'<span class="stag" style="background:'+q.tagBg+';color:'+q.tagColor+'">'+q.tag+'</span>';}).join(''):'';
     c.innerHTML='<div class="subj-icon">'+s.icon+'</div><div class="subj-name">'+s.name+'</div><div class="subj-desc">'+s.desc+'</div>'+(tags?'<div class="subj-tags">'+tags+'</div>':'')+(s.comingSoon?'<div class="coming-soon">🔒 Em breve</div>':'');
     if(!s.locked&&!s.comingSoon)(function(i){c.onclick=function(){openSubject(i);};})(si);
@@ -477,7 +775,6 @@ function openAC(ai){
   });
   show('subject-screen');
 }
-
 function openSubject(si){
   curSubj=si;var ac=AVALIACOES[curAC];var s=ac.subjects[si];
   gaEvent('open_subject',{ac:ac.label,subject:s.name});
@@ -489,17 +786,13 @@ function openSubject(si){
     var item=document.createElement('div');item.className='quiz-item';
     var h=getHist(ac.id,s.id,qi).filter(function(e){return e.player===curPlayer;});
     var histHtml='';
-    if(h.length>0){
-      var rows=h.map(function(e){var cls=e.pct>=80?'sg':e.pct>=50?'sm':'sl';return'<div class="mini-hist-row"><span class="mini-hist-date">'+e.date+'</span><span class="mhs '+cls+'">'+e.score+'/'+e.total+' · '+e.pct+'%</span></div>';}).join('');
-      histHtml='<div class="mini-hist"><div class="mini-hist-title">Seu histórico</div>'+rows+'</div>';
-    }
+    if(h.length>0){var rows=h.map(function(e){var cls=e.pct>=80?'sg':e.pct>=50?'sm':'sl';return'<div class="mini-hist-row"><span class="mini-hist-date">'+e.date+'</span><span class="mhs '+cls+'">'+e.score+'/'+e.total+' · '+e.pct+'%</span></div>';}).join('');histHtml='<div class="mini-hist"><div class="mini-hist-title">Seu histórico</div>'+rows+'</div>';}
     item.innerHTML='<div style="flex:1"><div class="quiz-item-top"><div class="quiz-item-left"><h4>'+q.title+'</h4><p>'+q.desc+'</p><span class="stag" style="background:'+q.tagBg+';color:'+q.tagColor+'">'+q.tag+'</span></div><span class="quiz-arrow">›</span></div>'+histHtml+'</div>';
     (function(i){item.onclick=function(){startQuiz(i);};})(qi);
     list.appendChild(item);
   });
   show('quiz-select');
 }
-
 function startQuiz(qi){
   curQuiz=qi;curQ=0;score=0;results=[];answered=false;
   var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var qz=s.quizzes[qi];
@@ -507,79 +800,29 @@ function startQuiz(qi){
   document.getElementById('q-title').textContent=s.icon+' '+s.name;
   show('q-screen');loadQ();
 }
-
-/* ══════════════════════════
-   QUIZ ENGINE
-══════════════════════════ */
 function loadQ(){
   answered=false;clearInterval(timer);
-  var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];
-  var d=qz.questions[curQ];
+  var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];var d=qz.questions[curQ];
   document.getElementById('q-counter').textContent='Pergunta '+(curQ+1)+' / '+qz.questions.length;
   var tag=document.getElementById('q-tag');tag.textContent=qz.tag;tag.style.background=qz.tagBg;tag.style.color=qz.tagColor;
   document.getElementById('q-text').textContent=d.q;
-  document.getElementById('feedback').style.display='none';
-  document.getElementById('btn-next').style.display='none';
+  document.getElementById('feedback').style.display='none';document.getElementById('btn-next').style.display='none';
   var wrap=document.getElementById('answers');wrap.innerHTML='';
-  d.opts.forEach(function(o,i){
-    var btn=document.createElement('button');btn.className='ans-btn';
-    btn.innerHTML='<span class="bdg '+BDGS[i]+'">'+LBLS[i]+'</span><span>'+o+'</span>';
-    (function(idx){btn.onclick=function(){answer(idx);};})(i);
-    wrap.appendChild(btn);
-  });
+  d.opts.forEach(function(o,i){var btn=document.createElement('button');btn.className='ans-btn';btn.innerHTML='<span class="bdg '+BDGS[i]+'">'+LBLS[i]+'</span><span>'+o+'</span>';(function(idx){btn.onclick=function(){answer(idx);};})(i);wrap.appendChild(btn);});
   startTimer(qz.time);
 }
+function startTimer(t){var left=t;var bar=document.getElementById('timer-bar');bar.style.width='100%';bar.style.background='#1D9E75';timer=setInterval(function(){left--;var pct=Math.round((left/t)*100);bar.style.width=pct+'%';if(pct<30)bar.style.background='#D85A30';else if(pct<60)bar.style.background='#BA7517';if(left<=0){clearInterval(timer);timeUp();}},1000);}
+function timeUp(){if(answered)return;answered=true;var d=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz].questions[curQ];document.querySelectorAll('.ans-btn').forEach(function(b,i){b.disabled=true;if(i===d.c)b.classList.add('correct');});results.push(false);var fb=document.getElementById('feedback');fb.className='feedback wrong';fb.textContent='⏱ Tempo esgotado! Resposta certa: '+d.opts[d.c];fb.style.display='block';setNextBtn();}
+function answer(i){if(answered)return;answered=true;clearInterval(timer);var d=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz].questions[curQ];var btns=document.querySelectorAll('.ans-btn');btns.forEach(function(b,j){b.disabled=true;if(j===d.c)b.classList.add('correct');});var fb=document.getElementById('feedback');if(i===d.c){score++;results.push(true);btns[i].classList.add('correct');fb.className='feedback correct';fb.textContent='✅ Correto! Muito bem!';}else{results.push(false);btns[i].classList.add('wrong');fb.className='feedback wrong';fb.textContent='❌ Incorreto. Resposta certa: '+d.opts[d.c];}fb.style.display='block';setNextBtn();}
+function setNextBtn(){var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];var nb=document.getElementById('btn-next');nb.style.display='block';nb.textContent=curQ<qz.questions.length-1?'Próxima pergunta ›':'Ver resultado';}
+function nextQ(){curQ++;var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];if(curQ>=qz.questions.length){showResult();return;}loadQ();}
 
-function startTimer(t){
-  var left=t;
-  var bar=document.getElementById('timer-bar');bar.style.width='100%';bar.style.background='#1D9E75';
-  timer=setInterval(function(){
-    left--;var pct=Math.round((left/t)*100);bar.style.width=pct+'%';
-    if(pct<30)bar.style.background='#D85A30';else if(pct<60)bar.style.background='#BA7517';
-    if(left<=0){clearInterval(timer);timeUp();}
-  },1000);
-}
-
-function timeUp(){
-  if(answered)return;answered=true;
-  var d=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz].questions[curQ];
-  document.querySelectorAll('.ans-btn').forEach(function(b,i){b.disabled=true;if(i===d.c)b.classList.add('correct');});
-  results.push(false);
-  var fb=document.getElementById('feedback');fb.className='feedback wrong';fb.textContent='⏱ Tempo esgotado! Resposta certa: '+d.opts[d.c];fb.style.display='block';
-  setNextBtn();
-}
-
-function answer(i){
-  if(answered)return;answered=true;clearInterval(timer);
-  var d=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz].questions[curQ];
-  var btns=document.querySelectorAll('.ans-btn');
-  btns.forEach(function(b,j){b.disabled=true;if(j===d.c)b.classList.add('correct');});
-  var fb=document.getElementById('feedback');
-  if(i===d.c){score++;results.push(true);btns[i].classList.add('correct');fb.className='feedback correct';fb.textContent='✅ Correto! Muito bem!';}
-  else{results.push(false);btns[i].classList.add('wrong');fb.className='feedback wrong';fb.textContent='❌ Incorreto. Resposta certa: '+d.opts[d.c];}
-  fb.style.display='block';setNextBtn();
-}
-
-function setNextBtn(){
-  var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];
-  var nb=document.getElementById('btn-next');nb.style.display='block';
-  nb.textContent=curQ<qz.questions.length-1?'Próxima pergunta ›':'Ver resultado';
-}
-
-function nextQ(){
-  curQ++;
-  var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];
-  if(curQ>=qz.questions.length){showResult();return;}
-  loadQ();
-}
-
-/* ══════════════════════════
+/* ═══════════════════════════════════
    RESULT
-══════════════════════════ */
+═══════════════════════════════════ */
 function showResult(){
   var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var qz=s.quizzes[curQuiz];
-  var total=qz.questions.length;var pct=Math.round((score/total)*100);
-  var dateStr=fmtDate();
+  var total=qz.questions.length;var pct=Math.round((score/total)*100);var dateStr=fmtDate();
   var entry={player:curPlayer,score:score,total:total,pct:pct,date:dateStr};
   saveHist(ac.id,s.id,curQuiz,entry);
   trackQuizComplete(ac.label,s.name);
@@ -596,104 +839,36 @@ function showResult(){
   results.forEach(function(r){var d=document.createElement('div');d.className='dot '+(r?'hit':'miss');dots.appendChild(d);});
   var hist=getHist(ac.id,s.id,curQuiz).filter(function(e){return e.player===curPlayer;});
   var tbody=document.getElementById('hist-tbody');tbody.innerHTML='';
-  hist.forEach(function(e,i){
-    var isNew=i===hist.length-1;
-    var cls=e.pct>=80?'sg':e.pct>=50?'sm':'sl';
-    tbody.innerHTML+='<tr class="'+(isNew?'hist-now':'')+'"><td>'+(isNew?'▶ Agora':'#'+( i+1))+'</td><td>'+e.date+'</td><td>'+e.score+'/'+e.total+'</td><td><span class="mhs '+cls+'">'+e.pct+'%</span></td></tr>';
-  });
+  hist.forEach(function(e,i){var isNew=i===hist.length-1;var cls=e.pct>=80?'sg':e.pct>=50?'sm':'sl';tbody.innerHTML+='<tr class="'+(isNew?'hist-now':'')+'"><td>'+(isNew?'▶ Agora':'#'+(i+1))+'</td><td>'+e.date+'</td><td>'+e.score+'/'+e.total+'</td><td><span class="mhs '+cls+'">'+e.pct+'%</span></td></tr>';});
 }
-
 function restartQuiz(){startQuiz(curQuiz);}
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
    RANKING
-══════════════════════════ */
-function buildRankFilters(){
-  var wrap=document.getElementById('rank-filters');
-  var filters=[{id:'all',label:'🌐 Geral'}];
-  AVALIACOES.filter(function(a){return!a.locked;}).forEach(function(ac){
-    filters.push({id:'ac:'+ac.id,label:ac.icon+' '+ac.label});
-    (ac.subjects||[]).filter(function(s){return!s.locked&&!s.comingSoon;}).forEach(function(s){
-      filters.push({id:'subj:'+ac.id+'_'+s.id,label:s.icon+' '+s.name});
-    });
-  });
-  wrap.innerHTML=filters.map(function(f){return'<button class="rf'+(rankFilter===f.id?' active':'')+'" onclick="setRankFilter(\''+f.id+'\')">'+f.label+'</button>';}).join('');
-}
-
+═══════════════════════════════════ */
+function buildRankFilters(){var wrap=document.getElementById('rank-filters');var filters=[{id:'all',label:'🌐 Geral'}];AVALIACOES.filter(function(a){return!a.locked;}).forEach(function(ac){filters.push({id:'ac:'+ac.id,label:ac.icon+' '+ac.label});(ac.subjects||[]).filter(function(s){return!s.locked&&!s.comingSoon;}).forEach(function(s){filters.push({id:'subj:'+ac.id+'_'+s.id,label:s.icon+' '+s.name});});});wrap.innerHTML=filters.map(function(f){return'<button class="rf'+(rankFilter===f.id?' active':'')+'" onclick="setRankFilter(\''+f.id+'\')">'+f.label+'</button>';}).join('');}
 function setRankFilter(f){rankFilter=f;buildRankFilters();renderRanking();}
-
-function renderRanking(){
-  var data=getRankData();
-  if(rankFilter.startsWith('ac:')){var id=rankFilter.slice(3);data=data.filter(function(e){return e.quizKey.startsWith(id);});}
-  else if(rankFilter.startsWith('subj:')){var key=rankFilter.slice(5);data=data.filter(function(e){return e.quizKey.startsWith(key);});}
-  var players={};
-  data.forEach(function(e){
-    if(!players[e.player])players[e.player]={player:e.player,total:0,count:0};
-    players[e.player].total+=e.pct;players[e.player].count++;
-  });
-  var lb=Object.values(players).map(function(p){return{player:p.player,avg:Math.round(p.total/p.count),count:p.count};}).sort(function(a,b){return b.avg-a.avg||b.count-a.count;}).slice(0,10);
-  var list=document.getElementById('rank-list');
-  if(!lb.length){list.innerHTML='<div class="rank-empty">Nenhum resultado ainda.<br>Seja o primeiro a completar um quiz! 🚀</div>';return;}
-  var medals=['🥇','🥈','🥉'],rowCls=['gold','silver','bronze'];
-  list.innerHTML='';
-  lb.forEach(function(p,i){
-    var isMe=p.player===curPlayer;
-    var col=avatarColor(p.player);
-    var cls=isMe?'me':(rowCls[i]||'');
-    var pos=i<3?medals[i]:(i+1)+'º';
-    var pcls=p.avg>=80?'sg':p.avg>=50?'sm':'sl';
-    var row=document.createElement('div');row.className='rank-row '+cls;
-    row.innerHTML='<span class="rank-pos">'+pos+'</span><div class="rank-av" style="background:'+col[0]+';color:'+col[1]+'">'+initials(p.player)+'</div><div class="rank-info"><div class="rank-name">'+p.player+(isMe?' (você)':'')+'</div><div class="rank-detail">'+p.count+' quiz'+(p.count!==1?'zes':'')+'</div></div><div class="rank-score"><span class="mhs '+pcls+'">'+p.avg+'%</span><div style="font-size:10px;color:#888;">média</div></div>';
-    list.appendChild(row);
-  });
-}
-
+function renderRanking(){var data=getRankData();if(rankFilter.startsWith('ac:')){var id=rankFilter.slice(3);data=data.filter(function(e){return e.quizKey.startsWith(id);});}else if(rankFilter.startsWith('subj:')){var key=rankFilter.slice(5);data=data.filter(function(e){return e.quizKey.startsWith(key);});}var players={};data.forEach(function(e){if(!players[e.player])players[e.player]={player:e.player,total:0,count:0};players[e.player].total+=e.pct;players[e.player].count++;});var lb=Object.values(players).map(function(p){return{player:p.player,avg:Math.round(p.total/p.count),count:p.count};}).sort(function(a,b){return b.avg-a.avg||b.count-a.count;}).slice(0,10);var list=document.getElementById('rank-list');if(!lb.length){list.innerHTML='<div class="rank-empty">Nenhum resultado ainda.<br>Seja o primeiro! 🚀</div>';return;}var medals=['🥇','🥈','🥉'],rowCls=['gold','silver','bronze'];list.innerHTML='';lb.forEach(function(p,i){var isMe=p.player===curPlayer;var col=avatarColor(p.player);var cls=isMe?'me':(rowCls[i]||'');var pos=i<3?medals[i]:(i+1)+'º';var pcls=p.avg>=80?'sg':p.avg>=50?'sm':'sl';var row=document.createElement('div');row.className='rank-row '+cls;row.innerHTML='<span class="rank-pos">'+pos+'</span><div class="rank-av" style="background:'+col[0]+';color:'+col[1]+'">'+initials(p.player)+'</div><div class="rank-info"><div class="rank-name">'+p.player+(isMe?' (você)':'')+'</div><div class="rank-detail">'+p.count+' quiz'+(p.count!==1?'zes':'')+'</div></div><div class="rank-score"><span class="mhs '+pcls+'">'+p.avg+'%</span><div style="font-size:10px;color:#888;">média</div></div>';list.appendChild(row);});}
 function openRanking(){rankFilter='all';buildRankFilters();renderRanking();show('ranking-screen');}
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
    SHARE
-══════════════════════════ */
-function buildShareText(){
-  var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];
-  var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];
-  var pct=Math.round((score/qz.questions.length)*100);
-  var stars=pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'💪';
-  var dots=results.map(function(r){return r?'🟩':'🟥';}).join('');
-  return'🎓 Revisão 5º Ano\n'+stars+' '+curPlayer+'\n\n📚 '+ac.label+' — '+s.name+'\n📝 '+qz.title+'\n\n✅ Resultado: '+score+'/'+qz.questions.length+' ('+pct+'%)\n'+dots+'\n\nhttps://hesketh-lucas.github.io/quiz-5ano';
-}
+═══════════════════════════════════ */
+function buildShareText(){var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var pct=Math.round((score/qz.questions.length)*100);var stars=pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'💪';var dots=results.map(function(r){return r?'🟩':'🟥';}).join('');return'🎓 Revisão 5º Ano\n'+stars+' '+curPlayer+'\n\n📚 '+ac.label+' — '+s.name+'\n📝 '+qz.title+'\n\n✅ Resultado: '+score+'/'+qz.questions.length+' ('+pct+'%)\n'+dots+'\n\nhttps://hesketh-lucas.github.io/quiz-5ano';}
 function shareWA(){gaEvent('share',{method:'whatsapp'});window.open('https://wa.me/?text='+encodeURIComponent(buildShareText()),'_blank');}
 function copyRes(){gaEvent('share',{method:'copy'});navigator.clipboard.writeText(buildShareText()).then(function(){showToast('Resultado copiado!');}).catch(function(){showToast('Não foi possível copiar');});}
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
    ADMIN (5x clique no logo)
-══════════════════════════ */
-var ADMIN_PWD='lucas2025',_ac2=0,_at2=null;
-function logoClick(){
-  _ac2++;clearTimeout(_at2);
-  _at2=setTimeout(function(){_ac2=0;},2000);
-  if(_ac2>=5){_ac2=0;clearTimeout(_at2);adminLogin();}
-}
-function adminLogin(){
-  var pwd=prompt('🔐 Senha do administrador:');
-  if(pwd===null)return;
-  if(pwd===ADMIN_PWD){adminPanel();}else{showToast('❌ Senha incorreta!');}
-}
-function adminPanel(){
-  var rd=getRankData();var pl=getSavedPlayers();var c=getCounters();
-  var hc=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){hc+=getHist(ac.id,s.id,qi).length;});});});
-  var top=Object.entries(c.bySubject||{}).sort(function(a,b){return b[1]-a[1];}).slice(0,3).map(function(e){return'   '+e[0]+': '+e[1]+'x';}).join('\n')||'   (nenhum ainda)';
-  var msg=['🛠️ PAINEL ADMIN','','📊 Placar: '+rd.length+' entrada(s)','👤 Apelidos: '+pl.length,'📝 Históricos: '+hc,'','📈 ESTATÍSTICAS','👁️ Visitas: '+(c.visits||0),'✅ Quizzes: '+(c.quizzes||0),'🏆 Top matérias:',top,'','1 — Zerar placar geral','2 — Zerar tudo','3 — Zerar contadores','4 — Cancelar'].join('\n');
-  var ch=prompt(msg);
-  if(ch==='1'){if(confirm('Zerar placar para todos?')){localStorage.removeItem('rank_global');showToast('✅ Placar zerado!');}}
-  else if(ch==='2'){if(confirm('Apagar TUDO?')){localStorage.clear();showToast('✅ Tudo apagado!');setTimeout(function(){location.reload();},1500);}}
-  else if(ch==='3'){if(confirm('Zerar contadores?')){localStorage.removeItem('counters');buildStatsBar();showToast('✅ Contadores zerados!');}}
-  else{showToast('Cancelado.');}
-}
+═══════════════════════════════════ */
+function logoClick(){_ac2++;clearTimeout(_at2);_at2=setTimeout(function(){_ac2=0;},2000);if(_ac2>=5){_ac2=0;clearTimeout(_at2);adminLogin();}}
+function adminLogin(){var pwd=prompt('🔐 Senha do administrador:');if(pwd===null)return;if(pwd===ADMIN_PWD){adminPanel();}else{showToast('❌ Senha incorreta!');}}
+function adminPanel(){var rd=getRankData();var pl=getSavedPlayers();var c=getCounters();var hc=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){hc+=getHist(ac.id,s.id,qi).length;});});});var top=Object.entries(c.bySubject||{}).sort(function(a,b){return b[1]-a[1];}).slice(0,3).map(function(e){return'   '+e[0]+': '+e[1]+'x';}).join('\n')||'   (nenhum ainda)';var msg=['🛠️ PAINEL ADMIN','','📊 Placar: '+rd.length+' entrada(s)','👤 Apelidos: '+pl.length,'📝 Históricos: '+hc,'','📈 ESTATÍSTICAS','👁️ Visitas: '+(c.visits||0),'✅ Quizzes: '+(c.quizzes||0),'🏆 Top matérias:',top,'','1 — Zerar placar geral','2 — Zerar tudo','3 — Zerar contadores','4 — Cancelar'].join('\n');var ch=prompt(msg);if(ch==='1'){if(confirm('Zerar placar para todos?')){localStorage.removeItem('rank_global');showToast('✅ Placar zerado!');}}else if(ch==='2'){if(confirm('Apagar TUDO?')){localStorage.clear();showToast('✅ Tudo apagado!');setTimeout(function(){location.reload();},1500);}}else if(ch==='3'){if(confirm('Zerar contadores?')){localStorage.removeItem('counters');buildStatsBar();showToast('✅ Contadores zerados!');}}else{showToast('Cancelado.');}}
 
-/* ══════════════════════════
+/* ═══════════════════════════════════
    INIT
-══════════════════════════ */
-document.getElementById('player-logo').addEventListener('click', logoClick);
+═══════════════════════════════════ */
+document.getElementById('player-logo').addEventListener('click',logoClick);
 trackVisit();
 buildPlayerScreen();
 </script>
