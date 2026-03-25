@@ -224,6 +224,47 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .rank-empty{text-align:center;padding:2rem;color:#aaa;font-size:14px;}
 .rank-note{font-size:11px;color:#bbb;text-align:center;margin-top:1rem;}
 .footer{text-align:center;font-size:11px;color:#ccc;margin-top:1rem;}
+
+/* AGENDA */
+.btn-agenda{background:#E0F2FE;border:1.5px solid #7DD3FC;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#0369A1;font-weight:700;}
+.btn-agenda:hover{background:#BAE6FD;}
+.agenda-card{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:1.5rem;}
+.agenda-card h2{font-size:20px;font-weight:700;margin-bottom:4px;}
+.agenda-sub{font-size:12px;color:#888;margin-bottom:1.2rem;}
+.agenda-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.atab{background:#f4f6f8;border:1.5px solid #e0e0e0;border-radius:20px;padding:5px 14px;font-size:12px;cursor:pointer;font-weight:600;color:#555;transition:all .12s;}
+.atab.active{background:#0369A1;border-color:#0369A1;color:#fff;}
+.agenda-month{margin-bottom:1.4rem;}
+.agenda-month-titulo{font-size:12px;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:.5px;padding:6px 10px;background:#E0F2FE;border-radius:8px;margin-bottom:8px;}
+.agenda-item{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1.5px solid #f0f0f0;border-radius:10px;background:#fafafa;margin-bottom:6px;transition:box-shadow .12s;}
+.agenda-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.agenda-item.prova{border-left:3px solid #D85A30;background:#FFF8F5;}
+.agenda-item.evento{border-left:3px solid #1D9E75;background:#F0FDF4;}
+.agenda-item.boletim{border-left:3px solid #BA7517;background:#FFFBEB;}
+.agenda-item.voo{border-left:3px solid #4C1D95;background:#F5F3FF;}
+.agenda-item.plantao{border-left:3px solid #185FA5;background:#EFF6FF;}
+.agenda-item.ferias{border-left:3px solid #6B7280;background:#F9FAFB;}
+.agenda-data{min-width:42px;text-align:center;background:#fff;border:1.5px solid #e0e0e0;border-radius:8px;padding:4px 6px;}
+.agenda-dia{font-size:18px;font-weight:700;color:#1a1a1a;line-height:1;}
+.agenda-diaSem{font-size:9px;color:#888;font-weight:600;text-transform:uppercase;margin-top:2px;}
+.agenda-info{flex:1;}
+.agenda-titulo{font-size:13px;font-weight:700;margin-bottom:3px;color:#1a1a1a;}
+.agenda-desc{font-size:11px;color:#888;line-height:1.5;}
+.agenda-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;margin-top:4px;}
+.ab-prova{background:#FAECE7;color:#993C1D;}
+.ab-evento{background:#D5F5E3;color:#065F46;}
+.ab-boletim{background:#FEF3C7;color:#78350F;}
+.ab-voo{background:#EDE9FE;color:#6B21A8;}
+.ab-plantao{background:#D6EAF8;color:#185FA5;}
+.ab-ferias{background:#F3F4F6;color:#374151;}
+
+/* CONTEÚDO PROGRAMÁTICO */
+.cp-section{margin-bottom:1.4rem;}
+.cp-materia-titulo{font-size:14px;font-weight:700;padding:10px 14px;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.cp-bloco{border:1.5px solid #f0f0f0;border-radius:10px;background:#fafafa;padding:10px 12px;margin-bottom:6px;}
+.cp-bloco-titulo{font-size:12px;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
+.cp-item{font-size:12px;color:#555;line-height:1.7;padding:1px 0;display:flex;align-items:flex-start;gap:5px;}
+.cp-bullet{color:#aaa;flex-shrink:0;margin-top:2px;}
 </style>
 </head>
 <body>
@@ -257,6 +298,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
         </div>
       </div>
       <div class="bar-btns">
+        <button class="btn-agenda" onclick="openAgenda()">📅 Agenda</button>
         <button class="btn-ranking" onclick="openRanking()">🏆 Placar</button>
         <button class="btn-change" onclick="changePlayer()">Trocar</button>
       </div>
@@ -282,6 +324,10 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
     </div>
 
     <div class="stats-bar" id="stats-bar"></div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:1rem;margin-bottom:.5rem;">
+      <button style="background:#E0F2FE;border:1.5px solid #7DD3FC;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;color:#0369A1;" onclick="openAgenda()">📅 Ver Agenda</button>
+      <button style="background:#F3F4F6;border:1.5px solid #D1D5DB;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;color:#374151;" onclick="openCP()">📋 Conteúdo Programático</button>
+    </div>
     <div class="footer">Feito com 💚 por Lucas Hesketh · Revisão 5º Ano</div>
   </div>
 
@@ -380,6 +426,30 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
       <span class="topnav-title" id="estudo-title"></span>
     </div>
     <div id="estudo-content"></div>
+  </div>
+
+
+  <!-- AGENDA -->
+  <div id="agenda-screen" class="screen">
+    <div class="topnav">
+      <button class="btn-back" onclick="goHome()">← Início</button>
+      <span class="topnav-title">📅 Agenda Escolar</span>
+    </div>
+    <div class="agenda-card">
+      <h2>📅 Agenda Escolar 2026</h2>
+      <div class="agenda-sub">Eventos do 1º Bimestre · Colégio Santa Catarina de Sena</div>
+      <div class="agenda-tabs" id="agenda-tabs"></div>
+      <div id="agenda-list"></div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PROGRAMÁTICO -->
+  <div id="cp-screen" class="screen">
+    <div class="topnav">
+      <button class="btn-back" onclick="goHome()">← Início</button>
+      <span class="topnav-title">📋 Conteúdo Programático</span>
+    </div>
+    <div id="cp-content"></div>
   </div>
 
 </div><!-- #app -->
@@ -864,6 +934,226 @@ function copyRes(){gaEvent('share',{method:'copy'});navigator.clipboard.writeTex
 function logoClick(){_ac2++;clearTimeout(_at2);_at2=setTimeout(function(){_ac2=0;},2000);if(_ac2>=5){_ac2=0;clearTimeout(_at2);adminLogin();}}
 function adminLogin(){var pwd=prompt('🔐 Senha do administrador:');if(pwd===null)return;if(pwd===ADMIN_PWD){adminPanel();}else{showToast('❌ Senha incorreta!');}}
 function adminPanel(){var rd=getRankData();var pl=getSavedPlayers();var c=getCounters();var hc=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){hc+=getHist(ac.id,s.id,qi).length;});});});var top=Object.entries(c.bySubject||{}).sort(function(a,b){return b[1]-a[1];}).slice(0,3).map(function(e){return'   '+e[0]+': '+e[1]+'x';}).join('\n')||'   (nenhum ainda)';var msg=['🛠️ PAINEL ADMIN','','📊 Placar: '+rd.length+' entrada(s)','👤 Apelidos: '+pl.length,'📝 Históricos: '+hc,'','📈 ESTATÍSTICAS','👁️ Visitas: '+(c.visits||0),'✅ Quizzes: '+(c.quizzes||0),'🏆 Top matérias:',top,'','1 — Zerar placar geral','2 — Zerar tudo','3 — Zerar contadores','4 — Cancelar'].join('\n');var ch=prompt(msg);if(ch==='1'){if(confirm('Zerar placar para todos?')){localStorage.removeItem('rank_global');showToast('✅ Placar zerado!');}}else if(ch==='2'){if(confirm('Apagar TUDO?')){localStorage.clear();showToast('✅ Tudo apagado!');setTimeout(function(){location.reload();},1500);}}else if(ch==='3'){if(confirm('Zerar contadores?')){localStorage.removeItem('counters');buildStatsBar();showToast('✅ Contadores zerados!');}}else{showToast('Cancelado.');}}
+
+
+/* ═══════════════════════════════════
+   DADOS DA AGENDA (agenda IA + calendário letivo)
+═══════════════════════════════════ */
+const AGENDA_EVENTOS = [
+  // MARÇO
+  {data:'2026-03-20',diaSem:'Sex',titulo:'📝 Prova de Língua Inglesa',desc:'AC2 · Prova objetiva e discursiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
+  {data:'2026-03-23',diaSem:'Seg',titulo:'📝 Prova de História',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
+  {data:'2026-03-24',diaSem:'Ter',titulo:'📝 Prova de Geografia',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
+  {data:'2026-03-25',diaSem:'Qua',titulo:'📝 Prova de Língua Portuguesa',desc:'AC2 · Prova objetiva (8 pts) + Produção Textual — Texto Instrucional (2 pts)',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
+  {data:'2026-03-26',diaSem:'Qui',titulo:'📝 Prova de Ciências',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
+  {data:'2026-03-27',diaSem:'Sex',titulo:'📝 Prova de Matemática',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
+  // ABRIL
+  {data:'2026-03-31',diaSem:'Ter',titulo:'📝 2ª Chamada — Língua Portuguesa',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
+  {data:'2026-04-01',diaSem:'Qua',titulo:'📝 2ª Chamada — Ciências',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
+  {data:'2026-04-02',diaSem:'Qui',titulo:'📝 2ª Chamada — História',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
+  {data:'2026-04-07',diaSem:'Ter',titulo:'📝 2ª Chamada — Geografia',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
+  {data:'2026-04-08',diaSem:'Qua',titulo:'📝 2ª Chamada — Matemática',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
+  {data:'2026-04-10',diaSem:'Sex',titulo:'📊 Boletim do 1º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
+  {data:'2026-04-16',diaSem:'Qui',titulo:'🎉 Confraternização — Famílias Porto de Oliveira & Hesketh',desc:'19h às 22h',tipo:'evento',badge:'Família',badgeCls:'ab-evento'},
+  {data:'2026-04-18',diaSem:'Sáb',titulo:'🏫 1º Plantão Pedagógico — 1º Bimestre',desc:'Educação Infantil e Ensino Fundamental (1° ao 5°ano)',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
+  // MAIO
+  {data:'2026-05-08',diaSem:'Sex',titulo:'⛪ Missa em Homenagem às Mães',desc:'8h às 10h',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  {data:'2026-05-09',diaSem:'Sáb',titulo:'👩‍👧 Homenagem às Mães — Educação Infantil',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  {data:'2026-05-12',diaSem:'Ter',titulo:'📝 Avaliações AC2 — 2º Bimestre',desc:'12 a 18/05 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 2º Bimestre',badgeCls:'ab-prova'},
+  {data:'2026-05-20',diaSem:'Qua',titulo:'✈️ Voo BEL → CWB (DOYLPZ)',desc:'Belém → Curitiba · 1 parada · 5h50 · Parte às 05h50',tipo:'voo',badge:'Viagem',badgeCls:'ab-voo'},
+  {data:'2026-05-23',diaSem:'Sáb',titulo:'👩‍👧 Homenagem às Mães — Ensino Fundamental',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  {data:'2026-05-24',diaSem:'Dom',titulo:'✈️ Voo NVT → BEL (DOYLPZ)',desc:'Navegantes → Belém · 1 parada · 6h40 · Parte às 19h35',tipo:'voo',badge:'Viagem',badgeCls:'ab-voo'},
+  // JUNHO
+  {data:'2026-06-08',diaSem:'Seg',titulo:'📝 Avaliações AC2 — 2º Bimestre (cont.)',desc:'8 a 12/06 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 2º Bimestre',badgeCls:'ab-prova'},
+  {data:'2026-06-15',diaSem:'Seg',titulo:'📝 2ª Chamada — 2º Bimestre',desc:'15 a 19/06 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
+  {data:'2026-06-22',diaSem:'Seg',titulo:'🌾 Festa Junina — Ensaio Geral',desc:'Sem aula · Educação Infantil e Ensino Fundamental',tipo:'evento',badge:'Sem Aula',badgeCls:'ab-evento'},
+  {data:'2026-06-23',diaSem:'Ter',titulo:'📊 Boletim do 2º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
+  {data:'2026-06-24',diaSem:'Qua',titulo:'🏫 Plantão Pedagógico — 2º Bimestre',desc:'Educação Infantil e Ensino Fundamental (1° ao 5°ano)',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
+  {data:'2026-06-25',diaSem:'Qui',titulo:'📚 Recuperação Paralela — 2º Bimestre',desc:'25 a 29/06 · Opcional — exclusiva para alunos com menos de 14 pontos',tipo:'plantao',badge:'Recuperação',badgeCls:'ab-plantao'},
+  // JULHO
+  {data:'2026-07-01',diaSem:'Qua',titulo:'🏖️ Férias Escolares',desc:'1 a 31/07 · Boas férias!',tipo:'ferias',badge:'Férias',badgeCls:'ab-ferias'},
+  // AGOSTO
+  {data:'2026-08-03',diaSem:'Seg',titulo:'🏫 Reinício das Aulas',desc:'Volta às aulas — 3º Bimestre',tipo:'evento',badge:'Volta às aulas',badgeCls:'ab-evento'},
+  {data:'2026-08-17',diaSem:'Seg',titulo:'📝 Avaliações AC1 — 3º Bimestre',desc:'17 a 21/08 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC1 — 3º Bimestre',badgeCls:'ab-prova'},
+  // SETEMBRO
+  {data:'2026-09-09',diaSem:'Qua',titulo:'📝 Avaliações AC2 — 3º Bimestre',desc:'9 a 15/09 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 3º Bimestre',badgeCls:'ab-prova'},
+  {data:'2026-09-25',diaSem:'Sex',titulo:'📊 Boletim do 3º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
+  // OUTUBRO
+  {data:'2026-10-07',diaSem:'Qua',titulo:'🎂 Aniversário do CSCS — 123 anos',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  {data:'2026-10-13',diaSem:'Ter',titulo:'🎈 Homenagem ao Dia das Crianças',desc:'Educação Infantil e Ensino Fundamental',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  {data:'2026-10-19',diaSem:'Seg',titulo:'📝 Avaliações AC1 — 4º Bimestre',desc:'19 a 23/10 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC1 — 4º Bimestre',badgeCls:'ab-prova'},
+  {data:'2026-10-31',diaSem:'Sáb',titulo:'🔬 III Expo Saviniana',desc:'Educação Infantil e Ensino Fundamental',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  // NOVEMBRO
+  {data:'2026-11-12',diaSem:'Qui',titulo:'📝 Avaliações AC2 — 4º Bimestre',desc:'12 a 18/11 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 4º Bimestre',badgeCls:'ab-prova'},
+  {data:'2026-12-03',diaSem:'Qui',titulo:'📊 Boletim do 4º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
+  {data:'2026-12-04',diaSem:'Sex',titulo:'🎓 Encerramento das Aulas',desc:'Alunos aprovados por média · Ensino Fundamental',tipo:'evento',badge:'Encerramento',badgeCls:'ab-evento'},
+];
+
+const MESES_PT = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+var agendaFiltro = 'todos';
+
+function openAgenda(){
+  agendaFiltro='todos';
+  buildAgendaTabs();
+  buildAgendaList();
+  show('agenda-screen');
+}
+
+function buildAgendaTabs(){
+  var tabs=[
+    {id:'todos',label:'📅 Todos'},
+    {id:'prova',label:'📝 Provas'},
+    {id:'evento',label:'🎉 Eventos'},
+    {id:'boletim',label:'📊 Boletins'},
+    {id:'voo',label:'✈️ Viagens'},
+    {id:'plantao',label:'🏫 Plantões'},
+    {id:'ferias',label:'🏖️ Férias'},
+  ];
+  var wrap=document.getElementById('agenda-tabs');
+  wrap.innerHTML=tabs.map(function(t){
+    return '<button class="atab'+(agendaFiltro===t.id?' active':'')+'" onclick="setAgendaFiltro(\\"'+t.id+'\\")">'+t.label+'</button>';
+  }).join('');
+}
+
+function setAgendaFiltro(f){agendaFiltro=f;buildAgendaTabs();buildAgendaList();}
+
+function buildAgendaList(){
+  var eventos=AGENDA_EVENTOS.filter(function(e){return agendaFiltro==='todos'||e.tipo===agendaFiltro;});
+  var hoje=new Date(); hoje.setHours(0,0,0,0);
+  // Agrupa por mês
+  var meses={};
+  eventos.forEach(function(e){
+    var d=new Date(e.data+'T12:00:00');
+    var key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+    var label=MESES_PT[d.getMonth()]+' '+d.getFullYear();
+    if(!meses[key])meses[key]={label:label,items:[]};
+    meses[key].items.push(e);
+  });
+  var list=document.getElementById('agenda-list');
+  list.innerHTML='';
+  if(!eventos.length){list.innerHTML='<div style="text-align:center;padding:2rem;color:#aaa;font-size:14px;">Nenhum evento encontrado.</div>';return;}
+  Object.keys(meses).sort().forEach(function(mk){
+    var m=meses[mk];
+    var mDiv=document.createElement('div');mDiv.className='agenda-month';
+    mDiv.innerHTML='<div class="agenda-month-titulo">'+m.label+'</div>';
+    m.items.forEach(function(e){
+      var d=new Date(e.data+'T12:00:00');
+      var passado=d<hoje;
+      var item=document.createElement('div');
+      item.className='agenda-item '+e.tipo+(passado?' opacity-50':'');
+      item.style.opacity=passado?'0.55':'1';
+      item.innerHTML='<div class="agenda-data"><div class="agenda-dia">'+d.getDate()+'</div><div class="agenda-diaSem">'+e.diaSem+'</div></div>'
+        +'<div class="agenda-info"><div class="agenda-titulo">'+e.titulo+'</div>'
+        +(e.desc?'<div class="agenda-desc">'+e.desc+'</div>':'')
+        +'<span class="agenda-badge '+e.badgeCls+'">'+e.badge+'</span></div>';
+      mDiv.appendChild(item);
+    });
+    list.appendChild(mDiv);
+  });
+}
+
+/* ═══════════════════════════════════
+   CONTEÚDO PROGRAMÁTICO
+═══════════════════════════════════ */
+const CONTEUDO_PROG = [
+  {
+    materia:'📝 Língua Portuguesa', cor:'#FCE4EC', corT:'#880E4F',
+    ac1:[
+      {titulo:'Gêneros Textuais',itens:['Poema','Texto teatral']},
+      {titulo:'Morfologia',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição']},
+      {titulo:'Ortografia',itens:['Uso do Mais e Mas']},
+    ],
+    ac2:[
+      {titulo:'Gêneros Textuais',itens:['Poema','Texto teatral','Texto instrucional']},
+      {titulo:'Morfologia',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição','Verbo / Tempos verbais (presente, pretérito perfeito e imperfeito e futuro)','Flexão verbal']},
+      {titulo:'Ortografia',itens:['Uso do Mais e Mas','Uso de pontuação expressiva','Uso do U ou L no final de sílabas','Plural das palavras terminadas em L']},
+    ]
+  },
+  {
+    materia:'🔢 Matemática', cor:'#FEF3C7', corT:'#78350F',
+    ac1:[
+      {titulo:'Sistema de Numeração Decimal',itens:['Números naturais: ordens, classes e representação (até a classe dos bilhões)','Composição e decomposição','Situações-problema envolvendo adição, subtração e multiplicação','Interpretação de gráficos e tabelas','Sistema monetário']},
+    ],
+    ac2:[
+      {titulo:'Operações Fundamentais',itens:['Situações-problema envolvendo as quatro operações','Expressão numérica','Sistema monetário','Interpretação de gráficos e tabelas']},
+    ]
+  },
+  {
+    materia:'📖 História', cor:'#EDE9FE', corT:'#4C1D95',
+    ac1:[
+      {titulo:'O Início da Civilização',itens:['Da vida nômade à vida sedentária','As primeiras cidades','A origem do comércio','O Estado e o papel da religião','Civilização mesopotâmica','Civilização egípcia','Identidade e formas de marcação do tempo','Patrimônio cultural']},
+    ],
+    ac2:[
+      {titulo:'O Início da Civilização (revisão)',itens:['Da vida nômade à vida sedentária','As primeiras cidades','A origem do comércio','Civilização mesopotâmica e egípcia','Patrimônio cultural']},
+      {titulo:'Quando o Brasil era de Portugal',itens:['Império marítimo português','Biopirataria','A exploração do pau-brasil','As drogas do sertão','As capitanias hereditárias','O governo-geral','A sociedade colonial','Caçada aos "negros da terra"','Cana-de-açúcar e escravidão dos africanos','A mulher no período colonial','Uma sociedade de escravizados, homens livres e senhores','Direito indígena: a luta pelas terras']},
+    ]
+  },
+  {
+    materia:'🌍 Geografia', cor:'#D5F5E3', corT:'#065F46',
+    ac1:[
+      {titulo:'O Planeta Terra e sua Superfície',itens:['Movimentos da Terra','Superfície terrestre','As representações do planeta','Ilhas e continentes']},
+      {titulo:'O Brasil',itens:['O Brasil na América do Sul','Características do território brasileiro']},
+    ],
+    ac2:[
+      {titulo:'O Planeta Terra e sua Superfície (revisão)',itens:['Movimentos da Terra','Superfície terrestre','As representações do planeta','Ilhas e continentes']},
+      {titulo:'Comunicação e Transporte no Brasil',itens:['Meios de transporte no Brasil','Meios de comunicação']},
+    ]
+  },
+  {
+    materia:'🔬 Ciências', cor:'#E0F2FE', corT:'#0369A1',
+    ac1:[
+      {titulo:'A Terra e a Lua se Movem',itens:['A Terra se move','O movimento de translação e o ano','A Lua se move','Um pouco de história']},
+      {titulo:'O Ser Humano e o Espaço Sideral',itens:['Instrumentos de observação','Viagens e equipamentos espaciais']},
+    ],
+    ac2:[
+      {titulo:'O Ser Humano e o Espaço Sideral',itens:['Instrumentos de observação','Viagens e equipamentos espaciais']},
+      {titulo:'O Ar',itens:['Onde está o ar?','Como perceber o ar: propriedades','Alterações na atmosfera terrestre']},
+    ]
+  },
+];
+
+function openCP(){
+  var content=document.getElementById('cp-content');
+  content.innerHTML='';
+  CONTEUDO_PROG.forEach(function(m){
+    var wrap=document.createElement('div');wrap.className='cp-section';
+    var titulo=document.createElement('div');titulo.className='cp-materia-titulo';
+    titulo.style.background=m.cor;titulo.style.color=m.corT;
+    titulo.innerHTML=m.materia;
+    wrap.appendChild(titulo);
+    // AC1
+    var ac1Div=buildCPBlocos(m.ac1,'📋 Avaliação Contínua 1 (AC1)','#f4f6f8','#888');
+    wrap.appendChild(ac1Div);
+    // AC2
+    var ac2Div=buildCPBlocos(m.ac2,'📋 Avaliação Contínua 2 (AC2)',m.cor,m.corT);
+    wrap.appendChild(ac2Div);
+    content.appendChild(wrap);
+    var sep=document.createElement('div');sep.style.height='8px';content.appendChild(sep);
+  });
+  show('cp-screen');
+}
+
+function buildCPBlocos(blocos,labelAC,bg,cor){
+  var outer=document.createElement('div');
+  outer.style.cssText='border:1.5px solid '+cor+'33;border-radius:10px;overflow:hidden;margin-bottom:8px;';
+  var header=document.createElement('div');
+  header.style.cssText='background:'+bg+';padding:7px 12px;font-size:11px;font-weight:700;color:'+cor+';';
+  header.textContent=labelAC;
+  outer.appendChild(header);
+  blocos.forEach(function(b){
+    var bloco=document.createElement('div');bloco.className='cp-bloco';
+    var bt=document.createElement('div');bt.className='cp-bloco-titulo';bt.textContent=b.titulo;
+    bloco.appendChild(bt);
+    b.itens.forEach(function(it){
+      var item=document.createElement('div');item.className='cp-item';
+      item.innerHTML='<span class="cp-bullet">▸</span><span>'+it+'</span>';
+      bloco.appendChild(item);
+    });
+    outer.appendChild(bloco);
+  });
+  return outer;
+}
 
 /* ═══════════════════════════════════
    INIT
