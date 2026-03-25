@@ -254,7 +254,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .ab-prova{background:#FAECE7;color:#993C1D;}
 .ab-evento{background:#D5F5E3;color:#065F46;}
 .ab-boletim{background:#FEF3C7;color:#78350F;}
-.ab-voo{background:#EDE9FE;color:#6B21A8;}
 .ab-plantao{background:#D6EAF8;color:#185FA5;}
 .ab-ferias{background:#F3F4F6;color:#374151;}
 
@@ -455,7 +454,212 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 </div><!-- #app -->
 <div class="toast" id="toast"></div>
 <script>
-const AVALIACOES=[{id:"ac1",label:"AC1",name:"1ª Avaliação",icon:"📝",theme:"ac-ac1",desc:"Conteúdos do 1º bimestre",locked:true,subjects:[]},{id:"ac2",label:"AC2",name:"2ª Avaliação",icon:"📚",theme:"ac-ac2",desc:"Conteúdos do 2º bimestre",locked:false,subjects:[{id:"historia",icon:"📖",name:"História",desc:"Ligamundo — Editora Saraiva",locked:false,quizzes:[{title:"Unidade 1 — O início da civilização",desc:"15 perguntas • Vida nômade, Mesopotâmia, Egito, Patrimônio",time:45,tag:"Unidade 1",tagBg:"#EDE9FE",tagColor:"#6B21A8",questions:[{q:"Há cerca de 10 mil anos, como os seres humanos conseguiam seu alimento?",opts:["Caçando animais e coletando frutos na natureza","Comprando em mercados e feiras","Plantando em grandes fazendas","Pescando nos oceanos"],c:0},{q:"O que permitiu que os seres humanos se fixassem em um lugar?",opts:["A invenção do barco","O domínio da agricultura e da criação de animais","A construção de muros e castelos","O surgimento do comércio"],c:1},{q:"A cidade mais antiga Çatal Huyük fica em qual país?",opts:["Egito","Grécia","Turquia","Iraque"],c:2},{q:"Por que as primeiras cidades surgiram perto de grandes rios?",opts:["Para facilitar a pesca de peixes exóticos","Para se proteger de animais selvagens","Porque os rios forneciam água para irrigação e solo fértil","Porque os rios serviam de fronteira entre povos"],c:2},{q:"Como surgiu o comércio nas primeiras civilizações?",opts:["Com a criação das moedas de ouro pelos reis","Com a especialização do trabalho e a troca de produtos","Com a construção de grandes mercados pelos governantes","Com a chegada de barcos estrangeiros"],c:1},{q:"O que significa a palavra Mesopotâmia?",opts:["Terra do sol","Terra dos deuses","Terra de areia","Terra entre rios"],c:3},{q:"Como se chamava o templo no centro das cidades mesopotâmicas?",opts:["Pirâmide","Zigurate","Palácio","Coliseu"],c:1},{q:"Como eram chamados os povos que acreditavam em várias divindades?",opts:["Monoteístas","Ateístas","Politeístas","Sacerdotes"],c:2},{q:"Qual foi o primeiro sistema de escrita do mundo?",opts:["Hieroglífico","Cuneiforme","Alfabeto romano","Papiro"],c:1},{q:"Como se chamavam os especialistas em escrita na Mesopotâmia?",opts:["Sacerdotes","Faraós","Donatários","Escribas"],c:3},{q:"Como se chamava o governante do Egito antigo, considerado um deus?",opts:["Rei","Sacerdote","Faraó","Escriba"],c:2},{q:"Como se chamava o sistema de escrita dos antigos egípcios?",opts:["Cuneiforme","Hieroglífico","Alfabeto fenício","Papiro"],c:1},{q:"Qual povo criou o calendário solar com 365 dias?",opts:["Os mesopotâmicos","Os egípcios","Os chineses","Os gregos"],c:1},{q:"O que é patrimônio cultural?",opts:["Dinheiro guardado no banco","Terras e propriedades de uma família","Prédios modernos das cidades","Bens com valor artístico, histórico ou cultural de um povo"],c:3},{q:"O que é o patrimônio imaterial?",opts:["Monumentos e construções históricas","Museus e sítios arqueológicos","Tradições, danças, receitas culinárias e técnicas de um povo","Objetos de arte guardados em museus"],c:2}]},{title:"Unidade 2 — Quando o Brasil era de Portugal",desc:"11 perguntas • Colonização, capitanias, sociedade colonial",time:45,tag:"Unidade 2",tagBg:"#FEF3C7",tagColor:"#B45309",questions:[{q:"Como se chamavam os locais estratégicos usados pelos portugueses para trocar mercadorias?",opts:["Capitanias","Feitorias","Engenhos","Aldeias"],c:1},{q:"Em 1500, o que os portugueses mais queriam encontrar no Brasil?",opts:["Animais exóticos","Frutas tropicais","Riquezas como ouro e prata","Terras para morar"],c:2},{q:"O que é biopirataria?",opts:["A pesca ilegal em rios","O tráfico de animais silvestres","A derrubada ilegal de árvores","A apropriação ilegal dos conhecimentos tradicionais dos povos da floresta"],c:3},{q:"Como se chamava o sistema criado em 1534 para dividir o território brasileiro?",opts:["Governo-geral","Império marítimo","Capitanias hereditárias","Feitorias"],c:2},{q:"Quem foi o primeiro governador-geral do Brasil e qual cidade fundou?",opts:["Pedro Álvares Cabral — Rio de Janeiro","Dom Pedro I — São Paulo","Tomé de Sousa — Salvador","Dom João VI — Recife"],c:2},{q:"Como eram chamados cacau, cravo, canela e baunilha no período colonial?",opts:["Especiarias do mar","Frutos da terra","Drogas do sertão","Produtos do reino"],c:2},{q:"Como os colonos chamavam os indígenas aprisionados como escravos?",opts:["Donatários","Homens livres","Negros da terra","Bandeirantes"],c:2},{q:"Quem trabalhava nos engenhos de cana-de-açúcar no Brasil colonial?",opts:["Soldados portugueses","Africanos escravizados","Comerciantes europeus","Nobres portugueses"],c:1},{q:"Qual era o papel da mulher europeia que chegava ao Brasil colonial?",opts:["Governar as capitanias","Trabalhar nos engenhos","Casar com os colonos, ter filhos e educá-los na religião","Comandar o comércio nas cidades"],c:2},{q:"Como era dividida a sociedade colonial brasileira?",opts:["Reis, cavaleiros e camponeses","Senhores de terra, homens livres e escravizados","Professores, alunos e pais","Padres, soldados e comerciantes"],c:1},{q:"A Constituição de 1988 garante quais direitos aos povos indígenas?",opts:["O direito de cobrar impostos","O direito de governar o país","O direito de manter sua cultura, língua e posse de suas terras tradicionais","O direito de criar suas próprias leis para todo o Brasil"],c:2}]}]},{id:"geografia",icon:"🌍",name:"Geografia",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[{title:"Cap. 1 — O planeta Terra e sua superfície",desc:"15 perguntas • Rotação, translação, continentes, mapas",time:45,tag:"Capítulo 1",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"Quais são os dois principais movimentos da Terra?",opts:["Rotação e translação","Atração e repulsão","Gravidade e órbita","Inclinação e elevação"],c:0},{q:"O que é o movimento de rotação da Terra?",opts:["O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","A Terra girando em torno de si mesma","O movimento do Sol pelo céu"],c:2},{q:"Quanto tempo a Terra leva para um giro completo no movimento de rotação?",opts:["7 dias (uma semana)","12 horas (meio dia)","365 dias (um ano)","Aproximadamente 24 horas (um dia)"],c:3},{q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de translação ao redor do Sol","O movimento de rotação em torno do eixo da Terra","A inclinação da Lua sobre a Terra","A distância entre a Terra e o Sol"],c:1},{q:"O que é o movimento de translação da Terra?",opts:["A Terra se movendo ao redor do Sol","A Terra girando em torno de si mesma","O Sol girando em torno da Terra","A Lua girando em torno da Terra"],c:0},{q:"O que origina as quatro estações do ano?",opts:["A distância entre a Lua e a Terra","As chuvas e ventos que mudam o clima","O movimento de rotação da Terra","O movimento de translação e a luz solar nas partes do planeta"],c:3},{q:"A superfície da Terra é uma esfera perfeita?",opts:["Sim, é completamente lisa e redonda","Não, pois apresenta muitas irregularidades","Sim, mas só nas regiões dos oceanos","Não, pois a Terra tem formato quadrado"],c:1},{q:"Como se chama o modelo que representa as irregularidades da superfície terrestre?",opts:["Planisfério","Globo terrestre","Geoide","Mapa-múndi"],c:2},{q:"Como se chama a superfície da Terra que fica ACIMA do nível das águas?",opts:["Terras imersas","Terras submersas","Terras aquáticas","Terras emersas"],c:3},{q:"Quantos continentes existem na Terra?",opts:["6 continentes","4 continentes","5 continentes","7 continentes"],c:0},{q:"Qual é a diferença entre uma ilha e um continente?",opts:["Continentes têm vegetação e ilhas não têm","Ilhas são habitadas e continentes não","Ilhas ficam nos rios e continentes nos oceanos","Ilhas são menores; continentes são bem mais extensos"],c:3},{q:"Como se chamam os mapas que representam TODA a superfície da Terra em folha plana?",opts:["Globos terrestres","Geoides","Planisfério ou mapa-múndi","Imagens de satélite"],c:2},{q:"Como são obtidas as imagens de satélite da Terra?",opts:["Por câmeras no fundo dos oceanos","Por fotógrafos em helicópteros","Por equipamentos em satélites artificiais que orbitam a Terra","Por telescópios em montanhas"],c:2},{q:"Qual é a vantagem do globo terrestre como representação da Terra?",opts:["Pode ser impresso em papel facilmente","É um modelo esférico com cada parte em posição aproximada","Mostra toda a superfície de uma só vez","Mostra detalhes de ruas e bairros"],c:1},{q:"Nos mapas, com qual cor as águas de rios, mares e oceanos são representadas?",opts:["Verde","Amarelo","Marrom","Azul"],c:3}]},{title:"Cap. 3 — Comunicação e transporte no Brasil",desc:"15 perguntas • Meios de transporte e comunicação",time:45,tag:"Capítulo 3",tagBg:"#D6EAF8",tagColor:"#1D4ED8",questions:[{q:"Qual é o meio de transporte mais utilizado no Brasil atualmente?",opts:["Ferroviário","Aquaviário","Rodoviário","Aéreo"],c:2},{q:"Qual é uma desvantagem do transporte rodoviário no Brasil?",opts:["Grande parte das vias tem buracos e falta boa sinalização","As estradas são muito estreitas","Os ônibus são muito lentos","Não existem estradas ligando os estados"],c:0},{q:"Qual é a principal vantagem do transporte ferroviário?",opts:["Os trens chegam a todos os municípios","O trem é o transporte mais rápido do mundo","Grande capacidade de carga e menos poluente","As ferrovias custam menos para construir"],c:2},{q:"O que é o transporte aquaviário?",opts:["Transporte feito por aviões sobre o oceano","Transporte feito por balões","Transporte feito por tubulações subterrâneas","Transporte que usa rios, lagos e oceanos para locomoção"],c:3},{q:"Qual é a principal vantagem do transporte aéreo?",opts:["É o mais barato para todas as pessoas","Permite deslocamentos a longas distâncias com rapidez","Pode ser usado em todos os municípios","Não polui o meio ambiente"],c:1},{q:"O que são meios de comunicação de massa?",opts:["Meios usados apenas pelo governo","Meios de comunicação só entre duas pessoas","Meios usados só nas escolas","Meios que transmitem informações a um grande número de pessoas"],c:3},{q:"Qual foi o primeiro meio de comunicação de massa no Brasil?",opts:["A televisão","A internet","O rádio","O jornal impresso"],c:3},{q:"Em que década o rádio teve início no Brasil?",opts:["Na década de 1900","Na década de 1920","Na década de 1950","Na década de 1970"],c:1},{q:"Quando a televisão se popularizou no Brasil?",opts:["Na década de 1920","Na década de 1940","Na década de 1990","A partir da década de 1970"],c:3},{q:"Quando o telefone chegou ao Brasil?",opts:["Em 1950","Em 1920","Em 1876","Em 1990"],c:2},{q:"O que é a internet?",opts:["Uma rede global que interliga aparelhos para trocar informações","Um tipo de televisão com mais canais","Um serviço de rádio por satélite","Um aplicativo de celular para chamadas"],c:0},{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitui os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},{q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},{q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},{q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}]}]},{id:"portugues",icon:"✏️",name:"Língua Portuguesa",desc:"Projeto Presente — Editora Moderna",locked:false,quizzes:[{title:"Cap. 1 e 2 — Substantivos, adjetivos, verbos e mais",desc:"30 perguntas • Texto teatral, tempos verbais, pontuação, L e U",time:45,tag:"Cap. 1 e 2",tagBg:"#FCE4EC",tagColor:"#880E4F",questions:[{q:"O texto teatral é criado principalmente para:",opts:["Ser lido em silêncio, como um romance","Ser encenado por atores em um palco","Ser cantado como uma música","Ser usado como receita de culinária"],c:1},{q:"Na peça 'O Vento e o Sol', as indicações em itálico como 'Menino começa a sentir frio e veste a blusa' são chamadas de:",opts:["Diálogos","Rubricas","Narrações","Estrofes"],c:1},{q:"Para que servem os nomes em destaque que aparecem antes das falas em um texto teatral (por exemplo: POMBO 1, VENTO)?",opts:["Para indicar o cenário da cena","Para mostrar o tempo da história","Para indicar quem vai falar","Para descrever o figurino das personagens"],c:2},{q:"Qual é a principal diferença entre um texto teatral e um conto?",opts:["O texto teatral tem rimas e o conto não","O texto teatral é escrito para ser encenado e o conto para ser lido","O texto teatral não tem personagens","O conto é sempre mais curto que o texto teatral"],c:1},{q:"O que são 'atos' e 'cenas' em um texto teatral?",opts:["São divisões do texto teatral, como capítulos em um livro","São os nomes dos personagens principais","São as músicas cantadas durante a peça","São os cenários onde a peça acontece"],c:0},{q:"O que é uma rubrica em um texto teatral?",opts:["É o nome do autor da peça","É a fala principal do personagem","É o título de cada cena","São indicações sobre como os atores devem agir, o cenário e os movimentos"],c:3},{q:"Em um texto teatral, o que indica a palavra 'CORO' antes de uma fala?",opts:["Que todos os personagens falam ao mesmo tempo","Que apenas um personagem fala","Que a fala deve ser sussurrada","Que o personagem está cantando"],c:0},{q:"Qual é a função do cenário em uma peça de teatro?",opts:["Substituir os personagens quando eles saem do palco","Indicar quem é o autor do texto","Mostrar o nome do diretor da peça","Criar o ambiente e o local onde a história acontece"],c:3},{q:"O texto sobre 'Dedoches' é um texto instrucional. Qual é o principal objetivo desse tipo de texto?",opts:["Contar uma história de aventura","Convencer o leitor de uma ideia","Descrever paisagens bonitas","Ensinar como fazer algo, passo a passo"],c:3},{q:"Qual é a estrutura básica de um texto instrucional como uma receita ou manual?",opts:["Título, introdução e moral da história","Título, personagens e conflito","Título, estrofes e versos","Título, lista de materiais e passo a passo"],c:3},{q:"Em textos instrucionais, qual é a função dos verbos usados nas etapas do passo a passo?",opts:["Dizer ao leitor o que ele deve fazer em cada etapa","Indicar o tempo em que a história aconteceu","Descrever os sentimentos dos personagens","Rimar com outras palavras do texto"],c:0},{q:"Qual das opções abaixo é um exemplo de verbo que pode ser usado em um texto instrucional para ensinar a fazer um fantoche?",opts:["Sorri, cantou, brincou","Está, era, seria","Recorte, cole, enfeite","Bonito, colorido, macio"],c:2},{q:"Por que os textos instrucionais usam números ou marcadores no passo a passo?",opts:["Para deixar o texto mais bonito","Para mostrar quantos personagens existem","Para indicar a ordem em que as ações devem ser feitas","Para separar as palavras difíceis"],c:2},{q:"Na frase 'O Vento e o Sol fizeram uma aposta', o verbo 'fizeram' indica uma ação que:",opts:["Acontece agora, no momento da fala","Ainda vai acontecer no futuro","Já aconteceu antes do momento da fala","Acontece todo dia, sem parar"],c:2},{q:"Qual das frases abaixo está no tempo presente?",opts:["Ontem eu brinquei no parque","Eu gosto muito de ler","Amanhã eu vou estudar","Semana passada eu comi pizza"],c:1},{q:"Qual das frases abaixo está no pretérito imperfeito (ação que acontecia com frequência no passado)?",opts:["Eu comia arroz todo dia quando era criança","Eu comerei arroz amanhã","Eu comi arroz ontem","Eu como arroz todo dia agora"],c:0},{q:"Na frase 'Ok, você venceu!', o verbo 'venceu' está no:",opts:["Presente","Futuro","Pretérito (passado)","Gerúndio"],c:2},{q:"Na frase 'O Vento soprará mais forte', o verbo 'soprará' indica uma ação que:",opts:["Ainda vai acontecer","Já aconteceu","Acontece agora","Acontecia sempre no passado"],c:0},{q:"Qual tempo verbal é mais usado nas rubricas de um texto teatral, e por quê?",opts:["Futuro, porque as ações ainda vão acontecer","Passado, porque descreve o que já aconteceu","Imperfeito, porque as ações eram contínuas","Presente, porque as rubricas descrevem ações que devem acontecer no momento da encenação"],c:3},{q:"Muitos verbos no passado terminam em -ou, -eu e -iu. Qual das opções abaixo é um exemplo de verbo no passado?",opts:["Canta","Cantará","Cantou","Cantando"],c:2},{q:"No segundo quadrinho da tirinha 'É Fácil!', Carolina usa dois verbos. 'Ensinei' está no passado. Em que tempo está o verbo 'Tem'?",opts:["Futuro","Pretérito imperfeito","Presente","Pretérito perfeito"],c:2},{q:"Qual é a forma correta do verbo 'cantar' no pretérito perfeito (passado)?",opts:["Cantarei","Cantava","Cantou","Cantando"],c:2},{q:"Nas palavras Sol, fácil e imóvel, o que elas têm em comum quanto ao uso das letras?",opts:["Todas terminam com a letra U","Todas terminam com a letra L","Todas têm a letra L no início","Todas têm acento agudo"],c:1},{q:"Nas palavras 'mochila', 'livro' e 'iluminação', a letra L está:",opts:["No início da sílaba, antes de uma vogal","No final da sílaba, produzindo som de U","No meio de duas consoantes","Sempre antes da letra H"],c:0},{q:"Nas palavras 'álbum', 'teatral' e 'filtro', a letra L está no final da sílaba. Qual som ela produz nessa posição?",opts:["Som de 'la' como em 'bala'","Som de 'lhe' como em 'folha'","Ela fica muda, sem produzir som","Som de 'U' (a letra L vira um som parecido com U)"],c:3},{q:"Nas palavras 'soprou', 'venceu' e 'sentiu', o que elas têm em comum no final?",opts:["Todas terminam com a letra U","Todas terminam com a letra L","Todas terminam com a letra O","Todas têm acento circunflexo"],c:0},{q:"Qual das palavras abaixo tem a letra L no final de sílaba, produzindo som parecido com U?",opts:["Seringal","Leão","Palhaço","Lula"],c:0},{q:"Qual é a função do ponto de exclamação (!)?",opts:["Indicar uma pergunta","Expressar emoções fortes como alegria, surpresa, ordem ou indignação","Indicar que o texto continua","Separar palavras em uma lista"],c:1},{q:"Em qual situação usamos reticências (...) em um texto?",opts:["Para encerrar uma frase com emoção forte","Para indicar que a ideia ficou incompleta ou que há uma pausa de suspense","Para fazer uma pergunta","Para separar itens de uma lista"],c:1},{q:"Na tirinha 'É Fácil!', qual sinal de pontuação é mais adequado para os dois primeiros balões de Carolina, que faz perguntas com entusiasmo?",opts:["Ponto final (.)","Reticências (...)","Vírgula (,)","Ponto de exclamação (!)"],c:3}]}]},{id:"matematica",icon:"🔢",name:"Matemática",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[{title:"Cap. 2 — Adição e Subtração",desc:"12 questões + 3 problemas • Adição, subtração, expressões numéricas e sistema monetário",time:45,tag:"Capítulo 2",tagBg:"#FEF3C7",tagColor:"#78350F",questions:[{q:"Qual é o resultado de 1.256 + 3.748?",opts:["5.004","4.904","5.104","4.994"],c:0},{q:"Em 8.500 − 3.275, qual é o resultado?",opts:["5.115","5.225","5.325","5.125"],c:1},{q:"Qual é o elemento neutro da adição?",opts:["1","5","0","Não existe"],c:2},{q:"A operação inversa da adição é:",opts:["Multiplicação","Divisão","Potenciação","Subtração"],c:3},{q:"Qual é o resultado de 500 − 247 + 138?",opts:["391","381","401","371"],c:0},{q:"Em uma expressão numérica, quando há só adição e subtração, como resolvemos?",opts:["Da direita para a esquerda","Da esquerda para a direita","Adição sempre antes da subtração","Subtração sempre antes da adição"],c:1},{q:"Qual é o resultado de 3.000 − 1.458?",opts:["1.432","1.552","1.542","1.642"],c:2},{q:"Para fazer a prova real de uma subtração A − B = C, devemos:",opts:["Fazer A + B e conferir se dá C","Fazer C − A e conferir se dá B","Fazer A − C e conferir se dá B","Fazer C + B e conferir se dá A"],c:3},{q:"Qual é o resultado de 4.027 + 1.986?",opts:["6.013","5.913","6.113","5.913"],c:0},{q:"Se tenho R$ 50,00 e gasto R$ 23,50, quanto sobra?",opts:["R$ 27,50","R$ 26,50","R$ 28,00","R$ 25,50"],c:1},{q:"Qual é o resultado de 200 + 350 − 175 + 100?",opts:["465","455","475","485"],c:2},{q:"Uma loja tinha 2.450 produtos. Recebeu 1.380 novos e vendeu 975. Quantos produtos tem agora?",opts:["2.755","2.855","2.955","2.855"],c:3},{q:"🧮 PROBLEMA — Ana foi às compras com R$ 200,00. Comprou um livro por R$ 47,90, um estojo por R$ 23,50 e uma mochila por R$ 89,90. Quanto Ana gastou ao todo e quanto sobrou?",opts:["Gastou R$ 161,30 e sobrou R$ 38,70","Gastou R$ 162,30 e sobrou R$ 37,70","Gastou R$ 160,30 e sobrou R$ 39,70","Gastou R$ 163,30 e sobrou R$ 36,70"],c:0,time:300},{q:"🧮 PROBLEMA — Uma escola começou o ano com 1.320 alunos. No decorrer do ano, 154 novos alunos se matricularam e 34 foram transferidos para outras escolas. Quantos alunos a escola tem agora?",opts:["1.430 alunos","1.440 alunos","1.450 alunos","1.420 alunos"],c:1,time:300},{q:"🧮 PROBLEMA — Uma cidade tinha 325.480 habitantes. Após o censo, descobriu-se que 12.750 pessoas chegaram e 8.320 foram embora. Qual é a população atual da cidade?",opts:["329.910 habitantes","328.910 habitantes","329.910 habitantes","330.910 habitantes"],c:2,time:300}]},{title:"Cap. 3 — Multiplicação e Divisão",desc:"12 questões + 3 problemas • Multiplicação, divisão, expressões numéricas e chances de ocorrência",time:45,tag:"Capítulo 3",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"Qual é a propriedade que garante que 6 × 4 = 4 × 6?",opts:["Propriedade comutativa","Propriedade associativa","Propriedade distributiva","Elemento neutro"],c:0},{q:"Qual é o resultado de 125 × 8?",opts:["900","1.000","1.100","950"],c:1},{q:"Qual é o resultado de 2 + 3 × 4 − 1?",opts:["19","21","13","11"],c:2},{q:"Qual é o elemento neutro da multiplicação?",opts:["0","2","10","1"],c:3},{q:"Qual é o resultado de (5 + 3) × 2 − 4?",opts:["12","10","8","16"],c:0},{q:"Qual é o resultado de 756 ÷ 9?",opts:["83","84","85","86"],c:1},{q:"A operação inversa da multiplicação é:",opts:["Adição","Subtração","Divisão","Potenciação"],c:2},{q:"Em uma expressão numérica, qual é a ordem de resolução?",opts:["Adição, subtração, multiplicação, divisão","Da esquerda para a direita sempre","Divisão, multiplicação, adição, subtração","Parênteses, depois × e ÷, depois + e −"],c:3},{q:"Qual é o resultado de 48 × 25?",opts:["1.200","1.100","1.300","1.400"],c:0},{q:"Em um gráfico de barras, a barra mais alta indica:",opts:["O menor valor","O maior valor","A média dos valores","O valor do meio"],c:1},{q:"Se uma caixa tem 24 chocolates e há 6 caixas, quantos chocolates há no total?",opts:["120","130","144","148"],c:2},{q:"240 alunos foram divididos em grupos iguais de 8. Quantos grupos foram formados?",opts:["28 grupos","26 grupos","32 grupos","30 grupos"],c:3},{q:"🧮 PROBLEMA — Uma fábrica produz 125 caixas por hora. Trabalha 8 horas por dia, 5 dias por semana. Quantas caixas a fábrica produz em uma semana?",opts:["5.000 caixas","4.500 caixas","5.500 caixas","4.000 caixas"],c:0,time:300},{q:"🧮 PROBLEMA — Pedro comprou 12 pacotes de figurinhas com R$ 3,50 cada e 3 álbuns com R$ 8,00 cada. Quanto Pedro gastou no total?",opts:["R$ 65,00","R$ 66,00","R$ 67,00","R$ 68,00"],c:1,time:300},{q:"🧮 PROBLEMA — Uma escola tem 18 turmas. Cada turma tem 32 alunos. A diretora quer distribuir 1.440 cadernos igualmente entre todos os alunos. Quantos cadernos cada aluno recebe?",opts:["3 cadernos","2 cadernos","2,5 cadernos","4 cadernos"],c:2,time:300}]}]},{id:"ciencias",icon:"🔬",name:"Ciências",desc:"Buriti Mais Ciências — Editora Moderna",locked:false,quizzes:[{title:"Bloco 1 — Terra, Lua e Espaço Sideral",desc:"15 perguntas • Movimentos da Terra, fases da Lua, telescópios e viagens espaciais",time:45,tag:"Bloco 1",tagBg:"#E0F2FE",tagColor:"#0369A1",questions:[{q:"Qual movimento da Terra causa a alternância entre o dia e a noite?",opts:["Translação, ao redor do Sol","Rotação, em torno do próprio eixo","Inclinação do eixo terrestre","Atração gravitacional da Lua"],c:1},{q:"Quanto tempo a Terra leva para completar uma volta ao redor do Sol?",opts:["24 horas","7 dias","365 dias","29 dias"],c:2},{q:"O que causa as quatro estações do ano?",opts:["A translação da Terra e a inclinação do seu eixo","A rotação da Terra em torno de si mesma","A distância entre a Terra e a Lua","A distância entre a Terra e o Sol"],c:0},{q:"Quanto tempo a Lua leva para dar uma volta completa ao redor da Terra?",opts:["24 horas","7 dias","365 dias","Cerca de 29 dias"],c:3},{q:"Por que sempre vemos o mesmo lado da Lua da Terra?",opts:["Porque a Lua leva o mesmo tempo para girar em torno de si e ao redor da Terra","Porque a Lua reflete a luz do Sol","Porque a Lua não gira","Porque a Lua está muito longe"],c:0},{q:"A Lua produz luz própria?",opts:["Sim, ela tem um núcleo que brilha","Não, ela reflete a luz do Sol","Sim, mas só durante a lua cheia","Não, ela reflete a luz da Terra"],c:1},{q:"Quais são as quatro fases da Lua, na ordem correta?",opts:["Crescente, Cheia, Minguante, Nova","Nova, Crescente, Cheia, Minguante","Cheia, Nova, Crescente, Minguante","Minguante, Nova, Crescente, Cheia"],c:1},{q:"Quem é considerado o inventor do telescópio astronômico?",opts:["Isaac Newton","Albert Einstein","Galileu Galilei","Nicolau Copérnico"],c:2},{q:"Qual é a diferença entre o telescópio refrator e o refletor?",opts:["O refrator é maior e o refletor é menor","O refrator usa lentes e o refletor usa espelhos","O refrator observa o Sol e o refletor observa as estrelas","O refrator é terrestre e o refletor é espacial"],c:1},{q:"Para que servem os radiotelescópios?",opts:["Para ampliar imagens visíveis do espaço","Para transmitir rádio para outros planetas","Para captar ondas de rádio emitidas por estrelas e galáxias","Para se comunicar com astronautas"],c:2},{q:"O que é um satélite artificial?",opts:["Uma estrela que orbita a Terra","Um equipamento lançado ao espaço com funções como comunicação e observação","Uma rocha espacial que orbita a Terra","Uma nave tripulada permanente"],c:1},{q:"O que é a Estação Espacial Internacional (ISS)?",opts:["Um laboratório espacial onde astronautas vivem e pesquisam","Um satélite de comunicação","Um telescópio no espaço","Uma base na superfície da Lua"],c:0},{q:"Para que servem as sondas espaciais?",opts:["Para transportar astronautas à Lua","Para captar sinais de rádio de outras galáxias","Para consertar satélites artificiais","Para explorar planetas e regiões distantes do espaço"],c:3},{q:"Onde fica o Centro de Lançamento de foguetes do Brasil?",opts:["Canaveral, Flórida","Brasília, Distrito Federal","Alcântara, Maranhão","Fortaleza, Ceará"],c:2},{q:"Por que o eixo inclinado da Terra é importante para a vida no planeta?",opts:["Ele faz a Terra girar mais rápido","Ele mantém a Lua em órbita","Ele aumenta a força da gravidade","Ele é responsável pela existência das estações do ano, criando variações climáticas"],c:3}]},{title:"Bloco 2 — O Ar e a Atmosfera",desc:"15 perguntas • Composição do ar, propriedades, atmosfera e poluição",time:45,tag:"Bloco 2",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[{q:"O ar existe apenas no céu, longe da superfície da Terra?",opts:["Não, o ar existe em toda parte: na água, no solo e dentro dos seres vivos","Sim, o ar só existe nas alturas","Sim, o ar fica apenas na atmosfera superior","Não, o ar existe apenas perto de rios e mares"],c:0},{q:"Qual é o principal componente do ar atmosférico?",opts:["Oxigênio (O₂)","Dióxido de carbono (CO₂)","Nitrogênio (N₂)","Vapor d'água"],c:2},{q:"Qual é a porcentagem aproximada de oxigênio no ar?",opts:["78%","21%","50%","5%"],c:1},{q:"O que é a atmosfera terrestre?",opts:["A camada de água que cobre os oceanos","A camada de solo fértil da Terra","O conjunto de montanhas ao redor do planeta","A camada de gases que envolve e protege a Terra"],c:3},{q:"Qual das opções abaixo prova que o ar ocupa espaço?",opts:["O ar não pode ser sentido","O ar não tem peso","Uma bola ou pneu inflado fica cheio graças ao ar","O ar não exerce pressão"],c:2},{q:"O que é o vento?",opts:["O ar em movimento","Um gás diferente do ar comum","Ar frio descendo das montanhas","Ar quente subindo das cidades"],c:0},{q:"Como podemos perceber que o ar tem peso?",opts:["Pelo cheiro do ar puro na natureza","Pelos pneus de carro que ficam cheios e murcham","Pelo som que o vento faz","Pela cor azul do céu"],c:1},{q:"O que é a camada de ozônio?",opts:["Uma camada de fumaça industrial na atmosfera","Uma camada de nuvens na parte superior da atmosfera","Uma camada de nitrogênio na superfície da Terra","Uma camada de gás que protege a Terra dos raios ultravioleta do Sol"],c:3},{q:"Qual gás é o principal responsável pelo efeito estufa?",opts:["Nitrogênio (N₂)","Oxigênio (O₂)","Dióxido de carbono (CO₂)","Hidrogênio (H₂)"],c:2},{q:"O que é o efeito estufa?",opts:["O aquecimento da Terra pela retenção excessiva de calor pelos gases atmosféricos","A destruição da camada de ozônio pelos raios solares","O resfriamento da Terra pela falta de gases na atmosfera","A formação de chuva ácida nas grandes cidades"],c:0},{q:"Qual gás artificial é responsável pela destruição da camada de ozônio?",opts:["CO₂ (dióxido de carbono)","N₂ (nitrogênio)","CFC (clorofluorcarbono)","O₂ (oxigênio)"],c:2},{q:"O que aconteceria com a Terra se não houvesse atmosfera?",opts:["Ficaria mais bonita, com o céu mais limpo","A vida não seria possível, pois não haveria proteção nem ar para respirar","Apenas os animais sobreviveriam","A vida continuaria normalmente"],c:1},{q:"Quais são as principais fontes de poluição do ar nas cidades?",opts:["Plantas e árvores que soltam gases","Rios e lagos com águas sujas","Fumaça de fábricas, escapamentos de carros e queimadas","Chuva e tempestades"],c:2},{q:"Por que a queimada de florestas prejudica a atmosfera?",opts:["Porque diminui o vento na região","Porque aumenta a quantidade de oxigênio","Porque esfria demais a atmosfera","Porque libera fumaça e gases poluentes como CO₂ no ar"],c:3},{q:"Qual das ações abaixo ajuda a reduzir a poluição do ar?",opts:["Usar mais carros com motor a gasolina","Usar transportes coletivos e bicicletas, e plantar árvores","Aumentar o número de fábricas sem filtros","Fazer mais queimadas para limpar terrenos"],c:1}]}]}]},{id:"ac3",label:"AC3",name:"3ª Avaliação",icon:"🏆",theme:"ac-ac3",desc:"Conteúdos do 3º bimestre",locked:true,subjects:[]},{id:"ac4",label:"AC4",name:"4ª Avaliação",icon:"🎯",theme:"ac-ac4",desc:"Conteúdos do 4º bimestre",locked:true,subjects:[]}];
+const AVALIACOES=[
+{id:"ac1",label:"AC1",name:"1ª Avaliação",icon:"📝",theme:"ac-ac1",desc:"Conteúdos do 1º bimestre",locked:true,subjects:[]},
+{id:"ac2",label:"AC2",name:"2ª Avaliação",icon:"📚",theme:"ac-ac2",desc:"Conteúdos do 2º bimestre",locked:false,subjects:[
+{id:"historia",icon:"📖",name:"História",desc:"Ligamundo — Editora Saraiva",locked:false,quizzes:[
+{title:"Unidade 1 — O início da civilização",desc:"15 perguntas • Vida nômade, Mesopotâmia, Egito, Patrimônio",time:45,tag:"Unidade 1",tagBg:"#EDE9FE",tagColor:"#6B21A8",questions:[
+{q:"Há cerca de 10 mil anos, como os seres humanos conseguiam seu alimento?",opts:["Caçando animais e coletando frutos na natureza","Comprando em mercados e feiras","Plantando em grandes fazendas","Pescando nos oceanos"],c:0},
+{q:"O que permitiu que os seres humanos se fixassem em um lugar?",opts:["A invenção do barco","O domínio da agricultura e da criação de animais","A construção de muros e castelos","O surgimento do comércio"],c:1},
+{q:"A cidade mais antiga Çatal Huyük fica em qual país?",opts:["Egito","Grécia","Turquia","Iraque"],c:2},
+{q:"Por que as primeiras cidades surgiram perto de grandes rios?",opts:["Para facilitar a pesca de peixes exóticos","Para se proteger de animais selvagens","Porque os rios forneciam água para irrigação e solo fértil","Porque os rios serviam de fronteira entre povos"],c:2},
+{q:"Como surgiu o comércio nas primeiras civilizações?",opts:["Com a criação das moedas de ouro pelos reis","Com a especialização do trabalho e a troca de produtos","Com a construção de grandes mercados pelos governantes","Com a chegada de barcos estrangeiros"],c:1},
+{q:"O que significa a palavra Mesopotâmia?",opts:["Terra do sol","Terra dos deuses","Terra de areia","Terra entre rios"],c:3},
+{q:"Como se chamava o templo no centro das cidades mesopotâmicas?",opts:["Pirâmide","Zigurate","Palácio","Coliseu"],c:1},
+{q:"Como eram chamados os povos que acreditavam em várias divindades?",opts:["Monoteístas","Ateístas","Politeístas","Sacerdotes"],c:2},
+{q:"Qual foi o primeiro sistema de escrita do mundo?",opts:["Hieroglífico","Cuneiforme","Alfabeto romano","Papiro"],c:1},
+{q:"Como se chamavam os especialistas em escrita na Mesopotâmia?",opts:["Sacerdotes","Faraós","Donatários","Escribas"],c:3},
+{q:"Como se chamava o governante do Egito antigo, considerado um deus?",opts:["Rei","Sacerdote","Faraó","Escriba"],c:2},
+{q:"Como se chamava o sistema de escrita dos antigos egípcios?",opts:["Cuneiforme","Hieroglífico","Alfabeto fenício","Papiro"],c:1},
+{q:"Qual povo criou o calendário solar com 365 dias?",opts:["Os mesopotâmicos","Os egípcios","Os chineses","Os gregos"],c:1},
+{q:"O que é patrimônio cultural?",opts:["Dinheiro guardado no banco","Terras e propriedades de uma família","Prédios modernos das cidades","Bens com valor artístico, histórico ou cultural de um povo"],c:3},
+{q:"O que é o patrimônio imaterial?",opts:["Monumentos e construções históricas","Museus e sítios arqueológicos","Tradições, danças, receitas culinárias e técnicas de um povo","Objetos de arte guardados em museus"],c:2}
+]},
+{title:"Unidade 2 — Quando o Brasil era de Portugal",desc:"11 perguntas • Colonização, capitanias, sociedade colonial",time:45,tag:"Unidade 2",tagBg:"#FEF3C7",tagColor:"#B45309",questions:[
+{q:"Como se chamavam os locais estratégicos usados pelos portugueses para trocar mercadorias?",opts:["Capitanias","Feitorias","Engenhos","Aldeias"],c:1},
+{q:"Em 1500, o que os portugueses mais queriam encontrar no Brasil?",opts:["Animais exóticos","Frutas tropicais","Riquezas como ouro e prata","Terras para morar"],c:2},
+{q:"O que é biopirataria?",opts:["A pesca ilegal em rios","O tráfico de animais silvestres","A derrubada ilegal de árvores","A apropriação ilegal dos conhecimentos tradicionais dos povos da floresta"],c:3},
+{q:"Como se chamava o sistema criado em 1534 para dividir o território brasileiro?",opts:["Governo-geral","Império marítimo","Capitanias hereditárias","Feitorias"],c:2},
+{q:"Quem foi o primeiro governador-geral do Brasil e qual cidade fundou?",opts:["Pedro Álvares Cabral — Rio de Janeiro","Dom Pedro I — São Paulo","Tomé de Sousa — Salvador","Dom João VI — Recife"],c:2},
+{q:"Como eram chamados cacau, cravo, canela e baunilha no período colonial?",opts:["Especiarias do mar","Frutos da terra","Drogas do sertão","Produtos do reino"],c:2},
+{q:"Como os colonos chamavam os indígenas aprisionados como escravos?",opts:["Donatários","Homens livres","Negros da terra","Bandeirantes"],c:2},
+{q:"Quem trabalhava nos engenhos de cana-de-açúcar no Brasil colonial?",opts:["Soldados portugueses","Africanos escravizados","Comerciantes europeus","Nobres portugueses"],c:1},
+{q:"Qual era o papel da mulher europeia que chegava ao Brasil colonial?",opts:["Governar as capitanias","Trabalhar nos engenhos","Casar com os colonos, ter filhos e educá-los na religião","Comandar o comércio nas cidades"],c:2},
+{q:"Como era dividida a sociedade colonial brasileira?",opts:["Reis, cavaleiros e camponeses","Senhores de terra, homens livres e escravizados","Professores, alunos e pais","Padres, soldados e comerciantes"],c:1},
+{q:"A Constituição de 1988 garante quais direitos aos povos indígenas?",opts:["O direito de cobrar impostos","O direito de governar o país","O direito de manter sua cultura, língua e posse de suas terras tradicionais","O direito de criar suas próprias leis para todo o Brasil"],c:2}
+]}
+]},
+{id:"geografia",icon:"🌍",name:"Geografia",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[
+{title:"Cap. 1 — O planeta Terra e sua superfície",desc:"15 perguntas • Rotação, translação, continentes, mapas",time:45,tag:"Capítulo 1",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[
+{q:"Quais são os dois principais movimentos da Terra?",opts:["Rotação e translação","Atração e repulsão","Gravidade e órbita","Inclinação e elevação"],c:0},
+{q:"O que é o movimento de rotação da Terra?",opts:["O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","A Terra girando em torno de si mesma","O movimento do Sol pelo céu"],c:2},
+{q:"Quanto tempo a Terra leva para um giro completo no movimento de rotação?",opts:["7 dias (uma semana)","12 horas (meio dia)","365 dias (um ano)","Aproximadamente 24 horas (um dia)"],c:3},
+{q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de translação ao redor do Sol","O movimento de rotação em torno do eixo da Terra","A inclinação da Lua sobre a Terra","A distância entre a Terra e o Sol"],c:1},
+{q:"O que é o movimento de translação da Terra?",opts:["A Terra se movendo ao redor do Sol","A Terra girando em torno de si mesma","O Sol girando em torno da Terra","A Lua girando em torno da Terra"],c:0},
+{q:"O que origina as quatro estações do ano?",opts:["A distância entre a Lua e a Terra","As chuvas e ventos que mudam o clima","O movimento de rotação da Terra","O movimento de translação e a luz solar nas partes do planeta"],c:3},
+{q:"A superfície da Terra é uma esfera perfeita?",opts:["Sim, é completamente lisa e redonda","Não, pois apresenta muitas irregularidades","Sim, mas só nas regiões dos oceanos","Não, pois a Terra tem formato quadrado"],c:1},
+{q:"Como se chama o modelo que representa as irregularidades da superfície terrestre?",opts:["Planisfério","Globo terrestre","Geoide","Mapa-múndi"],c:2},
+{q:"Como se chama a superfície da Terra que fica ACIMA do nível das águas?",opts:["Terras imersas","Terras submersas","Terras aquáticas","Terras emersas"],c:3},
+{q:"Quantos continentes existem na Terra?",opts:["6 continentes","4 continentes","5 continentes","7 continentes"],c:0},
+{q:"Qual é a diferença entre uma ilha e um continente?",opts:["Continentes têm vegetação e ilhas não têm","Ilhas são habitadas e continentes não","Ilhas ficam nos rios e continentes nos oceanos","Ilhas são menores; continentes são bem mais extensos"],c:3},
+{q:"Como se chamam os mapas que representam TODA a superfície da Terra em folha plana?",opts:["Globos terrestres","Geoides","Planisfério ou mapa-múndi","Imagens de satélite"],c:2},
+{q:"Como são obtidas as imagens de satélite da Terra?",opts:["Por câmeras no fundo dos oceanos","Por fotógrafos em helicópteros","Por equipamentos em satélites artificiais que orbitam a Terra","Por telescópios em montanhas"],c:2},
+{q:"Qual é a vantagem do globo terrestre como representação da Terra?",opts:["Pode ser impresso em papel facilmente","É um modelo esférico com cada parte em posição aproximada","Mostra toda a superfície de uma só vez","Mostra detalhes de ruas e bairros"],c:1},
+{q:"Nos mapas, com qual cor as águas de rios, mares e oceanos são representadas?",opts:["Verde","Amarelo","Marrom","Azul"],c:3}
+]},
+{title:"Cap. 3 — Comunicação e transporte no Brasil",desc:"15 perguntas • Meios de transporte e comunicação",time:45,tag:"Capítulo 3",tagBg:"#D6EAF8",tagColor:"#1D4ED8",questions:[
+{q:"Qual é o meio de transporte mais utilizado no Brasil atualmente?",opts:["Ferroviário","Aquaviário","Rodoviário","Aéreo"],c:2},
+{q:"Qual é uma desvantagem do transporte rodoviário no Brasil?",opts:["Grande parte das vias tem buracos e falta boa sinalização","As estradas são muito estreitas","Os ônibus são muito lentos","Não existem estradas ligando os estados"],c:0},
+{q:"Qual é a principal vantagem do transporte ferroviário?",opts:["Os trens chegam a todos os municípios","O trem é o transporte mais rápido do mundo","Grande capacidade de carga e menos poluente","As ferrovias custam menos para construir"],c:2},
+{q:"O que é o transporte aquaviário?",opts:["Transporte feito por aviões sobre o oceano","Transporte feito por balões","Transporte feito por tubulações subterrâneas","Transporte que usa rios, lagos e oceanos para locomoção"],c:3},
+{q:"Qual é a principal vantagem do transporte aéreo?",opts:["É o mais barato para todas as pessoas","Permite deslocamentos a longas distâncias com rapidez","Pode ser usado em todos os municípios","Não polui o meio ambiente"],c:1},
+{q:"O que são meios de comunicação de massa?",opts:["Meios usados apenas pelo governo","Meios de comunicação só entre duas pessoas","Meios usados só nas escolas","Meios que transmitem informações a um grande número de pessoas"],c:3},
+{q:"Qual foi o primeiro meio de comunicação de massa no Brasil?",opts:["A televisão","A internet","O rádio","O jornal impresso"],c:3},
+{q:"Em que década o rádio teve início no Brasil?",opts:["Na década de 1900","Na década de 1920","Na década de 1950","Na década de 1970"],c:1},
+{q:"Quando a televisão se popularizou no Brasil?",opts:["Na década de 1920","Na década de 1940","Na década de 1990","A partir da década de 1970"],c:3},
+{q:"Quando o telefone chegou ao Brasil?",opts:["Em 1950","Em 1920","Em 1876","Em 1990"],c:2},
+{q:"O que é a internet?",opts:["Uma rede global que interliga aparelhos para trocar informações","Um tipo de televisão com mais canais","Um serviço de rádio por satélite","Um aplicativo de celular para chamadas"],c:0},
+{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitui os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},
+{q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},
+{q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},
+{q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}
+]}
+]},
+{id:"portugues",icon:"✏️",name:"Língua Portuguesa",desc:"Projeto Presente — Editora Moderna",locked:false,quizzes:[
+{title:"Cap. 1 — Na feira tem cultura",
+desc:"15 perguntas • Poema, substantivos, adjetivos, locução adjetiva, preposição e mais/mas",
+time:45,tag:"Capítulo 1",tagBg:"#FCE4EC",tagColor:"#880E4F",
+questions:[
+{q:"O que é um substantivo simples?",opts:["Formado por dois elementos com hífen","Formado por um único elemento","Que dá característica ao substantivo","Que liga dois termos"],c:1},
+{q:"Qual das opções abaixo é um substantivo COMPOSTO?",opts:["casa","sol","guarda-chuva","mar"],c:2},
+{q:"O que é um adjetivo?",opts:["Palavra que dá característica ao substantivo","Palavra que liga dois termos","Palavra que indica ação","Palavra que substitui o substantivo"],c:0},
+{q:"Qual palavra abaixo é um adjetivo?",opts:["corrida","rapidamente","veloz","correr"],c:2},
+{q:"O que é uma locução adjetiva?",opts:["Dois adjetivos juntos","Um adjetivo com hífen","Expressão com duas ou mais palavras que tem valor de adjetivo","Um adjetivo composto"],c:2},
+{q:"Qual locução adjetiva equivale ao adjetivo 'solar'?",opts:["do vento","da lua","de madeira","do sol"],c:3},
+{q:"Em qual frase o uso de MAS está CORRETO?",opts:["Quero mais sorvete","Estudei, mas não passei","Preciso de muito mas","Ela é bonita mais inteligente"],c:1},
+{q:"Em qual frase o uso de MAIS está CORRETO?",opts:["Quero mais água, por favor","Tentei muito, mais não consegui","Gostei, mais prefiro outro","Vim, mais não fiquei"],c:0},
+{q:"Qual é a função da preposição?",opts:["Dar característica ao substantivo","Indicar ação ou estado","Substituir o substantivo","Ligar dois termos estabelecendo uma relação entre eles"],c:3},
+{q:"Quais são exemplos de preposições?",opts:["correndo, andando, pulando","bonito, feio, alto","a, de, em, para, por","eu, tu, ele, nós"],c:2},
+{q:"Em 'sorvete de chocolate', a preposição 'de' forma uma:",opts:["Adjetivo simples","Concordância nominal","Substantivo composto","Locução adjetiva"],c:3},
+{q:"O substantivo 'pé-de-moleque' é:",opts:["Simples sem hífen","Simples com hífen","Composto com hífen","Adjetivo composto"],c:2},
+{q:"Qual característica define um POEMA?",opts:["É escrito para ser encenado","É escrito para dar instruções","Organizado em versos e estrofes, com musicalidade e expressão de sentimentos","É uma narrativa de fatos reais"],c:2},
+{q:"Em 'A menina curiosa leu o livro', qual é o adjetivo?",opts:["curiosa","menina","leu","livro"],c:0},
+{q:"Dica para identificar MAS: substitua por 'porém'. Se funcionar, é MAS. Qual frase usa MAS corretamente?",opts:["Quero mas bolo","Ele é alto, mas magro","Preciso mas de tempo","Vim mas não trouxe"],c:1}
+]},
+{title:"Cap. 2 — Teatro, histórias e fantoches",
+desc:"15 perguntas • Texto teatral, texto instrucional, tempos verbais, L/U e pontuação",
+time:45,tag:"Capítulo 2",tagBg:"#EDE9FE",tagColor:"#4C1D95",
+questions:[
+{q:"Para que serve o texto teatral?",opts:["Para ser lido em silêncio como romance","Para dar instruções de como fazer algo","Para ser encenado por atores no palco","Para contar fatos históricos"],c:2},
+{q:"O que são RUBRICAS em um texto teatral?",opts:["O nome do autor da peça","As falas dos personagens","Indicações sobre ações, expressões e movimentos dos atores","O título de cada cena"],c:2},
+{q:"O que é um texto instrucional?",opts:["Texto que conta uma história de aventura","Texto que ensina a fazer algo com passo a passo","Texto que descreve paisagens","Texto que convence o leitor de uma ideia"],c:1},
+{q:"Qual é a estrutura básica de um texto instrucional?",opts:["Título, personagens e conflito","Título, estrofes e versos","Título, lista de materiais e passo a passo","Título, introdução e moral"],c:2},
+{q:"Na frase 'O vento soprou forte ontem', o verbo está no:",opts:["Presente","Futuro","Imperfeito","Pretérito perfeito"],c:3},
+{q:"Qual frase está no PRESENTE?",opts:["Cantei muito ontem","Vou cantar amanhã","Eu gosto de música","Cantava todo dia"],c:2},
+{q:"Qual frase está no PRETÉRITO IMPERFEITO?",opts:["Ela comeu pizza","Ela come pizza","Ela comerá pizza","Ela comia pizza todo dia"],c:3},
+{q:"Qual frase está no FUTURO?",opts:["Ela correu na praia","Ela corre na praia","Ela correrá na praia amanhã","Ela corria na praia"],c:2},
+{q:"Na palavra 'sol', a letra L está no FINAL da sílaba. Qual som ela produz?",opts:["Som de 'la' como em bola","Som de 'lhe' como em folha","Fica muda","Som de 'U'"],c:3},
+{q:"Qual palavra tem a letra L produzindo som de U no final de sílaba?",opts:["livro","balão","fácil","lugar"],c:2},
+{q:"Em qual situação usamos o ponto de exclamação (!)?",opts:["Para fazer uma pergunta","Para separar itens de uma lista","Para indicar pausa no meio da frase","Para expressar emoção forte: alegria, susto ou ordem"],c:3},
+{q:"O que indicam as reticências (...) em um texto?",opts:["Fim de frase com emoção forte","Pergunta com entonação especial","Ideia incompleta, pausa dramática ou suspense","Separação de itens em lista"],c:2},
+{q:"Qual exemplo abaixo é de FLEXÃO VERBAL correta no pretérito perfeito?",opts:["Eu canto","Eu cantando","Eu cantarei","Eu cantei"],c:3},
+{q:"O plural de 'animal' é:",opts:["animales","animais","animals","animale"],c:1},
+{q:"O plural de 'fácil' é:",opts:["fáciles","fácils","fáceis","fáciles"],c:2}
+]}
+]},
+{id:"matematica",icon:"🔢",name:"Matemática",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[
+{title:"Cap. 2 — Adição e Subtração",desc:"12 questões + 3 problemas • Adição, subtração, expressões numéricas e sistema monetário",time:45,tag:"Capítulo 2",tagBg:"#FEF3C7",tagColor:"#78350F",questions:[
+{q:"Qual é o resultado de 1.256 + 3.748?",opts:["5.004","4.904","5.104","4.994"],c:0},
+{q:"Em 8.500 − 3.275, qual é o resultado?",opts:["5.115","5.225","5.325","5.125"],c:1},
+{q:"Qual é o elemento neutro da adição?",opts:["1","5","0","Não existe"],c:2},
+{q:"A operação inversa da adição é:",opts:["Multiplicação","Divisão","Potenciação","Subtração"],c:3},
+{q:"Qual é o resultado de 500 − 247 + 138?",opts:["391","381","401","371"],c:0},
+{q:"Em uma expressão com só adição e subtração, como resolvemos?",opts:["Da direita para a esquerda","Da esquerda para a direita","Adição sempre antes da subtração","Subtração sempre antes da adição"],c:1},
+{q:"Qual é o resultado de 3.000 − 1.458?",opts:["1.432","1.552","1.542","1.642"],c:2},
+{q:"Para fazer a prova real de uma subtração A − B = C, devemos:",opts:["Fazer A + B e conferir se dá C","Fazer C − A e conferir se dá B","Fazer A − C e conferir se dá B","Fazer C + B e conferir se dá A"],c:3},
+{q:"Qual é o resultado de 4.027 + 1.986?",opts:["6.013","5.913","6.113","5.913"],c:0},
+{q:"Se tenho R$ 50,00 e gasto R$ 23,50, quanto sobra?",opts:["R$ 28,00","R$ 26,50","R$ 26,00","R$ 25,50"],c:1},
+{q:"Qual é o resultado de 200 + 350 − 175 + 100?",opts:["465","455","475","485"],c:2},
+{q:"Uma loja tinha 2.450 produtos. Recebeu 1.380 novos e vendeu 975. Quantos tem agora?",opts:["2.755","2.855","2.955","2.855"],c:3},
+{q:"Ana foi às compras com R$ 200,00. Comprou um livro por R$ 47,90, um estojo por R$ 23,50 e uma mochila por R$ 89,90. Quanto gastou e quanto sobrou?",opts:["Gastou R$ 161,30 e sobrou R$ 38,70","Gastou R$ 162,30 e sobrou R$ 37,70","Gastou R$ 160,30 e sobrou R$ 39,70","Gastou R$ 163,30 e sobrou R$ 36,70"],c:0,time:300},
+{q:"Uma escola começou o ano com 1.320 alunos. No decorrer do ano, 154 novos se matricularam e 34 foram transferidos. Quantos alunos a escola tem agora?",opts:["1.430 alunos","1.440 alunos","1.450 alunos","1.420 alunos"],c:1,time:300},
+{q:"Uma cidade tinha 325.480 habitantes. Chegaram 12.750 pessoas e 8.320 foram embora. Qual é a população atual?",opts:["329.910 habitantes","328.910 habitantes","329.910 habitantes","330.910 habitantes"],c:2,time:300}
+]},
+{title:"Cap. 3 — Multiplicação e Divisão",desc:"12 questões + 3 problemas • Multiplicação, divisão, expressões numéricas e gráficos",time:45,tag:"Capítulo 3",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[
+{q:"Qual é a propriedade que garante que 6 × 4 = 4 × 6?",opts:["Propriedade comutativa","Propriedade associativa","Propriedade distributiva","Elemento neutro"],c:0},
+{q:"Qual é o resultado de 125 × 8?",opts:["900","1.000","1.100","950"],c:1},
+{q:"Qual é o resultado de 2 + 3 × 4 − 1?",opts:["19","21","13","11"],c:2},
+{q:"Qual é o elemento neutro da multiplicação?",opts:["0","2","10","1"],c:3},
+{q:"Qual é o resultado de (5 + 3) × 2 − 4?",opts:["12","10","8","16"],c:0},
+{q:"Qual é o resultado de 756 ÷ 9?",opts:["83","84","85","86"],c:1},
+{q:"A operação inversa da multiplicação é:",opts:["Adição","Subtração","Divisão","Potenciação"],c:2},
+{q:"Em uma expressão numérica, qual é a ordem de resolução?",opts:["Adição, subtração, multiplicação, divisão","Da esquerda para a direita sempre","Divisão, multiplicação, adição, subtração","Parênteses, depois × e ÷, depois + e −"],c:3},
+{q:"Qual é o resultado de 48 × 25?",opts:["1.200","1.100","1.300","1.400"],c:0},
+{q:"Em um gráfico de barras, a barra mais alta indica:",opts:["O menor valor","O maior valor","A média dos valores","O valor do meio"],c:1},
+{q:"Se uma caixa tem 24 chocolates e há 6 caixas, quantos chocolates há no total?",opts:["120","130","144","148"],c:2},
+{q:"240 alunos foram divididos em grupos iguais de 8. Quantos grupos foram formados?",opts:["28 grupos","26 grupos","32 grupos","30 grupos"],c:3},
+{q:"Uma fábrica produz 125 caixas por hora. Trabalha 8 horas por dia, 5 dias por semana. Quantas caixas produz por semana?",opts:["5.000 caixas","4.500 caixas","5.500 caixas","4.000 caixas"],c:0,time:300},
+{q:"Pedro comprou 12 pacotes de figurinhas a R$ 3,50 cada e 3 álbuns a R$ 8,00 cada. Quanto gastou no total?",opts:["R$ 65,00","R$ 66,00","R$ 67,00","R$ 68,00"],c:1,time:300},
+{q:"Uma escola tem 18 turmas com 32 alunos cada. A diretora quer distribuir 1.440 cadernos igualmente entre todos. Quantos cadernos cada aluno recebe?",opts:["3 cadernos","2 cadernos","2,5 cadernos","4 cadernos"],c:2,time:300}
+]}
+]},
+{id:"ciencias",icon:"🔬",name:"Ciências",desc:"Buriti Mais Ciências — Editora Moderna",locked:false,quizzes:[
+{title:"Cap. 1 — A Terra e a Lua se movem",desc:"15 perguntas • Rotação, translação, fases da Lua e história da astronomia",time:45,tag:"Capítulo 1",tagBg:"#E0F2FE",tagColor:"#0369A1",questions:[
+{q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de rotação da Terra em torno do seu eixo","O movimento de translação ao redor do Sol","A distância entre a Terra e o Sol","A sombra da Lua sobre a Terra"],c:0},
+{q:"Quanto tempo a Terra leva para completar um movimento de rotação?",opts:["365 dias","7 dias","12 horas","Aproximadamente 24 horas"],c:3},
+{q:"O que é o movimento de translação da Terra?",opts:["A Terra girando em torno de si mesma","O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","O Sol girando ao redor da Terra"],c:1},
+{q:"Quanto tempo dura o movimento de translação da Terra?",opts:["24 horas","30 dias","365 dias","7 dias"],c:2},
+{q:"O que o movimento de translação e a inclinação do eixo da Terra causam?",opts:["O dia e a noite","As marés","As quatro estações do ano","O movimento das nuvens"],c:2},
+{q:"A Lua produz luz própria?",opts:["Sim, ela tem um núcleo brilhante","Sim, mas só durante a Lua Cheia","Não, ela reflete a luz do Sol","Não, ela reflete a luz da Terra"],c:2},
+{q:"Quanto tempo a Lua leva para completar uma volta ao redor da Terra?",opts:["7 dias","24 horas","365 dias","Cerca de 29 dias"],c:3},
+{q:"Quais são as quatro fases da Lua em ordem?",opts:["Cheia, Nova, Crescente, Minguante","Nova, Crescente, Cheia, Minguante","Crescente, Cheia, Minguante, Nova","Minguante, Cheia, Crescente, Nova"],c:1},
+{q:"Por que sempre vemos o mesmo lado da Lua da Terra?",opts:["Porque a Lua não gira","Porque a Lua leva o mesmo tempo para girar em torno de si e ao redor da Terra","Porque a Lua é iluminada só de um lado","Porque a Terra gira muito rápido"],c:1},
+{q:"Quem defendia que a Terra era o centro do Universo?",opts:["Copérnico","Galileu Galilei","Aristóteles","Isaac Newton"],c:2},
+{q:"Quem defendia que o Sol era o centro do Universo?",opts:["Aristóteles","Ptolomeu","Isaac Newton","Copérnico"],c:3},
+{q:"Quem usou o telescópio para confirmar que a Terra gira ao redor do Sol?",opts:["Aristóteles","Newton","Galileu Galilei","Ptolomeu"],c:2},
+{q:"O que é astronomia tembé?",opts:["Um telescópio indígena","Um satélite brasileiro","O conhecimento astronômico do povo indígena Tembé, do Pará","Uma constelação do hemisfério sul"],c:2},
+{q:"O que acontece com os dias e noites dependendo da estação do ano?",opts:["Os dias e noites têm sempre a mesma duração","No verão os dias são mais longos e no inverno mais curtos","No inverno os dias são mais longos e no verão mais curtos","As estações não afetam a duração dos dias"],c:1},
+{q:"Qual é a principal diferença entre o dia e a noite?",opts:["De dia a Lua está visível e de noite não","De dia o lado da Terra está voltado para o Sol e de noite está de costas para ele","De dia o Sol gira em torno da Terra e de noite para","De dia a Terra para de girar e de noite retoma o movimento"],c:1}
+]},
+{title:"Cap. 2 — O ser humano e o espaço sideral",desc:"15 perguntas • Instrumentos de observação, viagens e equipamentos espaciais",time:45,tag:"Capítulo 2",tagBg:"#EDE9FE",tagColor:"#4C1D95",questions:[
+{q:"Quem aperfeiçoou o telescópio usado para observar o céu?",opts:["Isaac Newton","Galileu Galilei","Copérnico","Aristóteles"],c:1},
+{q:"Qual é a função do telescópio?",opts:["Fotografar planetas de perto","Medir a temperatura das estrelas","Captar ondas de rádio do espaço","Ampliar a imagem de objetos distantes no espaço"],c:3},
+{q:"Qual é a diferença entre o telescópio refrator e o refletor?",opts:["O refrator é maior e o refletor é menor","O refrator observa o Sol e o refletor as estrelas","O refrator usa lentes e o refletor usa espelhos","O refrator é terrestre e o refletor é espacial"],c:2},
+{q:"Para que servem os radiotelescópios?",opts:["Para ampliar imagens visíveis do espaço","Para se comunicar com astronautas na Lua","Para captar ondas de rádio emitidas por estrelas e galáxias","Para transmitir TV a cabo pelo espaço"],c:2},
+{q:"O que é uma constelação?",opts:["Um grupo de planetas que orbitam o mesmo Sol","Um conjunto de estrelas que formam um desenho imaginário no céu","Uma explosão de uma estrela no espaço","Um satélite artificial em órbita"],c:1},
+{q:"Qual foi o primeiro ser humano a pisar na Lua?",opts:["Yuri Gagarin","Buzz Aldrin","Neil Armstrong","Alan Shepard"],c:2},
+{q:"O que é um satélite artificial?",opts:["Uma lua natural de outro planeta","Uma estrela próxima da Terra","Um equipamento fabricado e lançado ao espaço para diversas funções","Um asteroide capturado pela gravidade da Terra"],c:2},
+{q:"Para que serve a Estação Espacial Internacional (ISS)?",opts:["Para lançar foguetes ao espaço","Para ser usada como hotel espacial","Para minerar asteroides","É um laboratório no espaço onde astronautas vivem e pesquisam"],c:3},
+{q:"O que são sondas espaciais?",opts:["Astronautas enviados a outros planetas","Telescópios no espaço","Equipamentos não tripulados enviados para explorar planetas e regiões distantes","Estações espaciais com astronautas"],c:2},
+{q:"Onde fica o Centro de Lançamento de Alcântara, base de foguetes do Brasil?",opts:["Pará","Ceará","Amazonas","Maranhão"],c:3},
+{q:"O que faz o traje espacial dos astronautas?",opts:["Apenas protege do frio do espaço","Protege contra radiação, extremos de temperatura e fornece oxigênio","Apenas impede que o astronauta flutue","Somente serve para identificar os astronautas"],c:1},
+{q:"O que é observar constelações no céu noturno?",opts:["Identificar planetas com telescópio","Reconhecer grupos de estrelas que formam figuras no céu","Fotografar a Lua em suas diferentes fases","Medir a distância entre as estrelas"],c:1},
+{q:"Qual foi o primeiro ser humano a ir ao espaço?",opts:["Neil Armstrong","Buzz Aldrin","Alan Shepard","Yuri Gagarin"],c:3},
+{q:"O que significa dizer que uma estrela está a anos-luz de distância?",opts:["Que a estrela existe há muitos anos","Que a estrela é muito antiga","Que a luz do Sol demora anos-luz para chegar a ela","Que a luz demora aquela quantidade de anos para chegar da estrela até nós"],c:3},
+{q:"Por que os observatórios ficam em locais altos e afastados das cidades?",opts:["Para ficarem mais perto das estrelas","Porque é mais barato construir longe das cidades","Para evitar a poluição luminosa das cidades e ter céu mais limpo","Porque a gravidade é menor nas alturas"],c:2}
+]},
+{title:"Cap. 3 — O ar",desc:"15 perguntas • Composição do ar, propriedades, atmosfera e poluição",time:45,tag:"Capítulo 3",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[
+{q:"O ar existe apenas no céu, longe da superfície da Terra?",opts:["Não, o ar existe em toda parte: na água, no solo e dentro dos seres vivos","Sim, o ar só existe nas alturas","Sim, o ar fica apenas na atmosfera superior","Não, o ar existe apenas perto de rios e mares"],c:0},
+{q:"Qual é o principal componente do ar atmosférico?",opts:["Oxigênio","Dióxido de carbono","Nitrogênio","Vapor de agua"],c:2},
+{q:"Qual é a porcentagem aproximada de oxigênio no ar?",opts:["78%","21%","50%","5%"],c:1},
+{q:"O que é a atmosfera terrestre?",opts:["A camada de água que cobre os oceanos","A camada de solo fértil da Terra","O conjunto de montanhas ao redor do planeta","A camada de gases que envolve e protege a Terra"],c:3},
+{q:"Qual das opções abaixo prova que o ar ocupa espaço?",opts:["O ar não pode ser sentido","O ar não tem peso","Uma bola ou pneu inflado fica cheio graças ao ar","O ar não exerce pressão"],c:2},
+{q:"O que é o vento?",opts:["O ar em movimento","Um gás diferente do ar comum","Ar frio descendo das montanhas","Ar quente subindo das cidades"],c:0},
+{q:"Como podemos perceber que o ar tem massa?",opts:["Pela cor azul do céu","Pelos pneus de carro que ficam cheios e murcham","Pelo som que o vento faz","Pela luz do Sol atravessando a atmosfera"],c:1},
+{q:"O que é a camada de ozônio?",opts:["Uma camada de fumaça industrial","Uma camada de nuvens na parte superior","A camada de gás que protege a Terra dos raios ultravioleta do Sol","Uma camada de nitrogênio na superfície"],c:2},
+{q:"Qual gás é o principal responsável pelo efeito estufa?",opts:["Nitrogênio","Oxigênio","Hidrogênio","Dióxido de carbono"],c:3},
+{q:"O que é o efeito estufa?",opts:["O aquecimento da Terra pela retenção excessiva de calor pelos gases atmosféricos","A destruição da camada de ozônio pelos raios solares","O resfriamento da Terra pela falta de gases","A formação de chuva ácida nas cidades"],c:0},
+{q:"Qual gás artificial destrói a camada de ozônio?",opts:["CO2 (dióxido de carbono)","N2 (nitrogênio)","CFC (clorofluorcarbono)","O2 (oxigênio)"],c:2},
+{q:"O que aconteceria se não houvesse atmosfera na Terra?",opts:["Ficaria mais bonita com o céu mais limpo","A vida não seria possível: sem proteção e sem ar para respirar","Apenas os animais sobreviveriam","A vida continuaria normalmente"],c:1},
+{q:"Quais são as principais fontes de poluição do ar nas cidades?",opts:["Plantas e árvores que soltam gases","Rios e lagos com água suja","Chuva e tempestades","Fumaça de fábricas, escapamentos de carros e queimadas"],c:3},
+{q:"Por que a queimada de florestas prejudica a atmosfera?",opts:["Porque diminui o vento na região","Porque aumenta a quantidade de oxigênio","Porque esfria a atmosfera","Porque libera fumaça e gases poluentes como CO2"],c:3},
+{q:"Qual ação ajuda a reduzir a poluição do ar?",opts:["Usar mais carros com motor a gasolina","Aumentar fábricas sem filtros","Usar transportes coletivos, bicicletas e plantar árvores","Fazer queimadas para limpar terrenos"],c:2}
+]}
+]}
+]},
+{id:"ac3",label:"AC3",name:"3ª Avaliação",icon:"🏆",theme:"ac-ac3",desc:"Conteúdos do 3º bimestre",locked:true,subjects:[]},
+{id:"ac4",label:"AC4",name:"4ª Avaliação",icon:"🎯",theme:"ac-ac4",desc:"Conteúdos do 4º bimestre",locked:true,subjects:[]}
+];
 
 /* ═══════════════════════════════════
    CONTEÚDO DE ESTUDO POR MATÉRIA
@@ -608,45 +812,64 @@ const ESTUDO_CONTEUDO = {
     cor:'#E0F2FE', corBorda:'#7DD3FC', corTexto:'#0369A1',
     secoes:[
       {
-        titulo:'🚀 Bloco 1 — A Terra, a Lua e o Espaço Sideral',
+        titulo:'🌍 Cap. 1 — A Terra e a Lua se movem',
         cor:'#E0F2FE', corTitulo:'#0369A1',
         blocos:[
-          {titulo:'🌍 A Terra se move', texto:'A Terra realiza dois movimentos principais. A rotação é o giro em torno de seu próprio eixo — dura cerca de 24 horas e causa o dia e a noite. A translação é o movimento ao redor do Sol — dura 365 dias e causa as estações do ano. O eixo da Terra é inclinado, o que explica por que o verão e o inverno acontecem em épocas diferentes nos hemisférios norte e sul.', chips:['Rotação = 24h = dia e noite','Translação = 365 dias = estações','Eixo inclinado = estações diferentes','Hemisfério = metade da Terra']},
-          {titulo:'🌕 A Lua se move', texto:'A Lua também realiza dois movimentos: rotação (em torno de si mesma) e translação (ao redor da Terra), ambos levando cerca de 29 dias. Por isso, sempre vemos o mesmo lado da Lua da Terra! A Lua não produz luz própria — ela reflete a luz do Sol. As fases da Lua são: Nova, Crescente, Cheia e Minguante.', chips:['Lua = translação ao redor da Terra','~29 dias = ciclo lunar','Lua reflete a luz do Sol','Fases: Nova, Crescente, Cheia, Minguante']},
-          {titulo:'🔭 Instrumentos de Observação', texto:'O telescópio é o principal instrumento para observar objetos distantes no espaço. Foi inventado por Galileu Galilei no século XVII. Existe o telescópio refrator (usa lentes) e o refletor (usa espelhos). Os radiotelescópios captam ondas de rádio emitidas por estrelas e galáxias. Observatórios são lugares especiais com telescópios potentes.', chips:['Telescópio = observar o espaço','Galileu Galilei = inventor','Refrator = lentes','Refletor = espelhos','Radiotelescópio = ondas de rádio']},
-          {titulo:'🛸 Viagens e Equipamentos Espaciais', texto:'Satélites artificiais são equipamentos lançados ao espaço para diversas funções: comunicação, previsão do tempo e observação da Terra. A Estação Espacial Internacional (ISS) é um laboratório no espaço onde astronautas vivem e pesquisam. As sondas espaciais exploram planetas e regiões distantes. O Brasil possui o Centro de Lançamento de Alcântara, no Maranhão.', chips:['Satélite artificial = observação/comunicação','ISS = estação espacial','Sondas = exploram planetas','Alcântara/MA = base brasileira']},
+          {titulo:'🔄 Rotação da Terra', texto:'A rotação é o movimento da Terra girando em torno do seu próprio eixo. Dura aproximadamente 24 horas e causa o dia e a noite: o lado voltado para o Sol recebe luz (dia) e o lado oposto fica escuro (noite). O eixo da Terra é levemente inclinado.', chips:['Rotação = gira em si mesma','~24 horas = 1 dia','Causa o dia e a noite','Eixo inclinado']},
+          {titulo:'🌞 Translação e Estações', texto:'A translação é o movimento da Terra ao redor do Sol. Dura 365 dias (1 ano). A inclinação do eixo faz com que cada hemisfério receba luz de forma diferente ao longo do ano, causando as quatro estações: verão, outono, inverno e primavera. No verão os dias são mais longos; no inverno, mais curtos.', chips:['Translação = ao redor do Sol','365 dias = 1 ano','Causa as 4 estações','Verão: dias mais longos','Inverno: dias mais curtos']},
+          {titulo:'🌕 A Lua se move', texto:'A Lua realiza dois movimentos: rotação (em torno de si mesma) e translação (ao redor da Terra), ambos com duração de ~29 dias. Por isso sempre vemos o mesmo lado da Lua. A Lua não produz luz própria — ela reflete a luz do Sol. As quatro fases são: Nova, Crescente, Cheia e Minguante.', chips:['Lua: rotação + translação','~29 dias = ciclo lunar','Sempre vemos o mesmo lado','Lua REFLETE a luz do Sol','Fases: Nova, Crescente, Cheia, Minguante']},
+          {titulo:'🔭 Um pouco de história', texto:'Aristóteles (Grécia antiga) defendia que a Terra era o centro do Universo (geocentrismo). Copérnico propôs que o Sol é o centro (heliocentrismo). Galileu Galilei usou o telescópio para confirmar que a Terra gira ao redor do Sol. O povo indígena Tembé, do Pará, também possuía conhecimentos astronômicos próprios.', chips:['Aristóteles = geocentrismo (Terra no centro)','Copérnico = heliocentrismo (Sol no centro)','Galileu = confirmou com telescópio','Tembé = astronomia indígena do Pará']},
         ],
         mapa:{
-          centro:'Terra, Lua e Espaço',
+          centro:'A Terra e a Lua',
           cor:'#0369A1',
           nos:[
-            {titulo:'Movimentos da Terra', itens:['Rotação: 24h, dia/noite','Translação: 365 dias','Eixo inclinado = estações'], bg:'#E0F2FE', tc:'#0369A1'},
-            {titulo:'A Lua', itens:['Translação: ~29 dias','Reflete a luz do Sol','4 fases: Nova, Cheia...'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Telescópios', itens:['Galileu = inventor','Refrator = lentes','Refletor = espelhos'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Equipamentos', itens:['Satélites artificiais','ISS = laboratório','Sondas espaciais'], bg:'#FEF3C7', tc:'#78350F'},
+            {titulo:'Rotação', itens:['Gira em si mesma','~24 horas','Causa dia e noite'], bg:'#E0F2FE', tc:'#0369A1'},
+            {titulo:'Translação', itens:['Ao redor do Sol','365 dias','Causa as estações'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'A Lua', itens:['Reflete a luz do Sol','~29 dias de ciclo','4 fases: Nova→Cheia'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'História', itens:['Aristóteles: geocentrismo','Copérnico: heliocentrismo','Galileu: confirmou'], bg:'#FEF3C7', tc:'#78350F'},
           ]
         },
-        dica:'Lembre: a ROTAÇÃO é curta (24h) e causa o dia e a noite. A TRANSLAÇÃO é longa (365 dias) e causa as estações. A Lua não tem luz própria — ela REFLETE a luz do Sol!'
+        dica:'ROTAÇÃO = gira em si mesma = 24h = dia/noite. TRANSLAÇÃO = ao redor do Sol = 365 dias = estações. A Lua NÃO tem luz própria — ela REFLETE o Sol. Galileu confirmou que o Sol é o centro, não a Terra!'
       },
       {
-        titulo:'💨 Bloco 2 — O Ar e a Atmosfera',
-        cor:'#D5F5E3', corTitulo:'#065F46',
+        titulo:'🚀 Cap. 2 — O ser humano e o espaço sideral',
+        cor:'#EDE9FE', corTitulo:'#4C1D95',
         blocos:[
-          {titulo:'🌬️ Onde está o ar?', texto:'O ar existe em toda parte: dentro da água, do solo, e até dentro de nós. O ar é uma mistura de gases, principalmente nitrogênio (78%) e oxigênio (21%). A atmosfera é a camada de ar que envolve a Terra, e é ela que nos protege dos raios do Sol e de meteoros. Sem a atmosfera, não haveria vida na Terra.', chips:['Ar = mistura de gases','78% nitrogênio + 21% oxigênio','Atmosfera = camada protetora','Sem atmosfera = sem vida']},
-          {titulo:'🧪 Propriedades do Ar', texto:'O ar ocupa espaço (tem volume), tem peso (é comprimido nas penas e pneus), exerce pressão e pode ser comprimido. Podemos perceber o ar pelo vento, pela respiração, pela bola inflada e pelo balão cheio. O ar em movimento chama-se vento.', chips:['Ar ocupa espaço','Ar tem peso','Ar exerce pressão','Ar pode ser comprimido','Ar em movimento = vento']},
-          {titulo:'🏭 Alterações na Atmosfera', texto:'A poluição do ar acontece quando substâncias nocivas são lançadas na atmosfera, como fumaça de fábricas, escapamentos de carros e queimadas. O efeito estufa é o aquecimento da Terra pela concentração de gases (como CO₂) que retêm o calor. A camada de ozônio protege a Terra dos raios ultravioleta, mas está sendo destruída por gases poluentes como o CFC.', chips:['Poluição = substâncias nocivas no ar','Efeito estufa = aquecimento','CO₂ = gás do efeito estufa','Ozônio = proteção UV','CFC = destrói a camada de ozônio']},
+          {titulo:'🔭 Instrumentos de Observação', texto:'O telescópio amplifica objetos distantes no espaço. Foi aperfeiçoado por Galileu Galilei no século XVII. O telescópio refrator usa lentes; o refletor usa espelhos. Os radiotelescópios captam ondas de rádio de estrelas e galáxias. Observatórios ficam em locais altos e distantes das cidades para evitar a poluição luminosa.', chips:['Telescópio = amplifica o espaço','Refrator = lentes','Refletor = espelhos','Radiotelescópio = ondas de rádio','Observatório = longe da poluição luminosa']},
+          {titulo:'🛸 Viagens e Equipamentos Espaciais', texto:'Yuri Gagarin foi o primeiro humano no espaço (1961). Neil Armstrong foi o primeiro a pisar na Lua (1969). Satélites artificiais têm funções como comunicação e previsão do tempo. A ISS (Estação Espacial Internacional) é um laboratório no espaço. Sondas espaciais exploram planetas sem astronautas. O Brasil tem o Centro de Lançamento de Alcântara, no Maranhão.', chips:['Gagarin = 1° humano no espaço (1961)','Armstrong = 1° na Lua (1969)','Satélite = comunicação/observação','ISS = laboratório espacial','Sondas = exploram sem astronautas','Alcântara/MA = base brasileira']},
         ],
         mapa:{
-          centro:'O Ar e a Atmosfera',
+          centro:'Espaço Sideral',
+          cor:'#4C1D95',
+          nos:[
+            {titulo:'Telescópios', itens:['Galileu = inventor','Refrator = lentes','Refletor = espelhos','Radiotelescópio'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Viagens', itens:['Gagarin: 1° no espaço','Armstrong: 1° na Lua','Traje espacial'], bg:'#E0F2FE', tc:'#0369A1'},
+            {titulo:'Equipamentos', itens:['Satélites artificiais','ISS = laboratório','Sondas espaciais'], bg:'#D5F5E3', tc:'#065F46'},
+            {titulo:'Brasil', itens:['Alcântara/MA','Centro de Lançamento','Astronomia Tembé'], bg:'#FEF3C7', tc:'#78350F'},
+          ]
+        },
+        dica:'Telescópio REFRATOR = lentes. REFLETOR = espelhos. YURI GAGARIN = 1° no espaço (1961). NEIL ARMSTRONG = 1° na Lua (1969). ISS = laboratório espacial. Sondas = exploram SEM astronautas. Alcântara = base brasileira no MARANHÃO!'
+      },
+      {
+        titulo:'💨 Cap. 3 — O ar',
+        cor:'#D5F5E3', corTitulo:'#065F46',
+        blocos:[
+          {titulo:'🌬️ Composição e Propriedades do Ar', texto:'O ar existe em toda parte: na água, no solo e dentro dos seres vivos. É uma mistura de gases: principalmente nitrogênio (78%) e oxigênio (21%). Propriedades: tem massa (peso), ocupa espaço, se espalha, pode ser comprimido e exerce pressão. O ar em movimento chama-se vento.', chips:['Ar = mistura de gases','78% nitrogênio + 21% oxigênio','Tem massa e ocupa espaço','Pode ser comprimido','Ar em movimento = vento']},
+          {titulo:'🌎 A Atmosfera Terrestre', texto:'A atmosfera é a camada de ar que envolve a Terra. Ela nos protege dos raios ultravioleta do Sol e de meteoros. Sem atmosfera, não haveria vida. A camada de ozônio é uma parte da atmosfera que filtra os raios UV. O CFC (clorofluorcarbono) é um gás que destrói o ozônio.', chips:['Atmosfera = camada protetora','Protege dos raios UV','Sem atmosfera = sem vida','Ozônio = filtra raios UV','CFC = destrói o ozônio']},
+          {titulo:'🏭 Poluição e Efeito Estufa', texto:'A poluição do ar é causada por fumaça de fábricas, escapamentos de carros e queimadas. O efeito estufa é o aquecimento da Terra pelo acúmulo de CO₂ e outros gases que retêm calor. Para cuidar do ar: usar transportes coletivos, bicicletas, plantar árvores e reduzir queimadas.', chips:['Poluição: fábricas + carros + queimadas','CO₂ = gás do efeito estufa','Efeito estufa = aquecimento','CFC = destrói camada de ozônio','Solução: transporte coletivo + árvores']},
+        ],
+        mapa:{
+          centro:'O Ar',
           cor:'#065F46',
           nos:[
             {titulo:'Composição', itens:['78% nitrogênio','21% oxigênio','Mistura de gases'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Propriedades', itens:['Ocupa espaço','Tem peso','Exerce pressão'], bg:'#E0F2FE', tc:'#0369A1'},
-            {titulo:'Atmosfera', itens:['Envolve a Terra','Protege dos raios UV','Sem ela = sem vida'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Poluição', itens:['Efeito estufa = CO₂','Ozônio destruído','Queimadas e fábricas'], bg:'#FEE2E2', tc:'#7F1D1D'},
+            {titulo:'Propriedades', itens:['Tem massa','Ocupa espaço','Pode ser comprimido','Vento = ar em movimento'], bg:'#E0F2FE', tc:'#0369A1'},
+            {titulo:'Atmosfera', itens:['Envolve a Terra','Protege dos UV','Camada de ozônio'], bg:'#EDE9FE', tc:'#4C1D95'},
+            {titulo:'Poluição', itens:['CO₂ = efeito estufa','CFC = destrói ozônio','Queimadas poluem'], bg:'#FEE2E2', tc:'#7F1D1D'},
           ]
         },
-        dica:'O ar é composto principalmente de NITROGÊNIO (78%) e OXIGÊNIO (21%). O EFEITO ESTUFA é causado pelo excesso de CO₂. A camada de OZÔNIO nos protege dos raios ultravioleta do Sol!'
+        dica:'Ar = 78% NITROGÊNIO + 21% OXIGÊNIO. O EFEITO ESTUFA é causado pelo excesso de CO₂. O CFC destrói a camada de OZÔNIO. Sem atmosfera, não há vida na Terra. Vento = ar em MOVIMENTO!'
       }
     ]
   },
@@ -1002,15 +1225,12 @@ const AGENDA_EVENTOS = [
   {data:'2026-04-07',diaSem:'Ter',titulo:'📝 2ª Chamada — Geografia',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-04-08',diaSem:'Qua',titulo:'📝 2ª Chamada — Matemática',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-04-10',diaSem:'Sex',titulo:'📊 Boletim do 1º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
-  {data:'2026-04-16',diaSem:'Qui',titulo:'🎉 Confraternização — Famílias Porto de Oliveira & Hesketh',desc:'19h às 22h',tipo:'evento',badge:'Família',badgeCls:'ab-evento'},
   {data:'2026-04-18',diaSem:'Sáb',titulo:'🏫 1º Plantão Pedagógico — 1º Bimestre',desc:'Educação Infantil e Ensino Fundamental (1° ao 5°ano)',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
   // MAIO
   {data:'2026-05-08',diaSem:'Sex',titulo:'⛪ Missa em Homenagem às Mães',desc:'8h às 10h',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
-  {data:'2026-05-09',diaSem:'Sáb',titulo:'👩‍👧 Homenagem às Mães — Educação Infantil',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
+  {data:'2026-05-09',diaSem:'Sáb',titulo:'👩\u200D👧 Homenagem às Mães — Educação Infantil',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
   {data:'2026-05-12',diaSem:'Ter',titulo:'📝 Avaliações AC2 — 2º Bimestre',desc:'12 a 18/05 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 2º Bimestre',badgeCls:'ab-prova'},
-  {data:'2026-05-20',diaSem:'Qua',titulo:'✈️ Voo BEL → CWB (DOYLPZ)',desc:'Belém → Curitiba · 1 parada · 5h50 · Parte às 05h50',tipo:'voo',badge:'Viagem',badgeCls:'ab-voo'},
-  {data:'2026-05-23',diaSem:'Sáb',titulo:'👩‍👧 Homenagem às Mães — Ensino Fundamental',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
-  {data:'2026-05-24',diaSem:'Dom',titulo:'✈️ Voo NVT → BEL (DOYLPZ)',desc:'Navegantes → Belém · 1 parada · 6h40 · Parte às 19h35',tipo:'voo',badge:'Viagem',badgeCls:'ab-voo'},
+  {data:'2026-05-23',diaSem:'Sáb',titulo:'👩\u200D👧 Homenagem às Mães — Ensino Fundamental',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
   // JUNHO
   {data:'2026-06-08',diaSem:'Seg',titulo:'📝 Avaliações AC2 — 2º Bimestre (cont.)',desc:'8 a 12/06 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 2º Bimestre',badgeCls:'ab-prova'},
   {data:'2026-06-15',diaSem:'Seg',titulo:'📝 2ª Chamada — 2º Bimestre',desc:'15 a 19/06 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
@@ -1054,16 +1274,14 @@ function buildAgendaTabs(){
     {id:'prova',label:'📝 Provas'},
     {id:'evento',label:'🎉 Eventos'},
     {id:'boletim',label:'📊 Boletins'},
-    {id:'voo',label:'✈️ Viagens'},
     {id:'plantao',label:'🏫 Plantões'},
     {id:'ferias',label:'🏖️ Férias'},
   ];
   var wrap=document.getElementById('agenda-tabs');
   wrap.innerHTML=tabs.map(function(t){
-    return '<button class="atab'+(agendaFiltro===t.id?' active':'')+'" onclick="setAgendaFiltro(\\"'+t.id+'\\")">'+t.label+'</button>';
+    return '<button class="atab'+(agendaFiltro===t.id?' active':'')+'" onclick="setAgendaFiltro(this.dataset.id)" data-id="'+t.id+'">'+t.label+'</button>';
   }).join('');
 }
-
 function setAgendaFiltro(f){agendaFiltro=f;buildAgendaTabs();buildAgendaList();}
 
 function buildAgendaList(){
@@ -1106,78 +1324,125 @@ function buildAgendaList(){
 ═══════════════════════════════════ */
 const CONTEUDO_PROG = [
   {
-    materia:'📝 Língua Portuguesa', cor:'#FCE4EC', corT:'#880E4F',
+    materia:'✏️ Língua Portuguesa', cor:'#FCE4EC', corT:'#880E4F',
+    livro:'Projeto Presente — Editora Moderna',
     ac1:[
-      {titulo:'Gêneros Textuais',itens:['Poema','Texto teatral']},
-      {titulo:'Morfologia',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição']},
-      {titulo:'Ortografia',itens:['Uso do Mais e Mas']},
+      {titulo:'Cap. 1 — Na feira tem cultura',itens:['Gênero: Poema (Menino Sinhô, Sanfona)','Substantivos simples e compostos','Adjetivo e locução adjetiva','Uso das palavras mas e mais','Preposição','Produção textual: Poema']},
     ],
     ac2:[
-      {titulo:'Gêneros Textuais',itens:['Poema','Texto teatral','Texto instrucional']},
-      {titulo:'Morfologia',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição','Verbo / Tempos verbais (presente, pretérito perfeito e imperfeito e futuro)','Flexão verbal']},
-      {titulo:'Ortografia',itens:['Uso do Mais e Mas','Uso de pontuação expressiva','Uso do U ou L no final de sílabas','Plural das palavras terminadas em L']},
+      {titulo:'Cap. 1 — Na feira tem cultura (revisão)',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição','Uso do Mais e Mas']},
+      {titulo:'Cap. 2 — Teatro, histórias e fantoches',itens:['Gênero: Texto teatral (O Vento e o Sol)','Gênero: Texto instrucional (Dedoches)','Tempos verbais: presente, pretérito perfeito, imperfeito e futuro','Flexão verbal','Uso da letra ℓ e da letra u em final de sílaba','Uso de pontuação expressiva (! e ...)','Produção textual: Texto instrucional','Apresentação oral: teatro de fantoches']},
+    ],
+    caps:[
+      {ac:'AC1',num:'Cap. 1',titulo:'Na feira tem cultura',itens:['Poema (Menino Sinhô, Sanfona)','Substantivos simples e compostos','Adjetivo e locução adjetiva','Uso de mas e mais','Preposição','Produção: Poema']},
+      {ac:'AC2',num:'Cap. 2',titulo:'Teatro, histórias e fantoches',itens:['Texto teatral: O Vento e o Sol','Texto instrucional: Dedoches','Tempos verbais (presente, pretérito perfeito, imperfeito, futuro)','Flexão verbal','L ou U no final de sílaba','Pontuação expressiva (! e ...)','Produção: Texto instrucional']},
     ]
   },
   {
     materia:'🔢 Matemática', cor:'#FEF3C7', corT:'#78350F',
+    livro:'Aprender Juntos — Editora SM',
     ac1:[
-      {titulo:'Sistema de Numeração Decimal',itens:['Números naturais: ordens, classes e representação (até a classe dos bilhões)','Composição e decomposição','Situações-problema envolvendo adição, subtração e multiplicação','Interpretação de gráficos e tabelas','Sistema monetário']},
+      {titulo:'Cap. 1 — Sistema de Numeração Decimal',itens:['Números naturais: ordens, classes e representação (até bilhões)','Composição e decomposição','Fazendo arredondamentos','Comparando números até 999.999']},
+      {titulo:'Cap. 2 — Adição e Subtração (início)',itens:['Situações de adição e subtração','Expressões numéricas (+ e −)','Sistema monetário','Interpretação de gráficos e tabelas']},
     ],
     ac2:[
-      {titulo:'Operações Fundamentais',itens:['Situações-problema envolvendo as quatro operações','Expressão numérica','Sistema monetário','Interpretação de gráficos e tabelas']},
+      {titulo:'Cap. 2 — Adição e Subtração',itens:['Situações-problema com adição e subtração','Expressões numéricas com + e −','Prova real das operações','Sistema monetário']},
+      {titulo:'Cap. 3 — Multiplicação e Divisão',itens:['Situações-problema com as 4 operações','Expressões numéricas com × e ÷','Propriedade comutativa','Chances de ocorrência','Interpretação de gráficos e tabelas']},
+    ],
+    caps:[
+      {ac:'AC2',num:'Cap. 2',titulo:'Adição e Subtração com Números Naturais',itens:['Situações de adição e subtração','Expressões numéricas (+ e −)','Prova real','Sistema monetário','Gráficos e tabelas']},
+      {ac:'AC2',num:'Cap. 3',titulo:'Multiplicação e Divisão com Números Naturais',itens:['Situações de multiplicação e divisão','Expressões numéricas (× e ÷)','Propriedade comutativa','Chances de ocorrência','Gráficos e tabelas']},
     ]
   },
   {
     materia:'📖 História', cor:'#EDE9FE', corT:'#4C1D95',
+    livro:'Ligamundo — Editora Saraiva',
     ac1:[
-      {titulo:'O Início da Civilização',itens:['Da vida nômade à vida sedentária','As primeiras cidades','A origem do comércio','O Estado e o papel da religião','Civilização mesopotâmica','Civilização egípcia','Identidade e formas de marcação do tempo','Patrimônio cultural']},
+      {titulo:'Unidade 1 — O Início da Civilização',itens:['Da vida nômade à vida sedentária','As primeiras cidades','A origem do comércio','O Estado e o papel da religião','Civilização mesopotâmica','Civilização egípcia','Identidade e formas de marcação do tempo','Patrimônio cultural']},
     ],
     ac2:[
-      {titulo:'O Início da Civilização (revisão)',itens:['Da vida nômade à vida sedentária','As primeiras cidades','A origem do comércio','Civilização mesopotâmica e egípcia','Patrimônio cultural']},
-      {titulo:'Quando o Brasil era de Portugal',itens:['Império marítimo português','Biopirataria','A exploração do pau-brasil','As drogas do sertão','As capitanias hereditárias','O governo-geral','A sociedade colonial','Caçada aos "negros da terra"','Cana-de-açúcar e escravidão dos africanos','A mulher no período colonial','Uma sociedade de escravizados, homens livres e senhores','Direito indígena: a luta pelas terras']},
+      {titulo:'Unidade 1 — O Início da Civilização (revisão)',itens:['Da vida nômade à vida sedentária','As primeiras cidades','Civilização mesopotâmica e egípcia','Patrimônio cultural material e imaterial']},
+      {titulo:'Unidade 2 — Quando o Brasil era de Portugal',itens:['Império marítimo português','Biopirataria e pau-brasil','Drogas do sertão','Capitanias hereditárias (1534)','O governo-geral — Tomé de Sousa','A sociedade colonial','Caçada aos negros da terra','Cana-de-açúcar e escravidão dos africanos','A mulher no período colonial','Uma sociedade de escravizados, homens livres e senhores','Direito indígena: a luta pelas terras']},
+    ],
+    caps:[
+      {ac:'AC2',num:'Unidade 1',titulo:'O Início da Civilização',itens:['Vida nômade → sedentária','Mesopotâmia (zigurates, cuneiforme, escribas)','Egito (faraó, hieroglíficos, Nilo)','Patrimônio material e imaterial']},
+      {ac:'AC2',num:'Unidade 2',titulo:'Quando o Brasil era de Portugal',itens:['Feitorias e pau-brasil','Drogas do sertão','Capitanias hereditárias (1534)','Tomé de Sousa e Salvador','Sociedade colonial','Escravidão africana e indígena']},
     ]
   },
   {
     materia:'🌍 Geografia', cor:'#D5F5E3', corT:'#065F46',
+    livro:'Aprender Juntos — Editora SM',
     ac1:[
-      {titulo:'O Planeta Terra e sua Superfície',itens:['Movimentos da Terra','Superfície terrestre','As representações do planeta','Ilhas e continentes']},
+      {titulo:'Cap. 1 — O Planeta Terra e sua Superfície',itens:['Movimentos da Terra (rotação e translação)','Superfície terrestre','As representações do planeta (mapas, globo)','Ilhas e continentes']},
       {titulo:'O Brasil',itens:['O Brasil na América do Sul','Características do território brasileiro']},
     ],
     ac2:[
-      {titulo:'O Planeta Terra e sua Superfície (revisão)',itens:['Movimentos da Terra','Superfície terrestre','As representações do planeta','Ilhas e continentes']},
-      {titulo:'Comunicação e Transporte no Brasil',itens:['Meios de transporte no Brasil','Meios de comunicação']},
+      {titulo:'Cap. 1 — O Planeta Terra (revisão)',itens:['Rotação: 24h, dia e noite','Translação: 365 dias, estações','Geoide: forma real da Terra','Planisfério, globo e imagens de satélite','6 continentes, ilhas e terras emersas']},
+      {titulo:'Cap. 3 — Comunicação e Transporte no Brasil',itens:['Meios de transporte: rodoviário, ferroviário, aquaviário, aéreo','Meios de comunicação: jornal, rádio, TV, telefone, internet','Tecnologia e integração nacional']},
+    ],
+    caps:[
+      {ac:'AC2',num:'Cap. 1',titulo:'O Planeta Terra e sua Superfície',itens:['Rotação (24h) e translação (365 dias)','Geoide = forma real da Terra','Planisfério = mapa plano / Globo = esférico','6 continentes / ilhas e continentes']},
+      {ac:'AC2',num:'Cap. 3',titulo:'Comunicação e Transporte no Brasil',itens:['Rodoviário (+ usado), ferroviário, aquaviário, aéreo','Jornal → rádio (1920) → TV (1970) → internet','Pandemia e aulas online (2020)','Veículos elétricos e meio ambiente']},
     ]
   },
   {
     materia:'🔬 Ciências', cor:'#E0F2FE', corT:'#0369A1',
+    livro:'Buriti Mais Ciências — Editora Moderna',
     ac1:[
-      {titulo:'A Terra e a Lua se Movem',itens:['A Terra se move','O movimento de translação e o ano','A Lua se move','Um pouco de história']},
-      {titulo:'O Ser Humano e o Espaço Sideral',itens:['Instrumentos de observação','Viagens e equipamentos espaciais']},
+      {titulo:'Cap. 1 — A Terra e a Lua se movem',itens:['A Terra se move: rotação e translação','O movimento de translação e o ano','A Lua se move: fases da Lua','Um pouco de história (Aristóteles, Copérnico, Galileu)']},
+      {titulo:'Cap. 2 — O ser humano e o espaço sideral (início)',itens:['Instrumentos de observação','Viagens e equipamentos espaciais']},
     ],
     ac2:[
-      {titulo:'O Ser Humano e o Espaço Sideral',itens:['Instrumentos de observação','Viagens e equipamentos espaciais']},
-      {titulo:'O Ar',itens:['Onde está o ar?','Como perceber o ar: propriedades','Alterações na atmosfera terrestre']},
+      {titulo:'Cap. 2 — O ser humano e o espaço sideral',itens:['Instrumentos de observação (telescópio refrator e refletor, radiotelescópio)','Observando constelações no céu noturno','Viagem à Lua (Gagarin, Armstrong)','Equipamentos espaciais (satélites, ISS, sondas)','Centro de Alcântara/MA']},
+      {titulo:'Cap. 3 — O ar',itens:['Onde está o ar? Composição (N₂ 78%, O₂ 21%)','Propriedades: massa, espaço, pressão, compressão','Ventos','Alterações na atmosfera: poluição, efeito estufa, camada de ozônio, CFC']},
+    ],
+    caps:[
+      {ac:'AC2',num:'Cap. 1',titulo:'A Terra e a Lua se movem',itens:['Rotação (24h) = dia/noite','Translação (365 dias) = estações','Lua: ~29 dias, reflete o Sol, 4 fases','Aristóteles → Copérnico → Galileu']},
+      {ac:'AC2',num:'Cap. 2',titulo:'O ser humano e o espaço sideral',itens:['Telescópio (refrator/refletor/radiotelescópio)','Gagarin (1° no espaço) e Armstrong (1° na Lua)','Satélites artificiais, ISS, sondas','Alcântara/MA = base brasileira']},
+      {ac:'AC2',num:'Cap. 3',titulo:'O ar',itens:['78% N₂ + 21% O₂','Propriedades: massa, espaço, pressão','Efeito estufa (CO₂), CFC (ozônio)','Poluição e como cuidar do ar']},
     ]
   },
 ];
 
 function openCP(){
-  var content=document.getElementById('cp-content');
-  content.innerHTML='';
+  var cont=document.getElementById('cp-content');
+  cont.innerHTML='';
   CONTEUDO_PROG.forEach(function(m){
     var wrap=document.createElement('div');wrap.className='cp-section';
+    // Cabeçalho da matéria
     var titulo=document.createElement('div');titulo.className='cp-materia-titulo';
     titulo.style.background=m.cor;titulo.style.color=m.corT;
-    titulo.innerHTML=m.materia;
+    titulo.innerHTML=m.materia+'<span style="font-size:10px;font-weight:400;margin-left:8px;opacity:.7;">'+m.livro+'</span>';
     wrap.appendChild(titulo);
+    // Capítulos da AC2 (destaque)
+    if(m.caps&&m.caps.length){
+      var capsDiv=document.createElement('div');
+      capsDiv.style.cssText='border:1.5px solid '+m.corT+'44;border-radius:10px;overflow:hidden;margin-bottom:8px;';
+      var capsH=document.createElement('div');
+      capsH.style.cssText='background:'+m.cor+';padding:7px 12px;font-size:11px;font-weight:700;color:'+m.corT+';';
+      capsH.textContent='📚 Capítulos da AC2';
+      capsDiv.appendChild(capsH);
+      m.caps.forEach(function(cap){
+        var cb=document.createElement('div');cb.className='cp-bloco';
+        cb.style.borderLeft='3px solid '+m.corT;
+        var ct=document.createElement('div');ct.className='cp-bloco-titulo';
+        ct.style.color=m.corT;
+        ct.textContent=cap.num+' — '+cap.titulo;
+        cb.appendChild(ct);
+        cap.itens.forEach(function(it){
+          var item=document.createElement('div');item.className='cp-item';
+          item.innerHTML='<span class="cp-bullet" style="color:'+m.corT+'">▸</span><span>'+it+'</span>';
+          cb.appendChild(item);
+        });
+        capsDiv.appendChild(cb);
+      });
+      wrap.appendChild(capsDiv);
+    }
     // AC1
-    var ac1Div=buildCPBlocos(m.ac1,'📋 Avaliação Contínua 1 (AC1)','#f4f6f8','#888');
+    var ac1Div=buildCPBlocos(m.ac1,'📋 Avaliação Contínua 1 (AC1) — para referência','#f4f6f8','#aaa');
     wrap.appendChild(ac1Div);
-    // AC2
-    var ac2Div=buildCPBlocos(m.ac2,'📋 Avaliação Contínua 2 (AC2)',m.cor,m.corT);
-    wrap.appendChild(ac2Div);
-    content.appendChild(wrap);
-    var sep=document.createElement('div');sep.style.height='8px';content.appendChild(sep);
+    cont.appendChild(wrap);
+    var sep=document.createElement('div');sep.style.height='8px';cont.appendChild(sep);
   });
   show('cp-screen');
 }
