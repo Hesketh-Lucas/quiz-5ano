@@ -265,6 +265,59 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .cp-item{font-size:12px;color:#555;line-height:1.7;padding:1px 0;display:flex;align-items:flex-start;gap:5px;}
 .cp-bullet{color:#aaa;flex-shrink:0;margin-top:2px;}
 </style>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCGP4BZz9laPU57Y9ySdFnSNokn4r7lGOI",
+  authDomain: "quiz-5ano.firebaseapp.com",
+  databaseURL: "https://quiz-5ano-default-rtdb.firebaseio.com",
+  projectId: "quiz-5ano",
+  storageBucket: "quiz-5ano.firebasestorage.app",
+  messagingSenderId: "727466370291",
+  appId: "1:727466370291:web:e72d66f06c44ecda6f0386"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getDatabase(app);
+
+// ─── PLACAR GLOBAL ────────────────────────────────────────
+// Salva entrada no Firebase (substitui o saveRankEntry local)
+window.fbSaveRankEntry = function(entry) {
+  // chave: player_quizKey (sem caracteres especiais)
+  var key = (entry.player + '_' + entry.quizKey).replace(/[.#$\[\]\/]/g,'_');
+  set(ref(db, 'placar/' + key), entry);
+};
+
+// Lê o placar do Firebase e retorna via callback
+window.fbGetRankData = function(callback) {
+  get(ref(db, 'placar')).then(function(snapshot) {
+    if (snapshot.exists()) {
+      callback(Object.values(snapshot.val()));
+    } else {
+      callback([]);
+    }
+  }).catch(function() {
+    // Fallback: usa localStorage se Firebase falhar
+    callback(window._localRankFallback ? window._localRankFallback() : []);
+  });
+};
+
+// Ouve mudanças em tempo real e atualiza o placar se estiver aberto
+onValue(ref(db, 'placar'), function(snapshot) {
+  if (snapshot.exists() && typeof window.renderRanking === 'function') {
+    window._fbRankData = Object.values(snapshot.val());
+    // Só re-renderiza se a tela de ranking estiver ativa
+    var rankScreen = document.getElementById('ranking-screen');
+    if (rankScreen && rankScreen.classList.contains('active')) {
+      window.renderRanking();
+    }
+  }
+});
+
+console.log('✅ Firebase conectado!');
+</script>
 </head>
 <body>
 <div id="app">
@@ -952,7 +1005,16 @@ function saveHist(ac,s,q,e){var h=getHist(ac,s,q);h.push(e);if(h.length>MAX_HIST
 function getSavedPlayers(){try{return JSON.parse(localStorage.getItem('players'))||[];}catch(e){return[];}}
 function savePlayer(n){var p=getSavedPlayers();if(!p.includes(n)){p.unshift(n);if(p.length>6)p=p.slice(0,6);localStorage.setItem('players',JSON.stringify(p));}}
 function getRankData(){try{return JSON.parse(localStorage.getItem('rank_global'))||[];}catch(e){return[];}}
-function saveRankEntry(entry){var data=getRankData().filter(function(e){return!(e.player===entry.player&&e.quizKey===entry.quizKey);});data.push(entry);localStorage.setItem('rank_global',JSON.stringify(data));}
+function saveRankEntry(entry){
+  // Salva localmente (fallback)
+  var data=getRankData().filter(function(e){return!(e.player===entry.player&&e.quizKey===entry.quizKey);});
+  data.push(entry);
+  localStorage.setItem('rank_global',JSON.stringify(data));
+  // Salva no Firebase (placar global compartilhado)
+  if(typeof window.fbSaveRankEntry==='function'){
+    window.fbSaveRankEntry(entry);
+  }
+}
 function getCounters(){try{return JSON.parse(localStorage.getItem('counters'))||{visits:0,quizzes:0,bySubject:{}};}catch(e){return{visits:0,quizzes:0,bySubject:{}};}}
 function saveCounters(c){localStorage.setItem('counters',JSON.stringify(c));}
 function getPlayerStats(n){var qz=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){if(getHist(ac.id,s.id,qi).filter(function(e){return e.player===n;}).length>0)qz++;});});});return{quizzes:qz};}
@@ -1189,8 +1251,27 @@ function restartQuiz(){startQuiz(curQuiz);}
 ═══════════════════════════════════ */
 function buildRankFilters(){var wrap=document.getElementById('rank-filters');var filters=[{id:'all',label:'🌐 Geral'}];AVALIACOES.filter(function(a){return!a.locked;}).forEach(function(ac){filters.push({id:'ac:'+ac.id,label:ac.icon+' '+ac.label});(ac.subjects||[]).filter(function(s){return!s.locked&&!s.comingSoon;}).forEach(function(s){filters.push({id:'subj:'+ac.id+'_'+s.id,label:s.icon+' '+s.name});});});wrap.innerHTML=filters.map(function(f){return'<button class="rf'+(rankFilter===f.id?' active':'')+'" onclick="setRankFilter(\''+f.id+'\')">'+f.label+'</button>';}).join('');}
 function setRankFilter(f){rankFilter=f;buildRankFilters();renderRanking();}
-function renderRanking(){var data=getRankData();if(rankFilter.startsWith('ac:')){var id=rankFilter.slice(3);data=data.filter(function(e){return e.quizKey.startsWith(id);});}else if(rankFilter.startsWith('subj:')){var key=rankFilter.slice(5);data=data.filter(function(e){return e.quizKey.startsWith(key);});}var players={};data.forEach(function(e){if(!players[e.player])players[e.player]={player:e.player,total:0,count:0};players[e.player].total+=e.pct;players[e.player].count++;});var lb=Object.values(players).map(function(p){return{player:p.player,avg:Math.round(p.total/p.count),count:p.count};}).sort(function(a,b){return b.avg-a.avg||b.count-a.count;}).slice(0,10);var list=document.getElementById('rank-list');if(!lb.length){list.innerHTML='<div class="rank-empty">Nenhum resultado ainda.<br>Seja o primeiro! 🚀</div>';return;}var medals=['🥇','🥈','🥉'],rowCls=['gold','silver','bronze'];list.innerHTML='';lb.forEach(function(p,i){var isMe=p.player===curPlayer;var col=avatarColor(p.player);var cls=isMe?'me':(rowCls[i]||'');var pos=i<3?medals[i]:(i+1)+'º';var pcls=p.avg>=80?'sg':p.avg>=50?'sm':'sl';var row=document.createElement('div');row.className='rank-row '+cls;row.innerHTML='<span class="rank-pos">'+pos+'</span><div class="rank-av" style="background:'+col[0]+';color:'+col[1]+'">'+initials(p.player)+'</div><div class="rank-info"><div class="rank-name">'+p.player+(isMe?' (você)':'')+'</div><div class="rank-detail">'+p.count+' quiz'+(p.count!==1?'zes':'')+'</div></div><div class="rank-score"><span class="mhs '+pcls+'">'+p.avg+'%</span><div style="font-size:10px;color:#888;">média</div></div>';list.appendChild(row);});}
-function openRanking(){rankFilter='all';buildRankFilters();renderRanking();show('ranking-screen');}
+function renderRanking(){
+  // Usa dados do Firebase se disponíveis, senão usa localStorage
+  var data = (window._fbRankData && window._fbRankData.length > 0)
+    ? window._fbRankData
+    : getRankData();if(rankFilter.startsWith('ac:')){var id=rankFilter.slice(3);data=data.filter(function(e){return e.quizKey.startsWith(id);});}else if(rankFilter.startsWith('subj:')){var key=rankFilter.slice(5);data=data.filter(function(e){return e.quizKey.startsWith(key);});}var players={};data.forEach(function(e){if(!players[e.player])players[e.player]={player:e.player,total:0,count:0};players[e.player].total+=e.pct;players[e.player].count++;});var lb=Object.values(players).map(function(p){return{player:p.player,avg:Math.round(p.total/p.count),count:p.count};}).sort(function(a,b){return b.avg-a.avg||b.count-a.count;}).slice(0,10);var list=document.getElementById('rank-list');if(!lb.length){list.innerHTML='<div class="rank-empty">Nenhum resultado ainda.<br>Seja o primeiro! 🚀</div>';return;}var medals=['🥇','🥈','🥉'],rowCls=['gold','silver','bronze'];list.innerHTML='';lb.forEach(function(p,i){var isMe=p.player===curPlayer;var col=avatarColor(p.player);var cls=isMe?'me':(rowCls[i]||'');var pos=i<3?medals[i]:(i+1)+'º';var pcls=p.avg>=80?'sg':p.avg>=50?'sm':'sl';var row=document.createElement('div');row.className='rank-row '+cls;row.innerHTML='<span class="rank-pos">'+pos+'</span><div class="rank-av" style="background:'+col[0]+';color:'+col[1]+'">'+initials(p.player)+'</div><div class="rank-info"><div class="rank-name">'+p.player+(isMe?' (você)':'')+'</div><div class="rank-detail">'+p.count+' quiz'+(p.count!==1?'zes':'')+'</div></div><div class="rank-score"><span class="mhs '+pcls+'">'+p.avg+'%</span><div style="font-size:10px;color:#888;">média</div></div>';list.appendChild(row);});}
+function openRanking(){
+  rankFilter='all';
+  buildRankFilters();
+  show('ranking-screen');
+  // Tenta carregar do Firebase primeiro
+  if(typeof window.fbGetRankData==='function'){
+    window.fbGetRankData(function(fbData){
+      if(fbData && fbData.length > 0){
+        window._fbRankData = fbData;
+      }
+      renderRanking();
+    });
+  } else {
+    renderRanking();
+  }
+}
 
 /* ═══════════════════════════════════
    SHARE
@@ -1225,6 +1306,7 @@ const AGENDA_EVENTOS = [
   {data:'2026-04-07',diaSem:'Ter',titulo:'📝 2ª Chamada — Geografia',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-04-08',diaSem:'Qua',titulo:'📝 2ª Chamada — Matemática',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-04-10',diaSem:'Sex',titulo:'📊 Boletim do 1º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
+  {data:'2026-04-16',diaSem:'Qui',titulo:'🎉 Confraternização — Famílias Porto de Oliveira & Hesketh',desc:'19h às 22h',tipo:'evento',badge:'Família',badgeCls:'ab-evento'},
   {data:'2026-04-18',diaSem:'Sáb',titulo:'🏫 1º Plantão Pedagógico — 1º Bimestre',desc:'Educação Infantil e Ensino Fundamental (1° ao 5°ano)',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
   // MAIO
   {data:'2026-05-08',diaSem:'Sex',titulo:'⛪ Missa em Homenagem às Mães',desc:'8h às 10h',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
