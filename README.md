@@ -56,6 +56,7 @@ Este projeto nasceu de um pai que queria ajudar a filha a estudar de uma maneira
 - **Frontend:** HTML + CSS + JavaScript puro — tudo em um único arquivo `index.html`
 - **Hospedagem:** GitHub Pages (gratuito)
 - **Banco de dados (placar global):** Serviço de banco de dados em tempo real na nuvem (Google)
+    **https://console.firebase.google.com/project/quiz-5ano/database/quiz-5ano-default-rtdb/data**
 - **Armazenamento local:** localStorage do browser (histórico pessoal de cada jogador)
 - **Analytics:** Google Analytics 4
 
