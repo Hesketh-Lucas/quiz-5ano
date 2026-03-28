@@ -257,6 +257,12 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .ab-plantao{background:#D6EAF8;color:#185FA5;}
 .ab-ferias{background:#F3F4F6;color:#374151;}
 
+/* BOTÕES ADICIONAR AGENDA */
+.btn-add-cal{background:#fff;border:1.5px solid #1D9E75;border-radius:20px;padding:4px 10px;font-size:10px;font-weight:700;color:#1D9E75;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .12s;}
+.btn-add-cal:hover{background:#1D9E75;color:#fff;}
+.btn-add-todos{background:#1D9E75;color:#fff;border:none;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;width:100%;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-add-todos:hover{background:#0F6E56;}
+
 /* CONTEÚDO PROGRAMÁTICO */
 .cp-section{margin-bottom:1.4rem;}
 .cp-materia-titulo{font-size:14px;font-weight:700;padding:10px 14px;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
@@ -1369,32 +1375,43 @@ function setAgendaFiltro(f){agendaFiltro=f;buildAgendaTabs();buildAgendaList();}
 function buildAgendaList(){
   var eventos=AGENDA_EVENTOS.filter(function(e){return agendaFiltro==='todos'||e.tipo===agendaFiltro;});
   var hoje=new Date(); hoje.setHours(0,0,0,0);
+  var list=document.getElementById('agenda-list');
+  list.innerHTML='';
+  if(!eventos.length){list.innerHTML='<div style="text-align:center;padding:2rem;color:#aaa;font-size:14px;">Nenhum evento encontrado.</div>';return;}
+  // Botao adicionar todos
+  var btnTodos=document.createElement('button');
+  btnTodos.className='btn-add-todos';
+  btnTodos.innerHTML='📅 Adicionar todos ao meu calendário';
+  btnTodos.onclick=function(){addTodosCalendario();};
+  list.appendChild(btnTodos);
   // Agrupa por mês
   var meses={};
-  eventos.forEach(function(e){
+  var idxGlobal=0;
+  eventos.forEach(function(e,i){
     var d=new Date(e.data+'T12:00:00');
     var key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
     var label=MESES_PT[d.getMonth()]+' '+d.getFullYear();
     if(!meses[key])meses[key]={label:label,items:[]};
-    meses[key].items.push(e);
+    meses[key].items.push({evento:e, idx:i});
   });
-  var list=document.getElementById('agenda-list');
-  list.innerHTML='';
-  if(!eventos.length){list.innerHTML='<div style="text-align:center;padding:2rem;color:#aaa;font-size:14px;">Nenhum evento encontrado.</div>';return;}
   Object.keys(meses).sort().forEach(function(mk){
     var m=meses[mk];
     var mDiv=document.createElement('div');mDiv.className='agenda-month';
     mDiv.innerHTML='<div class="agenda-month-titulo">'+m.label+'</div>';
-    m.items.forEach(function(e){
+    m.items.forEach(function(obj){
+      var e=obj.evento; var idx=obj.idx;
       var d=new Date(e.data+'T12:00:00');
       var passado=d<hoje;
       var item=document.createElement('div');
-      item.className='agenda-item '+e.tipo+(passado?' opacity-50':'');
+      item.className='agenda-item '+e.tipo;
       item.style.opacity=passado?'0.55':'1';
       item.innerHTML='<div class="agenda-data"><div class="agenda-dia">'+d.getDate()+'</div><div class="agenda-diaSem">'+e.diaSem+'</div></div>'
         +'<div class="agenda-info"><div class="agenda-titulo">'+e.titulo+'</div>'
         +(e.desc?'<div class="agenda-desc">'+e.desc+'</div>':'')
-        +'<span class="agenda-badge '+e.badgeCls+'">'+e.badge+'</span></div>';
+        +'<div style="display:flex;align-items:center;justify-content:space-between;margin-top:5px;">'
+        +'<span class="agenda-badge '+e.badgeCls+'">'+e.badge+'</span>'
+        +'<button class="btn-add-cal" onclick="addEventoCalendario('+idx+')">📅 Adicionar</button>'
+        +'</div></div>';
       mDiv.appendChild(item);
     });
     list.appendChild(mDiv);
@@ -1548,6 +1565,72 @@ function buildCPBlocos(blocos,labelAC,bg,cor){
     outer.appendChild(bloco);
   });
   return outer;
+}
+
+
+/* ICS - ADICIONAR AO CALENDARIO */
+function gerarICS(eventos) {
+  var uid_base = Date.now();
+  var linhas = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Revisao 5 Ano//Quiz 5Ano//PT',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:Agenda Escolar 2026 - 5 Ano',
+    'X-WR-TIMEZONE:America/Belem'
+  ];
+  eventos.forEach(function(e, i) {
+    var p = e.data.split('-');
+    var base = p[0]+p[1]+p[2];
+    // hora default 08:00, ajusta se desc tiver horario
+    var h = '08', m = '00';
+    var horaMatch = e.desc ? e.desc.match(/(\d{1,2})h(\d{2})/) : null;
+    if (horaMatch) { h = horaMatch[1].padStart(2,'0'); m = horaMatch[2]; }
+    var dtStart = base + 'T' + h + m + '00';
+    // fim: +2h (ferias: +31 dias)
+    var endD = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]), parseInt(h)+2, parseInt(m));
+    if (e.tipo === 'ferias') { endD = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2])+31, 8, 0); }
+    var dtEnd = endD.getFullYear()
+      + String(endD.getMonth()+1).padStart(2,'0')
+      + String(endD.getDate()).padStart(2,'0')
+      + 'T'
+      + String(endD.getHours()).padStart(2,'0')
+      + String(endD.getMinutes()).padStart(2,'0')
+      + '00';
+    // limpa titulo (remove emojis para compatibilidade)
+    var titulo = e.titulo.replace(/[^\u0000-\u00FF\u0100-\u024F ]/g,'').trim();
+    var desc = e.desc ? e.desc.replace(/[^\u0000-\u00FF\u0100-\u024F ,.:\/\-()]/g,'').replace(/\s+/g,' ').trim() : '';
+    linhas.push('BEGIN:VEVENT');
+    linhas.push('UID:quiz5ano-'+(uid_base+i)+'@hesketh');
+    linhas.push('DTSTAMP:'+new Date().toISOString().replace(/[-:.Z]/g,'').substring(0,15)+'Z');
+    linhas.push('DTSTART;TZID=America/Belem:'+dtStart);
+    linhas.push('DTEND;TZID=America/Belem:'+dtEnd);
+    linhas.push('SUMMARY:'+titulo);
+    if (desc) linhas.push('DESCRIPTION:'+desc);
+    linhas.push('CATEGORIES:Escola');
+    linhas.push('END:VEVENT');
+  });
+  linhas.push('END:VCALENDAR');
+  return linhas.join('\r\n');
+}
+function baixarICS(conteudo, nome) {
+  var blob = new Blob([conteudo], {type:'text/calendar;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = nome;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast('Arquivo baixado! Abra para adicionar ao calendario.');
+}
+function addEventoCalendario(idx) {
+  var lista = AGENDA_EVENTOS.filter(function(e){ return agendaFiltro==='todos'||e.tipo===agendaFiltro; });
+  if (!lista[idx]) return;
+  baixarICS(gerarICS([lista[idx]]), 'evento-escola.ics');
+}
+function addTodosCalendario() {
+  var lista = AGENDA_EVENTOS.filter(function(e){ return agendaFiltro==='todos'||e.tipo===agendaFiltro; });
+  baixarICS(gerarICS(lista), 'agenda-escolar-2026.ics');
 }
 
 /* ═══════════════════════════════════
