@@ -40,7 +40,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .saved-chip{background:#f0f0f0;border:1.5px solid #e0e0e0;border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600;color:#555;transition:all .12s;}
 .saved-chip:hover{background:#D5F5E3;border-color:#1D9E75;color:#065F46;}
 
-/* MODE TOGGLE — escolha entre Quiz e Estudar */
+/* MODE TOGGLE */
 .mode-toggle{display:flex;gap:0;background:#e8e8e8;border-radius:12px;padding:4px;margin-bottom:1.2rem;}
 .mode-btn{flex:1;padding:10px 8px;border:none;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:#888;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
 .mode-btn.active{background:#fff;color:#1a1a1a;box-shadow:0 1px 6px rgba(0,0,0,.12);}
@@ -55,11 +55,16 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .player-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;}
 .player-bar-name{font-size:14px;font-weight:700;}
 .player-bar-sub{font-size:11px;color:#888;}
-.bar-btns{display:flex;gap:6px;}
+.bar-btns{display:flex;gap:6px;flex-wrap:wrap;}
 .btn-ranking{background:#FEF3C7;border:1.5px solid #FCD34D;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#78350F;font-weight:700;}
 .btn-ranking:hover{background:#FDE68A;}
 .btn-change{background:none;border:1.5px solid #ddd;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#888;}
 .btn-change:hover{background:#f4f4f4;}
+
+/* BOTÃO DESEMPENHO NA HOME */
+.btn-desempenho{background:#EDE9FE;border:1.5px solid #C4B5FD;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#4C1D95;font-weight:700;}
+.btn-desempenho:hover{background:#DDD6FE;}
+
 .ac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
 .ac-card{border-radius:14px;padding:1.2rem 1rem;cursor:pointer;border:2px solid transparent;transition:box-shadow .15s,transform .1s;text-align:left;position:relative;overflow:hidden;}
 .ac-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-2px);}
@@ -78,7 +83,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .stats-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:1rem 0 0.5rem;}
 .stat-chip{background:#fff;border:1.5px solid #e0e0e0;border-radius:20px;padding:6px 14px;font-size:12px;display:flex;align-items:center;gap:6px;font-weight:600;color:#555;}
 
-/* ESTUDAR — grade de matérias */
+/* ESTUDAR */
 .estudo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
 .estudo-card{border-radius:14px;padding:1.2rem 1rem;cursor:pointer;border:1.5px solid #e0e0e0;background:#fff;transition:box-shadow .15s,transform .1s;text-align:center;}
 .estudo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-2px);}
@@ -113,12 +118,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .mapa-bloco-titulo{font-size:13px;font-weight:700;margin-bottom:8px;}
 .mapa-item{font-size:12px;line-height:1.6;padding:2px 0;display:flex;align-items:flex-start;gap:5px;}
 .mapa-bullet{flex-shrink:0;}
-
-/* MÉTRICAS */
-.metricas-row{display:flex;gap:8px;margin-bottom:12px;}
-.metrica-box{flex:1;background:#f8f8f8;border-radius:10px;padding:12px 8px;text-align:center;border:1.5px solid #f0f0f0;}
-.metrica-num{font-size:26px;font-weight:700;}
-.metrica-label{font-size:11px;color:#888;margin-top:2px;}
 
 /* DICA BOX */
 .dica-box{background:#FFFBEB;border-left:3px solid #FCD34D;border-radius:0 10px 10px 0;padding:12px 14px;margin-top:10px;}
@@ -270,6 +269,61 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .cp-bloco-titulo{font-size:12px;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
 .cp-item{font-size:12px;color:#555;line-height:1.7;padding:1px 0;display:flex;align-items:flex-start;gap:5px;}
 .cp-bullet{color:#aaa;flex-shrink:0;margin-top:2px;}
+
+/* ═══════════════════════════════════
+   PAINEL DE DESEMPENHO — estilos novos
+═══════════════════════════════════ */
+
+/* Card principal do painel */
+.desemp-card{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:1.5rem;}
+.desemp-card h2{font-size:20px;font-weight:700;margin-bottom:4px;}
+.desemp-sub{font-size:12px;color:#888;margin-bottom:1.4rem;}
+
+/* Legenda do gráfico */
+.desemp-legenda{display:flex;gap:16px;margin-bottom:1.2rem;flex-wrap:wrap;}
+.desemp-leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#555;font-weight:600;}
+.desemp-leg-cor{width:14px;height:14px;border-radius:3px;flex-shrink:0;}
+
+/* Linha de cada matéria no gráfico */
+.desemp-materia-row{margin-bottom:1.4rem;}
+.desemp-materia-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.desemp-materia-nome{font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.desemp-tendencia{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;}
+.tend-up{background:#D5F5E3;color:#065F46;}
+.tend-down{background:#FEE2E2;color:#7F1D1D;}
+.tend-same{background:#F3F4F6;color:#6B7280;}
+
+/* Barras do gráfico */
+.desemp-barras{display:flex;flex-direction:column;gap:5px;}
+.desemp-barra-row{display:flex;align-items:center;gap:8px;}
+.desemp-barra-label{font-size:11px;color:#888;font-weight:700;width:28px;flex-shrink:0;}
+.desemp-barra-track{flex:1;background:#f0f0f0;border-radius:6px;height:22px;position:relative;overflow:visible;}
+.desemp-barra-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:700;color:#fff;transition:width .6s ease;position:relative;min-width:2px;}
+.desemp-barra-nota{font-size:12px;font-weight:700;width:36px;flex-shrink:0;text-align:right;}
+
+/* Linha de meta */
+.desemp-meta-linha{position:absolute;top:0;bottom:-28px;width:2px;background:#D85A30;z-index:2;}
+.desemp-meta-label{position:absolute;top:-18px;left:-12px;font-size:9px;color:#D85A30;font-weight:700;white-space:nowrap;}
+
+/* Cards de temas críticos abaixo do gráfico */
+.desemp-criticos{margin-top:1.4rem;}
+.desemp-criticos-titulo{font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.desemp-critico-card{border-radius:12px;padding:12px 14px;margin-bottom:8px;border:1.5px solid;}
+.desemp-critico-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.desemp-critico-nome{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.desemp-critico-nota{font-size:12px;font-weight:700;}
+.desemp-critico-temas{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+.desemp-tema-chip{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;background:rgba(255,255,255,.7);}
+.desemp-btn-revisar{font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
+
+/* Resumo geral no topo */
+.desemp-resumo{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.4rem;}
+.desemp-resumo-box{background:#f8f8f8;border-radius:12px;padding:12px 8px;text-align:center;border:1.5px solid #f0f0f0;}
+.desemp-resumo-num{font-size:22px;font-weight:700;}
+.desemp-resumo-label{font-size:10px;color:#888;margin-top:3px;line-height:1.3;}
+
+/* Aviso quando ainda não tem AC2 */
+.desemp-pendente{background:#FEF3C7;border:1.5px solid #FCD34D;border-radius:10px;padding:10px 14px;font-size:12px;color:#78350F;font-weight:600;margin-bottom:8px;}
 </style>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
@@ -288,15 +342,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db  = getDatabase(app);
 
-// ─── PLACAR GLOBAL ────────────────────────────────────────
-// Salva entrada no Firebase (substitui o saveRankEntry local)
 window.fbSaveRankEntry = function(entry) {
-  // chave: player_quizKey (sem caracteres especiais)
   var key = (entry.player + '_' + entry.quizKey).replace(/[.#$\[\]\/]/g,'_');
   set(ref(db, 'placar/' + key), entry);
 };
 
-// Lê o placar do Firebase e retorna via callback
 window.fbGetRankData = function(callback) {
   get(ref(db, 'placar')).then(function(snapshot) {
     if (snapshot.exists()) {
@@ -305,16 +355,13 @@ window.fbGetRankData = function(callback) {
       callback([]);
     }
   }).catch(function() {
-    // Fallback: usa localStorage se Firebase falhar
     callback(window._localRankFallback ? window._localRankFallback() : []);
   });
 };
 
-// Ouve mudanças em tempo real e atualiza o placar se estiver aberto
 onValue(ref(db, 'placar'), function(snapshot) {
   if (snapshot.exists() && typeof window.renderRanking === 'function') {
     window._fbRankData = Object.values(snapshot.val());
-    // Só re-renderiza se a tela de ranking estiver ativa
     var rankScreen = document.getElementById('ranking-screen');
     if (rankScreen && rankScreen.classList.contains('active')) {
       window.renderRanking();
@@ -356,6 +403,8 @@ console.log('✅ Firebase conectado!');
         </div>
       </div>
       <div class="bar-btns">
+        <!-- Botão novo: Painel de Desempenho -->
+        <button class="btn-desempenho" onclick="openDesempenho()">📊 Desempenho</button>
         <button class="btn-agenda" onclick="openAgenda()">📅 Agenda</button>
         <button class="btn-ranking" onclick="openRanking()">🏆 Placar</button>
         <button class="btn-change" onclick="changePlayer()">Trocar</button>
@@ -477,7 +526,7 @@ console.log('✅ Firebase conectado!');
     </div>
   </div>
 
-  <!-- ESTUDO — tela de conteúdo por matéria -->
+  <!-- ESTUDO -->
   <div id="estudo-screen" class="screen">
     <div class="topnav">
       <button class="btn-back" onclick="goHome()">← Início</button>
@@ -485,7 +534,6 @@ console.log('✅ Firebase conectado!');
     </div>
     <div id="estudo-content"></div>
   </div>
-
 
   <!-- AGENDA -->
   <div id="agenda-screen" class="screen">
@@ -508,6 +556,22 @@ console.log('✅ Firebase conectado!');
       <span class="topnav-title">📋 Conteúdo Programático</span>
     </div>
     <div id="cp-content"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PAINEL DE DESEMPENHO — tela nova
+  ═══════════════════════════════════ -->
+  <div id="desempenho-screen" class="screen">
+    <div class="topnav">
+      <button class="btn-back" onclick="goHome()">← Início</button>
+      <span class="topnav-title">📊 Painel de Desempenho</span>
+    </div>
+    <div class="desemp-card">
+      <h2>📊 Desempenho da Ana</h2>
+      <div class="desemp-sub">1º Bimestre 2026 · Colégio Santa Catarina de Sena</div>
+      <!-- Conteúdo gerado pelo JS em openDesempenho() -->
+      <div id="desempenho-content"></div>
+    </div>
   </div>
 
 </div><!-- #app -->
@@ -578,7 +642,7 @@ const AVALIACOES=[
 {q:"Quando a televisão se popularizou no Brasil?",opts:["Na década de 1920","Na década de 1940","Na década de 1990","A partir da década de 1970"],c:3},
 {q:"Quando o telefone chegou ao Brasil?",opts:["Em 1950","Em 1920","Em 1876","Em 1990"],c:2},
 {q:"O que é a internet?",opts:["Uma rede global que interliga aparelhos para trocar informações","Um tipo de televisão com mais canais","Um serviço de rádio por satélite","Um aplicativo de celular para chamadas"],c:0},
-{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitui os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},
+{q:"Por que o acesso à internet é importante para a integração nacional?",opts:["Permite assistir televisão em qualquer lugar","Substitute os meios de transporte","Possibilita transmitir informações com facilidade e rapidez","É usada apenas pelo governo"],c:2},
 {q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},
 {q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},
 {q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}
@@ -721,6 +785,83 @@ questions:[
 ];
 
 /* ═══════════════════════════════════
+   DADOS DE DESEMPENHO DA ANA — 1º BIMESTRE 2026
+   Fonte: Provas AC1 e AC2 entregues pelo colégio
+═══════════════════════════════════ */
+const NOTAS_ANA = [
+  {
+    // História: subiu de 10,0 para 8,7 — queda de 1,3 pts
+    id: 'historia',
+    icon: '📖',
+    nome: 'História',
+    cor: '#4C1D95',
+    corFundo: '#EDE9FE',
+    corBorda: '#C4B5FD',
+    ac1: 10.0,
+    ac2: 8.7,
+    // Temas críticos identificados na AC2
+    temasCriticos: ['Egito Antigo', 'Período Pré-Colonial'],
+    // Índice no array AVALIACOES[1].subjects para link direto
+    subjIdx: 0
+  },
+  {
+    // Matemática: subiu de 8,4 para 8,7 — ótimo!
+    id: 'matematica',
+    icon: '🔢',
+    nome: 'Matemática',
+    cor: '#78350F',
+    corFundo: '#FEF3C7',
+    corBorda: '#FCD34D',
+    ac1: 8.4,
+    ac2: 8.7,
+    temasCriticos: [], // Acima da meta, sem críticos
+    subjIdx: 3
+  },
+  {
+    // Ciências: caiu de 8,5 para 7,9 — abaixo da meta
+    id: 'ciencias',
+    icon: '🔬',
+    nome: 'Ciências',
+    cor: '#0369A1',
+    corFundo: '#E0F2FE',
+    corBorda: '#7DD3FC',
+    ac1: 8.5,
+    ac2: 7.9,
+    temasCriticos: ['Poluição do ar', 'Camadas da Atmosfera', 'Efeito Estufa'],
+    subjIdx: 4
+  },
+  {
+    // Geografia: caiu de 9,1 para 6,7 — queda crítica!
+    id: 'geografia',
+    icon: '🌍',
+    nome: 'Geografia',
+    cor: '#065F46',
+    corFundo: '#D5F5E3',
+    corBorda: '#6EE7B7',
+    ac1: 9.1,
+    ac2: 6.7,
+    temasCriticos: ['Transporte Aquaviário', 'Oceanos', 'Antártida'],
+    subjIdx: 1
+  },
+  {
+    // Português: subiu de 7,6 para 9,3 — excelente evolução!
+    id: 'portugues',
+    icon: '✏️',
+    nome: 'Português',
+    cor: '#880E4F',
+    corFundo: '#FCE4EC',
+    corBorda: '#F48FB1',
+    ac1: 7.6,
+    ac2: 9.3,
+    temasCriticos: [], // Acima da meta
+    subjIdx: 2
+  }
+];
+
+// Meta de nota definida pelo colégio
+var META_NOTA = 8.0;
+
+/* ═══════════════════════════════════
    CONTEÚDO DE ESTUDO POR MATÉRIA
 ═══════════════════════════════════ */
 const ESTUDO_CONTEUDO = {
@@ -826,43 +967,35 @@ const ESTUDO_CONTEUDO = {
         titulo:'➕ Cap. 2 — Adição e Subtração com Números Naturais',
         cor:'#FEF3C7', corTitulo:'#78350F',
         blocos:[
-          {titulo:'➕ Situações de Adição', texto:'A adição reúne duas ou mais quantidades. O resultado chama-se soma ou total. Na adição, a ordem não importa: 3 + 5 = 5 + 3 (propriedade comutativa). O elemento neutro da adição é o zero: qualquer número + 0 = ele mesmo. Para conferir uma adição, some os parcelas de baixo para cima.', chips:['Adição = juntar quantidades','Resultado = soma ou total','Comutativa: 3+5 = 5+3','Neutro = 0','Conferir: some de baixo pra cima']},
-          {titulo:'➖ Situações de Subtração', texto:'A subtração retira, compara ou completa quantidades. O resultado chama-se diferença ou resto. A subtração é a operação inversa da adição: se 5 + 3 = 8, então 8 − 3 = 5. Para fazer a prova real: C + B = A (resultado + subtraído = minuendo).', chips:['Subtração = retirar/comparar','Resultado = diferença','Inversa da adição','Prova real: C + B = A','8−3=5 → prova: 5+3=8']},
-          {titulo:'📐 Expressões Numéricas (+ e −)', texto:'Em expressões com só adição e subtração, resolva sempre da esquerda para a direita. Os parênteses têm prioridade: resolva-os primeiro. Exemplo: 200 + 350 − 175 + 100 = 475 (da esquerda para a direita). Com parênteses: 500 − (200 + 50) = 500 − 250 = 250.', chips:['Só + e −: esquerda → direita','Parênteses = prioridade máxima','200+350−175+100 = 475','500−(200+50) = 250']},
-          {titulo:'💰 Sistema Monetário', texto:'O Real (R$) é a moeda do Brasil. 1 Real = 100 centavos. Para somar e subtrair valores em dinheiro, alinhe sempre a vírgula. Troco = valor entregue − valor gasto. Exemplo: R$ 50,00 − R$ 23,50 = R$ 26,50.', chips:['R$ = Real (moeda do Brasil)','1 R$ = 100 centavos','Alinhe a vírgula!','Troco = entregue − gasto','R$50 − R$23,50 = R$26,50']},
+          {titulo:'➕ Situações de Adição', texto:'A adição reúne duas ou mais quantidades. O resultado chama-se soma ou total. Na adição, a ordem não importa: 3 + 5 = 5 + 3 (propriedade comutativa). O elemento neutro da adição é o zero: qualquer número + 0 = ele mesmo.', chips:['Adição = juntar quantidades','Resultado = soma ou total','Comutativa: 3+5 = 5+3','Neutro = 0']},
+          {titulo:'➖ Situações de Subtração', texto:'A subtração retira, compara ou completa quantidades. O resultado chama-se diferença ou resto. A subtração é a operação inversa da adição. Para fazer a prova real: C + B = A (resultado + subtraído = minuendo).', chips:['Subtração = retirar/comparar','Resultado = diferença','Inversa da adição','Prova real: C + B = A']},
+          {titulo:'📐 Expressões Numéricas (+ e −)', texto:'Em expressões com só adição e subtração, resolva sempre da esquerda para a direita. Os parênteses têm prioridade: resolva-os primeiro.', chips:['Só + e −: esquerda → direita','Parênteses = prioridade máxima']},
+          {titulo:'💰 Sistema Monetário', texto:'O Real (R$) é a moeda do Brasil. 1 Real = 100 centavos. Para somar e subtrair valores em dinheiro, alinhe sempre a vírgula. Troco = valor entregue − valor gasto.', chips:['R$ = Real (moeda do Brasil)','1 R$ = 100 centavos','Alinhe a vírgula!','Troco = entregue − gasto']},
         ],
-        mapa:{
-          centro:'Adição e Subtração',
-          cor:'#78350F',
-          nos:[
-            {titulo:'Adição', itens:['Reúne quantidades','Neutro = 0','Comutativa: a+b=b+a'], bg:'#FEF3C7', tc:'#78350F'},
-            {titulo:'Subtração', itens:['Retira ou compara','Inversa da adição','Prova: C+B=A'], bg:'#FEE2E2', tc:'#7F1D1D'},
-            {titulo:'Expressões', itens:['Parênteses primeiro','Depois esq → dir','Só + e −: esq → dir'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Monetário', itens:['1 R$ = 100 centavos','Alinhe a vírgula','Troco = entregue − gasto'], bg:'#E0F2FE', tc:'#0369A1'},
-          ]
-        },
-        dica:'Prova real da SUBTRAÇÃO: some o resultado com o número subtraído — deve dar o número inicial. Ex: 8−3=5 → prova: 5+3=8 ✅. Em expressões com só + e −, vá sempre da ESQUERDA para a DIREITA!'
+        mapa:{centro:'Adição e Subtração',cor:'#78350F',nos:[
+          {titulo:'Adição',itens:['Reúne quantidades','Neutro = 0','Comutativa: a+b=b+a'],bg:'#FEF3C7',tc:'#78350F'},
+          {titulo:'Subtração',itens:['Retira ou compara','Inversa da adição','Prova: C+B=A'],bg:'#FEE2E2',tc:'#7F1D1D'},
+          {titulo:'Expressões',itens:['Parênteses primeiro','Depois esq → dir'],bg:'#D5F5E3',tc:'#065F46'},
+          {titulo:'Monetário',itens:['1 R$ = 100 centavos','Alinhe a vírgula'],bg:'#E0F2FE',tc:'#0369A1'},
+        ]},
+        dica:'Prova real da SUBTRAÇÃO: some o resultado com o número subtraído — deve dar o número inicial. Em expressões com só + e −, vá sempre da ESQUERDA para a DIREITA!'
       },
       {
         titulo:'✖️ Cap. 3 — Multiplicação e Divisão com Números Naturais',
         cor:'#D5F5E3', corTitulo:'#065F46',
         blocos:[
-          {titulo:'✖️ Situações de Multiplicação', texto:'A multiplicação é uma adição repetida: 4 × 3 = 3 + 3 + 3 + 3 = 12. O resultado chama-se produto. Propriedade comutativa: 4 × 3 = 3 × 4. O elemento neutro da multiplicação é o 1: qualquer número × 1 = ele mesmo. O elemento absorvente é o 0: qualquer número × 0 = 0.', chips:['Multiplicação = adição repetida','Produto = resultado','Comutativa: 4×3 = 3×4','Neutro = 1','Absorvente = 0']},
-          {titulo:'➗ Situações de Divisão', texto:'A divisão distribui igualmente. O resultado chama-se quociente. A divisão é a operação inversa da multiplicação: se 4 × 3 = 12, então 12 ÷ 4 = 3. Prova real: quociente × divisor = dividendo. Quando não há divisão exata, há um resto.', chips:['Divisão = distribuir','Quociente = resultado','Inversa da multiplicação','Prova: q × divisor = dividendo','12÷4=3 → prova: 3×4=12']},
-          {titulo:'📐 Expressões Numéricas (× e ÷)', texto:'Ordem de resolução: 1° parênteses, 2° multiplicação e divisão (da esquerda para a direita), 3° adição e subtração (da esquerda para a direita). Exemplo: 2 + 3 × 4 − 1 = 2 + 12 − 1 = 13. NUNCA some antes de multiplicar!', chips:['1° Parênteses','2° × e ÷ (esq→dir)','3° + e − (esq→dir)','2+3×4−1 = 13 (não 19!)']},
-          {titulo:'📊 Gráficos e Chances', texto:'No gráfico de barras, o eixo vertical mostra a quantidade e o eixo horizontal mostra as categorias. A barra mais alta = maior valor. Chances de ocorrência: se há 3 bolinhas vermelhas e 7 azuis, a chance de sair azul é maior pois tem mais bolinhas azuis.', chips:['Eixo vertical = quantidade','Barra mais alta = mais popular','Chance = possibilidade','Mais itens = maior chance']},
+          {titulo:'✖️ Situações de Multiplicação', texto:'A multiplicação é uma adição repetida: 4 × 3 = 12. O resultado chama-se produto. Propriedade comutativa: 4 × 3 = 3 × 4. O elemento neutro é o 1. O elemento absorvente é o 0.', chips:['Multiplicação = adição repetida','Produto = resultado','Neutro = 1','Absorvente = 0']},
+          {titulo:'➗ Situações de Divisão', texto:'A divisão distribui igualmente. O resultado chama-se quociente. É a operação inversa da multiplicação. Prova real: quociente × divisor = dividendo.', chips:['Divisão = distribuir','Quociente = resultado','Inversa da multiplicação','Prova: q × divisor = dividendo']},
+          {titulo:'📐 Expressões Numéricas (× e ÷)', texto:'Ordem de resolução: 1° parênteses, 2° multiplicação e divisão (da esquerda para a direita), 3° adição e subtração.', chips:['1° Parênteses','2° × e ÷ (esq→dir)','3° + e − (esq→dir)']},
+          {titulo:'📊 Gráficos e Chances', texto:'No gráfico de barras, o eixo vertical mostra a quantidade e o eixo horizontal mostra as categorias. A barra mais alta = maior valor.', chips:['Eixo vertical = quantidade','Barra mais alta = maior valor','Chance = possibilidade']},
         ],
-        mapa:{
-          centro:'Multiplicação e Divisão',
-          cor:'#065F46',
-          nos:[
-            {titulo:'Multiplicação', itens:['Adição repetida','Neutro = 1','Comutativa: a×b=b×a'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Divisão', itens:['Distribui igualmente','Inversa da mult.','Prova: q×d=dividendo'], bg:'#FEF3C7', tc:'#78350F'},
-            {titulo:'Expressões', itens:['1°: parênteses','2°: × e ÷','3°: + e −'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Gráficos', itens:['Vertical = quantidade','Barra maior = mais','Chances de ocorrência'], bg:'#E0F2FE', tc:'#0369A1'},
-          ]
-        },
-        dica:'Expressão numérica: PARÊNTESES primeiro, depois × e ÷, por último + e −. Nunca some antes de multiplicar! 2+3×4 = 2+12 = 14 ✅, não 5×4 = 20 ❌. Prova da DIVISÃO: quociente × divisor = dividendo.'
+        mapa:{centro:'Multiplicação e Divisão',cor:'#065F46',nos:[
+          {titulo:'Multiplicação',itens:['Adição repetida','Neutro = 1','Comutativa'],bg:'#D5F5E3',tc:'#065F46'},
+          {titulo:'Divisão',itens:['Distribui igualmente','Inversa da mult.','Prova: q×d=dividendo'],bg:'#FEF3C7',tc:'#78350F'},
+          {titulo:'Expressões',itens:['1°: parênteses','2°: × e ÷','3°: + e −'],bg:'#EDE9FE',tc:'#4C1D95'},
+          {titulo:'Gráficos',itens:['Vertical = quantidade','Barra maior = mais'],bg:'#E0F2FE',tc:'#0369A1'},
+        ]},
+        dica:'Expressão numérica: PARÊNTESES primeiro, depois × e ÷, por último + e −. Nunca some antes de multiplicar! 2+3×4 = 14 ✅, não 20 ❌.'
       }
     ]
   },
@@ -874,61 +1007,49 @@ const ESTUDO_CONTEUDO = {
         titulo:'🌍 Cap. 1 — A Terra e a Lua se movem',
         cor:'#E0F2FE', corTitulo:'#0369A1',
         blocos:[
-          {titulo:'🔄 Rotação da Terra', texto:'A rotação é o movimento da Terra girando em torno do seu próprio eixo. Dura aproximadamente 24 horas e causa o dia e a noite: o lado voltado para o Sol recebe luz (dia) e o lado oposto fica escuro (noite). O eixo da Terra é levemente inclinado.', chips:['Rotação = gira em si mesma','~24 horas = 1 dia','Causa o dia e a noite','Eixo inclinado']},
-          {titulo:'🌞 Translação e Estações', texto:'A translação é o movimento da Terra ao redor do Sol. Dura 365 dias (1 ano). A inclinação do eixo faz com que cada hemisfério receba luz de forma diferente ao longo do ano, causando as quatro estações: verão, outono, inverno e primavera. No verão os dias são mais longos; no inverno, mais curtos.', chips:['Translação = ao redor do Sol','365 dias = 1 ano','Causa as 4 estações','Verão: dias mais longos','Inverno: dias mais curtos']},
-          {titulo:'🌕 A Lua se move', texto:'A Lua realiza dois movimentos: rotação (em torno de si mesma) e translação (ao redor da Terra), ambos com duração de ~29 dias. Por isso sempre vemos o mesmo lado da Lua. A Lua não produz luz própria — ela reflete a luz do Sol. As quatro fases são: Nova, Crescente, Cheia e Minguante.', chips:['Lua: rotação + translação','~29 dias = ciclo lunar','Sempre vemos o mesmo lado','Lua REFLETE a luz do Sol','Fases: Nova, Crescente, Cheia, Minguante']},
-          {titulo:'🔭 Um pouco de história', texto:'Aristóteles (Grécia antiga) defendia que a Terra era o centro do Universo (geocentrismo). Copérnico propôs que o Sol é o centro (heliocentrismo). Galileu Galilei usou o telescópio para confirmar que a Terra gira ao redor do Sol. O povo indígena Tembé, do Pará, também possuía conhecimentos astronômicos próprios.', chips:['Aristóteles = geocentrismo (Terra no centro)','Copérnico = heliocentrismo (Sol no centro)','Galileu = confirmou com telescópio','Tembé = astronomia indígena do Pará']},
+          {titulo:'🔄 Rotação da Terra', texto:'A rotação é o movimento da Terra girando em torno do seu próprio eixo. Dura aproximadamente 24 horas e causa o dia e a noite.', chips:['Rotação = gira em si mesma','~24 horas = 1 dia','Causa o dia e a noite']},
+          {titulo:'🌞 Translação e Estações', texto:'A translação é o movimento da Terra ao redor do Sol. Dura 365 dias. A inclinação do eixo causa as quatro estações. No verão os dias são mais longos; no inverno, mais curtos.', chips:['Translação = ao redor do Sol','365 dias = 1 ano','Causa as 4 estações']},
+          {titulo:'🌕 A Lua se move', texto:'A Lua realiza rotação e translação, ambas com ~29 dias. Por isso sempre vemos o mesmo lado. A Lua não produz luz própria — ela reflete a luz do Sol. Fases: Nova, Crescente, Cheia e Minguante.', chips:['~29 dias = ciclo lunar','Lua REFLETE a luz do Sol','Fases: Nova, Crescente, Cheia, Minguante']},
+          {titulo:'🔭 História da Astronomia', texto:'Aristóteles: Terra no centro (geocentrismo). Copérnico: Sol no centro (heliocentrismo). Galileu: confirmou com o telescópio. Povo Tembé/PA tem astronomia indígena própria.', chips:['Aristóteles = geocentrismo','Copérnico = heliocentrismo','Galileu = confirmou','Tembé/PA = astronomia indígena']},
         ],
-        mapa:{
-          centro:'A Terra e a Lua',
-          cor:'#0369A1',
-          nos:[
-            {titulo:'Rotação', itens:['Gira em si mesma','~24 horas','Causa dia e noite'], bg:'#E0F2FE', tc:'#0369A1'},
-            {titulo:'Translação', itens:['Ao redor do Sol','365 dias','Causa as estações'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'A Lua', itens:['Reflete a luz do Sol','~29 dias de ciclo','4 fases: Nova→Cheia'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'História', itens:['Aristóteles: geocentrismo','Copérnico: heliocentrismo','Galileu: confirmou'], bg:'#FEF3C7', tc:'#78350F'},
-          ]
-        },
-        dica:'ROTAÇÃO = gira em si mesma = 24h = dia/noite. TRANSLAÇÃO = ao redor do Sol = 365 dias = estações. A Lua NÃO tem luz própria — ela REFLETE o Sol. Galileu confirmou que o Sol é o centro, não a Terra!'
+        mapa:{centro:'A Terra e a Lua',cor:'#0369A1',nos:[
+          {titulo:'Rotação',itens:['Gira em si mesma','~24 horas','Causa dia e noite'],bg:'#E0F2FE',tc:'#0369A1'},
+          {titulo:'Translação',itens:['Ao redor do Sol','365 dias','Causa as estações'],bg:'#D5F5E3',tc:'#065F46'},
+          {titulo:'A Lua',itens:['Reflete a luz do Sol','~29 dias de ciclo','4 fases: Nova→Cheia'],bg:'#EDE9FE',tc:'#4C1D95'},
+          {titulo:'História',itens:['Aristóteles: geocentrismo','Copérnico: heliocentrismo','Galileu: confirmou'],bg:'#FEF3C7',tc:'#78350F'},
+        ]},
+        dica:'ROTAÇÃO = gira em si mesma = 24h = dia/noite. TRANSLAÇÃO = ao redor do Sol = 365 dias = estações. A Lua NÃO tem luz própria — ela REFLETE o Sol!'
       },
       {
         titulo:'🚀 Cap. 2 — O ser humano e o espaço sideral',
         cor:'#EDE9FE', corTitulo:'#4C1D95',
         blocos:[
-          {titulo:'🔭 Instrumentos de Observação', texto:'O telescópio amplifica objetos distantes no espaço. Foi aperfeiçoado por Galileu Galilei no século XVII. O telescópio refrator usa lentes; o refletor usa espelhos. Os radiotelescópios captam ondas de rádio de estrelas e galáxias. Observatórios ficam em locais altos e distantes das cidades para evitar a poluição luminosa.', chips:['Telescópio = amplifica o espaço','Refrator = lentes','Refletor = espelhos','Radiotelescópio = ondas de rádio','Observatório = longe da poluição luminosa']},
-          {titulo:'🛸 Viagens e Equipamentos Espaciais', texto:'Yuri Gagarin foi o primeiro humano no espaço (1961). Neil Armstrong foi o primeiro a pisar na Lua (1969). Satélites artificiais têm funções como comunicação e previsão do tempo. A ISS (Estação Espacial Internacional) é um laboratório no espaço. Sondas espaciais exploram planetas sem astronautas. O Brasil tem o Centro de Lançamento de Alcântara, no Maranhão.', chips:['Gagarin = 1° humano no espaço (1961)','Armstrong = 1° na Lua (1969)','Satélite = comunicação/observação','ISS = laboratório espacial','Sondas = exploram sem astronautas','Alcântara/MA = base brasileira']},
+          {titulo:'🔭 Instrumentos de Observação', texto:'Telescópio refrator usa lentes; refletor usa espelhos. Radiotelescópios captam ondas de rádio. Observatórios ficam em locais altos para evitar poluição luminosa.', chips:['Refrator = lentes','Refletor = espelhos','Radiotelescópio = ondas de rádio']},
+          {titulo:'🛸 Viagens Espaciais', texto:'Yuri Gagarin: 1° humano no espaço (1961). Neil Armstrong: 1° na Lua (1969). ISS = laboratório no espaço. Sondas exploram sem astronautas. Alcântara/MA = base brasileira.', chips:['Gagarin = 1° no espaço (1961)','Armstrong = 1° na Lua (1969)','ISS = laboratório','Sondas = sem astronautas','Alcântara/MA']},
         ],
-        mapa:{
-          centro:'Espaço Sideral',
-          cor:'#4C1D95',
-          nos:[
-            {titulo:'Telescópios', itens:['Galileu = inventor','Refrator = lentes','Refletor = espelhos','Radiotelescópio'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Viagens', itens:['Gagarin: 1° no espaço','Armstrong: 1° na Lua','Traje espacial'], bg:'#E0F2FE', tc:'#0369A1'},
-            {titulo:'Equipamentos', itens:['Satélites artificiais','ISS = laboratório','Sondas espaciais'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Brasil', itens:['Alcântara/MA','Centro de Lançamento','Astronomia Tembé'], bg:'#FEF3C7', tc:'#78350F'},
-          ]
-        },
-        dica:'Telescópio REFRATOR = lentes. REFLETOR = espelhos. YURI GAGARIN = 1° no espaço (1961). NEIL ARMSTRONG = 1° na Lua (1969). ISS = laboratório espacial. Sondas = exploram SEM astronautas. Alcântara = base brasileira no MARANHÃO!'
+        mapa:{centro:'Espaço Sideral',cor:'#4C1D95',nos:[
+          {titulo:'Telescópios',itens:['Refrator = lentes','Refletor = espelhos','Radiotelescópio'],bg:'#EDE9FE',tc:'#4C1D95'},
+          {titulo:'Viagens',itens:['Gagarin: 1° no espaço','Armstrong: 1° na Lua'],bg:'#E0F2FE',tc:'#0369A1'},
+          {titulo:'Equipamentos',itens:['Satélites artificiais','ISS = laboratório','Sondas espaciais'],bg:'#D5F5E3',tc:'#065F46'},
+          {titulo:'Brasil',itens:['Alcântara/MA','Centro de Lançamento'],bg:'#FEF3C7',tc:'#78350F'},
+        ]},
+        dica:'Refrator = LENTES. Refletor = ESPELHOS. Gagarin = 1° NO ESPAÇO (1961). Armstrong = 1° NA LUA (1969). Alcântara = base no MARANHÃO!'
       },
       {
         titulo:'💨 Cap. 3 — O ar',
         cor:'#D5F5E3', corTitulo:'#065F46',
         blocos:[
-          {titulo:'🌬️ Composição e Propriedades do Ar', texto:'O ar existe em toda parte: na água, no solo e dentro dos seres vivos. É uma mistura de gases: principalmente nitrogênio (78%) e oxigênio (21%). Propriedades: tem massa (peso), ocupa espaço, se espalha, pode ser comprimido e exerce pressão. O ar em movimento chama-se vento.', chips:['Ar = mistura de gases','78% nitrogênio + 21% oxigênio','Tem massa e ocupa espaço','Pode ser comprimido','Ar em movimento = vento']},
-          {titulo:'🌎 A Atmosfera Terrestre', texto:'A atmosfera é a camada de ar que envolve a Terra. Ela nos protege dos raios ultravioleta do Sol e de meteoros. Sem atmosfera, não haveria vida. A camada de ozônio é uma parte da atmosfera que filtra os raios UV. O CFC (clorofluorcarbono) é um gás que destrói o ozônio.', chips:['Atmosfera = camada protetora','Protege dos raios UV','Sem atmosfera = sem vida','Ozônio = filtra raios UV','CFC = destrói o ozônio']},
-          {titulo:'🏭 Poluição e Efeito Estufa', texto:'A poluição do ar é causada por fumaça de fábricas, escapamentos de carros e queimadas. O efeito estufa é o aquecimento da Terra pelo acúmulo de CO₂ e outros gases que retêm calor. Para cuidar do ar: usar transportes coletivos, bicicletas, plantar árvores e reduzir queimadas.', chips:['Poluição: fábricas + carros + queimadas','CO₂ = gás do efeito estufa','Efeito estufa = aquecimento','CFC = destrói camada de ozônio','Solução: transporte coletivo + árvores']},
+          {titulo:'🌬️ Composição do Ar', texto:'O ar existe em toda parte. É uma mistura de gases: 78% nitrogênio e 21% oxigênio. Propriedades: tem massa, ocupa espaço, pode ser comprimido. O ar em movimento = vento.', chips:['78% nitrogênio','21% oxigênio','Tem massa e ocupa espaço','Ar em movimento = vento']},
+          {titulo:'🌎 Atmosfera e Ozônio', texto:'A atmosfera envolve e protege a Terra dos raios UV. Sem ela não haveria vida. A camada de ozônio filtra raios UV. O CFC destrói o ozônio.', chips:['Atmosfera = camada protetora','Ozônio = filtra raios UV','CFC = destrói o ozônio']},
+          {titulo:'🏭 Poluição e Efeito Estufa', texto:'Poluição: fumaça de fábricas, carros e queimadas. Efeito estufa: acúmulo de CO₂ aquece a Terra. Para ajudar: transporte coletivo, bicicletas, plantar árvores.', chips:['CO₂ = efeito estufa','CFC = destrói ozônio','Solução: coletivo + árvores']},
         ],
-        mapa:{
-          centro:'O Ar',
-          cor:'#065F46',
-          nos:[
-            {titulo:'Composição', itens:['78% nitrogênio','21% oxigênio','Mistura de gases'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Propriedades', itens:['Tem massa','Ocupa espaço','Pode ser comprimido','Vento = ar em movimento'], bg:'#E0F2FE', tc:'#0369A1'},
-            {titulo:'Atmosfera', itens:['Envolve a Terra','Protege dos UV','Camada de ozônio'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Poluição', itens:['CO₂ = efeito estufa','CFC = destrói ozônio','Queimadas poluem'], bg:'#FEE2E2', tc:'#7F1D1D'},
-          ]
-        },
-        dica:'Ar = 78% NITROGÊNIO + 21% OXIGÊNIO. O EFEITO ESTUFA é causado pelo excesso de CO₂. O CFC destrói a camada de OZÔNIO. Sem atmosfera, não há vida na Terra. Vento = ar em MOVIMENTO!'
+        mapa:{centro:'O Ar',cor:'#065F46',nos:[
+          {titulo:'Composição',itens:['78% nitrogênio','21% oxigênio'],bg:'#D5F5E3',tc:'#065F46'},
+          {titulo:'Propriedades',itens:['Tem massa','Ocupa espaço','Vento = ar em movimento'],bg:'#E0F2FE',tc:'#0369A1'},
+          {titulo:'Atmosfera',itens:['Envolve a Terra','Protege dos UV','Camada de ozônio'],bg:'#EDE9FE',tc:'#4C1D95'},
+          {titulo:'Poluição',itens:['CO₂ = efeito estufa','CFC = destrói ozônio','Queimadas poluem'],bg:'#FEE2E2',tc:'#7F1D1D'},
+        ]},
+        dica:'Ar = 78% NITROGÊNIO + 21% OXIGÊNIO. EFEITO ESTUFA = excesso de CO₂. CFC destrói OZÔNIO. Sem atmosfera = sem vida na Terra!'
       }
     ]
   },
@@ -940,44 +1061,36 @@ const ESTUDO_CONTEUDO = {
         titulo:'📝 Cap. 1 — Substantivos, Adjetivos e Mais',
         cor:'#FCE4EC', corTitulo:'#880E4F',
         blocos:[
-          {titulo:'🏷️ Substantivo Simples e Composto', texto:'O substantivo simples é formado por apenas um elemento (ex: pé, casa, sol). O substantivo composto é formado por dois ou mais elementos unidos e tem significado próprio (ex: pé-de-moleque, arroz-doce, guarda-chuva). Podem ser unidos com hífen ou sem hífen.', chips:['Simples = 1 elemento: casa','Composto com hífen: arroz-doce','Composto sem hífen: malcasado','Significado diferente das partes!']},
-          {titulo:'🎨 Adjetivo e Locução Adjetiva', texto:'O adjetivo é a palavra que dá características ao substantivo (ex: menino curioso, dia alegre). A locução adjetiva é uma expressão formada por duas ou mais palavras com valor de adjetivo (ex: "de carnaval" = carnavalesco, "do céu" = celeste, "do rei" = real).', chips:['Adjetivo: curioso, alegre, bonito','Locução adjetiva: de carnaval','de carnaval = carnavalesco','do sol = solar']},
-          {titulo:'⚖️ Mas x Mais', texto:'"MAS" indica oposição, contraste — funciona como "porém", "entretanto" (ex: Quero ir, mas não posso). "MAIS" indica adição, quantidade, intensidade (ex: Quero mais sorvete. Ele é mais rápido).', chips:['MAS = oposição (porém)','MAIS = adição ou intensidade','Dica: mas = porém','Dica: mais = muito']},
-          {titulo:'🔗 Preposição', texto:'A preposição é a palavra que liga dois termos, estabelecendo uma relação entre eles. Principais preposições: a, de, em, para, por, até, com, sobre, sem, após. Atenção: preposições são usadas na formação de locuções adjetivas!', chips:['a, de, em, para, por','com, sobre, sem, até, após','Liga dois termos','Usada em locuções adjetivas']},
+          {titulo:'🏷️ Substantivo Simples e Composto', texto:'Simples: formado por um elemento (casa, sol). Composto: dois ou mais elementos unidos com significado próprio (pé-de-moleque, guarda-chuva).', chips:['Simples: casa, sol','Composto: guarda-chuva','Composto sem hífen: malcasado']},
+          {titulo:'🎨 Adjetivo e Locução Adjetiva', texto:'Adjetivo dá característica ao substantivo (curioso, alegre). Locução adjetiva: expressão com valor de adjetivo (de carnaval = carnavalesco, do sol = solar).', chips:['Adjetivo: curioso, alegre','Locução: de carnaval','do sol = solar']},
+          {titulo:'⚖️ Mas x Mais', texto:'"MAS" = oposição (porém). "MAIS" = adição, quantidade. Dica: substitua por "porém" — se funcionar é MAS.', chips:['MAS = oposição (porém)','MAIS = adição ou intensidade']},
+          {titulo:'🔗 Preposição', texto:'Liga dois termos. Principais: a, de, em, para, por, até, com, sobre, sem. Usadas em locuções adjetivas.', chips:['a, de, em, para, por','com, sobre, sem, até','Liga dois termos']},
         ],
-        mapa:{
-          centro:'Cap. 1 – Língua Portuguesa',
-          cor:'#880E4F',
-          nos:[
-            {titulo:'Substantivo', itens:['Simples: 1 elemento','Composto: 2+ elementos','Ex: pé-de-moleque'], bg:'#FCE4EC', tc:'#880E4F'},
-            {titulo:'Adjetivo', itens:['Dá características','Locução adjetiva','De carnaval = carnavalesco'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Mas x Mais', itens:['Mas = oposição','Mais = adição','Dica: mais = muito'], bg:'#FEF3C7', tc:'#78350F'},
-            {titulo:'Preposição', itens:['Liga dois termos','a, de, em, para','Forma locuções'], bg:'#D5F5E3', tc:'#065F46'},
-          ]
-        },
-        dica:'Para não confundir MAS e MAIS: substitua por "porém". Se funcionar, é MAS. Se não funcionar, é MAIS. Exemplo: "Quero ir, porém não posso" — funciona! Então é MAS.'
+        mapa:{centro:'Cap. 1 – Língua Portuguesa',cor:'#880E4F',nos:[
+          {titulo:'Substantivo',itens:['Simples: 1 elemento','Composto: 2+ elementos'],bg:'#FCE4EC',tc:'#880E4F'},
+          {titulo:'Adjetivo',itens:['Dá características','Locução adjetiva'],bg:'#EDE9FE',tc:'#4C1D95'},
+          {titulo:'Mas x Mais',itens:['Mas = oposição','Mais = adição'],bg:'#FEF3C7',tc:'#78350F'},
+          {titulo:'Preposição',itens:['Liga dois termos','Forma locuções'],bg:'#D5F5E3',tc:'#065F46'},
+        ]},
+        dica:'Para não confundir MAS e MAIS: substitua por "porém". Se funcionar, é MAS. Exemplo: "Quero ir, porém não posso" — funciona! Então é MAS.'
       },
       {
         titulo:'🎭 Cap. 2 — Teatro, Verbos e Pontuação',
         cor:'#EDE9FE', corTitulo:'#4C1D95',
         blocos:[
-          {titulo:'🎭 Texto Teatral', texto:'O texto teatral é criado para ser encenado por atores no palco. Ele tem: personagens (com nome em destaque antes das falas), rubricas (indicações em itálico sobre ações e expressões), atos (divisões maiores) e cenas (subdivisões). CORO = vários personagens falam juntos.', chips:['Para ser encenado','Rubricas = instruções em itálico','Ato = divisão maior','Cena = subdivisão','CORO = fala coletiva']},
-          {titulo:'📋 Texto Instrucional', texto:'O texto instrucional ensina a fazer algo, com um passo a passo. Estrutura: título + lista de materiais + passo a passo numerado. Os verbos são usados para indicar ações (ex: recorte, cole, enfeite). Exemplos: receita, manual, tutorial.', chips:['Ensina a fazer algo','Título + materiais + passos','Verbos = ordens/instruções','Numerado = ordem importa']},
-          {titulo:'⏱️ Tempos Verbais', texto:'Presente: ação que acontece agora (canto, gosto). Pretérito perfeito: ação já concluída no passado (cantou, comeu, saiu — termina em -ou, -eu, -iu). Pretérito imperfeito: ação habitual ou contínua no passado (cantava, comia). Futuro: ação que vai acontecer (cantará, vai cantar).', chips:['Presente: canto, gosto','Perf.: cantou, comeu, saiu','Imperf.: cantava, comia','Futuro: cantará, vai cantar']},
-          {titulo:'🔤 L ou U no Final de Sílaba', texto:'Quando a letra L está no início de sílaba (antes de vogal), soa como "la, le, li, lo, lu" (ex: mochila, livro). Quando a letra L está no final de sílaba, produz som parecido com U (ex: sol, fácil, teatro-l, ál-bum). Muitos verbos no passado terminam com U: cantou, comeu, saiu.', chips:['L no início: li-vro, mo-chi-la','L no final: sol, fá-cil, tea-tral','Som de U: al-bum, fil-tro','Verbos: cantou, comeu, saiu']},
-          {titulo:'❗ Pontuação Expressiva', texto:'O ponto de exclamação (!) expressa emoções intensas: alegria, surpresa, ordem, indignação. As reticências (...) indicam que a ideia ficou incompleta, há pausa dramática ou algo foi omitido. Esses sinais tornam o texto mais expressivo e emocionante.', chips:['! = emoção intensa','! = alegria, susto, ordem','... = ideia incompleta','... = suspense ou pausa']},
+          {titulo:'🎭 Texto Teatral', texto:'Criado para ser encenado. Tem: personagens (nome antes da fala), rubricas (indicações em itálico sobre ações), atos e cenas. CORO = vários personagens falam juntos.', chips:['Para ser encenado','Rubricas = instruções em itálico','Ato = divisão maior','CORO = fala coletiva']},
+          {titulo:'📋 Texto Instrucional', texto:'Ensina a fazer algo com passo a passo. Estrutura: título + materiais + passos numerados. Verbos indicam ações (recorte, cole).', chips:['Ensina a fazer algo','Título + materiais + passos','Verbos = ordens']},
+          {titulo:'⏱️ Tempos Verbais', texto:'Presente: canto, gosto. Pretérito perfeito: cantou, comeu (-ou,-eu,-iu). Pretérito imperfeito: cantava, comia. Futuro: cantará, vai cantar.', chips:['Presente: canto','Perf.: cantou, comeu','Imperf.: cantava, comia','Futuro: cantará']},
+          {titulo:'🔤 L ou U no Final de Sílaba', texto:'L no início soa "la,li,lo" (livro). L no final soa como U (sol, fácil). Verbos no passado terminam com U: cantou, comeu, saiu.', chips:['L no início: li-vro','L no final = som de U: sol','Verbos: cantou, comeu, saiu']},
+          {titulo:'❗ Pontuação Expressiva', texto:'Ponto de exclamação (!) = emoção forte (alegria, susto, ordem). Reticências (...) = ideia incompleta ou suspense.', chips:['! = emoção intensa','... = ideia incompleta','... = suspense']},
         ],
-        mapa:{
-          centro:'Cap. 2 – Língua Portuguesa',
-          cor:'#4C1D95',
-          nos:[
-            {titulo:'Texto Teatral', itens:['Para encenação','Rubricas em itálico','Atos e cenas'], bg:'#EDE9FE', tc:'#4C1D95'},
-            {titulo:'Texto Instrucional', itens:['Ensina a fazer','Passo a passo','Verbos de ação'], bg:'#D5F5E3', tc:'#065F46'},
-            {titulo:'Tempos Verbais', itens:['Presente: canto','Passado: cantou/cantava','Futuro: cantará'], bg:'#FEF3C7', tc:'#78350F'},
-            {titulo:'L, U e Pontuação', itens:['L final = som de U','Verbos: -ou/-eu/-iu','! e ... = expressão'], bg:'#FCE4EC', tc:'#880E4F'},
-          ]
-        },
-        dica:'Pretérito PERFEITO = ação acabada (-ou, -eu, -iu). Pretérito IMPERFEITO = ação que durava (-ava, -ia). Futuro = vai acontecer (-ará, -erá). E lembre: L no FINAL da sílaba soa como U!'
+        mapa:{centro:'Cap. 2 – Língua Portuguesa',cor:'#4C1D95',nos:[
+          {titulo:'Texto Teatral',itens:['Para encenação','Rubricas em itálico','Atos e cenas'],bg:'#EDE9FE',tc:'#4C1D95'},
+          {titulo:'Instrucional',itens:['Ensina a fazer','Passo a passo'],bg:'#D5F5E3',tc:'#065F46'},
+          {titulo:'Tempos Verbais',itens:['Presente: canto','Passado: cantou','Futuro: cantará'],bg:'#FEF3C7',tc:'#78350F'},
+          {titulo:'L, U e Pontuação',itens:['L final = som de U','! e ... = expressão'],bg:'#FCE4EC',tc:'#880E4F'},
+        ]},
+        dica:'Pretérito PERFEITO = ação acabada (-ou, -eu, -iu). IMPERFEITO = ação que durava (-ava, -ia). L no FINAL da sílaba soa como U!'
       }
     ]
   }
@@ -996,44 +1109,32 @@ var AVCOLS=[['#D5F5E3','#065F46'],['#D6EAF8','#185FA5'],['#EDE9FE','#6B21A8'],['
 function avatarColor(n){var i=n.charCodeAt(0)%AVCOLS.length;return AVCOLS[i];}
 function initials(n){return n.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);}
 
-/* ═══════════════════════════════════
-   UTILITÁRIOS
-═══════════════════════════════════ */
+/* UTILITÁRIOS */
 function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2500);}
 function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
 function fmtDate(){var d=new Date();return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'})+' '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}
 
-/* ═══════════════════════════════════
-   STORAGE
-═══════════════════════════════════ */
+/* STORAGE */
 function getHist(ac,s,q){try{return JSON.parse(localStorage.getItem('h_'+ac+'_'+s+'_'+q))||[];}catch(e){return[];}}
 function saveHist(ac,s,q,e){var h=getHist(ac,s,q);h.push(e);if(h.length>MAX_HIST)h=h.slice(h.length-MAX_HIST);localStorage.setItem('h_'+ac+'_'+s+'_'+q,JSON.stringify(h));}
 function getSavedPlayers(){try{return JSON.parse(localStorage.getItem('players'))||[];}catch(e){return[];}}
 function savePlayer(n){var p=getSavedPlayers();if(!p.includes(n)){p.unshift(n);if(p.length>6)p=p.slice(0,6);localStorage.setItem('players',JSON.stringify(p));}}
 function getRankData(){try{return JSON.parse(localStorage.getItem('rank_global'))||[];}catch(e){return[];}}
 function saveRankEntry(entry){
-  // Salva localmente (fallback)
   var data=getRankData().filter(function(e){return!(e.player===entry.player&&e.quizKey===entry.quizKey);});
   data.push(entry);
   localStorage.setItem('rank_global',JSON.stringify(data));
-  // Salva no Firebase (placar global compartilhado)
-  if(typeof window.fbSaveRankEntry==='function'){
-    window.fbSaveRankEntry(entry);
-  }
+  if(typeof window.fbSaveRankEntry==='function'){window.fbSaveRankEntry(entry);}
 }
 function getCounters(){try{return JSON.parse(localStorage.getItem('counters'))||{visits:0,quizzes:0,bySubject:{}};}catch(e){return{visits:0,quizzes:0,bySubject:{}};}}
 function saveCounters(c){localStorage.setItem('counters',JSON.stringify(c));}
 function getPlayerStats(n){var qz=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){if(getHist(ac.id,s.id,qi).filter(function(e){return e.player===n;}).length>0)qz++;});});});return{quizzes:qz};}
 
-/* ═══════════════════════════════════
-   NAVEGAÇÃO
-═══════════════════════════════════ */
+/* NAVEGAÇÃO */
 function goHome(){clearInterval(timer);buildHome();show('home');}
 function changePlayer(){show('player-screen');buildPlayerScreen();}
 
-/* ═══════════════════════════════════
-   MODO QUIZ / ESTUDAR
-═══════════════════════════════════ */
+/* MODO QUIZ / ESTUDAR */
 function setMode(mode){
   curMode=mode;
   document.getElementById('btn-mode-quiz').classList.toggle('active',mode==='quiz');
@@ -1044,24 +1145,18 @@ function setMode(mode){
   gaEvent('mode_switch',{mode:mode});
 }
 
-/* ═══════════════════════════════════
-   CONTADORES + GA
-═══════════════════════════════════ */
+/* CONTADORES + GA */
 function trackVisit(){if(!sessionStorage.getItem('visited')){var c=getCounters();c.visits=(c.visits||0)+1;sessionStorage.setItem('visited','1');saveCounters(c);}}
 function trackQuizComplete(acLabel,subjName){var c=getCounters();c.quizzes=(c.quizzes||0)+1;c.bySubject=c.bySubject||{};c.bySubject[subjName]=(c.bySubject[subjName]||0)+1;saveCounters(c);}
 function buildStatsBar(){var c=getCounters();var top='—';if(c.bySubject&&Object.keys(c.bySubject).length>0){top=Object.entries(c.bySubject).sort(function(a,b){return b[1]-a[1];})[0][0];}var bar=document.getElementById('stats-bar');if(bar)bar.innerHTML='<div class="stat-chip"><span>👁️</span>'+(c.visits||0)+' visita'+(c.visits!==1?'s':'')+'</div><div class="stat-chip"><span>✅</span>'+(c.quizzes||0)+' quiz'+(c.quizzes!==1?'zes':'')+'</div><div class="stat-chip"><span>🏆</span>'+top+'</div>';}
 function gaEvent(name,params){if(typeof gtag!=='undefined')gtag('event',name,params||{});}
 
-/* ═══════════════════════════════════
-   PLAYER SCREEN
-═══════════════════════════════════ */
+/* PLAYER SCREEN */
 function buildPlayerScreen(){var saved=getSavedPlayers();var wrap=document.getElementById('saved-wrap');if(!saved.length){wrap.innerHTML='';return;}var chips=saved.map(function(p){return'<span class="saved-chip" onclick="quickEnter(this.dataset.name)" data-name="'+p.replace(/'/g,'&#39;')+'">'+p+'</span>';}).join('');wrap.innerHTML='<p>Apelidos recentes:</p><div class="saved-list">'+chips+'</div>';}
 function quickEnter(name){curPlayer=name;savePlayer(name);buildHome();show('home');}
 function enterPlayer(){var name=document.getElementById('player-input').value.trim();if(name.length<2){showToast('Digite um apelido com pelo menos 2 letras!');return;}curPlayer=name;savePlayer(name);buildHome();show('home');}
 
-/* ═══════════════════════════════════
-   HOME
-═══════════════════════════════════ */
+/* HOME */
 function buildHome(){
   var col=avatarColor(curPlayer);
   var av=document.getElementById('home-avatar');
@@ -1069,7 +1164,6 @@ function buildHome(){
   document.getElementById('home-name').textContent=curPlayer;
   var stats=getPlayerStats(curPlayer);
   document.getElementById('home-sub').textContent=stats.quizzes>0?stats.quizzes+' quiz'+(stats.quizzes!==1?'zes':'')+' realizado'+(stats.quizzes!==1?'s':''):'Primeiro acesso — bom estudo!';
-  // Rebuild quiz grid
   var g=document.getElementById('ac-grid');g.innerHTML='';
   AVALIACOES.forEach(function(ac,ai){
     var c=document.createElement('div');c.className='ac-card '+ac.theme+(ac.locked?' locked':'');
@@ -1079,15 +1173,209 @@ function buildHome(){
     if(!ac.locked)(function(i){c.onclick=function(){openAC(i);};})(ai);
     g.appendChild(c);
   });
-  // Rebuild estudo grid if in study mode
   if(curMode==='study')buildEstudoGrid();
   else{document.getElementById('mode-quiz').style.display='block';document.getElementById('mode-study').style.display='none';}
   buildStatsBar();
 }
 
 /* ═══════════════════════════════════
-   ÁREA DE ESTUDAR
+   PAINEL DE DESEMPENHO — função principal
 ═══════════════════════════════════ */
+function openDesempenho(){
+  gaEvent('open_desempenho', {});
+  var cont = document.getElementById('desempenho-content');
+  cont.innerHTML = '';
+
+  // ── Calcula métricas gerais ──────────────────────────────────
+  // Quantas matérias estão acima da meta (8.0) na AC2
+  var acimaMeta = NOTAS_ANA.filter(function(m){ return m.ac2 >= META_NOTA; }).length;
+  // Média geral AC1 e AC2
+  var mediaAC1 = NOTAS_ANA.reduce(function(s,m){ return s + m.ac1; }, 0) / NOTAS_ANA.length;
+  var mediaAC2 = NOTAS_ANA.reduce(function(s,m){ return s + m.ac2; }, 0) / NOTAS_ANA.length;
+  var evolucao = mediaAC2 - mediaAC1;
+
+  // ── Caixas de resumo no topo ─────────────────────────────────
+  var resumoDiv = document.createElement('div');
+  resumoDiv.className = 'desemp-resumo';
+
+  // Box 1: Média geral AC2
+  var corMedia = mediaAC2 >= META_NOTA ? '#065F46' : '#7F1D1D';
+  var bgMedia  = mediaAC2 >= META_NOTA ? '#D5F5E3' : '#FEE2E2';
+  resumoDiv.innerHTML =
+    '<div class="desemp-resumo-box" style="background:'+bgMedia+';">' +
+      '<div class="desemp-resumo-num" style="color:'+corMedia+';">' + mediaAC2.toFixed(1) + '</div>' +
+      '<div class="desemp-resumo-label">Média geral AC2</div>' +
+    '</div>' +
+    '<div class="desemp-resumo-box">' +
+      '<div class="desemp-resumo-num" style="color:' + (evolucao >= 0 ? '#065F46' : '#D85A30') + ';">' +
+        (evolucao >= 0 ? '+' : '') + evolucao.toFixed(1) +
+      '</div>' +
+      '<div class="desemp-resumo-label">Evolução AC1→AC2</div>' +
+    '</div>' +
+    '<div class="desemp-resumo-box">' +
+      '<div class="desemp-resumo-num" style="color:#065F46;">' + acimaMeta + '/' + NOTAS_ANA.length + '</div>' +
+      '<div class="desemp-resumo-label">Matérias acima de 8,0</div>' +
+    '</div>';
+  cont.appendChild(resumoDiv);
+
+  // ── Legenda do gráfico ───────────────────────────────────────
+  var legendaDiv = document.createElement('div');
+  legendaDiv.className = 'desemp-legenda';
+  legendaDiv.innerHTML =
+    '<div class="desemp-leg-item">' +
+      '<div class="desemp-leg-cor" style="background:#ccc;"></div>' +
+      '<span>AC1 (nota anterior)</span>' +
+    '</div>' +
+    '<div class="desemp-leg-item">' +
+      '<div class="desemp-leg-cor" style="background:#1D9E75;"></div>' +
+      '<span>AC2 (nota atual)</span>' +
+    '</div>' +
+    '<div class="desemp-leg-item">' +
+      '<div class="desemp-leg-cor" style="background:#D85A30;border-radius:0;width:3px;"></div>' +
+      '<span>Meta 8,0</span>' +
+    '</div>';
+  cont.appendChild(legendaDiv);
+
+  // ── Gráfico de barras por matéria ────────────────────────────
+  // Ordena: primeiro as abaixo da meta, depois as acima (por prioridade visual)
+  var ordenadas = NOTAS_ANA.slice().sort(function(a,b){ return a.ac2 - b.ac2; });
+
+  ordenadas.forEach(function(mat){
+    var diff = mat.ac2 - mat.ac1;
+    // Define ícone e classe de tendência
+    var tendIcon, tendCls;
+    if(diff > 0.1){ tendIcon = '↑ +' + diff.toFixed(1); tendCls = 'tend-up'; }
+    else if(diff < -0.1){ tendIcon = '↓ ' + diff.toFixed(1); tendCls = 'tend-down'; }
+    else { tendIcon = '→ 0,0'; tendCls = 'tend-same'; }
+
+    var row = document.createElement('div');
+    row.className = 'desemp-materia-row';
+
+    // Cabeçalho: nome + tendência
+    var header = document.createElement('div');
+    header.className = 'desemp-materia-header';
+    header.innerHTML =
+      '<div class="desemp-materia-nome">' + mat.icon + ' ' + mat.nome + '</div>' +
+      '<span class="desemp-tendencia ' + tendCls + '">' + tendIcon + '</span>';
+    row.appendChild(header);
+
+    // Container das barras (AC1 + AC2 com linha de meta)
+    var barrasDiv = document.createElement('div');
+    barrasDiv.className = 'desemp-barras';
+
+    // Calcula posição da linha de meta em % (meta=8.0, máx=10)
+    var metaPct = (META_NOTA / 10) * 100; // 80%
+
+    // Barra AC1
+    var pctAC1 = (mat.ac1 / 10) * 100;
+    var rowAC1 = document.createElement('div');
+    rowAC1.className = 'desemp-barra-row';
+    rowAC1.innerHTML =
+      '<span class="desemp-barra-label">AC1</span>' +
+      '<div class="desemp-barra-track">' +
+        '<div class="desemp-barra-fill" style="width:' + pctAC1 + '%;background:#bbb;">' +
+          (pctAC1 > 15 ? mat.ac1.toFixed(1) : '') +
+        '</div>' +
+        // Linha de meta posicionada sobre a barra
+        '<div class="desemp-meta-linha" style="left:' + metaPct + '%;"><span class="desemp-meta-label">8,0</span></div>' +
+      '</div>' +
+      '<span class="desemp-barra-nota" style="color:#888;">' + mat.ac1.toFixed(1) + '</span>';
+    barrasDiv.appendChild(rowAC1);
+
+    // Barra AC2 — cor varia com desempenho
+    var pctAC2 = (mat.ac2 / 10) * 100;
+    var corAC2 = mat.ac2 >= META_NOTA ? mat.cor : '#D85A30'; // verde da matéria ou laranja-vermelho
+    var rowAC2 = document.createElement('div');
+    rowAC2.className = 'desemp-barra-row';
+    rowAC2.innerHTML =
+      '<span class="desemp-barra-label">AC2</span>' +
+      '<div class="desemp-barra-track">' +
+        '<div class="desemp-barra-fill" style="width:' + pctAC2 + '%;background:' + corAC2 + ';">' +
+          (pctAC2 > 15 ? mat.ac2.toFixed(1) : '') +
+        '</div>' +
+        '<div class="desemp-meta-linha" style="left:' + metaPct + '%;"></div>' +
+      '</div>' +
+      '<span class="desemp-barra-nota" style="color:' + corAC2 + ';font-weight:700;">' + mat.ac2.toFixed(1) + '</span>';
+    barrasDiv.appendChild(rowAC2);
+
+    row.appendChild(barrasDiv);
+    cont.appendChild(row);
+
+    // Separador
+    var sep = document.createElement('div');
+    sep.style.cssText = 'height:1px;background:#f0f0f0;margin:4px 0 12px;';
+    cont.appendChild(sep);
+  });
+
+  // ── Cards de temas críticos (só para abaixo da meta) ─────────
+  var criticos = NOTAS_ANA.filter(function(m){ return m.ac2 < META_NOTA && m.temasCriticos.length > 0; });
+
+  if(criticos.length > 0){
+    var criticosSection = document.createElement('div');
+    criticosSection.className = 'desemp-criticos';
+    criticosSection.innerHTML = '<div class="desemp-criticos-titulo">🎯 Temas para reforçar</div>';
+
+    criticos.forEach(function(mat){
+      var card = document.createElement('div');
+      card.className = 'desemp-critico-card';
+      card.style.cssText =
+        'background:' + mat.corFundo + ';' +
+        'border-color:' + mat.corBorda + ';';
+
+      // Chips dos temas críticos
+      var temasHtml = mat.temasCriticos.map(function(t){
+        return '<span class="desemp-tema-chip" style="background:' + mat.corBorda + '33;color:' + mat.cor + ';">' + t + '</span>';
+      }).join('');
+
+      card.innerHTML =
+        '<div class="desemp-critico-header">' +
+          '<div class="desemp-critico-nome" style="color:' + mat.cor + ';">' + mat.icon + ' ' + mat.nome + '</div>' +
+          '<span class="desemp-critico-nota" style="color:#D85A30;">AC2: ' + mat.ac2.toFixed(1) + '</span>' +
+        '</div>' +
+        '<div class="desemp-critico-temas">' + temasHtml + '</div>' +
+        '<button class="desemp-btn-revisar" ' +
+          'style="background:' + mat.cor + ';color:#fff;" ' +
+          'onclick="irParaQuiz(' + mat.subjIdx + ')">🎯 Revisar agora →</button>';
+
+      criticosSection.appendChild(card);
+    });
+
+    cont.appendChild(criticosSection);
+  }
+
+  // ── Parabéns pelas matérias acima da meta ────────────────────
+  var ok = NOTAS_ANA.filter(function(m){ return m.ac2 >= META_NOTA; });
+  if(ok.length > 0){
+    var okDiv = document.createElement('div');
+    okDiv.style.cssText = 'margin-top:1.2rem;background:#F0FDF4;border:1.5px solid #6EE7B7;border-radius:12px;padding:12px 14px;';
+    okDiv.innerHTML =
+      '<div style="font-size:12px;font-weight:700;color:#065F46;margin-bottom:6px;">✅ Matérias acima da meta (8,0)</div>' +
+      ok.map(function(m){
+        return '<span style="display:inline-flex;align-items:center;gap:4px;background:#D5F5E3;color:#065F46;' +
+               'font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin:3px;">' +
+               m.icon + ' ' + m.nome + ' · ' + m.ac2.toFixed(1) + '</span>';
+      }).join('');
+    cont.appendChild(okDiv);
+  }
+
+  // ── Nota de rodapé ───────────────────────────────────────────
+  var footer = document.createElement('div');
+  footer.style.cssText = 'margin-top:1.2rem;font-size:11px;color:#bbb;text-align:center;';
+  footer.textContent = 'Dados do 1º Bimestre 2026 · Colégio Santa Catarina de Sena · Meta: 8,0 pts';
+  cont.appendChild(footer);
+
+  show('desempenho-screen');
+}
+
+/* Atalho do botão "Revisar agora" no painel de desempenho:
+   vai direto para a tela de quiz da matéria correspondente */
+function irParaQuiz(subjIdx){
+  // AC2 está no índice 1 do array AVALIACOES
+  curAC = 1;
+  openSubject(subjIdx);
+}
+
+/* ÁREA DE ESTUDAR */
 function buildEstudoGrid(){
   var g=document.getElementById('estudo-grid');g.innerHTML='';
   var materias=[
@@ -1114,15 +1402,11 @@ function openEstudo(materiaId){
   var content=document.getElementById('estudo-content');
   content.innerHTML='';
   gaEvent('open_estudo',{subject:mat.name});
-
   mat.secoes.forEach(function(sec){
-    // Cabeçalho da seção
     var secDiv=document.createElement('div');
     secDiv.style.cssText='background:'+sec.cor+';border:1.5px solid '+sec.cor+';border-radius:12px;padding:12px 14px;margin-bottom:14px;';
     secDiv.innerHTML='<div style="font-size:15px;font-weight:700;color:'+sec.corTitulo+';">'+sec.titulo+'</div>';
     content.appendChild(secDiv);
-
-    // Blocos de conteúdo
     var estSec=document.createElement('div');estSec.className='estudo-section';
     estSec.innerHTML='<div class="estudo-section-titulo">📖 Conteúdo</div>';
     sec.blocos.forEach(function(bloco){
@@ -1132,8 +1416,6 @@ function openEstudo(materiaId){
       estSec.appendChild(b);
     });
     content.appendChild(estSec);
-
-    // Mapa mental
     var mapaDiv=document.createElement('div');mapaDiv.className='estudo-section';
     mapaDiv.innerHTML='<div class="estudo-section-titulo">🧠 Mapa Mental</div>';
     var mapaBox=document.createElement('div');
@@ -1147,29 +1429,20 @@ function openEstudo(materiaId){
     mapaBox.innerHTML=centroHtml+nosHtml;
     mapaDiv.appendChild(mapaBox);
     content.appendChild(mapaDiv);
-
-    // Dica para a prova
     var dicaDiv=document.createElement('div');dicaDiv.className='dica-box';
     dicaDiv.innerHTML='<div class="dica-titulo">⭐ Dica para a prova</div><div class="dica-texto">'+sec.dica+'</div>';
     content.appendChild(dicaDiv);
-
-    // Espaçador
     var sep=document.createElement('div');sep.style.height='20px';content.appendChild(sep);
   });
-
-  // Botão de ir para o quiz
   var quizBtn=document.createElement('div');
   quizBtn.style.cssText='background:'+mat.cor+';border:1.5px solid '+mat.corBorda+';border-radius:12px;padding:14px;text-align:center;margin-top:8px;cursor:pointer;';
   quizBtn.innerHTML='<div style="font-size:14px;font-weight:700;color:'+mat.corTexto+';">🎯 Pronto para o quiz de '+mat.name+'?</div><div style="font-size:12px;color:'+mat.corTexto+';margin-top:4px;opacity:.8;">Clique aqui para testar seus conhecimentos!</div>';
   quizBtn.onclick=function(){setMode('quiz');buildHome();show('home');};
   content.appendChild(quizBtn);
-
   show('estudo-screen');
 }
 
-/* ═══════════════════════════════════
-   AC / SUBJECT / QUIZ
-═══════════════════════════════════ */
+/* AC / SUBJECT / QUIZ */
 function openAC(ai){
   curAC=ai;var ac=AVALIACOES[ai];
   document.getElementById('subj-title').textContent=ac.label+' — '+ac.name;
@@ -1226,9 +1499,7 @@ function answer(i){if(answered)return;answered=true;clearInterval(timer);var d=A
 function setNextBtn(){var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];var nb=document.getElementById('btn-next');nb.style.display='block';nb.textContent=curQ<qz.questions.length-1?'Próxima pergunta ›':'Ver resultado';}
 function nextQ(){curQ++;var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];if(curQ>=qz.questions.length){showResult();return;}loadQ();}
 
-/* ═══════════════════════════════════
-   RESULT
-═══════════════════════════════════ */
+/* RESULT */
 function showResult(){
   var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var qz=s.quizzes[curQuiz];
   var total=qz.questions.length;var pct=Math.round((score/total)*100);var dateStr=fmtDate();
@@ -1252,60 +1523,49 @@ function showResult(){
 }
 function restartQuiz(){startQuiz(curQuiz);}
 
-/* ═══════════════════════════════════
-   RANKING
-═══════════════════════════════════ */
+/* RANKING */
 function buildRankFilters(){var wrap=document.getElementById('rank-filters');var filters=[{id:'all',label:'🌐 Geral'}];AVALIACOES.filter(function(a){return!a.locked;}).forEach(function(ac){filters.push({id:'ac:'+ac.id,label:ac.icon+' '+ac.label});(ac.subjects||[]).filter(function(s){return!s.locked&&!s.comingSoon;}).forEach(function(s){filters.push({id:'subj:'+ac.id+'_'+s.id,label:s.icon+' '+s.name});});});wrap.innerHTML=filters.map(function(f){return'<button class="rf'+(rankFilter===f.id?' active':'')+'" onclick="setRankFilter(\''+f.id+'\')">'+f.label+'</button>';}).join('');}
 function setRankFilter(f){rankFilter=f;buildRankFilters();renderRanking();}
 function renderRanking(){
-  // Usa dados do Firebase se disponíveis, senão usa localStorage
-  var data = (window._fbRankData && window._fbRankData.length > 0)
-    ? window._fbRankData
-    : getRankData();if(rankFilter.startsWith('ac:')){var id=rankFilter.slice(3);data=data.filter(function(e){return e.quizKey.startsWith(id);});}else if(rankFilter.startsWith('subj:')){var key=rankFilter.slice(5);data=data.filter(function(e){return e.quizKey.startsWith(key);});}var players={};data.forEach(function(e){if(!players[e.player])players[e.player]={player:e.player,total:0,count:0};players[e.player].total+=e.pct;players[e.player].count++;});var lb=Object.values(players).map(function(p){return{player:p.player,avg:Math.round(p.total/p.count),count:p.count};}).sort(function(a,b){return b.avg-a.avg||b.count-a.count;}).slice(0,10);var list=document.getElementById('rank-list');if(!lb.length){list.innerHTML='<div class="rank-empty">Nenhum resultado ainda.<br>Seja o primeiro! 🚀</div>';return;}var medals=['🥇','🥈','🥉'],rowCls=['gold','silver','bronze'];list.innerHTML='';lb.forEach(function(p,i){var isMe=p.player===curPlayer;var col=avatarColor(p.player);var cls=isMe?'me':(rowCls[i]||'');var pos=i<3?medals[i]:(i+1)+'º';var pcls=p.avg>=80?'sg':p.avg>=50?'sm':'sl';var row=document.createElement('div');row.className='rank-row '+cls;row.innerHTML='<span class="rank-pos">'+pos+'</span><div class="rank-av" style="background:'+col[0]+';color:'+col[1]+'">'+initials(p.player)+'</div><div class="rank-info"><div class="rank-name">'+p.player+(isMe?' (você)':'')+'</div><div class="rank-detail">'+p.count+' quiz'+(p.count!==1?'zes':'')+'</div></div><div class="rank-score"><span class="mhs '+pcls+'">'+p.avg+'%</span><div style="font-size:10px;color:#888;">média</div></div>';list.appendChild(row);});}
+  var data=(window._fbRankData&&window._fbRankData.length>0)?window._fbRankData:getRankData();
+  if(rankFilter.startsWith('ac:')){var id=rankFilter.slice(3);data=data.filter(function(e){return e.quizKey.startsWith(id);});}
+  else if(rankFilter.startsWith('subj:')){var key=rankFilter.slice(5);data=data.filter(function(e){return e.quizKey.startsWith(key);});}
+  var players={};data.forEach(function(e){if(!players[e.player])players[e.player]={player:e.player,total:0,count:0};players[e.player].total+=e.pct;players[e.player].count++;});
+  var lb=Object.values(players).map(function(p){return{player:p.player,avg:Math.round(p.total/p.count),count:p.count};}).sort(function(a,b){return b.avg-a.avg||b.count-a.count;}).slice(0,10);
+  var list=document.getElementById('rank-list');
+  if(!lb.length){list.innerHTML='<div class="rank-empty">Nenhum resultado ainda.<br>Seja o primeiro! 🚀</div>';return;}
+  var medals=['🥇','🥈','🥉'],rowCls=['gold','silver','bronze'];
+  list.innerHTML='';
+  lb.forEach(function(p,i){var isMe=p.player===curPlayer;var col=avatarColor(p.player);var cls=isMe?'me':(rowCls[i]||'');var pos=i<3?medals[i]:(i+1)+'º';var pcls=p.avg>=80?'sg':p.avg>=50?'sm':'sl';var row=document.createElement('div');row.className='rank-row '+cls;row.innerHTML='<span class="rank-pos">'+pos+'</span><div class="rank-av" style="background:'+col[0]+';color:'+col[1]+'">'+initials(p.player)+'</div><div class="rank-info"><div class="rank-name">'+p.player+(isMe?' (você)':'')+'</div><div class="rank-detail">'+p.count+' quiz'+(p.count!==1?'zes':'')+'</div></div><div class="rank-score"><span class="mhs '+pcls+'">'+p.avg+'%</span><div style="font-size:10px;color:#888;">média</div></div>';list.appendChild(row);});
+}
 function openRanking(){
-  rankFilter='all';
-  buildRankFilters();
-  show('ranking-screen');
-  // Tenta carregar do Firebase primeiro
+  rankFilter='all';buildRankFilters();show('ranking-screen');
   if(typeof window.fbGetRankData==='function'){
     window.fbGetRankData(function(fbData){
-      if(fbData && fbData.length > 0){
-        window._fbRankData = fbData;
-      }
+      if(fbData&&fbData.length>0){window._fbRankData=fbData;}
       renderRanking();
     });
-  } else {
-    renderRanking();
-  }
+  }else{renderRanking();}
 }
 
-/* ═══════════════════════════════════
-   SHARE
-═══════════════════════════════════ */
+/* SHARE */
 function buildShareText(){var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQuiz];var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var pct=Math.round((score/qz.questions.length)*100);var stars=pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'💪';var dots=results.map(function(r){return r?'🟩':'🟥';}).join('');return'🎓 Revisão 5º Ano\n'+stars+' '+curPlayer+'\n\n📚 '+ac.label+' — '+s.name+'\n📝 '+qz.title+'\n\n✅ Resultado: '+score+'/'+qz.questions.length+' ('+pct+'%)\n'+dots+'\n\nhttps://hesketh-lucas.github.io/quiz-5ano';}
 function shareWA(){gaEvent('share',{method:'whatsapp'});window.open('https://wa.me/?text='+encodeURIComponent(buildShareText()),'_blank');}
 function copyRes(){gaEvent('share',{method:'copy'});navigator.clipboard.writeText(buildShareText()).then(function(){showToast('Resultado copiado!');}).catch(function(){showToast('Não foi possível copiar');});}
 
-/* ═══════════════════════════════════
-   ADMIN (5x clique no logo)
-═══════════════════════════════════ */
+/* ADMIN */
 function logoClick(){_ac2++;clearTimeout(_at2);_at2=setTimeout(function(){_ac2=0;},2000);if(_ac2>=5){_ac2=0;clearTimeout(_at2);adminLogin();}}
 function adminLogin(){var pwd=prompt('🔐 Senha do administrador:');if(pwd===null)return;if(pwd===ADMIN_PWD){adminPanel();}else{showToast('❌ Senha incorreta!');}}
 function adminPanel(){var rd=getRankData();var pl=getSavedPlayers();var c=getCounters();var hc=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){hc+=getHist(ac.id,s.id,qi).length;});});});var top=Object.entries(c.bySubject||{}).sort(function(a,b){return b[1]-a[1];}).slice(0,3).map(function(e){return'   '+e[0]+': '+e[1]+'x';}).join('\n')||'   (nenhum ainda)';var msg=['🛠️ PAINEL ADMIN','','📊 Placar: '+rd.length+' entrada(s)','👤 Apelidos: '+pl.length,'📝 Históricos: '+hc,'','📈 ESTATÍSTICAS','👁️ Visitas: '+(c.visits||0),'✅ Quizzes: '+(c.quizzes||0),'🏆 Top matérias:',top,'','1 — Zerar placar geral','2 — Zerar tudo','3 — Zerar contadores','4 — Cancelar'].join('\n');var ch=prompt(msg);if(ch==='1'){if(confirm('Zerar placar para todos?')){localStorage.removeItem('rank_global');showToast('✅ Placar zerado!');}}else if(ch==='2'){if(confirm('Apagar TUDO?')){localStorage.clear();showToast('✅ Tudo apagado!');setTimeout(function(){location.reload();},1500);}}else if(ch==='3'){if(confirm('Zerar contadores?')){localStorage.removeItem('counters');buildStatsBar();showToast('✅ Contadores zerados!');}}else{showToast('Cancelado.');}}
 
-
-/* ═══════════════════════════════════
-   DADOS DA AGENDA (agenda IA + calendário letivo)
-═══════════════════════════════════ */
+/* AGENDA */
 const AGENDA_EVENTOS = [
-  // MARÇO
   {data:'2026-03-20',diaSem:'Sex',titulo:'📝 Prova de Língua Inglesa',desc:'AC2 · Prova objetiva e discursiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
   {data:'2026-03-23',diaSem:'Seg',titulo:'📝 Prova de História',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
   {data:'2026-03-24',diaSem:'Ter',titulo:'📝 Prova de Geografia',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
   {data:'2026-03-25',diaSem:'Qua',titulo:'📝 Prova de Língua Portuguesa',desc:'AC2 · Prova objetiva (8 pts) + Produção Textual — Texto Instrucional (2 pts)',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
   {data:'2026-03-26',diaSem:'Qui',titulo:'📝 Prova de Ciências',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
   {data:'2026-03-27',diaSem:'Sex',titulo:'📝 Prova de Matemática',desc:'AC2 · Prova objetiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
-  // ABRIL
   {data:'2026-03-31',diaSem:'Ter',titulo:'📝 2ª Chamada — Língua Portuguesa',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-04-01',diaSem:'Qua',titulo:'📝 2ª Chamada — Ciências',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-04-02',diaSem:'Qui',titulo:'📝 2ª Chamada — História',desc:'2ª chamada · 1º Bimestre · 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
@@ -1314,97 +1574,62 @@ const AGENDA_EVENTOS = [
   {data:'2026-04-10',diaSem:'Sex',titulo:'📊 Boletim do 1º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
   {data:'2026-04-16',diaSem:'Qui',titulo:'🎉 Confraternização — Famílias Porto de Oliveira & Hesketh',desc:'19h às 22h',tipo:'evento',badge:'Família',badgeCls:'ab-evento'},
   {data:'2026-04-18',diaSem:'Sáb',titulo:'🏫 1º Plantão Pedagógico — 1º Bimestre',desc:'Educação Infantil e Ensino Fundamental (1° ao 5°ano)',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
-  // MAIO
   {data:'2026-05-08',diaSem:'Sex',titulo:'⛪ Missa em Homenagem às Mães',desc:'8h às 10h',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
   {data:'2026-05-09',diaSem:'Sáb',titulo:'👩\u200D👧 Homenagem às Mães — Educação Infantil',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
   {data:'2026-05-12',diaSem:'Ter',titulo:'📝 Avaliações AC2 — 2º Bimestre',desc:'12 a 18/05 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 2º Bimestre',badgeCls:'ab-prova'},
   {data:'2026-05-23',diaSem:'Sáb',titulo:'👩\u200D👧 Homenagem às Mães — Ensino Fundamental',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
-  // JUNHO
   {data:'2026-06-08',diaSem:'Seg',titulo:'📝 Avaliações AC2 — 2º Bimestre (cont.)',desc:'8 a 12/06 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 2º Bimestre',badgeCls:'ab-prova'},
   {data:'2026-06-15',diaSem:'Seg',titulo:'📝 2ª Chamada — 2º Bimestre',desc:'15 a 19/06 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-06-22',diaSem:'Seg',titulo:'🌾 Festa Junina — Ensaio Geral',desc:'Sem aula · Educação Infantil e Ensino Fundamental',tipo:'evento',badge:'Sem Aula',badgeCls:'ab-evento'},
   {data:'2026-06-23',diaSem:'Ter',titulo:'📊 Boletim do 2º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
   {data:'2026-06-24',diaSem:'Qua',titulo:'🏫 Plantão Pedagógico — 2º Bimestre',desc:'Educação Infantil e Ensino Fundamental (1° ao 5°ano)',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
   {data:'2026-06-25',diaSem:'Qui',titulo:'📚 Recuperação Paralela — 2º Bimestre',desc:'25 a 29/06 · Opcional — exclusiva para alunos com menos de 14 pontos',tipo:'plantao',badge:'Recuperação',badgeCls:'ab-plantao'},
-  // JULHO
   {data:'2026-07-01',diaSem:'Qua',titulo:'🏖️ Férias Escolares',desc:'1 a 31/07 · Boas férias!',tipo:'ferias',badge:'Férias',badgeCls:'ab-ferias'},
-  // AGOSTO
   {data:'2026-08-03',diaSem:'Seg',titulo:'🏫 Reinício das Aulas',desc:'Volta às aulas — 3º Bimestre',tipo:'evento',badge:'Volta às aulas',badgeCls:'ab-evento'},
   {data:'2026-08-17',diaSem:'Seg',titulo:'📝 Avaliações AC1 — 3º Bimestre',desc:'17 a 21/08 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC1 — 3º Bimestre',badgeCls:'ab-prova'},
-  // SETEMBRO
   {data:'2026-09-09',diaSem:'Qua',titulo:'📝 Avaliações AC2 — 3º Bimestre',desc:'9 a 15/09 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 3º Bimestre',badgeCls:'ab-prova'},
   {data:'2026-09-25',diaSem:'Sex',titulo:'📊 Boletim do 3º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
-  // OUTUBRO
   {data:'2026-10-07',diaSem:'Qua',titulo:'🎂 Aniversário do CSCS — 123 anos',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
   {data:'2026-10-13',diaSem:'Ter',titulo:'🎈 Homenagem ao Dia das Crianças',desc:'Educação Infantil e Ensino Fundamental',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
   {data:'2026-10-19',diaSem:'Seg',titulo:'📝 Avaliações AC1 — 4º Bimestre',desc:'19 a 23/10 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC1 — 4º Bimestre',badgeCls:'ab-prova'},
   {data:'2026-10-31',diaSem:'Sáb',titulo:'🔬 III Expo Saviniana',desc:'Educação Infantil e Ensino Fundamental',tipo:'evento',badge:'Evento',badgeCls:'ab-evento'},
-  // NOVEMBRO
   {data:'2026-11-12',diaSem:'Qui',titulo:'📝 Avaliações AC2 — 4º Bimestre',desc:'12 a 18/11 · Ensino Fundamental (1° ao 5°ano)',tipo:'prova',badge:'AC2 — 4º Bimestre',badgeCls:'ab-prova'},
   {data:'2026-12-03',diaSem:'Qui',titulo:'📊 Boletim do 4º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
   {data:'2026-12-04',diaSem:'Sex',titulo:'🎓 Encerramento das Aulas',desc:'Alunos aprovados por média · Ensino Fundamental',tipo:'evento',badge:'Encerramento',badgeCls:'ab-evento'},
 ];
 
 const MESES_PT = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-
 var agendaFiltro = 'todos';
 
 function openAgenda(){
-  agendaFiltro='todos';
-  buildAgendaTabs();
-  buildAgendaList();
-  show('agenda-screen');
+  agendaFiltro='todos';buildAgendaTabs();buildAgendaList();show('agenda-screen');
 }
-
 function buildAgendaTabs(){
-  var tabs=[
-    {id:'todos',label:'📅 Todos'},
-    {id:'prova',label:'📝 Provas'},
-    {id:'evento',label:'🎉 Eventos'},
-    {id:'boletim',label:'📊 Boletins'},
-    {id:'plantao',label:'🏫 Plantões'},
-    {id:'ferias',label:'🏖️ Férias'},
-  ];
+  var tabs=[{id:'todos',label:'📅 Todos'},{id:'prova',label:'📝 Provas'},{id:'evento',label:'🎉 Eventos'},{id:'boletim',label:'📊 Boletins'},{id:'plantao',label:'🏫 Plantões'},{id:'ferias',label:'🏖️ Férias'}];
   var wrap=document.getElementById('agenda-tabs');
-  wrap.innerHTML=tabs.map(function(t){
-    return '<button class="atab'+(agendaFiltro===t.id?' active':'')+'" onclick="setAgendaFiltro(this.dataset.id)" data-id="'+t.id+'">'+t.label+'</button>';
-  }).join('');
+  wrap.innerHTML=tabs.map(function(t){return'<button class="atab'+(agendaFiltro===t.id?' active':'')+'" onclick="setAgendaFiltro(this.dataset.id)" data-id="'+t.id+'">'+t.label+'</button>';}).join('');
 }
 function setAgendaFiltro(f){agendaFiltro=f;buildAgendaTabs();buildAgendaList();}
-
 function buildAgendaList(){
   var eventos=AGENDA_EVENTOS.filter(function(e){return agendaFiltro==='todos'||e.tipo===agendaFiltro;});
-  var hoje=new Date(); hoje.setHours(0,0,0,0);
-  var list=document.getElementById('agenda-list');
-  list.innerHTML='';
+  var hoje=new Date();hoje.setHours(0,0,0,0);
+  var list=document.getElementById('agenda-list');list.innerHTML='';
   if(!eventos.length){list.innerHTML='<div style="text-align:center;padding:2rem;color:#aaa;font-size:14px;">Nenhum evento encontrado.</div>';return;}
-  // Botao adicionar todos
-  var btnTodos=document.createElement('button');
-  btnTodos.className='btn-add-todos';
-  btnTodos.innerHTML='📅 Adicionar todos ao meu calendário';
-  btnTodos.onclick=function(){addTodosCalendario();};
-  list.appendChild(btnTodos);
-  // Agrupa por mês
+  var btnTodos=document.createElement('button');btnTodos.className='btn-add-todos';btnTodos.innerHTML='📅 Adicionar todos ao meu calendário';btnTodos.onclick=function(){addTodosCalendario();};list.appendChild(btnTodos);
   var meses={};
-  var idxGlobal=0;
   eventos.forEach(function(e,i){
     var d=new Date(e.data+'T12:00:00');
     var key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
     var label=MESES_PT[d.getMonth()]+' '+d.getFullYear();
     if(!meses[key])meses[key]={label:label,items:[]};
-    meses[key].items.push({evento:e, idx:i});
+    meses[key].items.push({evento:e,idx:i});
   });
   Object.keys(meses).sort().forEach(function(mk){
-    var m=meses[mk];
-    var mDiv=document.createElement('div');mDiv.className='agenda-month';
+    var m=meses[mk];var mDiv=document.createElement('div');mDiv.className='agenda-month';
     mDiv.innerHTML='<div class="agenda-month-titulo">'+m.label+'</div>';
     m.items.forEach(function(obj){
-      var e=obj.evento; var idx=obj.idx;
-      var d=new Date(e.data+'T12:00:00');
-      var passado=d<hoje;
-      var item=document.createElement('div');
-      item.className='agenda-item '+e.tipo;
-      item.style.opacity=passado?'0.55':'1';
+      var e=obj.evento;var idx=obj.idx;var d=new Date(e.data+'T12:00:00');var passado=d<hoje;
+      var item=document.createElement('div');item.className='agenda-item '+e.tipo;item.style.opacity=passado?'0.55':'1';
       item.innerHTML='<div class="agenda-data"><div class="agenda-dia">'+d.getDate()+'</div><div class="agenda-diaSem">'+e.diaSem+'</div></div>'
         +'<div class="agenda-info"><div class="agenda-titulo">'+e.titulo+'</div>'
         +(e.desc?'<div class="agenda-desc">'+e.desc+'</div>':'')
@@ -1418,224 +1643,99 @@ function buildAgendaList(){
   });
 }
 
-/* ═══════════════════════════════════
-   CONTEÚDO PROGRAMÁTICO
-═══════════════════════════════════ */
+/* CONTEÚDO PROGRAMÁTICO */
 const CONTEUDO_PROG = [
-  {
-    materia:'✏️ Língua Portuguesa', cor:'#FCE4EC', corT:'#880E4F',
-    livro:'Projeto Presente — Editora Moderna',
-    ac1:[
-      {titulo:'Cap. 1 — Na feira tem cultura',itens:['Gênero: Poema (Menino Sinhô, Sanfona)','Substantivos simples e compostos','Adjetivo e locução adjetiva','Uso das palavras mas e mais','Preposição','Produção textual: Poema']},
-    ],
-    ac2:[
-      {titulo:'Cap. 1 — Na feira tem cultura (revisão)',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição','Uso do Mais e Mas']},
-      {titulo:'Cap. 2 — Teatro, histórias e fantoches',itens:['Gênero: Texto teatral (O Vento e o Sol)','Gênero: Texto instrucional (Dedoches)','Tempos verbais: presente, pretérito perfeito, imperfeito e futuro','Flexão verbal','Uso da letra ℓ e da letra u em final de sílaba','Uso de pontuação expressiva (! e ...)','Produção textual: Texto instrucional','Apresentação oral: teatro de fantoches']},
-    ],
-    caps:[
-      {ac:'AC1',num:'Cap. 1',titulo:'Na feira tem cultura',itens:['Poema (Menino Sinhô, Sanfona)','Substantivos simples e compostos','Adjetivo e locução adjetiva','Uso de mas e mais','Preposição','Produção: Poema']},
-      {ac:'AC2',num:'Cap. 2',titulo:'Teatro, histórias e fantoches',itens:['Texto teatral: O Vento e o Sol','Texto instrucional: Dedoches','Tempos verbais (presente, pretérito perfeito, imperfeito, futuro)','Flexão verbal','L ou U no final de sílaba','Pontuação expressiva (! e ...)','Produção: Texto instrucional']},
-    ]
+  {materia:'✏️ Língua Portuguesa',cor:'#FCE4EC',corT:'#880E4F',livro:'Projeto Presente — Editora Moderna',
+   ac1:[{titulo:'Cap. 1 — Na feira tem cultura',itens:['Gênero: Poema','Substantivos simples e compostos','Adjetivo e locução adjetiva','Uso de mas e mais','Preposição','Produção textual: Poema']}],
+   ac2:[{titulo:'Cap. 1 — Na feira tem cultura (revisão)',itens:['Substantivos simples e compostos','Adjetivo e locução adjetiva','Concordância nominal','Preposição','Uso do Mais e Mas']},{titulo:'Cap. 2 — Teatro, histórias e fantoches',itens:['Texto teatral (O Vento e o Sol)','Texto instrucional (Dedoches)','Tempos verbais: presente, pretérito perfeito, imperfeito e futuro','Flexão verbal','Uso da letra l e da letra u em final de sílaba','Pontuação expressiva (! e ...)','Produção textual: Texto instrucional']}],
+   caps:[{ac:'AC1',num:'Cap. 1',titulo:'Na feira tem cultura',itens:['Poema','Substantivos simples e compostos','Adjetivo e locução adjetiva','Uso de mas e mais','Preposição']},{ac:'AC2',num:'Cap. 2',titulo:'Teatro, histórias e fantoches',itens:['Texto teatral','Texto instrucional','Tempos verbais','L ou U no final de sílaba','Pontuação expressiva (! e ...)']}]
   },
-  {
-    materia:'🔢 Matemática', cor:'#FEF3C7', corT:'#78350F',
-    livro:'Aprender Juntos — Editora SM',
-    ac1:[
-      {titulo:'Cap. 1 — Sistema de Numeração Decimal',itens:['Números naturais: ordens, classes e representação (até bilhões)','Composição e decomposição','Fazendo arredondamentos','Comparando números até 999.999']},
-      {titulo:'Cap. 2 — Adição e Subtração (início)',itens:['Situações de adição e subtração','Expressões numéricas (+ e −)','Sistema monetário','Interpretação de gráficos e tabelas']},
-    ],
-    ac2:[
-      {titulo:'Cap. 2 — Adição e Subtração',itens:['Situações-problema com adição e subtração','Expressões numéricas com + e −','Prova real das operações','Sistema monetário']},
-      {titulo:'Cap. 3 — Multiplicação e Divisão',itens:['Situações-problema com as 4 operações','Expressões numéricas com × e ÷','Propriedade comutativa','Chances de ocorrência','Interpretação de gráficos e tabelas']},
-    ],
-    caps:[
-      {ac:'AC2',num:'Cap. 2',titulo:'Adição e Subtração com Números Naturais',itens:['Situações de adição e subtração','Expressões numéricas (+ e −)','Prova real','Sistema monetário','Gráficos e tabelas']},
-      {ac:'AC2',num:'Cap. 3',titulo:'Multiplicação e Divisão com Números Naturais',itens:['Situações de multiplicação e divisão','Expressões numéricas (× e ÷)','Propriedade comutativa','Chances de ocorrência','Gráficos e tabelas']},
-    ]
+  {materia:'🔢 Matemática',cor:'#FEF3C7',corT:'#78350F',livro:'Aprender Juntos — Editora SM',
+   ac1:[{titulo:'Cap. 1 — Sistema de Numeração Decimal',itens:['Números naturais: ordens, classes e representação','Composição e decomposição','Arredondamentos','Comparando números']},{titulo:'Cap. 2 — Adição e Subtração (início)',itens:['Situações de adição e subtração','Expressões numéricas (+ e −)','Sistema monetário']}],
+   ac2:[{titulo:'Cap. 2 — Adição e Subtração',itens:['Situações-problema','Expressões numéricas com + e −','Prova real','Sistema monetário']},{titulo:'Cap. 3 — Multiplicação e Divisão',itens:['Situações-problema com as 4 operações','Expressões numéricas com × e ÷','Propriedade comutativa','Chances de ocorrência','Gráficos e tabelas']}],
+   caps:[{ac:'AC2',num:'Cap. 2',titulo:'Adição e Subtração',itens:['Situações de adição e subtração','Expressões numéricas (+ e −)','Prova real','Sistema monetário']},{ac:'AC2',num:'Cap. 3',titulo:'Multiplicação e Divisão',itens:['Situações de multiplicação e divisão','Expressões numéricas (× e ÷)','Propriedade comutativa','Chances de ocorrência','Gráficos e tabelas']}]
   },
-  {
-    materia:'📖 História', cor:'#EDE9FE', corT:'#4C1D95',
-    livro:'Ligamundo — Editora Saraiva',
-    ac1:[
-      {titulo:'Unidade 1 — O Início da Civilização',itens:['Da vida nômade à vida sedentária','As primeiras cidades','A origem do comércio','O Estado e o papel da religião','Civilização mesopotâmica','Civilização egípcia','Identidade e formas de marcação do tempo','Patrimônio cultural']},
-    ],
-    ac2:[
-      {titulo:'Unidade 1 — O Início da Civilização (revisão)',itens:['Da vida nômade à vida sedentária','As primeiras cidades','Civilização mesopotâmica e egípcia','Patrimônio cultural material e imaterial']},
-      {titulo:'Unidade 2 — Quando o Brasil era de Portugal',itens:['Império marítimo português','Biopirataria e pau-brasil','Drogas do sertão','Capitanias hereditárias (1534)','O governo-geral — Tomé de Sousa','A sociedade colonial','Caçada aos negros da terra','Cana-de-açúcar e escravidão dos africanos','A mulher no período colonial','Uma sociedade de escravizados, homens livres e senhores','Direito indígena: a luta pelas terras']},
-    ],
-    caps:[
-      {ac:'AC2',num:'Unidade 1',titulo:'O Início da Civilização',itens:['Vida nômade → sedentária','Mesopotâmia (zigurates, cuneiforme, escribas)','Egito (faraó, hieroglíficos, Nilo)','Patrimônio material e imaterial']},
-      {ac:'AC2',num:'Unidade 2',titulo:'Quando o Brasil era de Portugal',itens:['Feitorias e pau-brasil','Drogas do sertão','Capitanias hereditárias (1534)','Tomé de Sousa e Salvador','Sociedade colonial','Escravidão africana e indígena']},
-    ]
+  {materia:'📖 História',cor:'#EDE9FE',corT:'#4C1D95',livro:'Ligamundo — Editora Saraiva',
+   ac1:[{titulo:'Unidade 1 — O Início da Civilização',itens:['Vida nômade à sedentária','Primeiras cidades','Mesopotâmia','Egito Antigo','Patrimônio cultural']}],
+   ac2:[{titulo:'Unidade 1 — revisão',itens:['Mesopotâmia e Egito','Patrimônio material e imaterial']},{titulo:'Unidade 2 — Quando o Brasil era de Portugal',itens:['Feitorias e pau-brasil','Capitanias hereditárias (1534)','Governo-geral — Tomé de Sousa','Sociedade colonial','Escravidão africana e indígena']}],
+   caps:[{ac:'AC2',num:'Unidade 1',titulo:'O Início da Civilização',itens:['Vida nômade → sedentária','Mesopotâmia (zigurates, cuneiforme)','Egito (faraó, hieroglíficos, Nilo)','Patrimônio material e imaterial']},{ac:'AC2',num:'Unidade 2',titulo:'Quando o Brasil era de Portugal',itens:['Feitorias e pau-brasil','Drogas do sertão','Capitanias hereditárias (1534)','Tomé de Sousa e Salvador','Sociedade colonial']}]
   },
-  {
-    materia:'🌍 Geografia', cor:'#D5F5E3', corT:'#065F46',
-    livro:'Aprender Juntos — Editora SM',
-    ac1:[
-      {titulo:'Cap. 1 — O Planeta Terra e sua Superfície',itens:['Movimentos da Terra (rotação e translação)','Superfície terrestre','As representações do planeta (mapas, globo)','Ilhas e continentes']},
-      {titulo:'O Brasil',itens:['O Brasil na América do Sul','Características do território brasileiro']},
-    ],
-    ac2:[
-      {titulo:'Cap. 1 — O Planeta Terra (revisão)',itens:['Rotação: 24h, dia e noite','Translação: 365 dias, estações','Geoide: forma real da Terra','Planisfério, globo e imagens de satélite','6 continentes, ilhas e terras emersas']},
-      {titulo:'Cap. 3 — Comunicação e Transporte no Brasil',itens:['Meios de transporte: rodoviário, ferroviário, aquaviário, aéreo','Meios de comunicação: jornal, rádio, TV, telefone, internet','Tecnologia e integração nacional']},
-    ],
-    caps:[
-      {ac:'AC2',num:'Cap. 1',titulo:'O Planeta Terra e sua Superfície',itens:['Rotação (24h) e translação (365 dias)','Geoide = forma real da Terra','Planisfério = mapa plano / Globo = esférico','6 continentes / ilhas e continentes']},
-      {ac:'AC2',num:'Cap. 3',titulo:'Comunicação e Transporte no Brasil',itens:['Rodoviário (+ usado), ferroviário, aquaviário, aéreo','Jornal → rádio (1920) → TV (1970) → internet','Pandemia e aulas online (2020)','Veículos elétricos e meio ambiente']},
-    ]
+  {materia:'🌍 Geografia',cor:'#D5F5E3',corT:'#065F46',livro:'Aprender Juntos — Editora SM',
+   ac1:[{titulo:'Cap. 1 — O Planeta Terra',itens:['Movimentos da Terra','Superfície terrestre','Representações do planeta','Ilhas e continentes']}],
+   ac2:[{titulo:'Cap. 1 — revisão',itens:['Rotação: 24h, dia e noite','Translação: 365 dias, estações','Planisfério, globo e satélites','6 continentes']},{titulo:'Cap. 3 — Comunicação e Transporte',itens:['Meios de transporte','Meios de comunicação','Tecnologia e integração']}],
+   caps:[{ac:'AC2',num:'Cap. 1',titulo:'O Planeta Terra',itens:['Rotação (24h) e translação (365 dias)','Geoide = forma real da Terra','Planisfério = plano / Globo = esférico','6 continentes']},{ac:'AC2',num:'Cap. 3',titulo:'Comunicação e Transporte',itens:['Rodoviário (+ usado), ferroviário, aquaviário, aéreo','Jornal → rádio (1920) → TV (1970) → internet','Pandemia e aulas online (2020)']}]
   },
-  {
-    materia:'🔬 Ciências', cor:'#E0F2FE', corT:'#0369A1',
-    livro:'Buriti Mais Ciências — Editora Moderna',
-    ac1:[
-      {titulo:'Cap. 1 — A Terra e a Lua se movem',itens:['A Terra se move: rotação e translação','O movimento de translação e o ano','A Lua se move: fases da Lua','Um pouco de história (Aristóteles, Copérnico, Galileu)']},
-      {titulo:'Cap. 2 — O ser humano e o espaço sideral (início)',itens:['Instrumentos de observação','Viagens e equipamentos espaciais']},
-    ],
-    ac2:[
-      {titulo:'Cap. 2 — O ser humano e o espaço sideral',itens:['Instrumentos de observação (telescópio refrator e refletor, radiotelescópio)','Observando constelações no céu noturno','Viagem à Lua (Gagarin, Armstrong)','Equipamentos espaciais (satélites, ISS, sondas)','Centro de Alcântara/MA']},
-      {titulo:'Cap. 3 — O ar',itens:['Onde está o ar? Composição (N₂ 78%, O₂ 21%)','Propriedades: massa, espaço, pressão, compressão','Ventos','Alterações na atmosfera: poluição, efeito estufa, camada de ozônio, CFC']},
-    ],
-    caps:[
-      {ac:'AC2',num:'Cap. 1',titulo:'A Terra e a Lua se movem',itens:['Rotação (24h) = dia/noite','Translação (365 dias) = estações','Lua: ~29 dias, reflete o Sol, 4 fases','Aristóteles → Copérnico → Galileu']},
-      {ac:'AC2',num:'Cap. 2',titulo:'O ser humano e o espaço sideral',itens:['Telescópio (refrator/refletor/radiotelescópio)','Gagarin (1° no espaço) e Armstrong (1° na Lua)','Satélites artificiais, ISS, sondas','Alcântara/MA = base brasileira']},
-      {ac:'AC2',num:'Cap. 3',titulo:'O ar',itens:['78% N₂ + 21% O₂','Propriedades: massa, espaço, pressão','Efeito estufa (CO₂), CFC (ozônio)','Poluição e como cuidar do ar']},
-    ]
+  {materia:'🔬 Ciências',cor:'#E0F2FE',corT:'#0369A1',livro:'Buriti Mais Ciências — Editora Moderna',
+   ac1:[{titulo:'Cap. 1 — A Terra e a Lua se movem',itens:['Rotação e translação da Terra','Fases da Lua','Aristóteles, Copérnico, Galileu']},{titulo:'Cap. 2 — Espaço sideral (início)',itens:['Instrumentos de observação']}],
+   ac2:[{titulo:'Cap. 2 — O ser humano e o espaço sideral',itens:['Telescópio refrator e refletor, radiotelescópio','Gagarin e Armstrong','Satélites, ISS, sondas','Centro de Alcântara/MA']},{titulo:'Cap. 3 — O ar',itens:['Composição: N₂ 78%, O₂ 21%','Propriedades do ar','Poluição, efeito estufa (CO₂), camada de ozônio (CFC)']}],
+   caps:[{ac:'AC2',num:'Cap. 1',titulo:'A Terra e a Lua se movem',itens:['Rotação (24h) = dia/noite','Translação (365 dias) = estações','Lua: ~29 dias, reflete o Sol, 4 fases']},{ac:'AC2',num:'Cap. 2',titulo:'O ser humano e o espaço sideral',itens:['Telescópio (refrator/refletor/radiotelescópio)','Gagarin (1° no espaço) e Armstrong (1° na Lua)','Alcântara/MA = base brasileira']},{ac:'AC2',num:'Cap. 3',titulo:'O ar',itens:['78% N₂ + 21% O₂','Efeito estufa (CO₂), CFC (ozônio)','Poluição e como cuidar do ar']}]
   },
 ];
 
 function openCP(){
-  var cont=document.getElementById('cp-content');
-  cont.innerHTML='';
+  var cont=document.getElementById('cp-content');cont.innerHTML='';
   CONTEUDO_PROG.forEach(function(m){
     var wrap=document.createElement('div');wrap.className='cp-section';
-    // Cabeçalho da matéria
-    var titulo=document.createElement('div');titulo.className='cp-materia-titulo';
-    titulo.style.background=m.cor;titulo.style.color=m.corT;
+    var titulo=document.createElement('div');titulo.className='cp-materia-titulo';titulo.style.background=m.cor;titulo.style.color=m.corT;
     titulo.innerHTML=m.materia+'<span style="font-size:10px;font-weight:400;margin-left:8px;opacity:.7;">'+m.livro+'</span>';
     wrap.appendChild(titulo);
-    // Capítulos da AC2 (destaque)
     if(m.caps&&m.caps.length){
-      var capsDiv=document.createElement('div');
-      capsDiv.style.cssText='border:1.5px solid '+m.corT+'44;border-radius:10px;overflow:hidden;margin-bottom:8px;';
-      var capsH=document.createElement('div');
-      capsH.style.cssText='background:'+m.cor+';padding:7px 12px;font-size:11px;font-weight:700;color:'+m.corT+';';
-      capsH.textContent='📚 Capítulos da AC2';
-      capsDiv.appendChild(capsH);
+      var capsDiv=document.createElement('div');capsDiv.style.cssText='border:1.5px solid '+m.corT+'44;border-radius:10px;overflow:hidden;margin-bottom:8px;';
+      var capsH=document.createElement('div');capsH.style.cssText='background:'+m.cor+';padding:7px 12px;font-size:11px;font-weight:700;color:'+m.corT+';';capsH.textContent='📚 Capítulos da AC2';capsDiv.appendChild(capsH);
       m.caps.forEach(function(cap){
-        var cb=document.createElement('div');cb.className='cp-bloco';
-        cb.style.borderLeft='3px solid '+m.corT;
-        var ct=document.createElement('div');ct.className='cp-bloco-titulo';
-        ct.style.color=m.corT;
-        ct.textContent=cap.num+' — '+cap.titulo;
-        cb.appendChild(ct);
-        cap.itens.forEach(function(it){
-          var item=document.createElement('div');item.className='cp-item';
-          item.innerHTML='<span class="cp-bullet" style="color:'+m.corT+'">▸</span><span>'+it+'</span>';
-          cb.appendChild(item);
-        });
+        var cb=document.createElement('div');cb.className='cp-bloco';cb.style.borderLeft='3px solid '+m.corT;
+        var ct=document.createElement('div');ct.className='cp-bloco-titulo';ct.style.color=m.corT;ct.textContent=cap.num+' — '+cap.titulo;cb.appendChild(ct);
+        cap.itens.forEach(function(it){var item=document.createElement('div');item.className='cp-item';item.innerHTML='<span class="cp-bullet" style="color:'+m.corT+'">▸</span><span>'+it+'</span>';cb.appendChild(item);});
         capsDiv.appendChild(cb);
       });
       wrap.appendChild(capsDiv);
     }
-    // AC1
     var ac1Div=buildCPBlocos(m.ac1,'📋 Avaliação Contínua 1 (AC1) — para referência','#f4f6f8','#aaa');
-    wrap.appendChild(ac1Div);
-    cont.appendChild(wrap);
+    wrap.appendChild(ac1Div);cont.appendChild(wrap);
     var sep=document.createElement('div');sep.style.height='8px';cont.appendChild(sep);
   });
   show('cp-screen');
 }
-
 function buildCPBlocos(blocos,labelAC,bg,cor){
-  var outer=document.createElement('div');
-  outer.style.cssText='border:1.5px solid '+cor+'33;border-radius:10px;overflow:hidden;margin-bottom:8px;';
-  var header=document.createElement('div');
-  header.style.cssText='background:'+bg+';padding:7px 12px;font-size:11px;font-weight:700;color:'+cor+';';
-  header.textContent=labelAC;
-  outer.appendChild(header);
+  var outer=document.createElement('div');outer.style.cssText='border:1.5px solid '+cor+'33;border-radius:10px;overflow:hidden;margin-bottom:8px;';
+  var header=document.createElement('div');header.style.cssText='background:'+bg+';padding:7px 12px;font-size:11px;font-weight:700;color:'+cor+';';header.textContent=labelAC;outer.appendChild(header);
   blocos.forEach(function(b){
-    var bloco=document.createElement('div');bloco.className='cp-bloco';
-    var bt=document.createElement('div');bt.className='cp-bloco-titulo';bt.textContent=b.titulo;
-    bloco.appendChild(bt);
-    b.itens.forEach(function(it){
-      var item=document.createElement('div');item.className='cp-item';
-      item.innerHTML='<span class="cp-bullet">▸</span><span>'+it+'</span>';
-      bloco.appendChild(item);
-    });
+    var bloco=document.createElement('div');bloco.className='cp-bloco';var bt=document.createElement('div');bt.className='cp-bloco-titulo';bt.textContent=b.titulo;bloco.appendChild(bt);
+    b.itens.forEach(function(it){var item=document.createElement('div');item.className='cp-item';item.innerHTML='<span class="cp-bullet">▸</span><span>'+it+'</span>';bloco.appendChild(item);});
     outer.appendChild(bloco);
   });
   return outer;
 }
 
-
-/* ICS - ADICIONAR AO CALENDARIO */
-function gerarICS(eventos) {
-  var uid_base = Date.now();
-  var linhas = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Revisao 5 Ano//Quiz 5Ano//PT',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-    'X-WR-CALNAME:Agenda Escolar 2026 - 5 Ano',
-    'X-WR-TIMEZONE:America/Belem'
-  ];
-  eventos.forEach(function(e, i) {
-    var p = e.data.split('-');
-    var base = p[0]+p[1]+p[2];
-    // hora default 08:00, ajusta se desc tiver horario
-    var h = '08', m = '00';
-    var horaMatch = e.desc ? e.desc.match(/(\d{1,2})h(\d{2})/) : null;
-    if (horaMatch) { h = horaMatch[1].padStart(2,'0'); m = horaMatch[2]; }
-    var dtStart = base + 'T' + h + m + '00';
-    // fim: +2h (ferias: +31 dias)
-    var endD = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]), parseInt(h)+2, parseInt(m));
-    if (e.tipo === 'ferias') { endD = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2])+31, 8, 0); }
-    var dtEnd = endD.getFullYear()
-      + String(endD.getMonth()+1).padStart(2,'0')
-      + String(endD.getDate()).padStart(2,'0')
-      + 'T'
-      + String(endD.getHours()).padStart(2,'0')
-      + String(endD.getMinutes()).padStart(2,'0')
-      + '00';
-    // limpa titulo (remove emojis para compatibilidade)
-    var titulo = e.titulo.replace(/[^\u0000-\u00FF\u0100-\u024F ]/g,'').trim();
-    var desc = e.desc ? e.desc.replace(/[^\u0000-\u00FF\u0100-\u024F ,.:\/\-()]/g,'').replace(/\s+/g,' ').trim() : '';
-    linhas.push('BEGIN:VEVENT');
-    linhas.push('UID:quiz5ano-'+(uid_base+i)+'@hesketh');
-    linhas.push('DTSTAMP:'+new Date().toISOString().replace(/[-:.Z]/g,'').substring(0,15)+'Z');
-    linhas.push('DTSTART;TZID=America/Belem:'+dtStart);
-    linhas.push('DTEND;TZID=America/Belem:'+dtEnd);
-    linhas.push('SUMMARY:'+titulo);
-    if (desc) linhas.push('DESCRIPTION:'+desc);
-    linhas.push('CATEGORIES:Escola');
-    linhas.push('END:VEVENT');
+/* ICS */
+function gerarICS(eventos){
+  var uid_base=Date.now();
+  var linhas=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Revisao 5 Ano//Quiz 5Ano//PT','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:Agenda Escolar 2026 - 5 Ano','X-WR-TIMEZONE:America/Belem'];
+  eventos.forEach(function(e,i){
+    var p=e.data.split('-');var base=p[0]+p[1]+p[2];var h='08',m='00';
+    var horaMatch=e.desc?e.desc.match(/(\d{1,2})h(\d{2})/):null;
+    if(horaMatch){h=horaMatch[1].padStart(2,'0');m=horaMatch[2];}
+    var dtStart=base+'T'+h+m+'00';
+    var endD=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),parseInt(h)+2,parseInt(m));
+    if(e.tipo==='ferias'){endD=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])+31,8,0);}
+    var dtEnd=endD.getFullYear()+String(endD.getMonth()+1).padStart(2,'0')+String(endD.getDate()).padStart(2,'0')+'T'+String(endD.getHours()).padStart(2,'0')+String(endD.getMinutes()).padStart(2,'0')+'00';
+    var titulo=e.titulo.replace(/[^\u0000-\u00FF\u0100-\u024F ]/g,'').trim();
+    var desc=e.desc?e.desc.replace(/[^\u0000-\u00FF\u0100-\u024F ,.:\/\-()]/g,'').replace(/\s+/g,' ').trim():'';
+    linhas.push('BEGIN:VEVENT','UID:quiz5ano-'+(uid_base+i)+'@hesketh','DTSTAMP:'+new Date().toISOString().replace(/[-:.Z]/g,'').substring(0,15)+'Z','DTSTART;TZID=America/Belem:'+dtStart,'DTEND;TZID=America/Belem:'+dtEnd,'SUMMARY:'+titulo);
+    if(desc)linhas.push('DESCRIPTION:'+desc);
+    linhas.push('CATEGORIES:Escola','END:VEVENT');
   });
-  linhas.push('END:VCALENDAR');
-  return linhas.join('\r\n');
+  linhas.push('END:VCALENDAR');return linhas.join('\r\n');
 }
-function baixarICS(conteudo, nome) {
-  var blob = new Blob([conteudo], {type:'text/calendar;charset=utf-8'});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url; a.download = nome;
-  document.body.appendChild(a); a.click();
-  document.body.removeChild(a); URL.revokeObjectURL(url);
+function baixarICS(conteudo,nome){
+  var blob=new Blob([conteudo],{type:'text/calendar;charset=utf-8'});var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download=nome;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
   showToast('Arquivo baixado! Abra para adicionar ao calendario.');
 }
-function addEventoCalendario(idx) {
-  var lista = AGENDA_EVENTOS.filter(function(e){ return agendaFiltro==='todos'||e.tipo===agendaFiltro; });
-  if (!lista[idx]) return;
-  baixarICS(gerarICS([lista[idx]]), 'evento-escola.ics');
-}
-function addTodosCalendario() {
-  var lista = AGENDA_EVENTOS.filter(function(e){ return agendaFiltro==='todos'||e.tipo===agendaFiltro; });
-  baixarICS(gerarICS(lista), 'agenda-escolar-2026.ics');
-}
+function addEventoCalendario(idx){var lista=AGENDA_EVENTOS.filter(function(e){return agendaFiltro==='todos'||e.tipo===agendaFiltro;});if(!lista[idx])return;baixarICS(gerarICS([lista[idx]]),'evento-escola.ics');}
+function addTodosCalendario(){var lista=AGENDA_EVENTOS.filter(function(e){return agendaFiltro==='todos'||e.tipo===agendaFiltro;});baixarICS(gerarICS(lista),'agenda-escolar-2026.ics');}
 
-/* ═══════════════════════════════════
-   INIT
-═══════════════════════════════════ */
+/* INIT */
 document.getElementById('player-logo').addEventListener('click',logoClick);
 trackVisit();
 buildPlayerScreen();
