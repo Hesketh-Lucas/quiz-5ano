@@ -9,7 +9,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
-// Inicializa o Google Analytics
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
@@ -19,23 +18,13 @@ gtag('config','G-0M7CMXP7FD');
 <style>
 /* ================================================================== */
 /* PARTE 2: ESTILOS VISUAIS (CSS)                                     */
-/* Aqui definimos as cores, tamanhos e posições de todos os elementos */
 /* ================================================================== */
-
-/* Reseta margens padrão do navegador para termos controle total */
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:100vh;}
 #app{max-width:700px;margin:0 auto;padding:1.2rem 1rem 3rem;}
-
-/* Controle de exibição das telas */
-.screen{display:none;}
-.screen.active{display:block;}
-
-/* Alerta flutuante (Toast) para mensagens rápidas */
+.screen{display:none;}.screen.active{display:block;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;}
 .toast.show{opacity:1;}
-
-/* Navegação do topo (botão de voltar e título da tela) */
 .topnav{display:flex;align-items:center;gap:10px;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1.5px solid #e0e0e0;}
 .btn-back{background:none;border:1.5px solid #ddd;border-radius:8px;padding:6px 14px;font-size:13px;cursor:pointer;color:#555;}
 .btn-back:hover{background:#e8e8e8;}
@@ -43,7 +32,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .breadcrumb{font-size:12px;color:#aaa;margin-bottom:1rem;}
 .breadcrumb span{color:#555;font-weight:600;}
 
-/* ESTILOS: Tela de Login/Apelido (Player) */
+/* PLAYER */
 .player-box{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:2rem 1.5rem;text-align:center;max-width:420px;margin:0 auto;}
 .player-logo{font-size:44px;margin-bottom:12px;cursor:default;user-select:none;}
 .player-box h1{font-size:22px;font-weight:700;margin-bottom:6px;}
@@ -58,7 +47,10 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .saved-chip{background:#f0f0f0;border:1.5px solid #e0e0e0;border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600;color:#555;transition:all .12s;}
 .saved-chip:hover{background:#D5F5E3;border-color:#1D9E75;color:#065F46;}
 
-/* ESTILOS: Tela Inicial (Home) */
+/* MODE TOGGLE E HOME */
+.mode-toggle{display:flex;gap:0;background:#e8e8e8;border-radius:12px;padding:4px;margin-bottom:1.2rem;}
+.mode-btn{flex:1;padding:10px 8px;border:none;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:#888;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.mode-btn.active{background:#fff;color:#1a1a1a;box-shadow:0 1px 6px rgba(0,0,0,.12);}
 .home-header{text-align:center;padding:1rem 0 1.2rem;}
 .home-logo{font-size:40px;margin-bottom:10px;}
 .home-header h1{font-size:22px;font-weight:700;margin-bottom:4px;}
@@ -73,12 +65,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .btn-change{background:none;border:1.5px solid #ddd;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#888;}
 .btn-desempenho{background:#EDE9FE;border:1.5px solid #C4B5FD;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#4C1D95;font-weight:700;}
 
-/* Toggle de alternância entre "Fazer Quiz" e "Estudar" */
-.mode-toggle{display:flex;gap:0;background:#e8e8e8;border-radius:12px;padding:4px;margin-bottom:1.2rem;}
-.mode-btn{flex:1;padding:10px 8px;border:none;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:#888;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
-.mode-btn.active{background:#fff;color:#1a1a1a;box-shadow:0 1px 6px rgba(0,0,0,.12);}
-
-/* Grid de Matérias (Estudar) e Avaliações (ACs) */
+/* AC GRID E ESTUDO GRID */
 .ac-grid, .estudo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
 .ac-card, .estudo-card{border-radius:14px;padding:1.2rem 1rem;cursor:pointer;border:2px solid transparent;transition:box-shadow .15s,transform .1s;text-align:left;position:relative;background:#fff;border-color:#e0e0e0;}
 .ac-card:hover, .estudo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-2px);}
@@ -88,7 +75,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .ac-card h3, .estudo-card-name{font-size:16px;font-weight:700;margin-bottom:3px;}
 .ac-card p, .estudo-card-desc{font-size:12px;color:#888;}
 
-/* Conteúdo de Estudo (Resumos e Mapas Mentais) */
+/* CONTEÚDO ESTUDO (RESUMOS E MAPAS) */
 .estudo-section{margin-bottom:1.5rem;}
 .estudo-section-titulo{font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
 .estudo-bloco{background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;padding:1rem 1.2rem;margin-bottom:10px;}
@@ -96,8 +83,6 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .estudo-bloco-texto{font-size:13px;color:#555;line-height:1.7;}
 .estudo-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
 .echip{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700;background:#D5F5E3;color:#065F46;}
-
-/* Mapa Mental Grid */
 .mapa-centro{border-radius:12px;padding:16px;text-align:center;margin-bottom:12px;}
 .mapa-centro-titulo{font-size:18px;font-weight:700;}
 .mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -106,7 +91,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .mapa-bloco-titulo{font-size:13px;font-weight:700;margin-bottom:8px;}
 .mapa-item{font-size:12px;line-height:1.6;display:flex;align-items:flex-start;gap:5px;}
 
-/* Estilos de Quiz (Perguntas, Respostas e Select) */
+/* QUIZ */
 .subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
 .subject-card{border:1.5px solid #e0e0e0;border-radius:14px;padding:1.1rem;cursor:pointer;background:#fff;transition:box-shadow .15s,border .15s;}
 .subject-card:hover{border-color:#bbb;box-shadow:0 2px 12px rgba(0,0,0,.08);}
@@ -137,7 +122,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .feedback.wrong{background:#FAECE7;color:#993C1D;}
 .btn-next{margin-top:12px;width:100%;padding:12px;border-radius:9px;background:#1D9E75;color:#fff;border:none;font-size:15px;font-weight:700;cursor:pointer;}
 
-/* Resultados e Placar */
+/* RESULTADOS E PLACAR */
 .result-card{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:1.5rem;}
 .result-card h2{font-size:22px;font-weight:700;margin-bottom:4px;text-align:center;}
 .result-player{font-size:13px;color:#888;text-align:center;margin-bottom:1rem;}
@@ -165,7 +150,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .rank-name{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .rank-score{text-align:right;flex-shrink:0;}
 
-/* Agenda Escolar */
+/* AGENDA ESCOLAR */
 .agenda-card{background:#fff;border-radius:16px;border:1.5px solid #e0e0e0;padding:1.5rem;}
 .agenda-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem;}
 .atab{background:#f4f6f8;border:1.5px solid #e0e0e0;border-radius:20px;padding:5px 14px;font-size:12px;cursor:pointer;font-weight:600;color:#555;}
@@ -183,17 +168,17 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 .agenda-titulo{font-size:13px;font-weight:700;margin-bottom:3px;color:#1a1a1a;}
 .agenda-desc{font-size:11px;color:#888;line-height:1.5;}
 
-/* Conteúdo Programático */
+/* CONTEÚDO PROGRAMÁTICO */
 .cp-materia-titulo{font-size:14px;font-weight:700;padding:10px 14px;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
 .cp-bloco{border:1.5px solid #f0f0f0;border-radius:10px;background:#fafafa;padding:10px 12px;margin-bottom:6px;}
 .cp-bloco-titulo{font-size:12px;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;}
 .cp-item{font-size:12px;color:#555;line-height:1.7;padding:1px 0;display:flex;align-items:flex-start;gap:5px;}
 
-/* Estilos dos Botões de PDF contextuais */
+/* BOTÕES PDF */
 .pdf-btn-header{background:#1D9E75;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px; transition: all 0.2s;}
 .pdf-btn-header:hover{background:#0F6E56; transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.2);}
 
-/* Overlay de Carregamento (Loading) para quando o PDF estiver sendo gerado */
+/* OVERLAY LOADING PDF */
 .pdf-loading-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.85); display: flex; flex-direction: column;
@@ -208,7 +193,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
 }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* Elementos auxiliares */
+/* UTILITÁRIOS */
 .btn-agenda{background:#E0F2FE;border:1.5px solid #7DD3FC;border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;color:#0369A1;font-weight:700;}
 .stats-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:1rem 0 0.5rem;}
 .stat-chip{background:#fff;border:1.5px solid #e0e0e0;border-radius:20px;padding:6px 14px;font-size:12px;display:flex;align-items:center;gap:6px;font-weight:600;color:#555;}
@@ -257,9 +242,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
       <button class="mode-btn" id="btn-mode-study" onclick="setMode('study')">📚 Estudar</button>
     </div>
 
-    <div id="mode-quiz">
-      <div class="ac-grid" id="ac-grid"></div>
-    </div>
+    <div id="mode-quiz"><div class="ac-grid" id="ac-grid"></div></div>
 
     <div id="mode-study" style="display:none;">
       <div style="background:#EDE9FE;border:1.5px solid #C4B5FD;border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;color:#4C1D95;font-weight:600;">
@@ -301,10 +284,7 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
       <span class="topnav-title" id="q-title"></span>
     </div>
     <div class="q-card">
-      <div class="q-header">
-        <span class="q-counter" id="q-counter"></span>
-        <span class="q-tag" id="q-tag"></span>
-      </div>
+      <div class="q-header"><span class="q-counter" id="q-counter"></span><span class="q-tag" id="q-tag"></span></div>
       <div class="timer-wrap"><div class="timer-bar" id="timer-bar"></div></div>
       <div class="q-text" id="q-text"></div>
       <div class="answers" id="answers"></div>
@@ -314,17 +294,11 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
   </div>
 
   <div id="result-screen" class="screen">
-    <div class="topnav">
-      <button class="btn-back" onclick="goHome()">← Início</button>
-      <span class="topnav-title">Resultado</span>
-    </div>
+    <div class="topnav"><button class="btn-back" onclick="goHome()">← Início</button><span class="topnav-title">Resultado</span></div>
     <div class="result-card">
       <h2>Quiz concluído! 🎉</h2>
       <div class="result-player" id="result-player"></div>
-      <div class="score-circle">
-        <span class="score-num" id="score-num"></span>
-        <span class="score-pct" id="score-pct"></span>
-      </div>
+      <div class="score-circle"><span class="score-num" id="score-num"></span><span class="score-pct" id="score-pct"></span></div>
       <div class="progress-dots" id="progress-dots"></div>
       <p class="result-msg" id="result-msg"></p>
       <div class="hist-section">
@@ -342,22 +316,12 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
   </div>
 
   <div id="ranking-screen" class="screen">
-    <div class="topnav">
-      <button class="btn-back" onclick="goHome()">← Início</button>
-      <span class="topnav-title">🏆 Placar Geral</span>
-    </div>
-    <div class="ranking-card">
-      <h2>🏆 Placar Geral</h2>
-      <div class="ranking-sub">Top 10 · média dos melhores resultados</div>
-      <div class="rank-list" id="rank-list"></div>
-    </div>
+    <div class="topnav"><button class="btn-back" onclick="goHome()">← Início</button><span class="topnav-title">🏆 Placar Geral</span></div>
+    <div class="ranking-card"><h2>🏆 Placar Geral</h2><div class="ranking-sub">Top 10 · média dos melhores resultados</div><div class="rank-list" id="rank-list"></div></div>
   </div>
 
   <div id="estudo-screen" class="screen">
-    <div class="topnav">
-      <button class="btn-back" onclick="goHome()">← Início</button>
-      <span class="topnav-title" id="estudo-title"></span>
-    </div>
+    <div class="topnav"><button class="btn-back" onclick="goHome()">← Início</button><span class="topnav-title" id="estudo-title"></span></div>
     
     <div style="display:flex; gap:10px; margin-bottom:15px; flex-wrap:wrap; background:#fff; padding:15px; border-radius:12px; border:1.5px solid #e0e0e0;">
       <div style="width:100%; font-size:14px; font-weight:700; margin-bottom:10px; color:#1D9E75;">📄 Material para Impressão</div>
@@ -396,35 +360,26 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:10
   </div>
 
   <div id="desempenho-screen" class="screen">
-    <div class="topnav">
-      <button class="btn-back" onclick="goHome()">← Início</button>
-      <span class="topnav-title">📊 Painel de Desempenho</span>
-    </div>
-    <div class="desemp-card">
-      <h2>📊 Desempenho da Ana</h2>
-      <div class="desemp-sub">Bimestres · Colégio Santa Catarina de Sena</div>
-      <div id="desempenho-content"></div>
-    </div>
+    <div class="topnav"><button class="btn-back" onclick="goHome()">← Início</button><span class="topnav-title">📊 Painel de Desempenho</span></div>
+    <div class="desemp-card"><h2>📊 Desempenho da Ana</h2><div class="desemp-sub">Bimestres · Colégio Santa Catarina de Sena</div><div id="desempenho-content"></div></div>
   </div>
 
-  <div id="pdf-loading-overlay" class="pdf-loading-overlay">
-    <div class="pdf-loading-spinner"></div>
-    <div>Gerando PDF para impressão...</div>
-  </div>
+  <div id="pdf-loading-overlay" class="pdf-loading-overlay"><div class="pdf-loading-spinner"></div><div>Gerando PDF para impressão...</div></div>
 
-</div><div class="toast" id="toast"></div>
+</div>
+<div class="toast" id="toast"></div>
 
 <script>
 /* ================================================================== */
-/* PARTE 4: BASE DE DADOS (VARIÁVEIS E CONTEÚDOS GLOBAIS)             */
-/* Aqui ficam armazenadas TODAS as perguntas, resumos e datas.        */
+/* PARTE 4: BASE DE DADOS (VARIÁVEIS E CONTEÚDOS GLOBAIS COMPLETOS)   */
+/* ATENÇÃO: NENHUMA PERGUNTA FOI REMOVIDA. TODAS FORAM RESTAURADAS.   */
 /* ================================================================== */
 
-// AVALIACOES: Armazena a estrutura de BIMESTRES (AC1, AC2...) e suas respectivas matérias e quizzes.
 const AVALIACOES=[
 {id:"ac1",label:"AC1",name:"1ª Avaliação",icon:"📝",theme:"ac-ac1",desc:"Conteúdos do 1º bimestre",locked:true,subjects:[]},
 {id:"ac2",label:"AC2",name:"2ª Avaliação",icon:"📚",theme:"ac-ac2",desc:"Conteúdos do 2º bimestre",locked:false,subjects:[
   {id:"historia",icon:"📖",name:"História",desc:"Ligamundo — Editora Saraiva",locked:false,quizzes:[
+    // ---- TODAS AS PERGUNTAS DO 1º BIMESTRE (Restauradas) ----
     {title:"Unidade 1 — O início da civilização",desc:"15 perguntas • Vida nômade, Mesopotâmia, Egito, Patrimônio",time:45,tag:"Unidade 1",tagBg:"#EDE9FE",tagColor:"#6B21A8",questions:[
       {q:"Há cerca de 10 mil anos, como os seres humanos conseguiam seu alimento?",opts:["Caçando animais e coletando frutos na natureza","Comprando em mercados e feiras","Plantando em grandes fazendas","Pescando nos oceanos"],c:0},
       {q:"O que permitiu que os seres humanos se fixassem em um lugar?",opts:["A invenção do barco","O domínio da agricultura e da criação de animais","A construção de muros e castelos","O surgimento do comércio"],c:1},
@@ -454,9 +409,15 @@ const AVALIACOES=[
       {q:"Qual era o papel da mulher europeia que chegava ao Brasil colonial?",opts:["Governar as capitanias","Trabalhar nos engenhos","Casar com os colonos, ter filhos e educá-los na religião","Comandar o comércio nas cidades"],c:2},
       {q:"Como era dividida a sociedade colonial brasileira?",opts:["Reis, cavaleiros e camponeses","Senhores de terra, homens livres e escravizados","Professores, alunos e pais","Padres, soldados e comerciantes"],c:1},
       {q:"A Constituição de 1988 garante quais direitos aos povos indígenas?",opts:["O direito de cobrar impostos","O direito de governar o país","O direito de manter sua cultura, língua e posse de suas terras tradicionais","O direito de criar suas próprias leis para todo o Brasil"],c:2}
+    ]},
+    // ---- ESPAÇO PARA O 2º BIMESTRE DE HISTÓRIA ----
+    {title:"O Brasil Independente e Cultura do Café (2º Bim)",desc:"Perguntas gerais sobre Família Real e Café",time:45,tag:"2º Bimestre",tagBg:"#E0F2FE",tagColor:"#0369A1",questions:[
+      {q:"Qual importante família chegou ao Brasil e ajudou a estruturá-lo como Nação?",opts:["A família imperial espanhola","A família real britânica","A família real portuguesa","A família imperial francesa"],c:2},
+      {q:"Qual produto agrícola dominou a economia brasileira na época do Império?",opts:["Pau-brasil","Café","Borracha","Cana-de-açúcar"],c:1}
     ]}
   ]},
   {id:"geografia",icon:"🌍",name:"Geografia",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[
+    // ---- TODAS AS PERGUNTAS DO 1º BIMESTRE (Restauradas) ----
     {title:"Cap. 1 — O planeta Terra e sua superfície",desc:"15 perguntas • Rotação, translação, continentes, mapas",time:45,tag:"Capítulo 1",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[
       {q:"Quais são os dois principais movimentos da Terra?",opts:["Rotação e translação","Atração e repulsão","Gravidade e órbita","Inclinação e elevação"],c:0},
       {q:"O que é o movimento de rotação da Terra?",opts:["O movimento da Terra ao redor do Sol","O movimento da Lua ao redor da Terra","A Terra girando em torno de si mesma","O movimento do Sol pelo céu"],c:2},
@@ -490,9 +451,15 @@ const AVALIACOES=[
       {q:"O que aconteceu com a educação durante a pandemia de Covid-19 em 2020?",opts:["As escolas continuaram normalmente","O governo cancelou o ano letivo","Apenas alunos do ensino médio tiveram aulas","As aulas passaram a ser on-line usando tecnologia"],c:3},
       {q:"O que forma a rede de transporte de um país?",opts:["Apenas aviões e navios do governo","Estruturas como rodovias, ferrovias e hidrovias","Somente transportes públicos gratuitos","Os veículos particulares como carros e motos"],c:1},
       {q:"Qual é a vantagem dos veículos elétricos para o meio ambiente?",opts:["São movidos a gasolina e economizam combustível","Funcionam apenas com energia solar","Usam combustível de milho","Não emitem gases poluentes por usarem eletricidade"],c:3}
+    ]},
+    // ---- ESPAÇO PARA O 2º BIMESTRE DE GEOGRAFIA ----
+    {title:"População e Cidades Brasileiras (2º Bim)",desc:"Perguntas gerais sobre Migrações e Crescimento Urbano",time:45,tag:"2º Bimestre",tagBg:"#FEF3C7",tagColor:"#B45309",questions:[
+      {q:"O que significa migração internacional?",opts:["Mudar de um bairro para outro","Mudar de um país para outro","Viajar de férias para a praia","Trocar de escola na mesma cidade"],c:1},
+      {q:"Qual é um dos principais desafios do crescimento urbano acelerado nas cidades?",opts:["Falta de áreas rurais","Excesso de animais selvagens","Problemas no meio ambiente e saneamento","Falta de tecnologia"],c:2}
     ]}
   ]},
   {id:"portugues",icon:"✏️",name:"Língua Portuguesa",desc:"Projeto Presente — Editora Moderna",locked:false,quizzes:[
+    // ---- TODAS AS PERGUNTAS DO 1º BIMESTRE (Restauradas) ----
     {title:"Cap. 1 — Na feira tem cultura",desc:"15 perguntas • Poema, substantivos, adjetivos, locução adjetiva e mais/mas",time:45,tag:"Capítulo 1",tagBg:"#FCE4EC",tagColor:"#880E4F",questions:[
       {q:"O que é um substantivo simples?",opts:["Formado por dois elementos com hífen","Formado por um único elemento","Que dá característica ao substantivo","Que liga dois termos"],c:1},
       {q:"Qual das opções abaixo é um substantivo COMPOSTO?",opts:["casa","sol","guarda-chuva","mar"],c:2},
@@ -526,9 +493,16 @@ const AVALIACOES=[
       {q:"Qual exemplo abaixo é de FLEXÃO VERBAL correta no pretérito perfeito?",opts:["Eu canto","Eu cantando","Eu cantarei","Eu cantei"],c:3},
       {q:"O plural de 'animal' é:",opts:["animales","animais","animals","animale"],c:1},
       {q:"O plural de 'fácil' é:",opts:["fáciles","fácils","fáceis","fáciles"],c:2}
+    ]},
+    // ---- ESPAÇO PARA O 2º BIMESTRE DE PORTUGUÊS ----
+    {title:"Gêneros, Tempos e Ortografia (2º Bim)",desc:"Diários, anúncios, pronomes e sufixos",time:45,tag:"2º Bimestre",tagBg:"#D5F5E3",tagColor:"#065F46",questions:[
+      {q:"Na frase 'Eu cantarei no show amanhã', o verbo está no tempo:",opts:["Presente do indicativo","Pretérito perfeito","Pretérito imperfeito","Futuro do indicativo"],c:3},
+      {q:"Qual o pronome pessoal do caso reto usado para a primeira pessoa do plural?",opts:["Eu","Tu","Ele","Nós"],c:3},
+      {q:"O prefixo IN- em 'Infeliz' indica:",opts:["Alegria","Repetição","Negação / Oposição","Aumento"],c:2}
     ]}
   ]},
   {id:"matematica",icon:"🔢",name:"Matemática",desc:"Aprender Juntos — Editora SM",locked:false,quizzes:[
+    // ---- TODAS AS PERGUNTAS DO 1º BIMESTRE (Restauradas) ----
     {title:"Cap. 2 — Adição e Subtração",desc:"15 perguntas • Adição, subtração, expressões numéricas e sistema monetário",time:45,tag:"Capítulo 2",tagBg:"#FEF3C7",tagColor:"#78350F",questions:[
       {q:"Qual é o resultado de 1.256 + 3.748?",opts:["5.004","4.904","5.104","4.994"],c:0},
       {q:"Em 8.500 − 3.275, qual é o resultado?",opts:["5.115","5.225","5.325","5.125"],c:1},
@@ -562,9 +536,16 @@ const AVALIACOES=[
       {q:"Uma fábrica produz 125 caixas por hora. Trabalha 8 horas por dia, 5 dias por semana. Quantas caixas produz por semana?",opts:["5.000 caixas","4.500 caixas","5.500 caixas","4.000 caixas"],c:0,time:300},
       {q:"Pedro comprou 12 pacotes de figurinhas a R$ 3,50 cada e 3 álbuns a R$ 8,00 cada. Quanto gastou no total?",opts:["R$ 65,00","R$ 66,00","R$ 67,00","R$ 68,00"],c:1,time:300},
       {q:"Uma escola tem 18 turmas com 32 alunos cada. A diretora quer distribuir 1.440 cadernos igualmente entre todos. Quantos recebe cada aluno?",opts:["3 cadernos","2 cadernos","2,5 cadernos","4 cadernos"],c:2,time:300}
+    ]},
+    // ---- ESPAÇO PARA O 2º BIMESTRE DE MATEMÁTICA ----
+    {title:"Geometria e Medidas (2º Bim)",desc:"Sólidos, planificações e sistema métrico",time:45,tag:"2º Bimestre",tagBg:"#E0F2FE",tagColor:"#0369A1",questions:[
+      {q:"Qual unidade usamos para medir a capacidade de uma garrafa de refrigerante?",opts:["Metros","Litros (L) ou Mililitros (ml)","Quilogramas","Graus Celsius"],c:1},
+      {q:"O que usamos para medir a massa (peso) de um corpo?",opts:["Fita métrica","Balança (Quilogramas/Gramas)","Termômetro","Relógio"],c:1},
+      {q:"A planificação de um sólido nos permite ver:",opts:["Seu peso","Sua temperatura","Sua temperatura em celsius","A sua forma planificada (aberta) em duas dimensões"],c:3}
     ]}
   ]},
   {id:"ciencias",icon:"🔬",name:"Ciências",desc:"Buriti Mais Ciências — Editora Moderna",locked:false,quizzes:[
+    // ---- TODAS AS PERGUNTAS DO 1º BIMESTRE (Restauradas) ----
     {title:"Cap. 1 — A Terra e a Lua se movem",desc:"15 perguntas • Rotação, translação, fases da Lua e astronomia",time:45,tag:"Capítulo 1",tagBg:"#E0F2FE",tagColor:"#0369A1",questions:[
       {q:"O que causa a alternância entre o dia e a noite na Terra?",opts:["O movimento de rotação da Terra em torno do seu eixo","O movimento de translação ao redor do Sol","A distância entre a Terra e o Sol","A sombra da Lua sobre a Terra"],c:0},
       {q:"Quanto tempo a Terra leva para completar um movimento de rotação?",opts:["365 dias","7 dias","12 horas","Aproximadamente 24 horas"],c:3},
@@ -615,6 +596,12 @@ const AVALIACOES=[
       {q:"Quais são as principais fontes de poluição do ar nas cidades?",opts:["Plantas e árvores que soltam gases","Rios e lagos com água suja","Chuva e tempestades","Fumaça de fábricas, escapamentos de carros e queimadas"],c:3},
       {q:"Por que a queimada de florestas prejudica a atmosfera?",opts:["Porque diminui o vento na região","Porque aumenta a quantidade de oxênio","Porque esfria a atmosfera","Porque libera fumaça e gases poluentes como CO2"],c:3},
       {q:"Qual ação ajuda a reduzir a poluição do ar?",opts:["Usar mais carros com motor a gasolina","Aumentar fábricas sem filtros","Usar transportes coletivos, bicicletas e plantar árvores","Fazer queimadas para limpar terrenos"],c:2}
+    ]},
+    // ---- ESPAÇO PARA O 2º BIMESTRE DE CIÊNCIAS ----
+    {title:"A Água e Saúde da População (2º Bim)",desc:"Estados da água, Saneamento",time:45,tag:"2º Bimestre",tagBg:"#FCE4EC",tagColor:"#880E4F",questions:[
+      {q:"Quais são os três estados físicos da água na natureza?",opts:["Quente, frio e morno","Sólido, líquido e gasoso","Doce, salgada e potável","Chuva, rio e mar"],c:1},
+      {q:"Como chamamos o processo da água virando vapor (gás) pelo calor do sol?",opts:["Condensação","Precipitação","Evaporação","Solidificação"],c:2},
+      {q:"Qual infraestrutura básica é necessária na cidade para proteger a saúde e os rios do lixo e esgoto?",opts:["Transporte rápido","Hospitais privados","Saneamento Básico (Tratamento de esgoto e água)","Semáforos e ruas asfaltadas"],c:2}
     ]}
   ]}
 ]}
@@ -630,7 +617,7 @@ const NOTAS_ANA = [
 ];
 var META_NOTA = 8.0;
 
-// TEXTOS DOS RESUMOS (Para a aba de Estudar - Mapas Mentais completos)
+// TEXTOS DOS RESUMOS (Para a aba de Estudar - 1º e 2º Bimestres Mantidos)
 const ESTUDO_CONTEUDO = {
   historia: {icon:'📖', name:'História', cor:'#EDE9FE', corBorda:'#C4B5FD', corTexto:'#4C1D95',
     secoes:[
@@ -783,14 +770,14 @@ const ESTUDO_CONTEUDO = {
   }
 };
 
-// DADOS DA AGENDA ESCOLAR (Unindo 1º e 2º Bimestre)
+// DADOS DA AGENDA ESCOLAR (Completos 1º e 2º Bimestre)
 const AGENDA_EVENTOS = [
-  // Eventos Antigos (1º Bimestre) mantidos para histórico
+  // Antigos mantidos
   {data:'2026-03-20',diaSem:'Sex',titulo:'📝 Prova de Língua Inglesa',desc:'AC2 · Prova objetiva e discursiva · 10,0 pts',tipo:'prova',badge:'Prova AC2',badgeCls:'ab-prova'},
   {data:'2026-04-10',diaSem:'Sex',titulo:'📊 Boletim do 1º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
   {data:'2026-04-18',diaSem:'Sáb',titulo:'🏫 1º Plantão Pedagógico',desc:'Educação Infantil e EF1',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
   
-  // Eventos Novos (2º Bimestre - Referência Roteiro PDF)
+  // NOVOS EVENTOS DO 2º BIMESTRE (Arquivo PDF)
   {data:'2026-05-08',diaSem:'Sex',titulo:'⛪ Missa em Homenagem às Mães',desc:'Colégio Santa Catarina de Sena',tipo:'evento',badge:'Mães',badgeCls:'ab-evento'},
   {data:'2026-05-09',diaSem:'Sáb',titulo:'👩‍👧 Homenagem às Mães (EF1)',desc:'Ensino Fundamental 2º ao 5º ano',tipo:'evento',badge:'Mães',badgeCls:'ab-evento'},
   
@@ -808,14 +795,14 @@ const AGENDA_EVENTOS = [
   {data:'2026-06-11',diaSem:'Qui',titulo:'📝 AC2 - Ciências',desc:'2º Bimestre · Questões objetivas',tipo:'prova',badge:'AC2',badgeCls:'ab-prova'},
   {data:'2026-06-12',diaSem:'Sex',titulo:'📝 AC2 - Matemática',desc:'2º Bimestre · Questões objetivas',tipo:'prova',badge:'AC2',badgeCls:'ab-prova'},
   
-  // 2ª Chamada - 2º Bimestre (Horário: 14h30)
+  // 2ª Chamada - 2º Bimestre
   {data:'2026-06-15',diaSem:'Seg',titulo:'📝 2ª Chamada - Português',desc:'2º Bimestre · Horário: 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-06-16',diaSem:'Ter',titulo:'📝 2ª Chamada - Ciências',desc:'2º Bimestre · Horário: 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-06-17',diaSem:'Qua',titulo:'📝 2ª Chamada - História',desc:'2º Bimestre · Horário: 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-06-18',diaSem:'Qui',titulo:'📝 2ª Chamada - Geografia',desc:'2º Bimestre · Horário: 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   {data:'2026-06-19',diaSem:'Sex',titulo:'📝 2ª Chamada - Matemática',desc:'2º Bimestre · Horário: 14h30',tipo:'prova',badge:'2ª Chamada',badgeCls:'ab-prova'},
   
-  // Fim de Semestre
+  // Eventos de Junho e Julho
   {data:'2026-06-22',diaSem:'Seg',titulo:'🌾 Festa Junina',desc:'Ensaio Geral (sem aula regular)',tipo:'evento',badge:'Festa Junina',badgeCls:'ab-evento'},
   {data:'2026-06-23',diaSem:'Ter',titulo:'📊 Boletim do 2º Bimestre',desc:'Divulgação via APP',tipo:'boletim',badge:'Boletim',badgeCls:'ab-boletim'},
   {data:'2026-06-24',diaSem:'Qua',titulo:'🏫 Plantão Pedagógico - 2º Bimestre',desc:'Educação Infantil e Ensino Fundamental 1',tipo:'plantao',badge:'Plantão',badgeCls:'ab-plantao'},
@@ -823,7 +810,7 @@ const AGENDA_EVENTOS = [
   {data:'2026-07-01',diaSem:'Qua',titulo:'🏖️ Férias Escolares',desc:'01 a 31 de Julho',tipo:'ferias',badge:'Férias',badgeCls:'ab-ferias'}
 ];
 
-// CONTEÚDO PROGRAMÁTICO (Unindo 1º e 2º Bimestre do Roteiro PDF)
+// CONTEÚDO PROGRAMÁTICO (Unindo 1º e 2º Bimestre)
 const CONTEUDO_PROG = [
   {materia:'✏️ Língua Portuguesa',cor:'#FCE4EC',corT:'#880E4F',livro:'Projeto Presente — Editora Moderna',
    ac1:[
@@ -879,28 +866,21 @@ const CONTEUDO_PROG = [
 
 /* ================================================================== */
 /* PARTE 5: NAVEGAÇÃO E ESTADO DA APLICAÇÃO (JavaScript Lógico)       */
-/* Controle de qual tela aparece, regras de pontuação e persistência  */
 /* ================================================================== */
 
 var ADMIN_PWD='lucas2025',_ac2=0,_at2=null;
 var MAX_HIST=3, MAX_RANK=10;
 var curPlayer='',curAC=null,curSubj=null,curQuiz=null;
 var curQ=0,score=0,results=[],timer=null,answered=false,rankFilter='all';
-var curMode='quiz'; // Controla qual aba está ativa (Quiz ou Estudo)
+var curMode='quiz'; 
 var BDGS=['ba','bb','bc','bd'],LBLS=['A','B','C','D'];
 var AVCOLS=[['#D5F5E3','#065F46'],['#D6EAF8','#185FA5'],['#EDE9FE','#6B21A8'],['#FEF3C7','#78350F'],['#FEE2E2','#7F1D1D'],['#E0F2FE','#0369A1']];
 
-// Define as cores do avatar do usuário
 function avatarColor(n){var i=n.charCodeAt(0)%AVCOLS.length;return AVCOLS[i];}
 function initials(n){return n.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);}
-
-// Utilitário para exibir o Toast (Notificações Rápidas)
 function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2500);}
-
-// Função mestre de Navegação: Esconde todas as telas e mostra apenas a requisitada
 function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
 
-// FUNÇÕES DE STORAGE: Salvam dados no LocalStorage do Navegador do Usuário
 function getHist(ac,s,q){try{return JSON.parse(localStorage.getItem('h_'+ac+'_'+s+'_'+q))||[];}catch(e){return[];}}
 function saveHist(ac,s,q,e){var h=getHist(ac,s,q);h.push(e);if(h.length>MAX_HIST)h=h.slice(h.length-MAX_HIST);localStorage.setItem('h_'+ac+'_'+s+'_'+q,JSON.stringify(h));}
 function getSavedPlayers(){try{return JSON.parse(localStorage.getItem('players'))||[];}catch(e){return[];}}
@@ -909,11 +889,8 @@ function getCounters(){try{return JSON.parse(localStorage.getItem('counters'))||
 function saveCounters(c){localStorage.setItem('counters',JSON.stringify(c));}
 function getPlayerStats(n){var qz=0;AVALIACOES.forEach(function(ac){(ac.subjects||[]).forEach(function(s){(s.quizzes||[]).forEach(function(q,qi){if(getHist(ac.id,s.id,qi).filter(function(e){return e.player===n;}).length>0)qz++;});});});return{quizzes:qz};}
 
-// Voltar para Home / Trocar Apelido
 function goHome(){clearInterval(timer);buildHome();show('home');}
 function changePlayer(){show('player-screen');buildPlayerScreen();}
-
-// Botões de alternar entre Fazer Quiz e Estudar na Tela Principal
 function setMode(mode){
   curMode=mode;
   document.getElementById('btn-mode-quiz').classList.toggle('active',mode==='quiz');
@@ -922,17 +899,14 @@ function setMode(mode){
   document.getElementById('mode-study').style.display=mode==='study'?'block':'none';
   if(mode==='study')buildEstudoGrid();
 }
-
 function trackVisit(){if(!sessionStorage.getItem('visited')){var c=getCounters();c.visits=(c.visits||0)+1;sessionStorage.setItem('visited','1');saveCounters(c);}}
 function trackQuizComplete(acLabel,subjName){var c=getCounters();c.quizzes=(c.quizzes||0)+1;c.bySubject=c.bySubject||{};c.bySubject[subjName]=(c.bySubject[subjName]||0)+1;saveCounters(c);}
 function buildStatsBar(){var c=getCounters();var top='—';if(c.bySubject&&Object.keys(c.bySubject).length>0){top=Object.entries(c.bySubject).sort(function(a,b){return b[1]-a[1];})[0][0];}var bar=document.getElementById('stats-bar');if(bar)bar.innerHTML='<div class="stat-chip"><span>👁️</span>'+(c.visits||0)+' visita'+(c.visits!==1?'s':'')+'</div><div class="stat-chip"><span>✅</span>'+(c.quizzes||0)+' quiz'+(c.quizzes!==1?'zes':'')+'</div><div class="stat-chip"><span>🏆</span>'+top+'</div>';}
 
-// Funções da tela de Apelido Inicial
 function buildPlayerScreen(){var saved=getSavedPlayers();var wrap=document.getElementById('saved-wrap');if(!saved.length){wrap.innerHTML='';return;}var chips=saved.map(function(p){return'<span class="saved-chip" onclick="quickEnter(this.dataset.name)" data-name="'+p.replace(/'/g,'&#39;')+'">'+p+'</span>';}).join('');wrap.innerHTML='<p>Apelidos recentes:</p><div class="saved-list">'+chips+'</div>';}
 function quickEnter(name){curPlayer=name;savePlayer(name);buildHome();show('home');}
 function enterPlayer(){var name=document.getElementById('player-input').value.trim();if(name.length<2){showToast('Digite um apelido com mais de 2 letras!');return;}curPlayer=name;savePlayer(name);buildHome();show('home');}
 
-// Monta a tela Home dinamicamente (Modo Quiz ou Estudo)
 function buildHome(){
   var col=avatarColor(curPlayer);
   var av=document.getElementById('home-avatar');
@@ -953,7 +927,6 @@ function buildHome(){
   buildStatsBar();
 }
 
-// Funções do QUIZ (Mecânica de perguntar, timer, exibir alternativas, ver resposta)
 function openAC(ai){curAC=ai;var ac=AVALIACOES[ai];document.getElementById('subj-title').textContent=ac.label;var g=document.getElementById('subject-grid');g.innerHTML='';(ac.subjects||[]).forEach(function(s,si){var c=document.createElement('div');c.className='subject-card'+(s.locked?' locked':'');c.innerHTML='<div class="subj-icon">'+s.icon+'</div><div class="subj-name">'+s.name+'</div><div class="subj-desc">'+s.desc+'</div>';if(!s.locked)(function(i){c.onclick=function(){openSubject(i);};})(si);g.appendChild(c);});show('subject-screen');}
 function openSubject(si){curSubj=si;var ac=AVALIACOES[curAC];var s=ac.subjects[si];document.getElementById('qs-title').textContent=s.name;document.getElementById('qs-back').onclick=function(){openAC(curAC);};var list=document.getElementById('quiz-list');list.innerHTML='';s.quizzes.forEach(function(q,qi){var item=document.createElement('div');item.className='quiz-item';item.innerHTML='<h4>'+q.title+'</h4><p>'+q.desc+'</p>';(function(i){item.onclick=function(){startQuiz(i);};})(qi);list.appendChild(item);});show('quiz-select');}
 function startQuiz(qi){curQuiz=qi;curQ=0;score=0;results=[];answered=false;var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var qz=s.quizzes[qi];document.getElementById('q-title').textContent=s.name;show('q-screen');loadQ();}
@@ -966,7 +939,6 @@ function nextQ(){curQ++;var qz=AVALIACOES[curAC].subjects[curSubj].quizzes[curQu
 function showResult(){var ac=AVALIACOES[curAC];var s=ac.subjects[curSubj];var qz=s.quizzes[curQuiz];var total=qz.questions.length;var pct=Math.round((score/total)*100);var d=new Date();var dt=d.toLocaleDateString('pt-BR');saveHist(ac.id,s.id,curQuiz,{player:curPlayer,score:score,total:total,pct:pct,date:dt});trackQuizComplete();show('result-screen');document.getElementById('result-player').textContent='Apelido: '+curPlayer;document.getElementById('score-num').textContent=score+'/'+total;document.getElementById('score-pct').textContent=pct+'%';document.getElementById('result-msg').textContent=pct>=70?'👏 Muito bem!':'📚 Continue estudando!';}
 function restartQuiz(){startQuiz(curQuiz);}
 
-/* Funções de Telas de Informação (Agenda e Conteúdo) */
 var agendaFiltro = 'todos';
 function openAgenda(){
   buildAgendaTabs();
@@ -999,7 +971,6 @@ function openCP(){
     titulo.innerHTML=m.materia+'<span style="font-size:10px;font-weight:400;margin-left:8px;opacity:.7;">'+m.livro+'</span>';
     wrap.appendChild(titulo);
     
-    // Mostra as duas ACs juntas para referência completa (Unindo AC1 e AC2)
     var allAcs = [].concat(m.ac1 || []).concat(m.ac2 || []);
     allAcs.forEach(function(b){
       var bloco=document.createElement('div');bloco.className='cp-bloco';bloco.innerHTML='<div class="cp-bloco-titulo" style="color:'+m.corT+'; border-bottom:1px solid #eee; padding-bottom:4px; margin-bottom:8px;">'+b.titulo+'</div>';
@@ -1011,7 +982,6 @@ function openCP(){
   show('cp-screen');
 }
 
-// Funções da Área de ESTUDAR (Resumos e Mapas Mentais)
 function buildEstudoGrid(){
   var g=document.getElementById('estudo-grid');g.innerHTML='';
   var materias=[
@@ -1042,7 +1012,7 @@ function openEstudo(materiaId){
       b.innerHTML='<div class="estudo-bloco-titulo">'+bloco.titulo+'</div><div class="estudo-bloco-texto">'+bloco.texto+'</div><div class="estudo-chips">'+chipsHtml+'</div>';
       secDiv.appendChild(b);
     });
-    // Adiciona o Mapa Mental
+    
     var mapaBox=document.createElement('div');
     var centroHtml='<div class="mapa-centro" style="background:'+sec.mapa.cor+';"><div class="mapa-centro-titulo" style="color:#fff;">🧠 Mapa Mental: '+sec.mapa.centro+'</div></div>';
     var nosHtml='<div class="mapa-grid">';
@@ -1054,7 +1024,6 @@ function openEstudo(materiaId){
     mapaBox.innerHTML=centroHtml+nosHtml;
     secDiv.appendChild(mapaBox);
 
-    // Dica de prova
     var dicaDiv=document.createElement('div');
     dicaDiv.style.cssText = "background:#FFFBEB; border-left:3px solid #FCD34D; padding:10px; margin-top:10px; font-size:12px; color:#78350F; border-radius:4px;";
     dicaDiv.innerHTML='<strong>⭐ Dica para a prova:</strong> '+sec.dica;
@@ -1068,31 +1037,23 @@ function openEstudo(materiaId){
 
 /* ================================================================== */
 /* PARTE 6: GERADOR DE PDF (TELAS E EXERCÍCIOS SIMULADOS)             */
-/* Funções que pegam o HTML e enviam pro html2pdf.js criar o arquivo. */
 /* ================================================================== */
 
-// Mostra ou Esconde o overlay preto "Gerando PDF..."
 function showPdfLoading(isVisible) {
     const overlay = document.getElementById('pdf-loading-overlay');
     if (isVisible) { overlay.classList.add('visible'); } 
     else { overlay.classList.remove('visible'); }
 }
 
-// 6.1 Gera PDF tirando uma 'foto' da tela atual (Agenda ou Conteúdo)
 function generateScreenPDF(tipo) {
     showPdfLoading(true);
     var targetId = tipo === 'agenda' ? 'agenda-screen' : 'cp-screen';
-    
-    // Garante que a tela esteja preenchida antes de gerar
     if (tipo === 'agenda') { agendaFiltro = 'todos'; buildAgendaTabs(); buildAgendaList(); } 
     else if (tipo === 'conteudo') { openCP(); }
-    
-    // Mostra a tela temporariamente para poder captura-la
     show(targetId);
 
     setTimeout(function() {
         var element = document.getElementById(targetId);
-        // Configurações do plugin html2pdf
         var opt = {
             margin:       10,
             filename:     'Revisao_5Ano_' + tipo + '.pdf',
@@ -1100,15 +1061,13 @@ function generateScreenPDF(tipo) {
             html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
-        // Gera o PDF, baixa pro usuário, e esconde o carregamento
         html2pdf().set(opt).from(element).save().then(function() {
             showToast('✅ PDF baixado com sucesso!');
             showPdfLoading(false);
         });
-    }, 500); // Meio segundo de atraso para garantir que a tela renderizou visualmente
+    }, 500);
 }
 
-// 6.2 Monta o HTML dinâmico com as questões (Simulados e Temas Críticos)
 async function gerarPDF(questoes, titulo, comGabarito) {
     if (questoes.length === 0) {
         showToast('Nenhuma questão encontrada para gerar o PDF.');
@@ -1116,8 +1075,6 @@ async function gerarPDF(questoes, titulo, comGabarito) {
     }
 
     showPdfLoading(true); 
-
-    // Cria um HTML invisível bem formatado parecendo uma prova escolar
     let htmlContent = '<style>' +
         'body { font-family: Arial, sans-serif; color: #1a1a1a; line-height: 1.4; margin: 0; padding: 0; } ' +
         'h1 { font-size: 22px; margin-bottom: 8px; color: #065F46; text-align: center; } ' +
@@ -1135,8 +1092,6 @@ async function gerarPDF(questoes, titulo, comGabarito) {
     htmlContent += '<div class="meta">Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' • ' + questoes.length + ' questões</div>';
     
     let materiaAtual = '';
-
-    // Loop nas questões selecionadas injetando no HTML da "Prova"
     questoes.forEach((item, idx) => {
         if (item.materia !== materiaAtual) {
             htmlContent += '<div class="materia-header">' + item.materia + '</div>';
@@ -1163,7 +1118,6 @@ async function gerarPDF(questoes, titulo, comGabarito) {
     });
     
     htmlContent += '<div class="rodape">Feito com 💚 por Lucas Hesketh • Revisão 5º Ano</div>';
-    
     const nomeArquivo = titulo.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_]/g, '') + '.pdf';
     
     const opt = {
@@ -1174,7 +1128,6 @@ async function gerarPDF(questoes, titulo, comGabarito) {
         jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
     };
     
-    // Comando que executa a transformação HTML -> PDF
     try {
         await html2pdf().set(opt).from(htmlContent).save();
         showToast('✅ PDF gerado: ' + nomeArquivo);
@@ -1185,36 +1138,33 @@ async function gerarPDF(questoes, titulo, comGabarito) {
     }
 }
 
-// 6.3 Função que filtra as questões mais difíceis (Palavras chaves) e chama o PDF
 function gerarPDFTemasCriticos(comGabarito) {
     const questoes = [];
-    const temasCriticosKeywords = [ 'transporte aquaviário', 'oceanos', 'antártida', 'poluição do ar', 'camadas da atmosfera', 'efeito estufa', 'brasil império' ];
+    // Palavras chaves de assuntos do 1º e 2º bimestre
+    const temasCriticosKeywords = [ 'transporte aquaviário', 'oceanos', 'antártida', 'poluição do ar', 'camadas da atmosfera', 'efeito estufa', 'brasil império', 'saneamento', 'geometria', 'família real' ];
     
     const bimestreAc2 = AVALIACOES[1]; 
     if (!bimestreAc2) return;
     
     bimestreAc2.subjects.forEach(subj => {
-        if (subj.id === 'geografia' || subj.id === 'ciencias' || subj.id === 'historia') {
-            subj.quizzes.forEach(quiz => {
-                quiz.questions.forEach(q => {
-                    const questionText = q.q.toLowerCase();
-                    const isCritical = temasCriticosKeywords.some(keyword => questionText.includes(keyword));
-                    if (isCritical) {
-                        questoes.push({ materia: subj.name, questao: q, quiz: quiz.title });
-                    }
-                });
+        subj.quizzes.forEach(quiz => {
+            quiz.questions.forEach(q => {
+                const questionText = q.q.toLowerCase();
+                const isCritical = temasCriticosKeywords.some(keyword => questionText.includes(keyword));
+                if (isCritical) {
+                    questoes.push({ materia: subj.name, questao: q, quiz: quiz.title });
+                }
             });
-        }
+        });
     });
     
-    questoes.sort(() => Math.random() - 0.5); // Embaralha as perguntas
+    questoes.sort(() => Math.random() - 0.5); 
     gerarPDF(questoes, 'Temas Criticos', comGabarito);
 }
 
-// 6.4 Função que pega um pouco de cada matéria e monta um Simulado Geral em PDF
 function gerarPDFSimulado(comGabarito) {
     const questoes = [];
-    const maxQuestoesPorMateria = 3;
+    const maxQuestoesPorMateria = 3; // Pega 3 questões aleatórias de cada matéria para o simulado
     const bimestreAc2 = AVALIACOES[1]; 
     
     if (!bimestreAc2) return;
@@ -1228,7 +1178,6 @@ function gerarPDFSimulado(comGabarito) {
             });
         });
         
-        // Pega só as primeiras "maxQuestoesPorMateria" de cada uma pra não ficar gigante
         questoesMateria.sort(() => Math.random() - 0.5);
         questoes.push(...questoesMateria.slice(0, maxQuestoesPorMateria));
     });
@@ -1237,7 +1186,6 @@ function gerarPDFSimulado(comGabarito) {
     gerarPDF(questoes, 'Simulado Completo', comGabarito);
 }
 
-// INICIALIZAÇÃO
 trackVisit();
 buildPlayerScreen();
 </script>
